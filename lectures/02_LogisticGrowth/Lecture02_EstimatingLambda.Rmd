@@ -1,0 +1,141 @@
+---
+title: "Fitting sea otters"
+author: "Elie"
+date: "11/22/2021"
+output:
+  ioslides_presentation:
+    widescreen: true
+    smaller: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+#output: html_document
+```
+
+
+```{r colsFunction, echo = FALSE}
+cols <- function(side = "l", w = 50){
+  side <- ifelse(side == "l", "left", "right")
+  cat(paste0('<div style="float:', side, '; width: ', w, '%;">'))
+}
+```
+
+## Sea otter reintroduction: Washington State ... 
+
+<div style="float:left; width: 50%;">
+<img src="images/wa_range.png" height="500"/>
+</div>
+
+<div style="float:right; width: 40%;">
+
+```{r fig.width = 4, fig.height = 4}
+WA <- read.csv("data/WA_SeaOtters_PopGrowth.csv")
+require(ggplot2)
+ggplot(WA, aes(year, count)) + geom_path(col = "grey") + geom_point()
+```
+</div>
+
+<center>
+***Successful!***
+ 
+
+
+## The model: 
+
+$$\huge N_{t+y} = \lambda^y N_t$$
+
+Our challenge: *Estimate* $\lambda$
+
+
+## Exponential growth can be very very very fast
+
+https://www.youtube.com/watch?v=0fKBhvDjuy0
+
+
+## Discrete Model to Continuous Model
+
+Let's do some trickery, starting with:
+$$N_{t+1} = (1 + r_0) N_t$$
+$$N_{t+1} - N_t = r_0 N_t$$
+$$N_{t+\Delta t} - N_t = r_{\Delta t} N_t$$
+
+$$\lim_{\Delta t \to 0} {\Delta N \over \Delta t} =  \lim_{\Delta t \to 0}  {r_{\Delta t} \over \Delta t} N$$
+
+Magically define: ${r_\Delta \over \Delta t} = r$ and require $\Delta$ as $d$:
+
+$$\large {dN \over dt} = r N$$
+
+## Sea otter data: 
+
+Source:
+
+https://wdfw.wa.gov/species-habitats/species/enhydra-lutris-kenyoni#resources
+
+
+Load data:
+
+```{r}
+WA <- read.csv("data/WA_SeaOtters_PopGrowth.csv")
+head(WA)
+```
+
+## Plot Data:
+
+```{r}
+plot(WA)
+```
+
+## Fit a line
+
+```{r}
+plot(WA); abline(lm(count ~ year, data = WA))
+```
+
+
+## Plot on Log scale:
+
+```{r}
+plot(WA, log = "y")
+```
+
+## Fit linear model log-growth
+
+```{r}
+WA.growth <- lm(log(count) ~ I(year-1970), data = WA)
+summary(WA.growth)
+par(mfrow = c(1,2))
+plot(WA.growth, 1:2)
+
+#require(ggplot2)
+#ggplot(WA, aes(year, count)) + geom_point() + geom_smooth(method = "glm", #family = "log")
+```
+
+## A little math:
+
+$$\log(N_i) = \alpha + \beta \, Y_i$$
+$$N_i = \exp(\alpha) \times \exp(\beta \, Y_i)$$
+$$N_i = e^\alpha {e^\beta}^{Y_i}$$
+$$N_i = N_0 \lambda ^ {Y_i}$$
+
+where $N_0 = e^{\alpha} = e^{4.08} = 59.14$, and $\lambda = e^{\beta} = e^{0.07325} = 1.076$.  
+
+SO ... percent rate of growth is about 7.6%!         
+
+
+## Plot exponential growth
+
+```{r}
+plot(count~year, data = WA)
+curve(59.14 * exp(0.07325 * (x-1970)), add = TRUE, col = 2, lwd = 2)
+```
+
+
+
+## References
+
+- J. A. Estes, J. F. Palmisano. 1974. Sea otters: Their role in structuring nearshore communities. Science 185, 1058–1060. 
+- Smith et al. 2021. Behavioral responses across a mosaic of ecosystem
+states restructure a sea otter–urchin trophic cascade. PNAS Mar 2021, 118 (11)
+- Loshbaugh S. 2021. Sea Otters and the Maritime Fur Trade. In: Davis R.W., Pagano A.M. (eds) *Ethology and Behavioral Ecology of Sea Otters and Polar Bears. Ethology and Behavioral Ecology of Marine Mammals.*
+- Gilkinson, A.K., Pearson, H.C., Weltz, F. and Davis, R.W., 2007. Photo‐identification of sea otters using nose scars. *The Journal of Wildlife Management*, 71(6), pp.2045-2051.

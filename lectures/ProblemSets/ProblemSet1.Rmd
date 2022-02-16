@@ -1,0 +1,31 @@
+---
+title: 'EFB 370: Problem Set X'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## World population
+
+## BC Sea otters
+
+Were also reintroduced at the same time (roughly) as WA sea otters.  There is annual count data - similar to the Washington State data - available online here: https://open.canada.ca/data/en/dataset/90081ffa-60fb-47d1-a1fe-c279e42dda47
+
+Processed (and ready to go) data is on Blackboard. 
+
+1. Plot the population trajectory in time. 
+2. Does it look like exponential growth?
+3. Estimate the population growth rate $\lambda$.  Obtain a 95% confidence interval around that estimate. 
+4. The data are only provided through 2013.  Assuming that this growth rate stays constant, how many sea otters are expected to be in BC in 2017 (the date of the most recent survey)? In 2022?  In 2050? 
+5. The actual number of sea otters in the most recent survey (2017) was 8110 (see Table 2 in [this document](https://epe.lac-bac.gc.ca/100/201/301/weekly_acquisitions_list-ef/2020/20-29/publications.gc.ca/collections/collection_2020/mpo-dfo/fs70-5/Fs70-5-2020-039-eng.pdf))
+
+```{r eval = FALSE, echo = FALSE}
+BC <- read.csv("data/BC_SeaOtters_PopGrowth.csv")
+plot(BC, log = "y")
+BC.model <- lm(log(Count)~Year, data = BC)
+plot(BC.model,1)
+exp(0.137) - 1
+```
+
