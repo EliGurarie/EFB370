@@ -1,0 +1,431 @@
+---
+title: "Week 5: Introduction to R and Linear Models for Exponential Growth"
+subtitle: 'EFB 370 - Spring 2022'
+author: "Nate Wehr and Elie Gurarie"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, mmessage = FALSE)
+```
+
+# Part 1: Basics
+
+> The following examples should give you a first look at what R does and how it works. 
+
+## Introduction
+
+R is a command-line program, which means commands are entered line-by-line at the prompt. Being a programming language it is very finicky. Everything has to be entered exactly right - including case-sensitivity.
+
+There are two ways of entering commands: either typing them out carefully into the "Console Window" (the lower-left window in Rstudio) and hitting `Enter` or writing and editing lines in the script window (upper-left window in Rstudio), and "passing" the code into the console by hitting `Ctrl+Enter`.
+
+In general, it is better to do all of your coding in a script window, and then save the raw code file as a text document, which you can revisit and re-run at any point later. 
+
+## R is a calculator
+
+```{r}
+1+2
+3^6
+sqrt((20-19)^2 + (19-19)^2 + (19-18)^2)/2
+12345*54312
+```
+
+## Assigning variable names
+
+The assignment operator is `<-`. It's supposed to look like an arrow pointing left.
+
+```{r}
+X <- 5  	# sets X equal to 5
+```
+
+Using the assignment operator sets the value of `X` but doesn't print any output. To see what `X` is, you need to type:
+
+```{r}
+X
+```
+
+Note that `X` now appears in the upper-right panel of Rstudio, letting you know that there is now an object in memory (also called the "Environment") called `X`. 
+
+Now, you can use `X` as if it were a number
+
+```{r}
+X*2
+X^X
+``` 
+
+Note that you can name a variable ANYTHING, as long as it starts with a letter.
+```{r}
+Fred <- 5
+Nancy <- Fred*2
+Fred + Nancy
+```
+
+## Vectors
+
+Obviously, `X` can be many things more than just a single number. The most important kind of object in R is a "vector", which is a series of inputs (and therefore resembles "data").  
+
+`c()` is a function - a very useful function that creates "vectors". In all functions, arguments are passed within parentheses. 
+
+We can use the `c()` function as follows:
+
+```{r}
+X <- c(3,4,5)  	# sets X equal to the vector (3,4,5)
+X
+```
+
+Now, let's do some arithmetic with this vector:
+```{r}
+X + 1
+X*2
+X^2
+((X+X^2/2)/X)^2
+```
+
+Note that in all of these cases, the arithmetic operations are performed on a term-by-term basis.
+
+We can very quickly compute some exponential growth (e.g. using Washington sea otter numbers) this way:
+
+```{r}
+years <- 80
+lambda <- 1.07
+N0 <- 60
+N0*lambda^years
+```
+
+### > **Exercise:**  You can get some really quick population growth answers this way.  Compute how many sea otters there will be by 2050 and 2100 (80 and 130 years after release).  *HINT: you can just replace the vector with a single number*. 
+
+
+## Multiple Vectors
+
+Data is most often multiple vectors of the same length. If we create a second vector `Y` we can use it alongside our first vector `X` using the `data.frame()` command: 
+
+```{r}
+Y <- c(1,2,3)
+data.frame(X,Y)
+```
+
+That just outputs the data, but you should save it another object:
+
+```{r}
+mydata <- data.frame(X,Y)
+```
+
+A data frame has columns with names:
+
+```{r}
+ncol(mydata)
+names(mydata)
+```
+A column can be extracted from a dataframe with a `$`:
+
+```{r}
+mydata$X
+mydata$Y
+```
+
+
+### > **Exercise:**  Create a data frame called `myseaotters` that containes the number of years from 0 to 130 and the predicted population, starting at 60 animals with a lambda rate of 1.07. 
+
+
+# Part 2: Loading and Exploring Data
+
+> The following examples should explain how to import data frames and to work with the data contained within them. 
+
+## Loading Data
+
+We will use Steller sea lion (*Eumotopias jubatus*) data as an example.  These are weights, lengths, and girths (basically, under the arm/flipper pits) of sea lion pups about two months after birth as part of a tagging mark-recapture study.  These data were collected (in part by Dr. Gurarie) on five islands in the Russian North Pacific.  
+
+This is what sea lion pups look like: 
+
+![](pups_small.jpg)
+
+This dataset is available on Blackboard. Once you download it, you can use the File Explorer to determine its location and read it into R.
+
+```{r, echo = FALSE}
+SeaLions <- read.csv("SeaLions.csv")
+```
+
+```{r, eval = FALSE}
+SeaLions <- read.csv("<insert the directory>/SeaLions.csv")
+```
+
+If you copy and paste the file directory in, you have to change the direction of the slashes. Note that `csv` is a **text based** file type (Comma Separated Values) - it just means that commas between entries separate columns.  You can save any Excel file as a `csv` using the Save As function.  CSVs are by far the the most common and convenient file type used for loading into R.
+
+Alternatively, you can import datasets into `R` using the `RStudio` interface. To do this:
+
+> 1. Click `File`
+> 2. Hover over `Import Dataset`
+> 3. Select `From Text` (or if you're doing this with a different file type in the future, the matching type of file)
+> 4. Navigate to the SeaLions dataset, highlight it, and click `open`
+
+This will automatically input the proper code into the console and save your file to the environment. Note that the file has the same name rather than a name you designate for it.
+
+## Working with data frames
+
+Look at some properties of this data file, with the following functions:
+
+```{r}
+is(SeaLions) # tells what type of files we have
+names(SeaLions) # tells us the names of all the columns
+head(SeaLions) # shows the first several rows of the dataframe
+```
+
+Use a `$` to extract a given column:
+
+```{r}
+Length <- SeaLions$Length
+Weight <-SeaLions$Weight
+Island <- SeaLions$Island
+Sex <- SeaLions$Sex
+```
+
+## Summary Statistics 
+
+Some basic summary statistics include:
+
+```{r}
+range(Length) #range
+median(Length) #median
+mean(Length) #mean
+var(Length) #variance
+sd(Length) #standard deviation
+```
+
+## Graphical Summaries
+
+### Histrogram
+
+A histogram can show us the distribution of a single continuous variable:
+
+```{r, echo = -1}
+par(mfrow = c(1,2))
+hist(Length)
+hist(Weight)
+```
+
+### Boxplot
+
+A boxplot shows us relationships between a continuous variable (like Length/Weight/Girth) and a discrete variable (like Island/Sex):
+
+```{r, echo = -1}
+par(mfrow = c(1,2))
+boxplot(Length ~ Island)
+boxplot(Weight ~ Sex)
+```
+
+### Scatterplot
+
+A scatterplot shows us relationships between two continuous variables:
+
+```{r, echo = -1}
+plot(Length, Weight)
+```
+
+# Part 3: Linear Models for Exponential Growth
+
+> The following examples show you how to do a linear regression model and a log transformation model
+
+## Importing Data
+
+The first step is to import our new dataset. This time with sea otters. 
+
+```{r, echo = FALSE}
+SeaOtters <- read.csv("SeaOtters.csv")
+```
+
+```{r, eval = FALSE}
+SeaOtters <- read.csv("<insert your directory>/SeaOtters.csv")
+```
+
+Let's double check that the data we imported matches our Excel file.
+
+```{r}
+head(SeaOtters)
+```
+
+## Extract variables and explore
+
+```{r}
+Year <- SeaOtters$year
+Count <- SeaOtters$count
+```
+
+It's usually a good idea to run some summary statistics on each of your variables. Here's a couple examples
+
+```{r}
+range(Year)
+quantile(Count)
+```
+
+Always, always, always PLOT your data before modeling your data!  
+
+```{r}
+plot(Year, Count)
+```
+
+It is quite easy to make plots on a log scale, by the way, which can be useful: 
+
+```{r}
+plot(Year, Count, log = "y")
+```
+
+
+
+## Linear Model
+
+The `lm()` function produces a linear model.  That means it finds the "best" values for a model that looks likes this:
+
+$$Y_i = \alpha + \beta\, X_i + \epsilon_i$$
+
+Where $\alpha$ is the intercept, $\beta$ is the slope, and $\epsilon$ is the "residual" variation, i.e. a random variable: ${\cal N}(0, \sigma^2)$. 
+
+In R this model is fitted as follows: 
+
+```{r}
+Model1 <- lm(Count ~ Year)
+```
+
+Note, we take a "model fit" (which is a complicated thing) and put it into a new object with name `Model1`.  
+
+The output of `Model1` is just the estimated parameters for the intercept and the "Year effect" (i.e. slope of the curve). 
+
+```{r}
+Model1
+```
+
+There is a lot more information if you ask for a summary:
+
+```{r}
+summary(Model1)
+```
+
+Of importance to us is the `Estimate` (same as above) and the `Std. Error` which quantifies how precise our estimate is.  Two standard errors is (roughly) the same as a **95% Confidence Interval**.   Thus, the slope on this fit is 33.2 new sea otters / year &pm; 6.18.  This is definitely bigger than 0!  We can also see that because the *p*-value (under column `Pr(>|t|)`) is very very very very small.  
+
+Note, also that $R^2 = 0.835$.  $R^2$ is between 0 and 1 and measures how tight the fit is, specifically it is the *proportion of the variance explained by the model*. 
+
+We can plot this linear model on our data:
+
+```{r}
+plot(Year, Count)
+abline(Model1)
+```
+
+Note, `abline` is a function that adds an intercept-slope line to any existing plot. 
+
+There are some problems with this model.  What are they?  
+
+You can see one issue if you plot the model residuals as follows:
+
+```{r}
+plot(Model1,1)
+```
+
+Do those residuals look consistently normally distributed? 
+
+## Log Transformation
+
+We kind of knew the growth was not linear (otherwise this week's topic wouldn't have been called *Exponential Growth*).  But how can we use a linear model to fit an exponential growth function?  
+
+With a simple transformation! 
+
+$$\log(Y_i) = \alpha + \beta\, X_i + \epsilon_i$$
+
+How does this relate to an exponential growth model? 
+
+$$e^{\log(Y_i)} = e^{\alpha + \beta\, X_i + \epsilon_i}$$
+$$Y_t = N_0  e^{\beta\, X_t + \epsilon_t}$$
+
+We just replaced $e^\alpha$ with $N_0$, and $i$ with $t$.  But $\beta$ is EXACTLY the growth rate $r$ (and $e^\beta = \lambda$).  The $\epsilon_i$ hanging on the end is a bit of stochasticity.  
+
+Anyways, doing this with our linear modeling tools is easy.  We just wrap `Count` in a log.  
+
+```{r}
+Model2 <- lm(log(Count) ~ Year)
+summary(Model2)
+```
+
+Note how our statistics changed.  Specifically: our $\beta$ estimate (which is also $r$) is now 0.07325, which is a good estimate of the intrinsic growth rate.  Even better, we know have a standard error around that estimate: 0.00237, which means our growth rate can be written as:  $\widehat{r} = (7.32 \pm 0.47)\times 10^{-2}$.  We can convert that to an annual growth rate in R as well (*do NOT worry about understanding the following code*:
+
+```{r}
+r.hat <- summary(Model2)$coefficients[2,1]
+r.sd <- summary(Model2)$coefficients[2,2]
+exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
+```
+
+So our estimate of annual population growth is 7.6% (95% Confidence Interval 7.1%-8.1%)
+
+
+Note how much right the $R^2$ value is!   This is (by that measure also) a much better fit.  
+
+Let's visualize the fit:
+
+```{r}
+plot(Year, log(Count))
+abline(Model2)
+```
+
+Much better!
+
+Let's make our final graph a little nicer
+
+```{r}
+plot(Year, log(Count), main = 'Sea Otter Population', col = 'brown', pch = 4)
+abline(Model2, col = "blue")
+```
+
+The commands we're using within the `plot` function include setting the title of the graph (`main =`), changing the color of the symbols and the line (`col =`), and changing the shape of the symbols (`pch =`). There also many more alterations you can make to get your graph perfect - but that can be a deep dark `R`abbit hole!
+
+### Check Your New Residuals
+
+```{r}
+plot(Model2, 1)
+```
+
+These look better!  (Though it takes practice to understand good vs. bad residuals.)
+
+
+
+## Extra packages (extra material)
+
+It can be a bit fussy to plot the confidence interval around our prediction.  Below, we include a little snippet of code which does just that, but you have to install a new "library" called `ggplot2`, which has a bunch of fancier graphing tools. 
+
+To install a library, you use the `install.packages()` function: 
+```{r eval = FALSE, warnings=FALSE}
+install.packages("ggplot2")
+```
+
+You only need to install a package once on your computer. After that, it will always be there.
+
+Alternatively, you can use the `R` interface to install new packages. To do so:
+
+> Click the `Packages` tab in the bottom right window of `Rstudio`
+
+> Click `Install`
+
+> Leave the defaults in place; in the blank "packages" line, type the name of the package you want. `RStudio` should automatically fill this in with suggestions. Use a comma to separate the names of multiple package if installing more than one simultaneously. 
+
+> Click `Install`
+
+This will automatically put the correct code in the console for you. 
+
+From now on, whenever you need that package loaded you use the `library` function. You only have to do this once each time you open `R`, after that, a package stays in your library for the rest of your session.
+
+```{r}
+library(ggplot2)
+```
+
+If you receive prewritten code from someone and open the file in `RStudio`, the software will automatically identify packages called by the `library` funtion. If you do not have these packages installed, `Rstudio` will ask you if you'd like to install them, which can save you time. However, you will still need to run the `library` function on each package before you can use them.
+
+Now - **finally** - you have access to the funky / fancy library of ggplotting functions.  For example: 
+
+```{r}
+ggplot(SeaOtters, aes(Year, Count)) + geom_point() + 
+    stat_smooth(method = "glm", 
+                method.args = list(family = gaussian(link = "log")))
+```
+
+This really looks like a nice fit!
