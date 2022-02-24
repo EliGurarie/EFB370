@@ -17,6 +17,9 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 - [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
 
+### Labs
+
+- [1: Intro to R](Labs/Lab5_IntroToR.html)
 
 <!--
 instructions:
