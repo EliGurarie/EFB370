@@ -20,6 +20,9 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 <!--
 instructions:
+git push origin gh-pages
+
+Or, to merge with (non-existent) main:
 1. git checkout gh-pages
 2. git merge main
 3. git checkout main
