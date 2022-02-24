@@ -1,7 +1,7 @@
 ---
 title: "Week 5: Introduction to R and Linear Models for Exponential Growth"
 subtitle: 'EFB 370 - Spring 2022'
-author: "Nate Wehr and Elie Gurarie"
+author: "Nate Wehr and Dr. Elie Gurarie"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
