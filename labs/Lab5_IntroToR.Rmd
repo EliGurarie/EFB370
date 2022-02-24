@@ -87,19 +87,21 @@ X^2
 
 Note that in all of these cases, the arithmetic operations are performed on a term-by-term basis.
 
-We can very quickly compute some exponential growth (e.g. using Washington sea otter numbers) this way:
+We can very quickly look at some exponential growth (e.g. using Washington sea otter numbers: N0 = 60, 50 years gone by, and an annual growth rate of 7%:
 
 ```{r}
-years <- 80
+years <- 0:60
 lambda <- 1.07
-N0 <- 60
+N0 <- 50
 N0*lambda^years
 ```
 
-### > **Exercise:**  You can get some really quick population growth answers this way.  Compute how many sea otters there will be by 2050 and 2100 (80 and 130 years after release).  *HINT: you can just replace the vector with a single number*. 
+## Exercise 1: Calculate population growth
+
+> You can get some really quick population growth answers this way.  Compute how many sea otters there will be by 2050 and 2100 (80 and 130 years after release).  *HINT: you can just replace the vector with a single number*. 
 
 
-## Multiple Vectors
+## Multiple Vectors and Data Frames
 
 Data is most often multiple vectors of the same length. If we create a second vector `Y` we can use it alongside our first vector `X` using the `data.frame()` command: 
 
@@ -128,7 +130,10 @@ mydata$Y
 ```
 
 
-### > **Exercise:**  Create a data frame called `myseaotters` that containes the number of years from 0 to 130 and the predicted population, starting at 60 animals with a lambda rate of 1.07. 
+## Exercise 2: Create a data frame
+
+> Create a data frame called `myseaotters` that contains the number of years from 0 to 130 and the predicted population, starting at 60 animals with a lambda rate of 1.07. 
+
 
 
 # Part 2: Loading and Exploring Data
@@ -197,7 +202,7 @@ sd(Length) #standard deviation
 
 ## Graphical Summaries
 
-### Histrogram
+### Histogram
 
 A histogram can show us the distribution of a single continuous variable:
 
@@ -224,6 +229,13 @@ A scatterplot shows us relationships between two continuous variables:
 ```{r, echo = -1}
 plot(Length, Weight)
 ```
+
+## Exercise 3: Plot the sea otter population growth
+
+> Plot the `myseaotter` data frame you made in Exercise 2. 
+
+
+
 
 # Part 3: Linear Models for Exponential Growth
 
