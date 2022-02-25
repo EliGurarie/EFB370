@@ -4,7 +4,7 @@
 
 ### Course Materials
 
-Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course are collected here.  Follow the links below. 
+Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-11) are collected here.  
 
 ### Lectures
 
@@ -23,10 +23,10 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 ### Problem Sets
 
-<!--
+
 - [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
-  - Requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv)
---> 
+  - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
+
 
 
 <!--
