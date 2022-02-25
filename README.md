@@ -21,6 +21,14 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 - [1: Intro to R](Labs/Lab5_IntroToR.html)
 
+### Problem Sets
+
+<!--
+- [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
+  - Requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv)
+--> 
+
+
 <!--
 instructions:
 git push origin gh-pages
