@@ -21,7 +21,7 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 ### Labs
 
-- [1: Intro to R](Labs/Lab5_IntroToR.html)
+- [1: Intro to R](labs/Lab5_IntroToR.html)
 
 ### Problem Sets
 
