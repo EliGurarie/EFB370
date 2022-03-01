@@ -8,9 +8,12 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 ### Lectures
 
-- [0: Mini-Lecture on Likelihoods](lectures/00_likelihoods/LikelihoodsAndAIC.html)
-- [1: Exponential Growth Part I](lectures/01_ExponentialGrowth/ExponentialGrowth_PartI.html)
-- [2: Exponential Growth Part II - Randomness](lectures/01_ExponentialGrowth/ExponentilGrowth_PartII_Stochasticity.html)
+- [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
+- [1: Exponential Growth Part I](lectures/01_ExponentialGrowth_PartI.html)
+- [2: Exponential Growth Part II - Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
+- [3: Exponential Growth Part III - Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
+- [4: Logistic Growth and Desnsity Dependence Part I - Estimation](lectures/04_LogisticGrowth_PartI.html)
+ 
 
 ### Simulation tools
 
