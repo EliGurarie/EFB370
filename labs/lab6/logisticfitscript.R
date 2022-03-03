@@ -1,4 +1,4 @@
-p <- read.csv("Paramecium.csv")
+p <- read.csv("paramecium.csv")
 N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
 
 plot(Nt~Day, data = p)

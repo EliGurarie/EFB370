@@ -12,15 +12,23 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, message = FALSE)
 ```
+
 ```{r, echo = FALSE}
-require(elieslides)
+pars <- function(...){
+    par(mar = c(3,3,2,2), bty = "l", mgp = c(1.5,.25,0),
+        tck = 0.01, cex.lab = 1.2, ...)
+}
 ```
 
 
 ```{r, echo = FALSE, eval = FALSE}
+require(gauseR)
+require(magrittr)
+require(plyr)
+
 data(gause_1934_book_f22)
 a <- gause_1934_book_f22
-#require(elieslides)
+
 #ggplot(a, aes(Day, Volume_Species1, col = Treatment)) + geom_point()
 a <- subset(gause_1934_book_f22, Treatment == "Pa")
 b <- a[,c("Species1","Day","Volume_Species2")] %>% 
@@ -38,7 +46,8 @@ write.csv(b, file = "paramecium.csv", row.names = FALSE)
 
 # Loading and exploring Paramecium data
 
-Load data:
+Data on paramecium growth in a dish in a lab is in a file called `paramecium.csv` - available on Blackboard or at [this link](paramecium.csv).   Download the data and load it into R:
+
 
 ```{r}
 p <- read.csv("paramecium.csv")
@@ -66,7 +75,19 @@ The columns are: `Species`, `Day` of experiment, `Nt` - quantity of paramecium n
 
 # Fit Method I: By Hand
 
-Open the script file `logisticfitscript.R`.  It contains just the following code:
+
+Here's, we're going to try to guess the values of $r_0$, $K$ and $N_0$ by fitting a curve to the data by eye.  The function for logistic growth - meaning the actual population against time - is: 
+$$N(t) = {K \over 1+\left({K- N_0 \over N_0}\right) e^{-r_0 t}}$$ 
+This function is written in R as follows:
+
+```{r}
+N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
+```
+
+This code just says we're creating a new function called `N.logistic()` which takes as arguments `x` (time), and three parameters and returns the predicted population.  
+
+
+YOU DO NOT NEED TO KNOW HOW TO CREATE A FUNCTION!  Just open the script file `logisticfitscript.R`.  It is posted on Blackboard or at [this link](logisticfitscript.R). It contains just the following code:
 
 ```{r}
 p <- read.csv("paramecium.csv")
@@ -85,11 +106,11 @@ The initial values guessed for `N0`, `K`, and `r0` are not very good.  How close
 
 # Fit method II: Using $r(N)$
 
-## Ploting N, dN and r
+## Plotting N, dN and r
 
 Lets plot the three figures we talked about in class:  $N$ as a function of time, $\Delta N$ as a function of $N$, and $r$ as a function of $N$
 
-```{r, echo = FALSE, par = -1, fig.height = 3, fig.width = 9}
+```{r, echo = -1, fig.height = 3, fig.width = 9}
 pars(); par(mfrow = c(1,3))
 plot(Nt~Day, data = p)
 plot(dN~Nt1, data = p)
@@ -139,7 +160,7 @@ r.lm <- lm(r ~ Day, data = p)
 summary(r.lm)
 ```
 
-This is pretty good!  Especially for the $r_0$ variable - basically $\widehat{r} 1.2 \pm 0.42$. But, two (small) problems: 
+This is pretty good!  Especially for the $r_0$ variable - basically $\widehat{r} = 1.2 \pm 0.42$. But, two (small) problems: 
 
 - hard to convert these to a standard error around $K$
 - no way to obatin an estimate for $N_0$ from this model 
@@ -147,23 +168,26 @@ This is pretty good!  Especially for the $r_0$ variable - basically $\widehat{r}
 
 # Fit Method III:  Non-linear least squares
 
-One method of fitting a curve is to use the "least squares" method, i.e. find the parameters for which the squared devation of the data from the curve is minimized.  This is an *optimization* problem that the computer solves numerically. 
+One method of fitting a curve is to use the "least squares" method, i.e. find the parameters for which the squared deviation of the data from the curve is minimized.  This is an *optimization* problem that the computer solves numerically. 
 
-The function that does this in R is called `nls()`.  It is "non-linear", unlike the regression model above.  To do this, we have to use our function for the solution of the logistic curve and provide initial values.  But the basic syntax is similar in that the response is `Nt` and the predictor is the logistic function of time (`Day`),  with the parameters to be estimated following that `Day`.  And the formula symbol is always `~`. 
+The function that does this in R is called `nls()`.  It is "non-linear", unlike the regression model above.  To do this, we have to use our function for the solution of the logistic curve and provide initial values.  But the basic syntax is similar in that the response is `Nt` and the predictor is the logistic function of time (`Day`),  with the parameters to be estimated following that `Day`.  And the formula symbol is always `~`.  Also - you have to help the computer find the optimum solution with some reasonable starting values - `start = list(...)`. 
+
+Anyways, the script to do this is `logisticfitscript2.R` - it is posted on Blackboard or at [this link](logisticfitscript2.R). 
 
 ```{r}
+
 p <- read.csv("paramecium.csv")
 N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
 
 nls(Nt ~ N.logistic(Day, N0, K, r0), data = p, 
-    start = list(N0 = 1, K = 200, r0 = 0.75))
+    start = list(N0 = 1, K = 200, r0 = 1.75))
 ```
 
 As usual, we can save the results to an object and get a summary table with the fits:
 
 ```{r}
 summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = p, 
-    start = list(N0 = 1, K = 200, r0 = 0.75)))
+    start = list(N0 = 1, K = 100, r0 = 1)))
 ```
 
 
