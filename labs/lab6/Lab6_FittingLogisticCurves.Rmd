@@ -191,10 +191,12 @@ summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = p,
 ```
 
 
-<font color = "red">
+<font color = "darkred">
 
 # Additional homework problem 4
 
-> Report the estimates of a fitted logistic curve to the Paramecium data, with confidence intervals and produce a plot of the fitted curve to the data.  
+> 1. Report the estimates of a fitted logistic curve to the Paramecium data, with confidence intervals.  
+> 2. Produce a plot of the fitted curve on top of the paramecium growth data.
+> 3. ***Extra Credit:***  *Estimate the parameters of logistic growth with the BC Sea Otter data.  In particular: What might the carrying capacity of sea otters in BC be?*
 
 </font>
