@@ -12,16 +12,19 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [1: Exponential Growth Part I](lectures/01_ExponentialGrowth_PartI.html)
 - [2: Exponential Growth Part II - Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
 - [3: Exponential Growth Part III - Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
-- [4: Logistic Growth and Desnsity Dependence Part I - Estimation](lectures/04_LogisticGrowth_PartI.html)
+- [4: Logistic Growth and Density Dependence Part I](lectures/04_LogisticGrowth_PartI.html)
+- [5: Logistic Growth and Density Dependence Part II](lectures/05_LogisticGrowth_PartII.html)
  
 
-### Simulation tools
+### Numerical analysis tools
 
 - [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
+- [Discrete logistic growth simulater](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
 
 ### Labs
 
-- [1: Intro to R](labs/Lab5_IntroToR.html)
+- [1: Intro to R](labs/lab5/Lab5_IntroToR.html)
+- [2: Fitting Logistic Growth](labs/lab6/Lab6_FittingLogisticCurves.html)
 
 ### Problem Sets
 
