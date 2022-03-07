@@ -14,12 +14,14 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [3: Exponential Growth Part III - Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
 - [4: Logistic Growth and Density Dependence Part I](lectures/04_LogisticGrowth_PartI.html)
 - [5: Logistic Growth and Density Dependence Part II](lectures/05_LogisticGrowth_PartII.html)
+- [6: Life History Part I](lectures/06_LifeHistory_PartI.html)
  
 
 ### Numerical analysis tools
 
 - [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
-- [Discrete logistic growth simulater](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
+- [Discrete logistic growth simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
+- [Age-structured growth simulator](https://egurarie.shinyapps.io/AgeStructuredGrowth/)
 
 ### Labs
 
