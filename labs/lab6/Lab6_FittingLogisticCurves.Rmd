@@ -1,7 +1,7 @@
 ---
 title: "Week 6: Fitting Logistic Growth Curves to Data"
 subtitle: 'EFB 370 - Spring 2022'
-author: "Nate Wehr and Elie Gurarie"
+author: "Elie Gurarie and Nate Wehr"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -46,7 +46,7 @@ write.csv(b, file = "paramecium.csv", row.names = FALSE)
 
 # Loading and exploring Paramecium data
 
-Data on paramecium growth in a dish in a lab is in a file called `paramecium.csv` - available on Blackboard or at [this link](paramecium.csv).   Download the data and load it into R:
+Data on paramecium growth on agar plates in a lab is located in a file called `paramecium.csv` - available on Blackboard or at [this link](paramecium.csv). Download the data and load it into R:
 
 
 ```{r}
@@ -68,7 +68,7 @@ dim(p)
 names(p)
 ```
 
-These data contain growth rates of paramecium (unicellular ciliates) raised in a petri dish with limited resources. 
+These data contain growth rates of paramecium (unicellular ciliates) raised on an agar plate with limited resources. 
 
 The columns are: `Species`, `Day` of experiment, `Nt` - quantity of paramecium now, `Nt1` - quantity 1 time step ago $\Delta N_{t-1}$, and $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$.  
 
@@ -76,7 +76,7 @@ The columns are: `Species`, `Day` of experiment, `Nt` - quantity of paramecium n
 # Fit Method I: By Hand
 
 
-Here's, we're going to try to guess the values of $r_0$, $K$ and $N_0$ by fitting a curve to the data by eye.  The function for logistic growth - meaning the actual population against time - is: 
+Here, we're going to try to guess the values of $r_0$, $K$ and $N_0$ by fitting a curve to the data by eye. The function for logistic growth - meaning the actual population against time - is: 
 $$N(t) = {K \over 1+\left({K- N_0 \over N_0}\right) e^{-r_0 t}}$$ 
 This function is written in R as follows:
 
@@ -84,10 +84,10 @@ This function is written in R as follows:
 N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
 ```
 
-This code just says we're creating a new function called `N.logistic()` which takes as arguments `x` (time), and three parameters and returns the predicted population.  
+This code just says we're creating a new function called `N.logistic()` which takes as arguments `x` (time) and three other parameters and returns the predicted population.  
 
 
-YOU DO NOT NEED TO KNOW HOW TO CREATE A FUNCTION!  Just open the script file `logisticfitscript.R`.  It is posted on Blackboard or at [this link](logisticfitscript.R). It contains just the following code:
+YOU DO NOT NEED TO KNOW HOW TO CREATE A FUNCTION!  Just open the script file `logisticfitscript.R`. It is posted on Blackboard or at [this link](logisticfitscript.R). It contains just the following code:
 
 ```{r}
 p <- read.csv("paramecium.csv")
@@ -101,7 +101,7 @@ plot(Nt~Day, data = p)
 curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
 ```
 
-The initial values guessed for `N0`, `K`, and `r0` are not very good.  How close can you get to a nice fit of the curve?  What is yuour best "by hand" guess of the parameters?  
+The initial values guessed for `N0`, `K`, and `r0` are not very good.  How close can you get to a nice fit of the curve?  What is your best "by hand" guess of the parameters?  
 
 
 # Fit method II: Using $r(N)$
@@ -163,7 +163,7 @@ summary(r.lm)
 This is pretty good!  Especially for the $r_0$ variable - basically $\widehat{r} = 1.2 \pm 0.42$. But, two (small) problems: 
 
 - hard to convert these to a standard error around $K$
-- no way to obatin an estimate for $N_0$ from this model 
+- no way to obtain an estimate for $N_0$ from this model 
 
 
 # Fit Method III:  Non-linear least squares
@@ -175,7 +175,6 @@ The function that does this in R is called `nls()`.  It is "non-linear", unlike 
 Anyways, the script to do this is `logisticfitscript2.R` - it is posted on Blackboard or at [this link](logisticfitscript2.R). 
 
 ```{r}
-
 p <- read.csv("paramecium.csv")
 N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
 
