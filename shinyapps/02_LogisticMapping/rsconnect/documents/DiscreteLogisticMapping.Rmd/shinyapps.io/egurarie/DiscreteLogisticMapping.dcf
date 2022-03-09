@@ -1,0 +1,12 @@
+name: DiscreteLogisticMapping
+title: DiscreteLogisticMapping
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5695513
+bundleId: 5631743
+url: https://egurarie.shinyapps.io/DiscreteLogisticMapping/
+when: 1646201785.51261
+asMultiple: FALSE
+asStatic: FALSE

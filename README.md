@@ -1,4 +1,12 @@
-## EFB 370: Population Ecology at SUNY-ESF
+---
+title: "EFB 370: Population Ecology"
+subtitle: "SUNY-ESF, Spring 2021"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+    toc_enumerate: true
+---
 
 **Spring 2022**
 
@@ -9,19 +17,29 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 ### Lectures
 
 - [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
-- [1: Exponential Growth Part I](lectures/01_ExponentialGrowth_PartI.html)
-- [2: Exponential Growth Part II - Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
-- [3: Exponential Growth Part III - Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
-- [4: Logistic Growth and Density Dependence Part I](lectures/04_LogisticGrowth_PartI.html)
-- [5: Logistic Growth and Density Dependence Part II](lectures/05_LogisticGrowth_PartII.html)
-- [6: Life History Part I](lectures/06_LifeHistory_PartI.html)
+
+**Exponential Growth**
+
+- [1: Basic Models](lectures/01_ExponentialGrowth_PartI.html)
+- [2: Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
+- [3: Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
+
+**Logistic Growth and Density Depedence**
+
+- [4: Continuous time model](lectures/04_LogisticGrowth_PartI.html)
+- [5: Discrete model and chaos](lectures/05_LogisticGrowth_PartII.html)
+
+**Age structure and Life History**
+
+- [6: Life Tables](lectures/06_LifeHistory_PartI.html)
+- [7: Life History Strategies and Matrix Models](lectures/07_LifeHistory_PartII.html)
  
 
 ### Numerical analysis tools
 
-- [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
-- [Discrete logistic growth simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
-- [Age-structured growth simulator](https://egurarie.shinyapps.io/AgeStructuredGrowth/)
+- [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
+- [2. Discrete logistic growth simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
+- [3. Age-structured growth simulator](https://egurarie.shinyapps.io/AgeStructuredGrowth/)
 
 ### Labs
 

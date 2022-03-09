@@ -1,0 +1,12 @@
+name: AgeStructuredGrowth
+title: AgeStructuredGrowth
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5794322
+bundleId: 5654009
+url: https://egurarie.shinyapps.io/AgeStructuredGrowth/
+when: 1646690815.50302
+asMultiple: FALSE
+asStatic: FALSE

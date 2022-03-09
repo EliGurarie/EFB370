@@ -1,0 +1,12 @@
+name: 02_LogisticMapping
+title: 02_LogisticMapping
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5695472
+bundleId: 5599605
+url: https://egurarie.shinyapps.io/02_LogisticMapping/
+when: 1645385359.70254
+asMultiple: FALSE
+asStatic: FALSE

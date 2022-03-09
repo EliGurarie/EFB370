@@ -1,0 +1,55 @@
+---
+title: "Population Growth With Stochasticity"
+author: '[Elie Gurarie](https://eligurarie.github.io/)'
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: yes
+runtime: shiny
+subtitle: 'EFB 370: Population Ecology'
+resource_files:
+- environmentalstochasticity.R
+- demographicstochasticity.R
+---
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+#output: html_document
+```
+
+
+## I. Demographic Stochasticity
+
+In this simulation tool, a given number of individuals ($N_0$) undergo a stochastic, discrete time, birth death process.  If death occurs before birth, each individual has a fixed probability of dying ($p_d$) and remaining survivors have a fixed probability of reproducing ($p_b$).  If birth occurs before death, the process is reversed.  
+
+```{r}
+source("demographicstochasticity.R")
+shinyApp(ui=ui, server=server, options = list(height = 800))
+```
+
+## II. Environmental Stochasticity
+
+Here, the discrete change in annual growth is given by the following function:
+
+$$N_{t+1} = N_t \exp(R)$$
+Where $R$ is a random variable distributed as:
+$$R \sim {\cal N}(\mu_r, \sigma_r)$$
+
+i.e., the average growth rate is $\mu_r$, but with interannual variation.  This is *almost* the same as: 
+$$N(t) = N_0 \exp(R\,t)$$
+
+
+According to theory, if $\sigma_r^2 > 2 \mu_r$, the population will "almost certainly" go to extinction.
+
+```{r}
+source("environmentalstochasticity.R")
+shinyApp(ui=ui, server=server, options = list(height = 800))
+```
+

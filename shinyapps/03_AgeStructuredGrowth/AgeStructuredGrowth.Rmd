@@ -1,0 +1,36 @@
+---
+title: "Age Structured Population Growth"
+author: '[Dr. Elie Gurarie](https://eligurarie.github.io/)'
+output:
+  html_document:
+runtime: shiny
+subtitle: 'EFB 370: Population Ecology - Numerical Experiment'
+resource_files:
+- agestructuredgrowth.R
+---
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+#output: html_document
+```
+
+
+A structured population growth simulator.  The default values are those provided by the academic unicorn (*Monocerus academicus*) example in the lecture, which has three discrete life stages: larval unicorn, sophomore unicorn, emeritus unicorn.   Additional life stages can be added, but (somewhat inconveniently), the parameters need to be entered separated by commas. 
+
+```{r}
+source("agestructuredgrowth.R")
+shinyApp(ui=ui, server=server, options = list(height = 600))
+```
+
+<center>
+<img src='unicornlarva.webp' width='20%'/>
+<img src='unicornstudent.jpg' width='20%'/> 
+<img src='oldunicorn.webp' width='20%'/>
+</center>

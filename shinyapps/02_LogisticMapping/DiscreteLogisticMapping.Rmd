@@ -1,0 +1,38 @@
+---
+title: "Discrete Logistic Growth"
+subtitle: "EFB 370: Population Ecology"
+author: "[Elie Gurarie](https://eligurarie.github.io/)"
+date: "`r Sys.Date()`"
+runtime: shiny
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+#output: html_document
+```
+
+
+## Discrete logistic growth simulator:
+
+$$\Large N_{t+1} = r \, N_t (1-N_t/K)$$
+
+
+```{r out.height = 1000}
+source("discretelogisticgrowth.R")
+shinyApp(ui=ui, server=server, options = list(height = 600))
+```
+
+
+## Chaos theory  ....
+
+Attractors of the "logistic map" can be: 
+
+- fixed point ($r < 2$)
+- limit cycle 
+- chaotic
+
+<img src='logisticmap.png' width='100%'/>
+
+
+
