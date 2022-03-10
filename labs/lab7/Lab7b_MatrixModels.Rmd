@@ -79,7 +79,7 @@ What is $\lambda$?  What (if anything) is $N^{*}$?
 How could you tweak the **number of eggs to lay** to make the growth rate $\lambda = 1$?
 
 
-#5. Tasmanian Devil
+# 5. Tasmanian Devil
 
 Pre infectious facial tumor disease, the life history populaiton matrix for Tasmanian devils looked something like this:
 
