@@ -5,7 +5,6 @@
 
 require(expm)
 require(gplots)
-require(Rage)
 require(plyr)
 require(magrittr)
 require(shinyMatrix)
@@ -29,6 +28,7 @@ colnames(M) <- colnames(N0) <- row.names(M) <- as.roman(1:3) %>% as.character
 
 ui <- fluidPage(
   sidebarPanel(
+    h3("Matrix Population Modeler 5000"),
     h4("Leslie Matrix:"),
     h5("Must be square, i.e. equal number of rows and columns:"),
     matrixInput(
@@ -47,7 +47,7 @@ ui <- fluidPage(
       class = "numeric"),
     
     h4("Initial population:"),
-    h5("Must have same number of rows as Leslie matrix"),
+    h5("Must be the same length as the Leslie matrix has columns:"),
     matrixInput(
       "N0",
       value = N0,
@@ -61,12 +61,12 @@ ui <- fluidPage(
                  value = 20),
     # h3(actionButton("button", "Update Life Table")),
     actionButton("drawdiagram", "Draw diagram"),
-    actionButton("go", "Run simulation"),
-    actionButton("eigen", "Compute eigenvalues"),),
+    actionButton("eigen", "Compute eigenvalues"),
+    actionButton("go", "Run simulation")),
     
   mainPanel(
-    grVizOutput("diagram", height = "250px", width = "50%"),
-    plotOutput("eigenvalues", width = "50%", height = "100px"),
+    grVizOutput("diagram", height = "250px", width = "100%"),
+    plotOutput("eigenvalues", width = "100%", height = "100px"),
     plotOutput("structuredgrowthplot", width = "100%", height = "350px"),
   )
 )
@@ -126,7 +126,7 @@ server <- function(input, output) {
 }
 
 
-shinyApp(ui=ui, server=server)
+#shinyApp(ui=ui, server=server)
 
 
 

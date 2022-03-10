@@ -1,0 +1,48 @@
+---
+title: "Experimenting With Matrix Population Models"
+subtitle: 'EFB 370: Population Ecology - Numerical Experiment'
+author: "[Elie Gurarie](https://eligurarie.github.io/)"
+date: "`r Sys.Date()`"
+runtime: shiny
+output: html_document
+resource_files:
+- lesliematrix.R
+- leslie_diagram.R
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r, echo = FALSE, eval = TRUE,}
+require(expm)
+require(gplots)
+require(plyr)
+require(magrittr)
+require(shinyMatrix)
+require(utils)
+library(DiagrammeR)
+source("leslie_diagram.R")
+```
+
+In this tool, you provide a Leslie Population Transition Matrix and an initial population distribution. You can expand the number of rows and columns and change the numbers in the matrix as needed. Click on the little "x" to delete rows as needed. Then click on "draw diagram", "compute eigenvlaues" and "run simulation" to set the process going. You can also change the names of the age classes.
+
+The initial parameters are for our good friends *Monocerus academicii*.
+
+
+```{r out.height = 1000, out.width = 1800}
+source("lesliematrix.R")
+shinyApp(ui=ui, server=server, options = list(height = 800, width = 1200))
+```
+
+<center>
+<img src="unicornlarva.webp" width="20%"/> <img src="unicornstudent.jpg" width="20%"/> <img src="oldunicorn.webp" width="20%"/>
+</center>

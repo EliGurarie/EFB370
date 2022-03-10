@@ -40,12 +40,14 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
 - [2. Discrete logistic growth simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
 - [3. Age-structured growth simulator](https://egurarie.shinyapps.io/AgeStructuredGrowth/)
+- [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 
 ### Labs
 
 - [1: Intro to R](labs/lab5/Lab5_IntroToR.html)
 - [2: Fitting Logistic Growth](labs/lab6/Lab6_FittingLogisticCurves.html)
-- [3: Life Tables](labs/lab7/Lab7_LifeTableExercises.html)
+- [3a: Life Tables](labs/lab7/Lab7_LifeTableExercises.html)
+- [3b: Matrix Modeling](labs/lab7/Lab7b_MatrixModelss.html)
 
 ### Problem Sets
 

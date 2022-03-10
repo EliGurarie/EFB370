@@ -1,0 +1,79 @@
+---
+title: "Week 7B: Experimenting with Matrix Models"
+subtitle: 'EFB 370 - Spring 2022'
+author: "Elie Gurarie and Nate Wehr"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r, message = FALSE, warning = FALSE}
+require(expm)
+require(gplots)
+require(plyr)
+require(magrittr)
+require(utils)
+library(DiagrammeR)
+source("leslie_diagram.R")
+library(magick)
+```
+
+In this lab, we are going to experiment with Matrix Models using the [Matrix Population Simulator 5000]().  You're basically going to mess around with it long enough to (try to) set up and run a bunch of matrix population processes.  For all the following processes, obtain (a) population growth $\lambda$ and (b) the  stationary distribution $N^*$.  And then answer remaining questions as they come up.  
+
+# 1. Independent growth 
+
+In lecture, we introduced the following very simple diagram: 
+
+```{r}
+par(mar = c(0,0,0,0))
+M <- rbind(c(2,0),c(0,2))
+leslie_diagram(M, stages = c("I", "II"))
+```
+
+Enter this diagram in to the simulator.  How does this process behave? What is $\lambda$?  What (if anything) is $N^{*}$?  How would you change this to have a stable population growth $\lambda = 1$? 
+
+# 2. Criss-cross growth 
+
+Here's a diagram where the life stages interact:
+
+```{r}
+par(mar = c(0,0,0,0))
+M <- rbind(c(0,2),c(2,0))
+leslie_diagram(M, stages = c("I", "II"))
+```
+
+How does this process behave? What is $\lambda$?  What (if anything) is $N^{*}$?  How would you change this to have a stable population growth $\lambda = 1$? 
+
+# 3. Births and Deaths
+
+The next example has a juvenile stage, all of whom survive to the adult stage, at which point adults produce 2 new juveniles. 
+
+```{r}
+par(mar = c(0,0,0,0))
+M <- rbind(c(0,2),c(1/2,0))
+leslie_diagram(M, stages = c("juv", "adult"))
+```
+
+What is $\lambda$?  What (if anything) is $N^{*}$?  What can you change to make the growth rate $\lambda = 1$?
+
+
+
+# 4. A butterfly
+
+Butterflies lay eggs that hatch into caterpillars and become adults.  Not all caterpillars become adults right away, leading to the following diagram:
+
+```{r}
+par(mar = c(0,0,0,0))
+M <- rbind(c(0,0,60),c(0.1,0.2,0),c(0,.1,0))
+leslie_diagram(M, stages = c("egg", "catepillar", "adult"))
+```
+
+What is $\lambda$?  What (if anything) is $N^{*}$?  
+
+How could you tweak the **number of eggs to lay** to make the growth rate $\lambda = 1$?
