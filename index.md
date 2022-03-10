@@ -45,6 +45,7 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 - [1: Intro to R](labs/lab5/Lab5_IntroToR.html)
 - [2: Fitting Logistic Growth](labs/lab6/Lab6_FittingLogisticCurves.html)
+- [3: Life Tables](labs/lab7/Lab7_LifeTAbleExercises.html)
 
 ### Problem Sets
 
