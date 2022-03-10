@@ -56,7 +56,7 @@ The next example has a juvenile stage, all of whom survive to the adult stage, a
 
 ```{r}
 par(mar = c(0,0,0,0))
-M <- rbind(c(0,2),c(1/2,0))
+M <- rbind(c(0,2),c(1,0))
 leslie_diagram(M, stages = c("juv", "adult"))
 ```
 
