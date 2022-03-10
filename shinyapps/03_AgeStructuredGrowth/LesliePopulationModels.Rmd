@@ -1,0 +1,24 @@
+---
+title: "Matrix Population Models"
+author: "Elie Gurarie"
+date: "3/10/2022"
+output: html_document
+---
+
+```{r, echo = FALSE, eval = FALSE}
+require(expm)
+require(gplots)
+require(Rage)
+require(plyr)
+require(magrittr)
+require(shinyMatrix)
+require(utils)
+library(DiagrammeR)
+source("leslie_diagram.R")
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
