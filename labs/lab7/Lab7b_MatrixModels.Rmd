@@ -24,7 +24,7 @@ source("leslie_diagram.R")
 library(magick)
 ```
 
-In this lab, we are going to experiment with Matrix Models using the [Matrix Population Simulator 5000]().  You're basically going to mess around with it long enough to (try to) set up and run a bunch of matrix population processes.  For all the following processes, obtain (a) population growth $\lambda$ and (b) the  stationary distribution $N^*$.  And then answer remaining questions as they come up.  
+In this lab, we are going to experiment with Matrix Models using the [Matrix Population Simulator 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/).  You're basically going to mess around with it long enough to (try to) set up and run a bunch of matrix population processes.  For all the following processes, obtain (a) population growth $\lambda$ and (b) the  stationary distribution $N^*$.  And then answer remaining questions as they come up.  
 
 # 1. Independent growth 
 

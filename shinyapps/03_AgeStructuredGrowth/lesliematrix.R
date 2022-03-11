@@ -33,7 +33,7 @@ ui <- fluidPage(
     }"
   ),
   
-  h1("Matrix Population Modeler 5001"),
+  h1("Matrix Modeller 5000"),
   
   sidebarPanel(
     h3("Enter Leslie matrix:"),
@@ -73,11 +73,11 @@ ui <- fluidPage(
     
  h3(actionButton("resetAll", "Clear everything")),
     
-  mainPanel(
-    grVizOutput("diagram", height = "250px", width = "100%"),
-    plotOutput("eigenvalues", width = "100%", height = "100px"),
-    plotOutput("structuredgrowthplot", width = "100%", height = "350px"),
-  )
+  mainPanel(fluidRow( 
+      column(width = 12, style='padding:10px', grVizOutput("diagram", height = "200px")), 
+      column(width = 12, style='padding:10px', align = "center", plotOutput("eigenvalues", height = "100px", width = "80%")),
+      column(width = 12, style='padding:10px', plotOutput("structuredgrowthplot", height = "350px"))
+  ))
 )
 
 server <- function(input, output) {
@@ -99,38 +99,38 @@ server <- function(input, output) {
     eigenvector <- eigenvector/sum(eigenvector)
     eigenvectors <- paste0("{",paste(round(eigenvector, 3), collapse = ", "),"}")
     
-    par(mar = c(0,0,2,0), bty = "n", mfrow = c(1,2), cex.main = 2)
+    par(mar = c(0,0,4,0), bty = "n", mfrow = c(1,2), cex.main = 2)
     plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvalue "~lambda~":"))
     text(0, 0, round(Re(eigenvalue),3), cex = 2)
     plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvector "~N^"*"~":"))
-    text(0, 0, eigenvectors, cex = 2)
+    text(0, 0, eigenvectors, cex = 2*sqrt(3/length(eigenvector)))
   })
   
-  output$structuredgrowthplot = renderPlot({
-    
+  simplot <-  eventReactive(input$go, {
     pop <- sim()
-    
     palette(rich.colors(nrow(pop)))
     par(mfrow = c(1,2), tck = 0.01, bty = "l", las= 1, 
         cex.lab = 1.5, mgp = c(1.25,.25,0))
     
     layout(t(1:2), widths = c(2,1))
-    
     matplot(t(pop), type = "o", pch = 19, lty = 1, xlab = "time", ylab = "N")
-    
     legend("top", col = 1:nrow(pop), ncol = ceiling(nrow(pop)*3/3), 
            lty = 1, legend = row.names(pop), title = "age class")
-    
     barplot(pop[,ncol(pop)], col = 1:nrow(pop), 
             main = "final distribution") 
   })
+
   
-  output$diagram = renderGrViz({
-    diagram()
+  observeEvent(input$go,{
+    output$structuredgrowthplot = renderPlot({simplot()})
   })
   
-  output$eigenvalues = renderPlot({
-    eigenplot()
+  observeEvent(input$drawdiagram,{
+    output$diagram = renderGrViz({diagram()})
+  })
+  
+  observeEvent(input$eigen,{
+    output$eigenvalues = renderPlot({eigenplot()})
   })
 
   observeEvent(input$resetAll, {

@@ -1,7 +1,7 @@
 ---
 title: "Experimenting With Matrix Population Models"
 subtitle: 'EFB 370: Population Ecology - Numerical Experiment'
-author: "[Elie Gurarie](https://eligurarie.github.io/)"
+author: "[Dr. Elie Gurarie](https://eligurarie.github.io/)"
 date: "`r Sys.Date()`"
 runtime: shiny
 output: html_document
@@ -35,14 +35,19 @@ source("leslie_diagram.R")
 
 In this tool, you provide a Leslie Population Transition Matrix and an initial population distribution. You can expand the number of rows and columns and change the numbers in the matrix as needed. Click on the little "x" to delete rows as needed. Then click on "draw diagram", "compute eigenvlaues" and "run simulation" to set the process going. You can also change the names of the age classes.
 
-The initial parameters are for our good friends *Monocerus academicii*.
+Remember, if there is no link between age classes (i.e. no arrows between bubbles in the diagram), then the entries in the matrix must be (manually) set to 0. 
 
+The initial parameters are for our good friends *Monocerus academicii* (Fig. 1).
 
-```{r out.height = 1000, out.width = 1800}
+```{r out.height = 1400, out.width = 1800}
 source("lesliematrix.R")
-shinyApp(ui=ui, server=server, options = list(height = 800, width = 1200))
+shinyApp(ui=ui, server=server, options = list(height = 900, width = 1800))
 ```
 
 <center>
 <img src="unicornlarva.webp" width="20%"/> <img src="unicornstudent.jpg" width="20%"/> <img src="oldunicorn.webp" width="20%"/>
+</center>
+
+<center>
+<font color = "darkblue"> ***Figure 1.*** Illustration of academic unicorn (*Monocerus acadmicus*) showing three life stages: *larval* (left), *sophomore* (center), and *emeritus* (right).  Note - all individuals are female. </font>
 </center>
