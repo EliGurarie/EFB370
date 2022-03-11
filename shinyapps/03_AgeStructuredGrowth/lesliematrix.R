@@ -1,14 +1,11 @@
-# stages <- 1:3
-# fecundities <- c(0,1.5,.5)
-# mortalities <- c(.5,0,1)
-# start <- c(20,0,0)
-
 require(expm)
 require(gplots)
 require(plyr)
 require(magrittr)
 require(shinyMatrix)
 require(utils)
+require(shinyjs)
+library(shinyWidgets)
 library(DiagrammeR)
 source("leslie_diagram.R")
 
@@ -27,9 +24,19 @@ N0 <- c(20,0,0) %>% t
 colnames(M) <- colnames(N0) <- row.names(M) <- as.roman(1:3) %>% as.character
 
 ui <- fluidPage(
+  
+  useShinyjs(),
+  setBackgroundColor("antiquewhite"),
+  tags$style(
+    "*, div {
+      font-family: Consolas;
+    }"
+  ),
+  
+  h1("Matrix Population Modeler 5001"),
+  
   sidebarPanel(
-    h3("Matrix Population Modeler 5000"),
-    h4("Leslie Matrix:"),
+    h3("Enter Leslie matrix:"),
     h5("Must be square, i.e. equal number of rows and columns:"),
     matrixInput(
       "lesliematrix",
@@ -46,7 +53,7 @@ ui <- fluidPage(
                   names = TRUE),
       class = "numeric"),
     
-    h4("Initial population:"),
+    h3("Enter initial population:"),
     h5("Must be the same length as the Leslie matrix has columns:"),
     matrixInput(
       "N0",
@@ -63,6 +70,8 @@ ui <- fluidPage(
     actionButton("drawdiagram", "Draw diagram"),
     actionButton("eigen", "Compute eigenvalues"),
     actionButton("go", "Run simulation")),
+    
+ h3(actionButton("resetAll", "Clear everything")),
     
   mainPanel(
     grVizOutput("diagram", height = "250px", width = "100%"),
@@ -86,13 +95,13 @@ server <- function(input, output) {
   eigenplot <- eventReactive(input$eigen,{
     M <- input$lesliematrix
     eigenvalue <- eigen(M)$values[1]
-    eigenvector <- eigen(M)$vectors[,1]
+    eigenvector <- Re(eigen(M)$vectors[,1])
     eigenvector <- eigenvector/sum(eigenvector)
     eigenvectors <- paste0("{",paste(round(eigenvector, 3), collapse = ", "),"}")
     
     par(mar = c(0,0,2,0), bty = "n", mfrow = c(1,2), cex.main = 2)
     plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvalue "~lambda~":"))
-    text(0, 0, round(eigenvalue,3), cex = 2)
+    text(0, 0, round(Re(eigenvalue),3), cex = 2)
     plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvector "~N^"*"~":"))
     text(0, 0, eigenvectors, cex = 2)
   })
@@ -123,10 +132,16 @@ server <- function(input, output) {
   output$eigenvalues = renderPlot({
     eigenplot()
   })
+
+  observeEvent(input$resetAll, {
+    output$diagram <- renderGrViz({})
+    output$eigenvalues <- renderPlot({})
+    output$structuredgrowthplot <- renderPlot({})
+  })
 }
 
 
-#shinyApp(ui=ui, server=server)
+# shinyApp(ui=ui, server=server)
 
 
 
