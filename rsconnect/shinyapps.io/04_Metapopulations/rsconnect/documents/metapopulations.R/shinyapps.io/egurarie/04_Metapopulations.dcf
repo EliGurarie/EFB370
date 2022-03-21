@@ -1,0 +1,12 @@
+name: 04_Metapopulations
+title: 04_Metapopulations
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5901439
+bundleId: 5709859
+url: https://egurarie.shinyapps.io/04_Metapopulations/
+when: 1647885331.97055
+asMultiple: FALSE
+asStatic: FALSE

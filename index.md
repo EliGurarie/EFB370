@@ -34,6 +34,9 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [6: Life Tables](lectures/06_LifeHistory_PartI.html)
 - [7: Life History Strategies and Matrix Models](lectures/07_LifeHistory_PartII.html)
  
+**Metapopulations and Spatial Structure**
+
+- [8: Metapopulations](lectures/08_Metapopulations.html)
 
 ### Numerical analysis tools
 

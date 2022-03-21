@@ -5,9 +5,9 @@ account: egurarie
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5827496
-bundleId: 5671299
+bundleId: 5672165
 url: https://egurarie.shinyapps.io/MatrixPopulationModels/
-when: 1646998051.88021
+when: 1647012157.78707
 asMultiple: TRUE
 asStatic: FALSE
 ignoredFiles: agestructuredgrowth.R|AgeStructuredGrowth.Rmd
