@@ -36,7 +36,8 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
  
 **Metapopulations and Spatial Structure**
 
-- [8: Metapopulations](lectures/08_Metapopulations.html)
+- [8: Metapopulations - Theory](lectures/08_Metapopulations_PartI.html)
+- [9: Metapopulations - Applications](lectures/09_Metapopulations_PartII.html)
 
 ### Numerical analysis tools
 

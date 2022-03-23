@@ -16,7 +16,7 @@ runMetapopulation <- function(K = 20, N0 = 10,
     f <- N.then / K
     if(extinction == FALSE)
       metapop.matrix[i,N.then == 1] <- rbinom(sum(N.then), size = 1, prob = 1-e) else 
-        metapop.matrix[i,N.then == 1] <- rbinom(sum(N.then), size = 1, prob = 1-(1-f)*e)
+        metapop.matrix[i,N.then == 1] <- rbinom(sum(N.then), size = 1, prob = (1-f)*e)
       if(colonization == FALSE)
         metapop.matrix[i,N.then == 0] <- rbinom(sum(N.then == 0), size = 1, prob = c) else 
           metapop.matrix[i,N.then == 0] <- rbinom(sum(N.then == 0), size = 1, prob = c*f)
