@@ -54,18 +54,18 @@ plotMN <- function(t, sim){
   
   bgs <- c("pink", "lightblue")
   cols <- c("darkorange", "darkblue")
-    
-  plot(c(0,min(2*t, nrow(N))), c(0, max(N.time, M.time)), type = "n", ylab = "population", xlab = "time")
+  
+  plot(c(0,min(t*4/3, nrow(N))), c(0, max(N.time, M.time)), type = "n", ylab = "population", xlab = "time")
   points(N.time[1:t], type = "o", pch = 21, bg = "pink", col = cols[1], cex = 2)
   points(M.time[1:t], type = "o", pch = 21, bg = "lightblue", col = cols[2], cex = 2)
-
+  
   legend("right", pch = 21, pt.bg = bgs, col = cols, legend = c("Squirlicorn", "Pegamunk"), cex = 2)
   
   plot(0,0,xlim = c(0,1), ylim = c(0,1), asp = 1, type = "n", 
        xaxt = "n", yaxt = "n", xlab = "", ylab = "", bty = "o")
-  points(Z.m[M[t,] == 1], bg = bgs[1], col = cols[1], pch = 21, cex = 2)
-  points(Z.n[N[t,] == 1], bg = bgs[2], col = cols[2], pch = 21, cex = 2)
-
+  points(Z.m[N[t,] == 1], bg = bgs[1], col = cols[1], pch = 21, cex = 2)
+  points(Z.n[M[t,] == 1], bg = bgs[2], col = cols[2], pch = 21, cex = 2)
+  
   plot(N.time[1:t], M.time[1:t], xlim = c(0,K.n), ylim = c(0,K.m), 
        xlab = "Squirlicorn", ylab = "Pegamunk", col = "purple", lwd = 1.5, bg = "green", 
        type = "o", pch = 21, cex = 2, asp = 1)
@@ -73,8 +73,8 @@ plotMN <- function(t, sim){
   abline(v = K.m, col = "grey", lwd = 2, lty = 3)
   abline(h = K.n, col = "grey", lwd = 2, lty = 3)
   
-   #abline(K.n/alpha, -1/alpha, col = "darkorange", lwd = 2)
-   #abline(K.m, -beta, col = "darkblue", lwd = 2)
+  #abline(K.n/alpha, -1/alpha, col = "darkorange", lwd = 2)
+  #abline(K.m, -beta, col = "darkblue", lwd = 2)
 }
 
 
@@ -85,7 +85,7 @@ ui <- fluidPage(
   setBackgroundColor("Black"),
   tags$style(
     "*, div {
-      font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+      font-family: 'Consolas';
     }"
   ),
   
@@ -93,8 +93,6 @@ ui <- fluidPage(
   
   
   sidebarPanel(
-    img(src='squirlicornvspegamunk_small.png', align = "center"),
-               
     h3("Squirlicorn parameters:"),
     
     numericInput("K.n", "Carrying capacity", 
@@ -102,7 +100,7 @@ ui <- fluidPage(
     
     numericInput("N0", "Initial number of local populations (N0)", 
                  value = 10, min = 1, step = 1),
-
+    
     numericInput("r.n", "Growth rate (r)", 
                  value = 1, min = 0, step = .01),
     
@@ -130,8 +128,11 @@ ui <- fluidPage(
     
     actionButton("go", "May the battle begin!")),
   
-  fluidRow( 
-    column(width = 7, style='padding:10px', plotOutput("plots", height = '800px', width = '800px')))
+  fluidRow(  img(src='squirlicornvspegamunk.png', width = "600px", align = "center"),
+             column(width = 7, style='padding:10px', plotOutput("plots", height = '800px', width = '800px'))),
+  
+  
+  
 )
 
 server <- function(input, output) {
@@ -144,7 +145,7 @@ server <- function(input, output) {
                                       M0 = input$M0, 
                                       alpha= input$alpha, 
                                       beta = input$beta, 
-                                      tmax = 200))
+                                      tmax = 400))
   output$plots <- renderPlot({
     mysim <- sim()
     plotMN(input$tmax, mysim)
