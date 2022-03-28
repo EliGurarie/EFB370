@@ -53,8 +53,6 @@ plotMP_timeseries <- function(sim){
        col = linecols, pos = 3, adj = 1, xpd = NA, font = 2)
 }
 
-plotMP_timeseries(sim)
-
 
 ui <- fluidPage(
   
