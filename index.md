@@ -49,7 +49,8 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [2. Discrete logistic growth simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
 - [3. Age-structured growth simulator](https://egurarie.shinyapps.io/AgeStructuredGrowth/)
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
-- [5. Metapopulations](https://egurarie.shinyapps.io/MatrixPopulationModels/)
+- [5. Metapopulations](https://egurarie.shinyapps.io/metapopulations/)
+- [6. Inter-species competition](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
 
 ### Labs
 

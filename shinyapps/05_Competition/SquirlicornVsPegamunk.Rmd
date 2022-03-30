@@ -1,0 +1,50 @@
+---
+title: "Two-species Competition"
+author: '[Dr. Elie Gurarie](https://eligurarie.github.io/)'
+output:
+  html_document:
+runtime: shiny
+subtitle: 'EFB 370: Population Ecology - Numerical Experiment'
+resource_files:
+- competition.R
+---
+<style type="text/css">
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<center>
+<img src="squirlicornvspegamunk.png" width="800px" align="center"/><br>
+**Figure 1**
+</center>
+
+
+<font size = 4>
+
+The two sciurid species Squirlicorn (*Sciurus monocerus*) and winged Pegamunk (*Neotamias pegasus*, see figure above) are direct competitors for limited spatial resources.  They feed on rainbows, or some such thing. When provoked, a squirlicorn will skewer the pegamunk on its horn. Pegamunks will return the favor by grabbing the squirlicorn by its little shoulders and dropping from a very high elevation.  None of this is pretty (though it can be colorful). 
+
+Under some conditions, the species find ways to coexist. But it can be a challenge to find those.  
+
+## To use the simulator below ...
+
+- Set all the parameters of population growth and competition
+- Click on the `May the battle begin` button
+- Scroll through time - but clicking on the time entry and hitting "up" and "down" arrows, or just let it display some high value (maximum 400).
+- Adjust parameters and re-run simulation at will.
+
+
+</font>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+#output: html_document
+```
+
+```{r}
+source("competition.R")
+shinyApp(ui=ui, server=server, options = list(height = 1000))
+```
