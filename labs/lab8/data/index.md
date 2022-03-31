@@ -1,7 +1,7 @@
 Data:
 
-- [aurelia.csv](aurelia.csv)
-- [caudatum.csv](caudatum.csv)
+- [single.csv](single.csv)
+- [mixture.csv](mixture.csv)
 
 Code: 
 
