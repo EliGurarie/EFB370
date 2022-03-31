@@ -62,7 +62,6 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 ### Problem Sets
 
-
 - [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
   - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
 
