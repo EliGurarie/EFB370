@@ -8,8 +8,6 @@ library(shinyWidgets)
 
 Isoclines <- function(competition, predation, rv, rp, K, xlim, n.arrows){
   
-  #K <- 1
-  
   alpha <- beta <- competition
   gamma <- sigma <- predation
   
@@ -18,64 +16,55 @@ Isoclines <- function(competition, predation, rv, rp, K, xlim, n.arrows){
                K = K, rv = rv, rp = rp)
   
   getdPdN <- function(v, p, pars){
-    dP <- with(pars, rp * p * (1-p/K - beta*v/K) + sigma * v * p)
-    dV <- with(pars, rv * v * (1-v/K - alpha*p/K) - gamma * v * p)
+    dP <- with(pars, rp * p * (1 - p/K - beta * v/K) + sigma * v * p)
+    dV <- with(pars, rv * v * (1 - v/K - alpha * p/K) - gamma * v * p)
     dV + 1i*dP
   }
-  
-  
+
   par(mar = c(3,3,2,2), bty = "l", mgp = c(1.5,.25,0),
       tck = 0.01, cex.lab = 1, cex.axis = 0.8, xaxs="i", yaxs = "i", las = 1)
   plot(0,0, type = "n", col = "purple", 
-       ylim = c(0, xlim),
-       xlim = c(0, xlim),
+       ylim = c(0, xlim), xlim = c(0, xlim),
        xlab = "prey", ylab = "predator", asp = 1)
-  
-  #(1, at = c(0,K), c(0, "K"))
-  #xis(2, at = c(0,K), c(0, "K"))
 
   abline(v = K, col = "darkgrey", lwd = 2, lty = 3)
   abline(h = K, col = "darkgrey", lwd = 2, lty = 3)
   
-  if(sigma > 0)
-    abline(h = rv/sigma, lwd = 2, col = "darkblue")
-  
+  if(sigma > 0) abline(h = rv/sigma, lwd = 2, col = "darkblue")
   cols <- c("darkorange", "darkblue")
   
   if(competition == 0 & predation == 0){
     abline(v = K, col = cols[1], lwd = 3)
     abline(h = K, col = cols[2], lwd = 3)
   } else {
-    a.prey <- K/(beta + sigma*K/rp)
-    b.prey <- -1/(beta + sigma*K/rv)
-    
+    a.prey <- rv*K/(alpha*rv + K*gamma)
+    b.prey <- -rv/(alpha*rv + K*gamma)
     a.pred <- K
-    b.pred <- -alpha + gamma*K/rp
-    
+    b.pred <- sigma*K/rp - beta
+    #a.prey <- K/(beta + sigma*K/rp)
+    #b.prey <- -1/(beta + sigma*K/rv)
+    #a.pred <- K
+    #b.pred <- -alpha + gamma*K/rp
     abline(a.prey, b.prey, col =  cols[2], lwd = 3)
     abline(a.pred, b.pred, col =  cols[1], lwd = 3)
   }
   
-  z.grid <- outer(xlim*seq(0,1.4,length = n.arrows)[-1], 
-                  xlim*seq(0,1.4,length = n.arrows)[-1], 
+  z.grid <- outer(xlim*seq(0,1.4,length = n.arrows), 
+                  xlim*seq(0,1.4,length = n.arrows), 
                   function(x,y) x + 1i*y) 
   
   arrow <- getdPdN(Re(z.grid), Im(z.grid), pars = pars)/5
-  
   arrow.scaled.x <- (Re(arrow)-min(Re(arrow)))/diff(range(Re(arrow)))
   arrow.scaled.y <- (Im(arrow)-min(Im(arrow)))/diff(range(Im(arrow)))
-  cols <- rgb(arrow.scaled.x * as.numeric(Re(arrow) > 0)/2 + 
-                arrow.scaled.y * as.numeric(Im(arrow) > 0)/2, 
-              arrow.scaled.x * as.numeric(Re(arrow) < 0)/2 + 
-                arrow.scaled.y * as.numeric(Im(arrow) > 0)/2,  
-              arrow.scaled.y * as.numeric(Im(arrow) > 0)/2 + 
-                arrow.scaled.y * as.numeric(Im(arrow) < 0)/2)
+  
+  cols <- rgb((arrow.scaled.x * as.numeric(Re(arrow) > 0))/2 + 
+                (arrow.scaled.y * as.numeric(Im(arrow) > 0))/2, 
+              (arrow.scaled.x * as.numeric(Re(arrow) < 0))/2 + 
+                (arrow.scaled.y * as.numeric(Im(arrow) > 0))/2,  
+              (arrow.scaled.y * as.numeric(Im(arrow) > 0))/2 + 
+                (arrow.scaled.y * as.numeric(Im(arrow) < 0))/2)
 
-  #arrow.plot  <- complex(arg = Arg(arrow), mod = sqrt(Mod(arrow)))
-  
   z.end <- z.grid + arrow
-  
-  
   arrows(Re(z.grid), Im(z.grid), Re(z.end), Im(z.end), 
          length = .05, col =cols, lwd = 2)
 }
