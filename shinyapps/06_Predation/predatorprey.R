@@ -66,8 +66,12 @@ plotLV <- function(sim, t.show){
     y.iso <-  parms["r"]/parms["sigma"]
     
     if(!is.na(parms["Kv"])){
-      a <- 1/parms["gamma"]
-      b <-  -(1/(parms["Kv"] * parms["gamma"]))
+      a <- parms["r"] /parms["gamma"]
+      b <-  -parms["r"]/parms["Kv"] * parms["gamma"]
+    
+      #a.prey <- rv*K/(alpha*rv + K*gamma)
+      #b.prey <- -rv/(alpha*rv + K*gamma)
+      
       abline(a, b, col =  scales::alpha(cols[2], .4), lwd = 3)
       abline(v = x.iso, col = scales::alpha(cols[1], .4), lwd = 3)
       points(x.iso, a + b*x.iso, pch = 19, col = "darkred", cex = 2)
@@ -97,7 +101,8 @@ ui <- fluidPage(
       </script>')
     ),
     setBackgroundColor("Black"),
-    h1("Lotka-Volterra Predator-Prey", style = "color: Yellow"),
+    h1("LV PP (wabo CC FF) v.0.14.3", style = "color: White"),
+    h4("Lotka-Volterra Predator-Prey (with a bit of Carrying Capacity For Fun)", style = "color: Yellow"),
     sidebarLayout(
       sidebarPanel(
         fluidRow(column(6, 
