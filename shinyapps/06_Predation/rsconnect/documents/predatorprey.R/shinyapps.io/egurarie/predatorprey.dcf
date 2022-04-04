@@ -1,0 +1,14 @@
+name: predatorprey
+title: predatorprey
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6009660
+bundleId: 5763342
+url: https://egurarie.shinyapps.io/predatorprey/
+when: 1649088891.70498
+lastSyncTime: 1649088891.70498
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: isoclines.R
