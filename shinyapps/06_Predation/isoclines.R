@@ -30,7 +30,6 @@ Isoclines <- function(competition, predation, rv, rp, K, xlim, n.arrows){
   abline(v = K, col = "darkgrey", lwd = 2, lty = 3)
   abline(h = K, col = "darkgrey", lwd = 2, lty = 3)
   
-  if(sigma > 0) abline(h = rv/sigma, lwd = 2, col = "darkblue")
   cols <- c("darkorange", "darkblue")
   
   if(competition == 0 & predation == 0){
@@ -41,10 +40,7 @@ Isoclines <- function(competition, predation, rv, rp, K, xlim, n.arrows){
     b.prey <- -rv/(alpha*rv + K*gamma)
     a.pred <- K
     b.pred <- sigma*K/rp - beta
-    #a.prey <- K/(beta + sigma*K/rp)
-    #b.prey <- -1/(beta + sigma*K/rv)
-    #a.pred <- K
-    #b.pred <- -alpha + gamma*K/rp
+
     abline(a.prey, b.prey, col =  cols[2], lwd = 3)
     abline(a.pred, b.pred, col =  cols[1], lwd = 3)
   }

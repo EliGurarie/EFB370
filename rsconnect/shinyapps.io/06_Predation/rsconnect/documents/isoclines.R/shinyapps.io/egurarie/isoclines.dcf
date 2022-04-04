@@ -1,0 +1,14 @@
+name: isoclines
+title: isoclines
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6004725
+bundleId: 5763365
+url: https://egurarie.shinyapps.io/isoclines/
+when: 1649089499.3594
+lastSyncTime: 1649089499.3594
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: predatorprey.R

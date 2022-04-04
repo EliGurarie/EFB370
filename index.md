@@ -18,30 +18,33 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 - [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
 
-**Exponential Growth**
+##### Topic I. Exponential Growth
 
 - [1: Basic Models](lectures/01_ExponentialGrowth_PartI.html)
 - [2: Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
 - [3: Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
 
-**Logistic Growth and Density Depedence**
+##### Topic II. Density Depedence
 
 - [4: Continuous time model](lectures/04_LogisticGrowth_PartI.html)
 - [5: Discrete model and chaos](lectures/05_LogisticGrowth_PartII.html)
 
-**Age structure and Life History**
+##### Topic III. Age structure 
 
 - [6: Life Tables](lectures/06_LifeHistory_PartI.html)
 - [7: Life History Strategies and Matrix Models](lectures/07_LifeHistory_PartII.html)
  
-**Metapopulations and Spatial Structure**
+ 
+##### Topic IV. Metapopulations
 
 - [8: Metapopulations - Theory](lectures/08_Metapopulations_PartI.html)
 - [9: Metapopulations - Applications](lectures/09_Metapopulations_PartII.html)
 
-**Multispecies Interactions**
+##### Topic V. Multispecies Interactions
 
 - [10: Competition and Coexistence](lectures/10_Competition.html)
+- [11: Predation Part I](lectures/11_PredationPartI.html)
+
 
 ### Numerical analysis tools
 
@@ -51,6 +54,9 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 - [5. Metapopulations](https://egurarie.shinyapps.io/metapopulations/)
 - [6. Inter-species competition](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
+- [7. Isoclines](https://egurarie.shinyapps.io/isoclines/)
+- [8. Predator Prey](https://egurarie.shinyapps.io/predatorprey/)
+
 
 ### Labs
 
