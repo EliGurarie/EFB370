@@ -44,6 +44,7 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 
 - [10: Competition and Coexistence](lectures/10_Competition.html)
 - [11: Predation Part I](lectures/11_PredationPartI.html)
+- [12: Predation Part II](lectures/12_PredationPartII.html)
 
 
 ### Numerical analysis tools
