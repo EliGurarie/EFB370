@@ -1,8 +1,12 @@
 ---
 title: "Modeling apparent competition"
+subtitle: 'EFB 370 - Spring 2022'
 author: "Elie Gurarie"
-date: "4/6/2022"
-output: html_document
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -10,14 +14,12 @@ knitr::opts_chunk$set(echo = TRUE, echo = FALSE, eval = FALSE)
 ```
 
 
-Below is a schematic and caption ([Boutin et al. 2002](doi:10.1890/12.WB.005)) for the "apparent competition" hypothesis that emerges between moose (*Alces alces*) and woodland caribou (*Rangifer tarandus caribou*) in the Oil Sands region of Alberta, where intensive sand oil exploration has resulted in rapid and intense fragmentation and logging of the boreal forest.  It's worth reading the caption carefully. 
+Below is a schematic and caption from [Boutin et al. 2002](doi:10.1890/12.WB.005) describing the "apparent competition" hypothesis among moose (*Alces alces*) and woodland caribou (*Rangifer tarandus caribou*) in the Oil Sands region of Alberta.  In short, intensive sand oil exploration has resulted in rapid and intense fragmentation and logging of the boreal forest, which has improved habitat for moose.  Thus, though caribou and moose do not overlap in habitat preferences and do not directly compete, the presence of moose indirectly hurts caribou by increasing the number of wolves.  It's worth reading the caption below carefully. 
 
 ![](WolfMooseCaribouWithCaption.png)
 
 
-
 We are going to see if we can capture and quantify that apparent competition dynamic using Lotka-Volterra type predator-prey models with one predator (the wolf) and two prey (the caribou and the moose). 
-
 
 
 ## The model
@@ -37,16 +39,15 @@ The parameters are defined as follows:
 
 species | parameter | definition | value pre oil | value post oil
 |----|:---:|------|-----:|----:|
-|**wolf** | $\delta$ | intrinsic death rate | 0.2 | 0.2
-| | $\gamma_m$ | conversion rate from moose |  | 0.003
-| | $\gamma_c$ | conversion rate from caribou | 0.0005 | **TBD**
-| **caribou** | $r_c$ | intrinsic growth | 0.5 | 0.5
+| **caribou** | $r_c$ | intrinsic growth | 0.6 | 0.4
 | | $K_c$ | carrying capacity | 1000 | 500
 | | $\sigma_c$ | death rate from predation | **TBD** | **TBD**
-| **moose** | $r_m$ | intrinsic growth | 0.5 | 0.5
+| **moose** | $r_m$ | intrinsic growth |  | 0.7
 | | $K_m$ | carrying capacity | 10 | 1000
 | | $\sigma_m$ | death rate from predation |   | **TBD**
-
+| **wolf** | $\delta$ | intrinsic death rate | 0.2 | 0.2
+| | $\gamma_m$ | conversion rate from moose |  | 0.002
+| | $\gamma_c$ | conversion rate from caribou | 0.0005 | 0.0005
 
 There are a few parameters that we will not experiment with, but will leave fixed.  For *some* justification, we might argue that:
 
@@ -64,7 +65,7 @@ https://eligurarie.shinyapps.io/apparentcompetition
 
 ## Part I: Pre-Industrialization
 
-Before the intensive clearing of forests began, in a 10,000 km² (100 km x 100 km) area of Northern Alberta, there was a stable herd of 400 caribou, coexisting with a sparse population of 30 wolves.  The maximum carrying capacity with no predation of this area is 1000 caribou. 
+Before the intensive clearing of forests began, in a 10,000 km² (100 km x 100 km) area of Northern Alberta, there was a stable herd of 400 caribou, coexisting with a sparse population of 36 wolves.  The maximum carrying capacity with no predation of this area is 1000 caribou. 
 
 > <font color = "blue"> **Easy Exercise 1:** Imagine the first woodland caribou colonized this area when there were no wolves, and no moose. Set up a simulation with an initial caribou population of 1.  How many caribou were there after 10 years? How many years - approximtely - does it take to get to carrying capacity (within a rounding error)? </font>  
 
@@ -85,4 +86,15 @@ All that business happened at some point after the last ice age, and the boreal 
 
 
 
-> <font color = "blue"> **Exercise 3:** Moose pack a much more powerful protein punch for wolves (4 x the mass, 4 x the conversion factor).   </font> 
+> <font color = "blue"> **Exercise 3:** Moose pack a much more powerful protein punch for wolves (4 x the mass = 4 x the conversion factor). They are also somewhat more reproductively productive in this improved (for them) habitat, so their intrinsic growth $r_m$ is higher (see table).  Introduce some moose into this system.  What is the effect on the caribou and wolf populations? </font> 
+
+
+## Part III: Mitigation strategies
+
+In Canada, there are active mitigation measures to help the (highly endangered) woodland caribou (none of which involve improving the habitat or slowing down development).  Instead, they involve either culling moose or culling wolves.  
+
+
+> <font color = "blue"> **Exercise 4a:** How much do you need to increase the death rate of wolves to get the caribou to a target population of 140 animals?</font> 
+
+> <font color = "blue"> **Exercise 4b:** How much do you need to decrease the reproductive rate of moose to get the caribou to a target population of 140 animals?</font> 
+
