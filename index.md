@@ -57,7 +57,7 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [6. Inter-species competition](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
 - [7. Isoclines](https://egurarie.shinyapps.io/isoclines/)
 - [8. Predator Prey](https://egurarie.shinyapps.io/predatorprey/)
-
+- [9. Apparent competition with caribou, moose and wolves](https://egurarie.shinyapps.io/apparentcompetition/)
 
 ### Labs
 
