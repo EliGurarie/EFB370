@@ -5,11 +5,11 @@ account: egurarie
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6041526
-bundleId: 5775638
+bundleId: 5775911
 url:
-    https://egurarie.shinyapps.io/apparentcompetition/
-when: 1649361132.02808
+     https://egurarie.shinyapps.io/apparentcompetition/
+when: 1649366432.44026
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles:
-    functionalresponses.R|isoclines.R|predatorprey.R
+     functionalresponses.R|isoclines.R|predatorprey.R

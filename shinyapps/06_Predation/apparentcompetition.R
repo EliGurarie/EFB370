@@ -132,7 +132,7 @@ ui <- fluidPage(
       numericInput("delta", "Death rate", value = .2, min = 0, step = .01),
       
       h3("Prepare the stage:"),
-      sliderInput(inputId = "t", label = "Time:", value = 10, min = 1, max = 400, step = 1),
+      sliderInput(inputId = "t", label = "Time:", value = 10, min = 1, max = 200, step = 1),
       actionButton("go", "Run process!")),
     
     mainPanel(
@@ -150,7 +150,7 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   sim <- eventReactive(input$go, {
-    runWCM(tmax = 400, dt = 0.01, 
+    runWCM(tmax = 200, dt = 0.1, 
            parms = c(sigma_m = input$sigma_m, sigma_c = input$sigma_c, delta = input$delta, w0 = input$w0,
                      gamma_m = input$gamma_m, rm = input$rm, Km= input$Km, m0 = input$m0, 
                      gamma_c = input$gamma_c, rc = input$rc, Kc = input$Kc, c0 = input$c0)) 
