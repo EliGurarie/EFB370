@@ -66,7 +66,7 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [3a: Life Tables](labs/lab7/Lab7_LifeTableExercises.html)
 - [3b: Matrix Modeling](labs/lab7/Lab7b_MatrixModels.html)
 - [4: Competition in R](labs/lab8/Lab08_ParameciumCompetion.html)
-- [5: Apparent competition](labs/lab9/Lab09_ApparentCompetion.html)
+- [5: Apparent competition](labs/lab9/Lab09_ApparentCompetition.html)
 
 ### Problem Sets
 
