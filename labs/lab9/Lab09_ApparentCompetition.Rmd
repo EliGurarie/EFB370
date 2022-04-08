@@ -53,7 +53,7 @@ There are a few parameters that we will not experiment with, but will leave fixe
 
 
 I've programmed this model into an interactive tool at this link: 
-https://eligurarie.shinyapps.io/apparentcompetition
+https://egurarie.shinyapps.io/apparentcompetition
 
 ```{r, echo = FALSE, value = FALSE}
 1/8000
