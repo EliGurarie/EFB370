@@ -14,6 +14,17 @@ output:
 
 Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-11) are collected here.  
 
+### Problem Sets
+
+- [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
+  - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
+
+- [Problem Set 3](problemsets/ProblemSet3.html) - Due **April 14, 2022**
+  - This homework requires downloading data files and code from [here](labs/lab8/data) and experimenting with the [Apparent Competition Simulator](https://egurarie.shinyapps.io/apparentcompetition/). 
+
+
+
+
 ### Lectures
 
 - [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
@@ -67,12 +78,6 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [3b: Matrix Modeling](labs/lab7/Lab7b_MatrixModels.html)
 - [4: Competition in R](labs/lab8/Lab08_ParameciumCompetion.html)
 - [5: Apparent competition](labs/lab9/Lab09_ApparentCompetition.html)
-
-### Problem Sets
-
-- [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
-  - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
-
 
 
 <!--
