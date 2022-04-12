@@ -57,6 +57,11 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [11: Predation Part I](lectures/11_PredationPartI.html)
 - [12: Predation Part II](lectures/12_PredationPartII.html)
 
+##### Topic VI. Dispersal Disease and More
+
+- [13: Dispersal and Disease](lectures/13_DispersalAndDisease.html)
+- [14: Can wolves slow CWD?](lectures/deer_wolf_CWD.pdf)
+
 
 ### Numerical analysis tools
 
