@@ -11,11 +11,11 @@ fitLogistic <- function(data, y = "N", time = "Day", N0 = 1, K = 200, r0 = 0.75)
     summary(myfit)
 }
 
-linesLogistic <- function(au.fit, ...){
+linesLogistic <- function(fit, ...){
     N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
-    curve(N.logistic(x, N0 =  au.fit$coefficients[1,1],
-                     K= au.fit$coefficients[2,1],
-                     r0= au.fit$coefficients[3,1]), add = TRUE, ...)
+    curve(N.logistic(x, N0 =  fit$coefficients[1,1],
+                     K= fit$coefficients[2,1],
+                     r0= fit$coefficients[3,1]), add = TRUE, ...)
 }
 
 
