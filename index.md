@@ -19,7 +19,7 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
   - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
 
-- [Problem Set 3](problemsets/ProblemSet3.html) - Due **April 14, 2022**
+- [Problem Set 3](problemsets/ProblemSet3.html) - Due **April 18, 2022**
   - This homework requires downloading data files and code from [here](labs/lab8/data) and experimenting with the [Apparent Competition Simulator](https://egurarie.shinyapps.io/apparentcompetition/). 
 
 
