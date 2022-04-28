@@ -1,68 +1,75 @@
 ---
-title: "EFB 370: Population Ecology"
-subtitle: "SUNY-ESF, Spring 2021"
+title: "Population Ecology"
+subtitle: "EFB 370: Spring 2022"
+author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
-  html_document: 
-    toc: true
-    toc_float: true
-    toc_enumerate: true
+  rmdformats::readthedown:
+    toc_depth: 5
+    thumbnails: TRUE
+    anchor_sections: FALSE
 ---
 
-**Spring 2022**
+
+```{r, echo=FALSE, eval = TRUE}
+htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner', 
+               style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
+```
+
+> The study of the rise and fall of populations, inter- and intraspecific  interactions - with a strong flavor of conservation biology and management. 
+
+```{r, echo = FALSE}
+htmltools::img(src = "assets/wolfcariboumoose.png", 
+               alt = 'wolf-caribou-moose',
+               style = "width:400px")
+
+```
+
+
 
 ### Course Materials
 
-Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-11) are collected here.  
-
-### Problem Sets
-
-- [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
-  - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
-
-- [Problem Set 3](problemsets/ProblemSet3.html) - Due **April 18, 2022**
-  - This homework requires downloading data files and code from [here](labs/lab8/data) and experimenting with the [Apparent Competition Simulator](https://egurarie.shinyapps.io/apparentcompetition/). 
-
-
+This course is cotaught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-12).   
 
 
 ### Lectures
 
 - [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
 
-##### Topic I. Exponential Growth
+#### Topic I. Exponential Growth
 
 - [1: Basic Models](lectures/01_ExponentialGrowth_PartI.html)
 - [2: Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
 - [3: Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
 
-##### Topic II. Density Depedence
+#### Topic II. Density Dependence - Logistic Growth
 
-- [4: Continuous time model](lectures/04_LogisticGrowth_PartI.html)
+- [4: Continuous time models](lectures/04_LogisticGrowth_PartI.html)
 - [5: Discrete model and chaos](lectures/05_LogisticGrowth_PartII.html)
 
-##### Topic III. Age structure 
+#### Topic III. Age structure 
 
 - [6: Life Tables](lectures/06_LifeHistory_PartI.html)
 - [7: Life History Strategies and Matrix Models](lectures/07_LifeHistory_PartII.html)
  
  
-##### Topic IV. Metapopulations
+#### Topic IV. Metapopulations
 
-- [8: Metapopulations - Theory](lectures/08_Metapopulations_PartI.html)
-- [9: Metapopulations - Applications](lectures/09_Metapopulations_PartII.html)
+- [8: Theory](lectures/08_Metapopulations_PartI.html)
+- [9: Applications](lectures/09_Metapopulations_PartII.html)
 
-##### Topic V. Multispecies Interactions
+#### Topic V. Multispecies Interactions
 
 - [10: Competition and Coexistence](lectures/10_Competition.html)
 - [11: Predation Part I](lectures/11_PredationPartI.html)
 - [12: Predation Part II](lectures/12_PredationPartII.html)
 
-##### Topic VI. Dispersal, Disease, Estimation and More
+#### Topic VI. Dispersal, Disease, Estimation and More
 
 - [13: Dispersal and Disease](lectures/13_DispersalAndDisease.html)
 - [14: Can wolves slow CWD?](lectures/deer_wolf_CWD.pdf)
 - [15: Abundance estimation and mark-recature (Couriot)](lectures/Couriot_EstimatingAbudancesAndMarkRecapture.pdf)
 - [16: Estimating seal abundances](lectures/Gurarie_EstimatingAntarcticSealAbundances.pdf)
+- [17: Comment on sequential megafaunal collapse](lectures/CommentOnSequentialMegafaunalCollapse.pdf)
 
 ### Numerical analysis tools
 
@@ -84,6 +91,17 @@ Lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. 
 - [3b: Matrix Modeling](labs/lab7/Lab7b_MatrixModels.html)
 - [4: Competition in R](labs/lab8/Lab08_ParameciumCompetion.html)
 - [5: Apparent competition](labs/lab9/Lab09_ApparentCompetition.html)
+
+
+### Problem Sets
+
+- [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
+  - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
+
+- [Problem Set 3](problemsets/ProblemSet3.html) - Due **April 18, 2022**
+  - This homework requires downloading data files and code from [here](labs/lab8/data) and experimenting with the [Apparent Competition Simulator](https://egurarie.shinyapps.io/apparentcompetition/). 
+
+
 
 
 <!--
