@@ -1,10 +1,10 @@
 ---
 title: "Population Ecology"
-subtitle: "EFB 370: Spring 2022"
+subtitle: "EFB 370: Spring 2023"
 author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
-  rmdformats::readthedown:
-    toc_depth: 5
+  rmdformats::html_docco:
+    toc_depth: 4
     thumbnails: TRUE
     anchor_sections: FALSE
 ---
@@ -25,7 +25,6 @@ htmltools::img(src = "assets/wolfcariboumoose.png",
 ```
 
 
-
 ### Course Materials
 
 This course is cotaught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-12).   
@@ -33,11 +32,18 @@ This course is cotaught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurar
 
 ### Lectures
 
-- [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
 
 #### Topic I. Exponential Growth
 
 - [1: Basic Models](lectures/01_ExponentialGrowth_PartI.html)
+
+### Numerical analysis tools
+
+- [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
+
+
+<!--
+- [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
 - [2: Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
 - [3: Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
 

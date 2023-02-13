@@ -36,10 +36,6 @@ runLV <- function(tmax, dt=.01,
          parms = parms)
 }
 
-# parms = c(gamma=1, sigma=1, r=1, q=1, p0=.5, v0=2)
-# a <- runLV(40,.01,parms)
-# plotLV(a, 5)
-
 plotLV <- function(sim, t.show){
     par(mar = c(3,3,2,2), bty = "l", mgp = c(1.5,.25,0),
         tck = 0.01, cex.lab = 1.2)
