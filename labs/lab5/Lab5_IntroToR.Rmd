@@ -1,7 +1,7 @@
 ---
 title: "Week 5: Introduction to R and Linear Models for Exponential Growth"
 subtitle: 'EFB 370 - Spring 2022'
-author: "Nate Wehr and Dr. Elie Gurarie"
+author: "Dr. Elie Gurarie and Ekaterina Khadonova"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -25,7 +25,7 @@ R is a command-line program, which means commands are entered line-by-line at th
 
 There are two ways of entering commands (telling R to do a certain thing): either typing them out carefully into the "Console Window" (the lower-left window in Rstudio) and hitting `Enter` or writing and editing lines in the script window (upper-left window in Rstudio), and "passing" the code into the console by hitting `Ctrl+Enter`.
 
-In general, it is better to do all of your coding in a script window, and then save the raw code file as a text document, which you can revisit and re-run at any point later. To create a new R script document, go to the upper-left corner, press `File` - `New file` - `R Script` or press `ctrl` + `shift` + `N`
+In general, it is better to do all of your coding in a script window, and then save the raw code file as a text document, which you can revisit and re-run at any point later. To create a new R script document, go to the upper-left corner, press `File` - `New file` - `R Script` or press `Ctrl` + `Shift` + `N`
 
 ## R is a calculator
 
@@ -38,7 +38,7 @@ sqrt((20-19)^2 + (19-19)^2 + (19-18)^2)/2
 
 ## Assigning variable names
 
-The assignment operator is `<-`. It's supposed to look like an arrow pointing left (the shortcut for entering it is `Alt` and `-`).
+The assignment operator is `<-`. It's supposed to look like an arrow pointing left (the shortcut for entering it is `Alt` + `-`).
 
 ```{r}
 X <- 5  	# sets X equal to 5 
@@ -89,7 +89,7 @@ X^2
 
 Note that in all of these cases, the arithmetic operations are performed on a term-by-term basis.
 
-We can very quickly look at some exponential growth (e.g. using Washington sea otter numbers: N0 = 60, 50 years gone by, and an annual growth rate of 7%:
+We can very quickly look at some exponential growth (e.g. using Washington sea otter numbers: N0 = 60, 50 years gone by, and an annual growth rate of 7%. Now, a growth rate of 7% means that it is 7% *more* than the original number, which is 100% (or 1).  
 
 ```{r}
 years <- 0:60
@@ -102,22 +102,17 @@ N0*lambda^years
 
 > You can get some really quick population growth answers this way.  Compute how many sea otters there will be by 2050 and 2100 (80 and 130 years after release).  *HINT: you can just replace the vector with a single number*. 
 
-```{r}
-N0*lambda^80
-N0*lambda^130
-```
-
 
 ## Multiple Vectors and Data Frames
 
-Data is most often multiple vectors of the same length. If we create a second vector `Y` we can use it alongside our first vector `X` using the `data.frame()` command: 
+Data is most often multiple vectors of the same length. If we create a second vector `Y` we can use it alongside our first vector `X` using the `data.frame()` command. Now, both vectors became columns in our new data frame!
 
 ```{r}
 Y <- c(1,2,3)
 data.frame(X,Y)
 ```
 
-That just outputs the data, but you should save it another object:
+Running that command as a single line just outputs the data and allows us to look at it. To perform operations with it, you should save it as another object:
 
 ```{r}
 mydata <- data.frame(X,Y)
@@ -126,22 +121,15 @@ mydata <- data.frame(X,Y)
 A data frame has columns with names:
 
 ```{r}
-ncol(mydata)
-names(mydata)
+ncol(mydata) # ncol() gives us a number of columns that this data frame has
+names(mydata) # names() lists all column names that this data frame has 
 ```
-A column can be extracted from a dataframe with a `$`:
+A column can be extracted (or called) from a dataframe with a `$`:
 
 ```{r}
 mydata$X
 mydata$Y
 ```
-
-
-<!-- ## Exercise 2: Create a data frame -->
-
-<!-- > Create a data frame called `myseaotters` that contains the number of years from 0 to 130 and the predicted population, starting at 60 animals with a lambda rate of 1.07.  -->
-
-
 
 # Part 2: Loading and Exploring Data
 
@@ -155,26 +143,29 @@ This is what sea lion pups look like:
 
 ![](pups_small.jpg)
 
-This dataset is available on Blackboard. Once you download it, you can use the File Explorer to determine its location and read it into R.
+This dataset is available on Blackboard. Once you download it, you can use the File Explorer to determine its location and read it into R. You can do it in a couple of ways. First, you can modify and run this line of code:
 
 ```{r, echo = FALSE}
 SeaLions <- read.csv("SeaLions.csv")
 ```
 
 ```{r, eval = FALSE}
-SeaLions <- read.csv("<insert the directory>/SeaLions.csv")
+SeaLions <- read.csv("insert the directory instead of this sentence/SeaLions.csv")
 ```
 
-If you copy and paste the file directory in, you have to change the direction of the slashes. Note that `csv` is a **text based** file type (Comma Separated Values) - it just means that commas between entries separate columns.  You can save any Excel file as a `csv` using the Save As function.  CSVs are by far the the most common and convenient file type used for loading into R.
+A directory is another way to refer to a folder or, simply, a location of a data file on your computer. You can get the address of the directory if you open the folder where you saved the file through File Explorer, right-click on the navigation bar and select `Copy address as text` option. Note: If you copy and paste the file directory in, you **have to change the direction of the slashes** from `\` to `/`! 
+
+
+Note that `csv` is a **text based** file type (Comma Separated Values) - it just means that commas between entries indicate separate columns.  When a program "reads" the file, it "knows" that a comma means the end of one column and the start of another one. You can save any Excel file as a `csv` using the Save As function. CSVs are by far the the most common and convenient file type used for loading into R.
 
 Alternatively, you can import datasets into `R` using the `RStudio` interface. To do this:
 
-> 1. Click `File`
-> 2. Hover over `Import Dataset`
-> 3. Select `From Text` (or if you're doing this with a different file type in the future, the matching type of file)
-> 4. Navigate to the SeaLions dataset, highlight it, and click `open`
+> 1. Navigate to the `Files` tab in the bottom right corner of RStudio
+> 2. Click on "SeaLions.csv" 
+> 3. RStudio will prompt you to either view the file or import the dataset. You want to import, so hit `Import File`
+> 4. A pop-up window will appear, showing you the preview of the data frame. Click `Import` and observe that your file is now loaded - it should have appeared in your Environment in the top right corner of RStudio. 
 
-This will automatically input the proper code into the console and save your file to the environment. Note that the file has the same name rather than a name you designate for it.
+This method does the same exact thing as the line of code above. It will automatically input the proper code into the console and save your file to the environment. Note that the file has the same name rather than a name you designate for it.
 
 ## Working with data frames
 
@@ -211,10 +202,10 @@ sd(Length) #standard deviation
 
 ### Histogram
 
-A histogram can show us the distribution of a single continuous variable:
+A histogram (invoked by `hist()` command) can show us the distribution of a single continuous variable:
 
 ```{r, echo = -1}
-par(mfrow = c(1,2))
+par(mfrow = c(1,2)) #do not worry about this line - this simply puts two graphs side-by-side
 hist(Length)
 hist(Weight)
 ```
@@ -237,34 +228,23 @@ A scatterplot shows us relationships between two continuous variables:
 plot(Length, Weight)
 ```
 
-## Exercise 3: Plot the sea otter population growth
+## Exercise 2: Download and plot the sea otter population growth
 
-> Plot the `myseaotter` data frame you download through.... 
+### Importing Data
 
-Meaning plotting the year column against count column  
-
-## Importing Data
-
-The first step is to import our new dataset. This time with sea otters. 
+> The first step is to import our new dataset. Perform the same steps as we did with the sea lions one 
 
 ```{r, echo = FALSE}
 SeaOtters <- read.csv("SeaOtters.csv")
 ```
 
-```{r, eval = FALSE}
-SeaOtters <- read.csv("<insert your directory>/SeaOtters.csv")
-```
+### Plotting Data 
 
-Let's double check that the data we imported matches our Excel file.
+> Plot the downloaded frame, using the "Year" column on the X-axis and "Count" column on the y-axis. Hint: you will need to extract these columns before plotting.
 
-```{r}
-head(SeaOtters)
-```
-
-```{r}
+```{r, echo=FALSE}
 plot(SeaOtters$year, SeaOtters$count)
 ```
-
 
 
 # Part 3: Linear Models for Exponential Growth
@@ -376,9 +356,9 @@ summary(Model2)
 Note how our statistics changed.  Specifically: our $\beta$ estimate (which is also $r$) is now 0.07325, which is a good estimate of the intrinsic growth rate.  Even better, we know have a standard error around that estimate: 0.00237, which means our growth rate can be written as:  $\widehat{r} = (7.32 \pm 0.47)\times 10^{-2}$.  We can convert that to an annual growth rate in R as well (*do NOT worry about understanding the following code*:
 
 ```{r}
-# r.hat <- summary(Model2)$coefficients[2,1]
-# r.sd <- summary(Model2)$coefficients[2,2]
-# exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
+r.hat <- summary(Model2)$coefficients[2,1]
+r.sd <- summary(Model2)$coefficients[2,2]
+exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
 ```
 
 So our estimate of annual population growth is 7.6% (95% Confidence Interval 7.1%-8.1%)

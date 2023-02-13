@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Nate Wehr and Dr. Elie Gurarie" />
+<meta name="author" content="Dr. Elie Gurarie and Ekaterina Khadonova" />
 
 <meta name="date" content="2023-02-13" />
 
@@ -1488,7 +1488,7 @@ border-radius: 0px;
 <h1 class="title toc-ignore">Week 5: Introduction to R and Linear Models
 for Exponential Growth</h1>
 <h3 class="subtitle">EFB 370 - Spring 2022</h3>
-<h4 class="author">Nate Wehr and Dr. Elie Gurarie</h4>
+<h4 class="author">Dr. Elie Gurarie and Ekaterina Khadonova</h4>
 <h4 class="date">2023-02-13</h4>
 
 </div>
@@ -1505,15 +1505,20 @@ and how it works.</p>
 <p>R is a command-line program, which means commands are entered
 line-by-line at the prompt. Being a programming language it is very
 finicky. Everything has to be entered exactly right - including
-case-sensitivity.</p>
-<p>There are two ways of entering commands: either typing them out
-carefully into the “Console Window” (the lower-left window in Rstudio)
-and hitting <code>Enter</code> or writing and editing lines in the
-script window (upper-left window in Rstudio), and “passing” the code
-into the console by hitting <code>Ctrl+Enter</code>.</p>
+case-sensitivity. So, a <code>Plot</code> entry is different from
+<code>plot</code>!</p>
+<p>There are two ways of entering commands (telling R to do a certain
+thing): either typing them out carefully into the “Console Window” (the
+lower-left window in Rstudio) and hitting <code>Enter</code> or writing
+and editing lines in the script window (upper-left window in Rstudio),
+and “passing” the code into the console by hitting
+<code>Ctrl+Enter</code>.</p>
 <p>In general, it is better to do all of your coding in a script window,
 and then save the raw code file as a text document, which you can
-revisit and re-run at any point later.</p>
+revisit and re-run at any point later. To create a new R script
+document, go to the upper-left corner, press <code>File</code> -
+<code>New file</code> - <code>R Script</code> or press <code>ctrl</code>
++ <code>shift</code> + <code>N</code></p>
 </div>
 <div id="r-is-a-calculator" class="section level2">
 <h2>R is a calculator</h2>
@@ -1529,8 +1534,9 @@ revisit and re-run at any point later.</p>
 <div id="assigning-variable-names" class="section level2">
 <h2>Assigning variable names</h2>
 <p>The assignment operator is <code>&lt;-</code>. It’s supposed to look
-like an arrow pointing left.</p>
-<pre class="r"><code>X &lt;- 5      # sets X equal to 5</code></pre>
+like an arrow pointing left (the shortcut for entering it is
+<code>Alt</code> and <code>-</code>).</p>
+<pre class="r"><code>X &lt;- 5      # sets X equal to 5 </code></pre>
 <p>Using the assignment operator sets the value of <code>X</code> but
 doesn’t print any output. To see what <code>X</code> is, you need to
 type:</p>
