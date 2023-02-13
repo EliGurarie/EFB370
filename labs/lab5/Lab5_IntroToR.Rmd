@@ -10,7 +10,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, mmessage = FALSE)
+knitr::opts_chunk$set(echo = TRUE, 
+                      warnings = FALSE, 
+                      mmessage = FALSE)
 ```
 
 # Part 1: Basics
@@ -19,11 +21,11 @@ knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, mmessage = FALSE)
 
 ## Introduction
 
-R is a command-line program, which means commands are entered line-by-line at the prompt. Being a programming language it is very finicky. Everything has to be entered exactly right - including case-sensitivity.
+R is a command-line program, which means commands are entered line-by-line at the prompt. Being a programming language it is very finicky. Everything has to be entered exactly right - including case-sensitivity. So, a `Plot` entry is different from `plot`!
 
-There are two ways of entering commands: either typing them out carefully into the "Console Window" (the lower-left window in Rstudio) and hitting `Enter` or writing and editing lines in the script window (upper-left window in Rstudio), and "passing" the code into the console by hitting `Ctrl+Enter`.
+There are two ways of entering commands (telling R to do a certain thing): either typing them out carefully into the "Console Window" (the lower-left window in Rstudio) and hitting `Enter` or writing and editing lines in the script window (upper-left window in Rstudio), and "passing" the code into the console by hitting `Ctrl+Enter`.
 
-In general, it is better to do all of your coding in a script window, and then save the raw code file as a text document, which you can revisit and re-run at any point later. 
+In general, it is better to do all of your coding in a script window, and then save the raw code file as a text document, which you can revisit and re-run at any point later. To create a new R script document, go to the upper-left corner, press `File` - `New file` - `R Script` or press `ctrl` + `shift` + `N`
 
 ## R is a calculator
 
@@ -36,10 +38,10 @@ sqrt((20-19)^2 + (19-19)^2 + (19-18)^2)/2
 
 ## Assigning variable names
 
-The assignment operator is `<-`. It's supposed to look like an arrow pointing left.
+The assignment operator is `<-`. It's supposed to look like an arrow pointing left (the shortcut for entering it is `Alt` and `-`).
 
 ```{r}
-X <- 5  	# sets X equal to 5
+X <- 5  	# sets X equal to 5 
 ```
 
 Using the assignment operator sets the value of `X` but doesn't print any output. To see what `X` is, you need to type:
@@ -100,6 +102,11 @@ N0*lambda^years
 
 > You can get some really quick population growth answers this way.  Compute how many sea otters there will be by 2050 and 2100 (80 and 130 years after release).  *HINT: you can just replace the vector with a single number*. 
 
+```{r}
+N0*lambda^80
+N0*lambda^130
+```
+
 
 ## Multiple Vectors and Data Frames
 
@@ -130,9 +137,9 @@ mydata$Y
 ```
 
 
-## Exercise 2: Create a data frame
+<!-- ## Exercise 2: Create a data frame -->
 
-> Create a data frame called `myseaotters` that contains the number of years from 0 to 130 and the predicted population, starting at 60 animals with a lambda rate of 1.07. 
+<!-- > Create a data frame called `myseaotters` that contains the number of years from 0 to 130 and the predicted population, starting at 60 animals with a lambda rate of 1.07.  -->
 
 
 
@@ -232,14 +239,9 @@ plot(Length, Weight)
 
 ## Exercise 3: Plot the sea otter population growth
 
-> Plot the `myseaotter` data frame you made in Exercise 2. 
+> Plot the `myseaotter` data frame you download through.... 
 
-
-
-
-# Part 3: Linear Models for Exponential Growth
-
-> The following examples show you how to do a linear regression model and a log transformation model
+Meaning plotting the year column against count column  
 
 ## Importing Data
 
@@ -258,6 +260,17 @@ Let's double check that the data we imported matches our Excel file.
 ```{r}
 head(SeaOtters)
 ```
+
+```{r}
+plot(SeaOtters$year, SeaOtters$count)
+```
+
+
+
+# Part 3: Linear Models for Exponential Growth
+
+> The following examples show you how to do a linear regression model and a log transformation model
+
 
 ## Extract variables and explore
 
@@ -326,17 +339,17 @@ plot(Year, Count)
 abline(Model1)
 ```
 
-Note, `abline` is a function that adds an intercept-slope line to any existing plot. 
+<!-- Note, `abline` is a function that adds an intercept-slope line to any existing plot.  -->
 
-There are some problems with this model.  What are they?  
+<!-- There are some problems with this model.  What are they?   -->
 
-You can see one issue if you plot the model residuals as follows:
+<!-- You can see one issue if you plot the model residuals as follows: -->
 
 ```{r}
-plot(Model1,1)
+# plot(Model1,1)
 ```
 
-Do those residuals look consistently normally distributed? 
+<!-- Do those residuals look consistently normally distributed?  -->
 
 ## Log Transformation
 
@@ -363,9 +376,9 @@ summary(Model2)
 Note how our statistics changed.  Specifically: our $\beta$ estimate (which is also $r$) is now 0.07325, which is a good estimate of the intrinsic growth rate.  Even better, we know have a standard error around that estimate: 0.00237, which means our growth rate can be written as:  $\widehat{r} = (7.32 \pm 0.47)\times 10^{-2}$.  We can convert that to an annual growth rate in R as well (*do NOT worry about understanding the following code*:
 
 ```{r}
-r.hat <- summary(Model2)$coefficients[2,1]
-r.sd <- summary(Model2)$coefficients[2,2]
-exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
+# r.hat <- summary(Model2)$coefficients[2,1]
+# r.sd <- summary(Model2)$coefficients[2,2]
+# exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
 ```
 
 So our estimate of annual population growth is 7.6% (95% Confidence Interval 7.1%-8.1%)
@@ -394,10 +407,10 @@ The commands we're using within the `plot` function include setting the title of
 ### Check Your New Residuals
 
 ```{r}
-plot(Model2, 1)
+# plot(Model2, 1)
 ```
 
-These look better!  (Though it takes practice to understand good vs. bad residuals.)
+<!-- These look better!  (Though it takes practice to understand good vs. bad residuals.) -->
 
 
 
