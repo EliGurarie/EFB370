@@ -394,7 +394,7 @@ The commands we're using within the `plot` function include setting the title of
 
 
 
-## Extra packages (extra material)
+## Extra packages (optional material)
 
 It can be a bit fussy to plot the confidence interval around our prediction.  Below, we include a little snippet of code which does just that, but you have to install a new "library" called `ggplot2`, which has a bunch of fancier graphing tools. 
 
