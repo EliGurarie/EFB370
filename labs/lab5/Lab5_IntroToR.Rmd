@@ -228,6 +228,7 @@ boxplot(Weight ~ Sex)
 A scatterplot shows us relationships between two continuous variables:
 
 ```{r, echo = -1}
+par(mfrow = c(1,2))
 plot(Length, Weight)
 ```
 
