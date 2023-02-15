@@ -33,7 +33,8 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 ### Lectures
 
 - [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html)
-- [2: Stochasticity and Fitting](lectures/ModuleI/ExponentialGrowth_PartII.html)
+- [2: Linear Modeling for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
+- [3: Exponential Growth with Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html)
 
 ### Recitation/Lab
 
