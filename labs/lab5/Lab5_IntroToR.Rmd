@@ -98,10 +98,13 @@ N0 <- 50
 N0*lambda^years
 ```
 
+<font color = "#2E8B57">
+
 ## Exercise 1: Calculate population growth
 
 > You can get some really quick population growth answers this way.  Compute how many sea otters there will be by 2050 and 2100 (80 and 130 years after release).  *HINT: you can just replace the vector with a single number*. 
 
+</font>
 
 ## Multiple Vectors and Data Frames
 
@@ -191,11 +194,11 @@ Sex <- SeaLions$Sex
 Some basic summary statistics include:
 
 ```{r}
-range(Length) #range
-median(Length) #median
-mean(Length) #mean
-var(Length) #variance
-sd(Length) #standard deviation
+range(Length) # range
+median(Length) # median
+mean(Length) # mean
+var(Length) # variance
+sd(Length) # standard deviation
 ```
 
 ## Graphical Summaries
@@ -205,7 +208,7 @@ sd(Length) #standard deviation
 A histogram (invoked by `hist()` command) can show us the distribution of a single continuous variable:
 
 ```{r, echo = -1}
-par(mfrow = c(1,2)) #do not worry about this line - this simply puts two graphs side-by-side
+par(mfrow = c(1,2)) 
 hist(Length)
 hist(Weight)
 ```
@@ -228,6 +231,8 @@ A scatterplot shows us relationships between two continuous variables:
 plot(Length, Weight)
 ```
 
+<font color = "#2E8B57">
+
 ## Exercise 2: Download and plot the sea otter population growth
 
 ### Importing Data
@@ -242,9 +247,11 @@ SeaOtters <- read.csv("SeaOtters.csv")
 
 > Plot the downloaded frame, using the "Year" column on the X-axis and "Count" column on the y-axis. Hint: you will need to extract these columns before plotting.
 
-```{r, echo=FALSE}
+```{r, eval=FALSE}
 plot(SeaOtters$year, SeaOtters$count)
 ```
+
+</font>
 
 
 # Part 3: Linear Models for Exponential Growth
@@ -319,17 +326,17 @@ plot(Year, Count)
 abline(Model1)
 ```
 
-<!-- Note, `abline` is a function that adds an intercept-slope line to any existing plot.  -->
+<!-- Note, `abline` is a function that adds an intercept-slope line to any existing plot. 
 
-<!-- There are some problems with this model.  What are they?   -->
+ There are some problems with this model.  What are they? 
 
-<!-- You can see one issue if you plot the model residuals as follows: -->
+ You can see one issue if you plot the model residuals as follows: 
 
 ```{r}
 # plot(Model1,1)
 ```
 
-<!-- Do those residuals look consistently normally distributed?  -->
+Do those residuals look consistently normally distributed?  -->
 
 ## Log Transformation
 
@@ -364,7 +371,7 @@ exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
 So our estimate of annual population growth is 7.6% (95% Confidence Interval 7.1%-8.1%)
 
 
-Note how much right the $R^2$ value is!   This is (by that measure also) a much better fit.  
+Note how much higher the $R^2$ value is! This is (by that measure also) a much better fit.  
 
 Let's visualize the fit:
 
@@ -384,13 +391,16 @@ abline(Model2, col = "blue")
 
 The commands we're using within the `plot` function include setting the title of the graph (`main =`), changing the color of the symbols and the line (`col =`), and changing the shape of the symbols (`pch =`). There also many more alterations you can make to get your graph perfect - but that can be a deep dark `R`abbit hole!
 
+
+<!--
+
 ### Check Your New Residuals
 
 ```{r}
 # plot(Model2, 1)
 ```
 
-<!-- These look better!  (Though it takes practice to understand good vs. bad residuals.) -->
+ These look better!  (Though it takes practice to understand good vs. bad residuals.) -->
 
 
 
@@ -407,12 +417,9 @@ You only need to install a package once on your computer. After that, it will al
 
 Alternatively, you can use the `R` interface to install new packages. To do so:
 
-> Click the `Packages` tab in the bottom right window of `Rstudio`
-
-> Click `Install`
-
-> Leave the defaults in place; in the blank "packages" line, type the name of the package you want. `RStudio` should automatically fill this in with suggestions. Use a comma to separate the names of multiple package if installing more than one simultaneously. 
-
+> Click the `Packages` tab in the bottom right window of `Rstudio` and  click `Install`
+> ... or ... go to `Tools > Ìnstall Packages` in the menu bar. 
+> In the blank "packages" line, start typing the name of the package you want. `RStudio` should automatically fill this in with suggestions. Use a comma to separate the names of multiple package if installing more than one simultaneously. 
 > Click `Install`
 
 This will automatically put the correct code in the console for you. 
