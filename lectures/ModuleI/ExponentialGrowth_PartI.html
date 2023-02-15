@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Exponential Growth: Part I</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Elie Gurarie" />
+    <meta name="date" content="2023-02-13" />
+    <script src="ExponentialGrowth_PartI_files/header-attrs-2.20/header-attrs.js"></script>
+    <script src="ExponentialGrowth_PartI_files/fabric-4.3.1/fabric.min.js"></script>
+    <link href="ExponentialGrowth_PartI_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
+    <script src="ExponentialGrowth_PartI_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link href="ExponentialGrowth_PartI_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="ExponentialGrowth_PartI_files/tile-view-0.2.6/tile-view.js"></script>
+    <link rel="stylesheet" href="mycss.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, top, title-slide
+
+.title[
+# <strong>Exponential Growth: Part I</strong>
+]
+.subtitle[
+## .white[EFB 370: Population Ecology]
+]
+.author[
+### <strong>Dr. Elie Gurarie</strong>
+]
+.date[
+### <strong>February 13, 2023</strong>
+]
+
+---
+
+
+&lt;!-- https://bookdown.org/yihui/rmarkdown/xaringan-format.html --&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pull-left[
+
+## Goals 
+### (concepts / buzzwords / jargon)
+
+- The Population Equation 
+- Closed vs. Open Population 
+- Unconstrained (density independent) Growth
+- Geometric Growth = Exponential Growth
+- Discrete Time vs. Continuous Time Models
+- Difference Equations vs. Differential Equations
+- Population growth parameters: 
+  - continuous / discrete / per capita / per unit time
+- Amazing properties of exponential and log.
+] 
+
+.pull-right[
+
+## *Suggested* reading
+
+- Gotelli: Chapter 1 (first half)
+- Neal: Chapter 4
+]
+
+---
+
+## Meet ... *Enhydra lutris*
+
+&lt;img src="images/seaotterrocks.jpg" width = 600 style="float: left; padding: 5px 40px 5px 5px;" align = "left"/&gt;
+
+.large[The largest ...]
+
+--
+
+- **Mustelid**
+
+
+.large[The smallest ...]
+
+--
+
+**Marine mammal**
+
+.large[By far the furriest ...]
+
+Guess how may hairs / sq. inch ?  
+(*Hint, humans are born with  ~100,000 TOTAL.* )
+
+--
+
+**1,000,000**
+
+
+---
+
+## Sea otters: Range
+
+.pull-left-60[![](images/range.jpg)]
+.pull-right-40.Large[*Littorally* the entire North Pacific]
+
+---
+
+## Sea otters: Keystone Species
+
+![](images/seaotter_foodweb.jpg)
+
+(Estes et al. 1974)
+
+---
+
+.pull-left-50[
+
+## Sea otters: Furriness &gt; Cuteness
+
+![](images/furtrade.jpg)
+]
+
+
+.pull-right-30[
+
+![](images/furs.jpg)
+]
+.pull-left[
+- Fur trade (Russian -&gt; British -&gt; American) leads to near **extirpation** across the entire range.
+- **&gt; 300,000 in 1740 ... &lt; 2,000 in 1900**.  
+- Displacement and indenturing of Indigeneous fishermen (esp. Aleut)
+]
+.pull-right[
+&gt; .footnotesize[*... the rush for the otters’ “soft gold” was a predictable boom and bust ... a cautionary example of unsustainable resource use, and a socioeconomic driver of Western — mainly American — involvement in the Pacific region,*  (Loshbaugh 2021)]
+
+]
+
+---
+
+
+.pull-left[
+## Sea otters: Not totemic
+
+.box-grey[
+... a sea otter hunter who was “lazy, spiteful, malicious or disregarded the teaching of the elders” would find his prey “cavorting around his baidarka ... teas[ing] and splash[ing] him with water.”  *(Innokentiy Venianimov, 1840)*
+]
+
+![](images/seaotter_JohnLivingston.png)
+.center[*art by John Livingston*]
+
+] 
+
+.pull-right[
+### ... but culturally significant
+ 
+&lt;iframe src="https://www.youtube.com/embed/ZyYH4KBHKU4?controls=0" width = "300"&gt;
+&lt;/iframe&gt;
+
+.small[See: https://www.youtube.com/watch?v=ZyYH4KBHKU4]
+
+
+### across N. Pacific ...
+.scriptsize[
+
+.pull-left[
+| culture | name |
+|---|---|
+| [Ainu](https://en.wikipedia.org/wiki/Ainu_people) | Esaman |
+| [Koryak](https://en.wikipedia.org/wiki/Koryaks) | Kalan (also Russian) |
+| [Aleut](https://en.wikipedia.org/wiki/Aleut) | Chngatux |
+| [Alutiiq](https://en.wikipedia.org/wiki/Alutiiq) | Arhnaq |
+]
+
+.pull-right[
+| culture | name |
+|---|---|
+| [Tlingit](https://en.wikipedia.org/wiki/Tlingit) | Yáxwchʼ |
+| [Haida](https://en.wikipedia.org/wiki/Haida) | Ku |
+| [Nuu chah nulth](https://en.wikipedia.org/wiki/Nuu-chah-nulth) | Кwak̕aƛ |
+| [Siletz](https://en.wikipedia.org/wiki/Siletz) | Elakha |
+]
+]
+]
+
+
+
+---
+
+## Sea otter reintroduction: Pacific NW
+
+Remnant populations from Aleutian Islands ... released in OR, WA, BC and SE-AK  1969 – 1972. 
+
+.center[
+&lt;img src="images/introduction.jpg" alt="Reintroduction trade" height="300"/&gt;
+&lt;img src="images/introduction2.jpg" alt="Reintroduction trade" height="300"/&gt;
+]
+
+
+
+---
+
+## Sea otter reintroduction: Washington State ... 
+
+.pull-left[![](images/wa_range.png)]
+.pull-right[
+1970: 60 otters
+
+![](ExponentialGrowth_PartI_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+2010's: over 1000
+]
+
+.center[***Successful!***]
+
+
+
+---
+
+## Population ecology is all about ... 
+
+ `$$\huge N$$`
+
+ but where?  when? 
+
+--
+
+## Here! Now! ..
+
+`$$\huge N_t$$`
+
+ but how many were there? 
+
+---
+
+## That many, then `\(\Delta t\)` ago!
+
+`$$\Large N_t = N_{t - \Delta t} + \Delta N$$`
+
+slight rearrangement:
+
+`$$\Large N_{t+1} = N_t + \Delta N$$`
+
+For now, `\(\Delta t = 1\)`, i.e. it's the discrete unit that we measure population change.  VERY TYPICALLY - whether because of biology or field seasons:  `$$\Delta t = 1\,\, \textrm{year}$$`. 
+
+---
+
+## How does population change?
+
+`$$\Large N_{t+1} = N_t + (B - D) + (I - E)$$`
+
+
+### **B**irth
+### **D**eath
+### **I**mmigration
+### **E**migration 
+
+---
+  
+## Assumption 1: no one's getting on or off the bus
+
+`$$\Large N_{t+1} = N_t + B - D$$`
+
+### **B**irth
+### **D**eath
+
+### ~~.red[**I**mmigration]~~
+### ~~.red[**E**migration]~~
+
+.center[This is a .darkblue[**closed**] (vs. **open**) .darkblue[**population**] ...]
+
+---
+
+## Assumption 2: the important one
+
+The number of *Births* and *Deaths* is proportional to *N*.
+
+`$$\Large N_{t+1} = N_t + bN_t - dN_t$$`
+What does that mean? 
+
+.pull-left[
+- Every female gives birth to the same number of offspring? 
+- Every female has the same *probability* of giving birth?  
+- Every female has the same *probability* of giving birth to the same *distribution* of offspring? 
+]
+
+.pull-right[
+- A fixed proportion of all individuals dies? 
+- Every individual has the same *probability* of dying? 
+- the *distribution* of probabilities of dying is constant? 
+]
+
+---
+
+## Some math ....
+
+Define `$$r_0 = b - d$$`
+
+`\(r_0\)`: **discrete growth factor**,
+
+`$$N_{t+1} = N_t + r_0 N_t$$`
+`$$N_{t+1} = (1 + r_0) N_t$$`
+
+
+
+`$$N_{t+1} = \lambda N_t$$`
+
+
+
+`\(\lambda\)` is .blue[**rate of growth (or decrease)**]
+
+- If `\(d &gt; b\)`, `\(\lambda &lt; 1\)`.  
+- If `\(b &gt; d\)`, `\(\lambda &gt; 1\)`.
+
+---
+ 
+## Cranking this forward
+
+`$$N_{t+1} = \lambda(N_t)$$`
+`$$N_{t+2} = \lambda(N_{t+1}) = \lambda^2 N_t$$`
+`$$N_{t+3} = \lambda^3 N_t$$`
+
+Solution:
+
+`$$\large N_{t+y} = \lambda^y N_t$$`
+or 
+
+`$$\huge N_t = \lambda^t N_0$$`
+
+.center[***Geometric*** (same as ***Exponential***) growth.]
+
+---
+
+## Some examples
+
+![](ExponentialGrowth_PartI_files/figure-html/LambdaExamples2-1.png)&lt;!-- --&gt;
+
+
+---
+
+## How fast is exponential/geometric growth?
+
+.pull-left-60[
+![](images/chess.jpg)
+
+Legend says the inventor of chess (in India) so delighted the raja, he was offered anything he wanted. 
+
+Inventor said, not much.  One grain of rice on one square, 2 on the next, 4 on the next and so on till the board is filled. 
+]
+ 
+--
+
+.pull-right-40[
+![](images/chessrice.jpg)
+
+Not only is there not enough rice in India to fill such a chessboard, **there are not enough atoms on earth**.  
+]
+---
+
+## Note what the log-scale does
+
+![](ExponentialGrowth_PartI_files/figure-html/LambdaExamples-1.png)&lt;!-- --&gt;
+
+
+---
+
+## Estimating some rates ... discrete
+
+.pull-left-30[![](images/seaotter_cute.jpg)]
+
+.pull-right-70[
+
+The amazing thing is, if you have an equation "solved", you only need 2 points on the curve to compute. 
+
+Let's use the discrete equation: 
+
+`$$N_{t+y} = \lambda^y N_t$$`
+`$$1000 = 60 \times \lambda^{40}$$`
+`$$16.7 = \lambda^{40}$$`
+`$$2.81 = 40 \times \log (\lambda)$$`
+`$$0.07025 = \log (\lambda)$$`
+`$$\lambda = \exp(0.07025) = 1.0728$$`
+
+i.e. population increase about `$$7.28\%/year$$`. 
+]
+ 
+
+---
+
+## Washington sea otter fit to data (7.025% discrete growth)
+
+.pull-left-70[
+![](images/SeaOttersFitted.png)
+![](ExponentialGrowth_PartI_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+]
+
+.pull-right-30[
+### This is an EXCELLENT fit 
+
+
+but why isn't it *perfect*?
+
+.darkgreen[What are some potential sources of **variation**?]
+]
+
+
+---
+## Discrete Model to Continuous Model
+
+.pull-left[
+
+Let's do some trickery, starting with:
+`$$N_{t+1} = (1 + r_0) \, N_t$$`
+`$$N_{t+1} - N_t = r_0 N_t$$`
+`$$N_{t+\Delta t} - N_t = r_{\Delta t} N_t$$`
+
+`$$\lim_{\Delta t \to 0} {\Delta N \over \Delta t} =  \lim_{\Delta t \to 0}  {r_{\Delta t} \over \Delta t} N$$`
+]
+
+.pull-right[
+
+Magically define: 
+`$${r_\Delta \over \Delta t} = r$$` and rewrite `\(\Delta\)` as `\(d\)`:
+
+.blue[$$\large {dN \over dt} = r N$$]
+
+
+&gt; .darkblue.large[This is a ***differential*** (vs. difference) equation]
+
+]
+
+---
+
+
+.large.green[**Solve this:**
+ `$$\large {dN \over dt} = r N$$`]
+ 
+ where: `$$N(t = 0) = N_0$$`
+
+.pull-left[
+.small[Integration is fun!  (*but you don't need to know how to do this*)]
+
+.small[
+`$$\begin{align}
+    {1\over N} dN &amp;= r dt \\
+    \int_{t' = t_0}^t {1 \over N(t)} dN &amp;= \int_{t' = t_0}^t r dt  \\
+    \log(N) &amp;= rt + C_0 \\
+    N &amp;= e^{rt + C_0} \\
+\end{align}$$`
+]
+]
+
+.pull-right[
+.large.red[**Solution:**
+`$$\large N(t) = N_0 e^{rt}$$`]
+
+&gt; **Incredibly Interesting And Important Fact:** 
+The exponential function is the ONLY function whose derivative is proportional to itself. 
+
+]
+
+
+---
+
+## Some examples
+
+![](ExponentialGrowth_PartI_files/figure-html/ContinuousGrowth-1.png)&lt;!-- --&gt;
+
+
+---
+
+.pull-left[
+## Note crazy fast growth
+
+![](ExponentialGrowth_PartI_files/figure-html/ContinuousGrowth_v2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+## and how straight on a log-scale
+
+![](ExponentialGrowth_PartI_files/figure-html/ContinuousGrowth_v3-1.png)&lt;!-- --&gt;
+]
+
+
+---
+
+
+## Discrete vs. Continuous Modeling
+
+.pull-left[
+
+**Difference equations**
+`$$N_{t+\Delta t}  - N_t = \lambda_{\Delta t} N_t$$`
+
+think of *absolute change*
+
+**Pros:**
+
+- Reflects (often) biological reproduction patterns, practical sampling schedule (esp. annual)
+- Intuitive 
+
+**Cons:**
+
+- Depends on discretization timescale
+- Surprisingly difficult to analyze
+]
+
+.pull-right[
+
+**Differential equations**
+`$${dN \over dt} = r N$$`
+
+think of *rates* (change/time).
+
+**Pros**
+
+- Easier "elegant" mathematical analysis
+- Scales nicely
+
+**Cons**
+
+- Unbiological 
+- Unintuitive
+]
+
+
+
+---
+
+## Estimating some rates ... continuous
+
+.pull-left-30[![](images/seaotter_cute.jpg)]
+
+.pull-right-70[
+
+Let's use the continuous equation: 
+
+`$$\begin{align} 1000 &amp;= 60 \times e^{40\,r}\\
+16.7 &amp;= e^{40 \, r}\\
+2.81 &amp;= 40 \times r\\
+r &amp;= 0.07025
+\end{align}$$`
+.large[*Intrinsic growth rate* = 0.07025.]
+]
+
+---
+
+## Washington sea otter fit to data
+.pull-left[
+![](ExponentialGrowth_PartI_files/figure-html/WAfit2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+Note: dots for **discrete**, lines for **continuous** ...
+
+.green[*but really there is NO difference in the two curves*]
+]
+
+---
+
+## Estimating some rates ... discrete
+
+.pull-left-30[![](images/seaotter_cute.jpg)]
+
+.pull-right-70[
+
+The amazing thing is, if you have an equation "solved", you only need 2 points on the curve to compute. 
+
+Let's use the discrete equation: 
+
+`$$N_{t+y} = \lambda^y N_t$$`
+`$$1000 = 60 \times \lambda^{40}$$`
+`$$16.7 = \lambda^{40}$$`
+`$$2.81 = 40 \times \log (\lambda)$$`
+`$$0.07025 = \log (\lambda)$$`
+`$$\lambda = \exp(0.07025) = 1.0728$$`
+
+i.e. population increase about `$$7.28\%/year$$`. 
+]
+ 
+
+---
+
+## How long does it take for a population to double? 
+
+
+.center.large[ 
+solve for doubling time `\(t_d\)` 
+]
+
+.pull-left.large[
+**Continuous:**
+
+`$$2N = N e^{rt_d}$$`
+`$$\log(2) = rt_d$$`
+`$$t_d = \log(2)/r$$`
+]
+
+.pull-right.large[**Discrete:**
+
+`$$2N = N \lambda^{t_d}$$`
+`$$\log(2) = \log(\lambda) t_d$$`
+`$$t_d = \log(2)/\log(\lambda)$$`
+]
+
+--
+
+.center.large[
+
+&gt; Sea otter population doubles in ~10 years.
+
+]
+
+
+
+---
+
+## Sea otter references
+
+.pull-left[
+
+- J. A. Estes, J. F. Palmisano. 1974. Sea otters: Their role in structuring nearshore communities. Science 185, 1058–1060. ([link](https://www.science.org/doi/10.1126/science.185.4156.1058))
+- Loshbaugh S. 2021. Sea Otters and the Maritime Fur Trade. In: Davis R.W., Pagano A.M. (eds) *Ethology and Behavioral Ecology of Sea Otters and Polar Bears. Ethology and Behavioral Ecology of Marine Mammals.* ([link](https://link.springer.com/chapter/10.1007/978-3-030-66796-2_10))
+- Gilkinson, A.K., Pearson, H.C., Weltz, F. and Davis, R.W., 2007. Photo‐identification of sea otters using nose scars. *The Journal of Wildlife Management*, 71(6), pp.2045-2051.  ([link](https://doi.org/10.2193/2006-410))
+-  Veltre, D.W. *Unangax̂: Coastal People of Far Southwestern Alaska*. ([link](https://www.apiai.org/departments/cultural-heritage-department/culture-history/history/))
+
+]
+
+.pull-right[
+![](images/otter_nosescar.webp)
+
+If you want to disabuse yourself of "sea otters are cute" - read about why the females have nose scars. 
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
