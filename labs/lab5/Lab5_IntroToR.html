@@ -1580,25 +1580,24 @@ X</code></pre>
 <pre><code>## [1]  6.25  9.00 12.25</code></pre>
 <p>Note that in all of these cases, the arithmetic operations are
 performed on a term-by-term basis.</p>
-<p>We can very quickly look at some exponential growth (e.g. using
-Washington sea otter numbers: N0 = 60, 50 years gone by, and an annual
-growth rate of 7%. Now, a growth rate of 7% means that it is 7%
-<em>more</em> than the original number, which is 100% (or 1).</p>
-<pre class="r"><code>years &lt;- 0:60
+<p>We can easily model some exponential growth. As an example, let’s use
+Washington sea otter numbers: in <strong>1970</strong>,
+<strong>60</strong> were released, and we want to know how many there
+are in <strong>2020</strong>, i.e. after 50 years, at an annual growth
+rate of <strong>7%</strong>. The following code models this process:</p>
+<pre class="r"><code>years &lt;- 0:50
 lambda &lt;- 1.07
-N0 &lt;- 50
+N0 &lt;- 60
 N0*lambda^years</code></pre>
-<pre><code>##  [1]   50.00000   53.50000   57.24500   61.25215   65.53980   70.12759
-##  [7]   75.03652   80.28907   85.90931   91.92296   98.35757  105.24260
-## [13]  112.60958  120.49225  128.92671  137.95158  147.60819  157.94076
-## [19]  168.99661  180.82638  193.48422  207.02812  221.52009  237.02649
-## [25]  253.61835  271.37163  290.36765  310.69338  332.44192  355.71285
-## [31]  380.61275  407.25564  435.76354  466.26699  498.90568  533.82907
-## [37]  571.19711  611.18091  653.96357  699.74102  748.72289  801.13349
-## [43]  857.21284  917.21774  981.42298 1050.12259 1123.63117 1202.28535
-## [49] 1286.44533 1376.49650 1472.85125 1575.95084 1686.26740 1804.30612
-## [55] 1930.60755 2065.75007 2210.35258 2365.07726 2530.63267 2707.77695
-## [61] 2897.32134</code></pre>
+<pre><code>##  [1]   60.00000   64.20000   68.69400   73.50258   78.64776   84.15310
+##  [7]   90.04382   96.34689  103.09117  110.30755  118.02908  126.29112
+## [13]  135.13150  144.59070  154.71205  165.54189  177.12982  189.52891
+## [19]  202.79594  216.99165  232.18107  248.43374  265.82410  284.43179
+## [25]  304.34202  325.64596  348.44118  372.83206  398.93030  426.85542
+## [31]  456.73530  488.70677  522.91625  559.52039  598.68681  640.59489
+## [37]  685.43653  733.41709  784.75628  839.68922  898.46747  961.36019
+## [43] 1028.65541 1100.66129 1177.70758 1260.14711 1348.35740 1442.74242
+## [49] 1543.73439 1651.79580 1767.42150</code></pre>
 <p><font color="#2E8B57"></p>
 </div>
 <div id="exercise-1-calculate-population-growth" class="section level2">
@@ -1768,15 +1767,12 @@ variables:</p>
 <h2>Exercise 2: Download and plot the sea otter population growth
 data</h2>
 <blockquote>
-<p>The first step is to import our new dataset. It is calles
+<p>The first step is to import our new dataset. It is called
 <code>SeaOtters.csv</code> and is <a href="SeaOtters.csv">here</a> or on
 <a href="https://blackboard.syracuse.edu/ultra/courses/_492502_1/cl/outline">Blackboard</a>.
-Perform the same steps as we did with the sea lions one</p>
-</blockquote>
-<blockquote>
-<p>Plot the downloaded data, using the “Year” column on the X-axis and
-“Count” column on the y-axis. Hint: you will need to extract these
-columns before plotting.</p>
+Plot the downloaded data, using the “Year” column on the X-axis and
+“Count” column on the y-axis. For this exercise <strong>provide the
+plotting code</strong>.</p>
 </blockquote>
 <p></font></p>
 </div>

@@ -89,12 +89,12 @@ X^2
 
 Note that in all of these cases, the arithmetic operations are performed on a term-by-term basis.
 
-We can very quickly look at some exponential growth (e.g. using Washington sea otter numbers: N0 = 60, 50 years gone by, and an annual growth rate of 7%. Now, a growth rate of 7% means that it is 7% *more* than the original number, which is 100% (or 1).  
+We can easily model  some exponential growth.  As an example, let's use Washington sea otter numbers:  in **1970**, **60** were released, and we want to know how many there are in **2020**, i.e. after 50 years, at an annual growth rate of **7%**.  The following code models this process:
 
 ```{r}
-years <- 0:60
+years <- 0:50
 lambda <- 1.07
-N0 <- 50
+N0 <- 60
 N0*lambda^years
 ```
 
@@ -237,13 +237,13 @@ plot(Length, Weight)
 
 ## Exercise 2: Download and plot the sea otter population growth data
 
-> The first step is to import our new dataset. It is calles `SeaOtters.csv` and is [here](SeaOtters.csv) or on [Blackboard](https://blackboard.syracuse.edu/ultra/courses/_492502_1/cl/outline). Perform the same steps as we did with the sea lions one 
+> The first step is to import our new dataset. It is called `SeaOtters.csv` and is [here](SeaOtters.csv) or on [Blackboard](https://blackboard.syracuse.edu/ultra/courses/_492502_1/cl/outline).  Plot the downloaded data, using the "Year" column on the X-axis and "Count" column on the y-axis.  For this exercise **provide the plotting code**. 
+
 
 ```{r, echo = FALSE}
 SeaOtters <- read.csv("SeaOtters.csv")
 ```
 
-> Plot the downloaded data, using the "Year" column on the X-axis and "Count" column on the y-axis. Hint: you will need to extract these columns before plotting.
 
 ```{r, echo = FALSE, eval=FALSE}
 plot(SeaOtters$year, SeaOtters$count)
