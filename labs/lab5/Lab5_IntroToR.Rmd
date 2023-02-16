@@ -245,7 +245,7 @@ SeaOtters <- read.csv("SeaOtters.csv")
 
 > Plot the downloaded data, using the "Year" column on the X-axis and "Count" column on the y-axis. Hint: you will need to extract these columns before plotting.
 
-```{r, eval=FALSE}
+```{r, echo = FALSE, eval=FALSE}
 plot(SeaOtters$year, SeaOtters$count)
 ```
 
