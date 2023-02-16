@@ -146,7 +146,9 @@ This is what sea lion pups look like:
 
 ![](pups_small.jpg)
 
-This dataset is available on Blackboard. Once you download it, you can use the File Explorer to determine its location and read it into R. You can do it in a couple of ways. First, you can modify and run this line of code:
+This dataset is available on [Blackboard](https://blackboard.syracuse.edu/ultra/courses/_492502_1/cl/outline) as `SeaLions.csv`, or at [this link](SeaLions.csv).   Once you download it, you can use the File Explorer to determine its location and read it into R in a couple of ways:
+
+1. **From the command line:** you can download the dataset and modify the following line of code:
 
 ```{r, echo = FALSE}
 SeaLions <- read.csv("SeaLions.csv")
@@ -158,17 +160,16 @@ SeaLions <- read.csv("insert the directory instead of this sentence/SeaLions.csv
 
 A directory is another way to refer to a folder or, simply, a location of a data file on your computer. You can get the address of the directory if you open the folder where you saved the file through File Explorer, right-click on the navigation bar and select `Copy address as text` option. Note: If you copy and paste the file directory in, you **have to change the direction of the slashes** from `\` to `/`! 
 
+Note that `csv` is a **text based** file type (Comma Separated Values) - it just means that commas between entries indicate separate columns.  When a program "reads" the file, it "knows" that a comma means the end of one column and the start of another one. You can save any Excel file as a `csv` using the **Save As** function. CSVs are by far the the most common and convenient file type used for loading into R.
 
-Note that `csv` is a **text based** file type (Comma Separated Values) - it just means that commas between entries indicate separate columns.  When a program "reads" the file, it "knows" that a comma means the end of one column and the start of another one. You can save any Excel file as a `csv` using the Save As function. CSVs are by far the the most common and convenient file type used for loading into R.
-
-Alternatively, you can import datasets into `R` using the `RStudio` interface. To do this:
+2. Alternatively, you can import datasets into `R` using the `RStudio` point-and-click interface. To do this:
 
 > 1. Navigate to the `Files` tab in the bottom right corner of RStudio
-> 2. Click on "SeaLions.csv" 
+> 2. Click on `SeaLions.csv`
 > 3. RStudio will prompt you to either view the file or import the dataset. You want to import, so hit `Import File`
 > 4. A pop-up window will appear, showing you the preview of the data frame. Click `Import` and observe that your file is now loaded - it should have appeared in your Environment in the top right corner of RStudio. 
 
-This method does the same exact thing as the line of code above. It will automatically input the proper code into the console and save your file to the environment. Note that the file has the same name rather than a name you designate for it.
+This method does the same exact thing as the line of code above. It will automatically input the proper code into the console and save your file to the environment. Note that by default the file will have the same name rather than a name you designate for it.
 
 ## Working with data frames
 
@@ -234,19 +235,15 @@ plot(Length, Weight)
 
 <font color = "#2E8B57">
 
-## Exercise 2: Download and plot the sea otter population growth
+## Exercise 2: Download and plot the sea otter population growth data
 
-### Importing Data
-
-> The first step is to import our new dataset. Perform the same steps as we did with the sea lions one 
+> The first step is to import our new dataset. It is calles `SeaOtters.csv` and is [here](SeaOtters.csv) or on [Blackboard](https://blackboard.syracuse.edu/ultra/courses/_492502_1/cl/outline). Perform the same steps as we did with the sea lions one 
 
 ```{r, echo = FALSE}
 SeaOtters <- read.csv("SeaOtters.csv")
 ```
 
-### Plotting Data 
-
-> Plot the downloaded frame, using the "Year" column on the X-axis and "Count" column on the y-axis. Hint: you will need to extract these columns before plotting.
+> Plot the downloaded data, using the "Year" column on the X-axis and "Count" column on the y-axis. Hint: you will need to extract these columns before plotting.
 
 ```{r, eval=FALSE}
 plot(SeaOtters$year, SeaOtters$count)
