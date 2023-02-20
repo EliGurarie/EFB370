@@ -8,10 +8,6 @@
     <script src="ExponentialGrowthWithStochasticity_files/header-attrs-2.20/header-attrs.js"></script>
     <link href="ExponentialGrowthWithStochasticity_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="ExponentialGrowthWithStochasticity_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <script src="ExponentialGrowthWithStochasticity_files/fabric-4.3.1/fabric.min.js"></script>
-    <link href="ExponentialGrowthWithStochasticity_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
-    <script src="ExponentialGrowthWithStochasticity_files/xaringanExtra-scribble-0.0.1/scribble.js"></script>
-    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
     <link href="ExponentialGrowthWithStochasticity_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
     <script src="ExponentialGrowthWithStochasticity_files/tile-view-0.2.6/tile-view.js"></script>
     <link rel="stylesheet" href="mycss.css" type="text/css" />
@@ -35,6 +31,7 @@ class: center, top, title-slide
 
 ---
 
+class:inverse
 
 &lt;!-- https://bookdown.org/yihui/rmarkdown/xaringan-format.html --&gt;
 
@@ -50,22 +47,44 @@ class: center, top, title-slide
 
 
 
-.pull-left[
+.pull-left.large[
 ## Goals (concepts / buzzwords)
 
-- I. Random variables: 
+- **I. Random variables:**
+
   - mean / variance / standard deviation / distributions / expected value
+  
   - Binomial and Normal distributions
+  
 - II **stochastic** = randomness in time
+
   - **demographic stochasticity** = randomness in individual processes
+  
   - **environmental stochasticity** = randomness affecting populations
 ]
 
-.pull-right[
+.pull-right.large[
 ### Suggested reading: 
 
 - Gotelli: Chapter 1 (second half)
-- Something (anything) 
+]
+
+
+---
+
+## If the exponential model is so tidy ... why isn't it *perfect*?
+
+.pull-left-50[
+![](images/SeaOttersFitted_vII.png)]
+
+
+--
+
+.pull-right[
+## Because ... ***randomness!(?)***
+
+*What are some potential sources of "randomness" in the sea otter population process?*
+
 ]
 
 ---
@@ -212,7 +231,7 @@ It has two parameters: `\(\mu\)` and `\(\sigma\)` with are - unsurprisingly - th
 
 ---
 
-## Some probability distributions {.smaller}
+## Some probability distributions
 
 We use these to **model** random processes: 
 
@@ -241,15 +260,24 @@ More specific Q: **What is the probability of extinction?**
 ]
 
 ---
+class: inverse
 
-## Demographic Stochasticity: Human Experiment
-.large[
-- 10 students
+## Human Experiment with Life and Death
+
+.pull-left-60.large[
+
+- 15 students
+
 - Flip a survival coin.  
-  - If you die (tails) sit down, if you live (heads) stay standing
+
+  - If you die (**TAILS**) sit down, if you live (**HEADS**) stay standing
+  
 - Flip a reproduction coin.  
-  - If you reproduce (heads) call on another student to stand
+
+  - If you reproduce (**HEADS**) call on another student to stand
 ]
+
+.pull-right-40[![](images/GOT-99.jpg)]
   
 ---
 
@@ -310,18 +338,69 @@ Also, probability of extinction is lower for smaller `\(N_0\)`.
 
 ## Environmental Stochasticity...
 
-... refers to some random aspect of the environment affecting `\(r\)` (whether via births or deaths or both) for the **entire population**. :
+.pull-left-40[
+
+Some random aspect of the environment that influences .blue.large[***r***] (whether via .green[births] or .red[deaths] or **both**) for the **entire population**.:
 
 `$$R \sim Dist(\mu_r, \sigma_r)$$`
+
+
+- `\(\mu_r\)` is the *mean growth rate*
+- `\(\sigma_r\)` is the *variability on the growth rate*
+]
+
+--
+
+.pull-right-60[
+
+&gt; .darkred[**Can you think of some examples, e.g. for sea otters?**]
+
+]
+
+
 ---
 
-## Environmental Stochasticity: Human Experiment
+## Environmental Stochasticity...
 
-`\(N_0 = 16\)`
+.pull-left-40[
 
-If I (the environment) flip **Heads**, the population doubles. 
+Some random aspect of the environment that influences .blue.large[***r***] (whether via .green[births] or .red[deaths] or **both**) for the **entire population**.:
 
-If I flip **Tails**, the population halves. 
+`$$R \sim Dist(\mu_r, \sigma_r)$$`
+
+
+- `\(\mu_r\)` is the *mean growth rate*
+- `\(\sigma_r\)` is the *variability on the growth rate*
+]
+
+
+.pull-right-60[
+
+&gt; .darkred[**Can you think of some examples, e.g. for sea otters?**]
+
+![](images/disasters.jpg)
+
+]
+
+---
+class: inverse
+
+## Human Experiment
+
+.pull-left-60.large[
+
+The **professor** IS the **environment**!
+
+1. `$$\large N_0 = 16$$`
+
+2. If the environment flips **Heads**, the population doubles. 
+
+3. If the environment flips **Tails**, the population halves. 
+]
+
+
+.pull-right-40[![](images/GOT-99.jpg)]
+  
 
 ---
 
@@ -354,10 +433,12 @@ And:
 `$$SD(R) = \sigma_R = 1$$`
 ]
 
+--
+
 &gt;- Are you doomed to extinction?  
 &gt;- Does this remind you of another process from earlier in class? 
 
-Experiment here: https://egurarie.shinyapps.io/StochasticGrowth
+.center[Experiment here: https://egurarie.shinyapps.io/StochasticGrowth]
 
 ---
 
@@ -387,13 +468,40 @@ Grey lines are simulations.  Red lines are `\(\mu_N(t) \pm \sigma_N(t)\)`
 
 ---
 
-## If things are TOO random ...
-.large[
-that spells trouble for a population!
+.large.pull-left-60[
 
-According to theory, if `\(\sigma_r &gt; 2\mu_r\)`, extinction is nearly certain - even if `\(\mu_r\)` is positive and on average there is growth.  
+## If things are TOO random that spells trouble!
 
-Opportunities for experimentation:
+According to theory, if: 
+
+.darkred[$$\sigma_r &gt; 2\mu_r$$]
+
+extinction is nearly certain - even if `\(\mu_r\)` is positive and on average there is growth.  
+
+&gt; .center[Experiment here: https://egurarie.shinyapps.io/StochasticGrowth] 
+
+]
+
+
+.pull-right-40[![](images/environmentalstochasticsim.png)
+]
+
+---
+class: inverse
+
+.pull-left-60.large[
+## Key Takeaways
+
+1. Nature is a combination of **very complex** and **truly random**.  So we have to get comfortable with randomness
+
+1. **Demographic stochasticity** refers to **individual randomness**, and particularly effects **small populations**. 
+
+2. **Environmental stochasticity** affects **everyone similarly**, **big** or **small** populations, and too much randomness bodes ILL. 
+]
+
+
+.pull-right-40[
+.![](images/takeaways.jpg)
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
