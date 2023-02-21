@@ -39,6 +39,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 ### Recitation/Lab
 
 - [1: Introduction to R](labs/lab5/Lab5_IntroToR.html)
+- [2: Linear Models and Stochasticity](labs/lab6/Lab6_Randomness.html)
 
 ### Analysis tools
 
