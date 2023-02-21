@@ -1,0 +1,348 @@
+---
+title: "Week 6: Fitting Models and Stochasticity"
+subtitle: 'EFB 370 - Spring 2023'
+author: "Dr. Gurarie and Katya Khadonova"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+---
+
+```{css, echo = FALSE}
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: darkgreen;
+    font-family: "Garamond";
+    background: #DFD;
+    border-left: 5px solid #262; 
+}
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      out.width = "60%",
+                      fig.align = "center",
+                      warnings = FALSE, 
+                      mmessage = FALSE)
+```
+
+
+
+> There are TWO exercises in this lab, set aside in green boxes like this one.  To work through the exercises in this lab, you'll need to download the [`SeaLions.csv`](../data/SeaLions.csv) and [`SeaOtters.csv`](../data/SeaOtters.csv) datasets as last week by following the links (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](../data/BC_SeaOtters.csv). If you've forgotten how, follow the instructions from [Lab 5](../lab5/Lab5_IntroToR.Rmd). 
+
+```{r}
+SeaOtters <- read.csv("../data/SeaOtters.csv")
+SeaLions <- read.csv("../data/SeaLions.csv")
+```
+
+
+
+
+# Part I: Fitting linear models 
+
+## Sea Lion Body Sizes
+
+You can extract the length and weight of the sea lion pups and plot the Weight against Length as follows: 
+
+```{r}
+Length <- SeaLions$Length
+Weight <- SeaLions$Weight
+plot(Length, Weight)
+```
+
+
+But, a **better, cleaner** way to do this is with the "~" (tilde) syntax.  Here we're putting the "response" variable (Weight) against the "predictor" (Length), and the data frame is `SeaLions`:
+
+
+```{r}
+plot(Weight ~ Length, data = SeaLions)
+```
+
+
+<font color = "blue" size = 2>
+
+**NOTE: You can skip the section below as it is non-essential.  But arguably "fun".**
+
+###  `ggplot` and installing packages
+
+
+Or, if you like, you can use the fancy-shmancy `ggplot` function to make plots.  But you have to install a new "library" called `ggplot2`.  To install a library, you use the `install.packages()` function: 
+
+```{r eval = FALSE, warnings=FALSE}
+install.packages("ggplot2")
+```
+
+You only need to install a package once on your computer. After that, it will always be there.
+
+Alternatively, you can use the `R` interface to install new packages. To do so:
+
+- Click the `Packages` tab in the bottom right window of `Rstudio` and  click `Install`
+- ... or ... go to `Tools > Ìnstall Packages` in the menu bar. 
+- In the blank "packages" line, start typing the name of the package you want. `RStudio` should automatically fill this in with suggestions. Use a comma to separate the names of multiple package if installing more than one simultaneously. 
+- Click `Install`.  This will automatically put the correct code in the console for you. 
+
+From now on, whenever you need that package loaded you use the `library` function. You only have to do this once each time you open `R`, after that, a package stays in your library for the rest of your session.
+
+```{r}
+library(ggplot2)
+```
+
+If you receive prewritten code from someone and open the file in `RStudio`, the software will automatically identify packages called by the `library` funtion. If you do not have these packages installed, `Rstudio` will ask you if you'd like to install them, which can save you time. However, you will still need to run the `library` function on each package before you can use them.
+
+Now - **finally** - you have access to the funky / fancy library of ggplotting functions.  
+
+```{r}
+require(ggplot2)
+```
+
+The ggplot function allows for some more flexible plotting, but (at least initialy) with more complicated syntax.  For example, the equivalent of the plot above is:
+
+```{r}
+ggplot(SeaLions, aes(x = Length, y = Weight)) + geom_point()
+```
+
+Now it is easy to, for example, add sex:
+
+```{r}
+ggplot(SeaLions, aes(x = Length, y = Weight, color = Sex)) + geom_point()
+```
+
+And to do other nifty tricks.  But for now, sticking to the so-called base plots is easier. 
+
+</font> 
+
+
+
+## Fitting a linear model
+
+Look closely at the `plot` command above:
+
+```{r eval = FALSE}
+plot(Weight ~ Length, data = SeaLions)
+```
+
+This is the *exact* syntax you need to fit a linear model with the `lm()` function, which fits a linear regression.  That means it finds the "best" values for a model that looks likes this:
+
+$$Y_i = \alpha + \beta\, X_i + \epsilon_i$$
+
+Where $Y$ is the response variable, $X$ is the predictor, $\alpha$ is the intercept, $\beta$ is the slope, and $\epsilon$ is the "residual" variation, i.e. a random variable: ${\cal N}(0, \sigma^2)$. 
+
+
+```{r}
+lm(Weight ~ Length, data = SeaLions)
+```
+
+If you just run this, you will see the output, which is just the estimate of the intercept and the slope (i.e. the Length effect).  Think about how to interpret these numbers.  
+
+
+However, there is actually a lot more information in this linear model fit.  But to get to it, you need to **save the linear model output** into a new object.  Thus:
+
+```{r}
+sealion.fit <- lm(Weight ~ Length, data = SeaLions)
+```
+
+Now you can learn more:
+
+```{r}
+summary(sealion.fit)
+```
+
+Most important, the standard errors, p-values (especially on the slope) and R^2 values. 
+
+There are usually a few questions in a statistical model.  
+
+1. **Is there a relationship between particular variables?**   The answer to that is in the p-value (is it less than 0.05).  In this case YES IT IS!   (Note: 2e-16 means $2 \times 10^{-16}$, so that's the probability that we would see a slope that strong if there were no relationship).
+
+2. **How good is the fitted model?**   This is provided by the $R^2$ value, which in this case is 0.7 (1.0 is a perfect fit).  Specifically it is the *proportion of the variance explained by the model*. 
+
+3. Finally, if there IS a significant relationship, **how strong is that relationship?**  For that we need the point estimate on the *Length* effect (0.846 kg/cm) AND a 95% confidence interval.  To get a 95% Confidence Intervals you need to add and subtract 2 x S.E. to the Estimate.  Here, that's probably easiest to do by "hand", i.e.:
+
+
+```{r}
+(CI.low <- 0.84675 - 2*0.02024)
+(CI.high <- 0.84675 + 2*0.02024)
+```
+
+So the point estimate and 95% CI are **0.847 (0.806, 0.887)**. 
+
+You *can* also extract those numbers from the linear model fit as follows:
+
+```{r}
+summary(sealion.fit)$coef[2,1] + c(-2,2) * summary(sealion.fit)$coef[2,2]
+
+```
+
+
+### Plotting the fit
+
+If you have a linear model, you can easily plot the fit:
+
+```{r}
+plot(Weight ~ Length, data = SeaLions)
+abline(sealion.fit)
+```
+
+Note, `abline` is a function that adds an intercept-slope line to any existing plot ("a" - intercept, "b" - slope). 
+
+Here are some ways to make this a bit prettier:
+
+```{r}
+plot(Weight ~ Length, data = SeaLions, pch = 19, col = rgb(0,0,0,.2))
+abline(sealion.fit, col = "red", lwd = 2)
+```
+
+The `pch = 19` makes filled dots, `col = rgb(0,0,0,.2)` is a way to make transparent black colors, `lwd = 2` is the line thickness, `col = "red"`. 
+
+
+
+> # Lab Exercise 1
+> 
+> You can subset the data into males and females with the following code:
+> 
+```{r}
+SeaLion.males <- subset(SeaLions, Sex == "M")
+SeaLion.females <- subset(SeaLions, Sex == "F")
+```
+> Use these subsetted data and:
+> 
+> 1. Plot the relationship between Weight and Length for each of males and females
+> 2. Fit a model and add the regression line to the plot. 
+> 3. Report the estimate at 95% C.I. of the slope coefficient for males and females.  Based on these results, do they have different growth curves? 
+
+
+# Part II: Linear models for exponential growth (WHAT!?)
+
+Load the sea otter data and plot it:
+
+```{r}
+plot(count ~ year, data = SeaOtters)
+```
+
+It is quite easy to make plots on a log scale, by the way, which can be useful: 
+
+```{r}
+plot(count ~ year, data = SeaOtters, log = "y")
+```
+
+
+
+## Simple linear Model
+
+
+```{r}
+otter.fit <- lm(count ~ year, data = SeaOtters)
+```
+
+Note, we take a "model fit" (which is a complicated thing) and put it into a new object with name `Model1`. The output of `Model1` is just the estimated parameters for the intercept and the "Year effect" (i.e. slope of the curve). 
+
+```{r}
+otter.fit
+```
+
+Again, there is a lot more information if you ask for a summary:
+
+```{r}
+summary(otter.fit)
+```
+
+Of importance to us is the `Estimate` (same as above) and the `Std. Error` which quantifies how precise our estimate is.  Two standard errors is (roughly) the same as a **95% Confidence Interval**.   Thus, the slope on this fit is 33.2 new sea otters / year &pm; 6.18.  This is definitely bigger than 0!  We can also see that because the *p*-value (under column `Pr(>|t|)`) is very very very very small.  
+
+We can plot this linear model on our data:
+
+```{r}
+plot(count ~ year, data = SeaOtters)
+abline(otter.fit)
+```
+
+
+## Log Transformation
+
+We kind of knew the growth was not linear (otherwise this week's topic wouldn't have been called *Exponential Growth*).  But how can we use a linear model to fit an exponential growth function?  
+
+With a simple transformation! 
+
+$$\log(Y_i) = \alpha + \beta\, X_i + \epsilon_i$$
+
+How does this relate to an exponential growth model? 
+
+$$e^{\log(Y_i)} = e^{\alpha + \beta\, X_i + \epsilon_i}$$
+$$Y_t = N_0  e^{\beta\, X_t + \epsilon_t}$$
+
+We just replaced $e^\alpha$ with $N_0$, and $i$ with $t$.  But $\beta$ is EXACTLY the growth rate $r$ (and $e^\beta = \lambda$).  The $\epsilon_i$ hanging on the end is a bit of stochasticity.  
+
+Anyways, doing this with our linear modeling tools is easy.  We just wrap `count` in a log.  
+
+```{r}
+logotter.fit <- lm(log(count) ~ year, data = SeaOtters)
+summary(logotter.fit)
+```
+
+Note how our statistics changed.  Specifically: our $\beta$ estimate (which is also $r$) is now 0.07325, which is a good estimate of the intrinsic growth rate.  Even better, we know have a standard error around that estimate: 0.00237, which means our growth rate can be written as:  $\widehat{r} = (7.32 \pm 0.47)\times 10^{-2}$.  We can convert that to an annual growth rate in R as well (*do NOT worry about understanding the following code*:
+
+```{r}
+r.hat <- summary(logotter.fit)$coefficients[2,1]
+r.sd <- summary(logotter.fit)$coefficients[2,2]
+exp(c(r.hat, r.hat-2*r.sd, r.hat+2*r.sd))
+```
+
+So our estimate of annual population growth is 7.6% (95% Confidence Interval 7.1%-8.1%).  Note how much higher the $R^2$ value is! This is (by that measure also) a much better fit.  
+
+To visualize the fit:
+
+```{r}
+plot(log(count) ~ year, data = SeaOtters)
+abline(logotter.fit)
+```
+
+Much better!
+
+Let's make our final graph a little nicer
+
+```{r}
+plot(log(count) ~ year, main = 'Sea Otter Population', 
+     col = 'brown', pch = 4, data = SeaOtters, lwd = 2)
+abline(logotter.fit, col = "blue", lwd = 2)
+```
+
+The commands we're using within the `plot` function include setting the title of the graph (`main =`), changing the color of the symbols and the line (`col =`), and changing the shape of the symbols (`pch =`). There also many more alterations you can make to get your graph perfect - but that can be a deep dark `R`abbit hole!
+
+Finally, we can also draw the fit on non-log transformed data as follows:
+
+
+```{r}
+plot(count ~ year, main = 'Sea Otter Population', 
+     col = 'brown', pch = 4, data = SeaOtters, lwd = 2)
+curve(exp(logotter.fit$coef[1] + 
+            logotter.fit$coef[2] * x), col = "blue", add = TRUE, lwd = 2)
+```
+
+
+
+> # Lab Exercise 2
+>
+> In the next homework assignment (due next Thursday, March 2) you will be asked to analyze the population growth rate of sea otters in British Columbia, the population just to the north of Washington state.  Now is your chance to (1) Load the data, (2) plot the data, and (3) summarize the data (how many were released, in what year, how many are there in the final year of data). 
+>
+>In the homework, you will estimate the growth rate with confidence intervals as well.  For for the lab exercise, just provide the plot and the summary. 
+
+<font color = "blue" size = 2>
+
+**NOTE: You can skip the section below as it is non-essential.  But arguably "fun".**
+
+### More `ggplot` plotting
+
+It can be a bit fussy to plot the confidence interval around our prediction.  Below, we include a little snippet of code which does just that using `ggplot`.  You do not need to understand this code (there's actually quite a bit going on to get it to work right), but the output is pretty. 
+
+```{r}
+require(ggplot2)
+
+ggplot(SeaOtters, aes(year, count)) + geom_point() + 
+    stat_smooth(method = "glm", 
+                method.args = list(family = gaussian(link = "log")))
+```
+
+This really looks like a nice fit!
+</font>
