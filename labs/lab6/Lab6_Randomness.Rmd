@@ -355,7 +355,7 @@ This really looks like a nice fit!
 > The final exercise is NOT in R!  It is just some practice experimneting with the stochastic population simulator here: https://egurarie.shinyapps.io/StochasticGrowth.  The goal will be to see how sensitive the sea otter success is to the initial population released. 
 > 
 > 1. In the **Demographic Stochasticity** simulator, change the probability of giving birth to **0.3**, and the probability of dying at **0.2** (these numbers approximate sea otter population growth).  Set $t_{max}$ to 40 years. Increase the number of simulations to 1000.    
-> Report the **probability of extinction due to demographic stochasticity** if only **2**, **10** and **60** sea otters were released.
+> Report the **probability of extinction due to demographic stochasticity** and the **final median population size** if only (a) **2**, (b) **10** and (c) **60** sea otters were released.
 >
-> 2. In the **Environmental Stochasticity** simulater, set the **mean population growth rate** ($\mu_r$) to 0.07, the **standard deviation of growth rate** ($\sigma_r$) to 0.03, the $t_{max}$ to 40 and the number of simulations to 1000. Again, this roughly simulates sea otter population growth.  
-> Again, report the **probability of extinction due to environmental stochasticity** if only **2**, **10** and **60** sea otters were released
+> 2. In the **Environmental Stochasticity** simulater, set the **mean population growth rate** ($\mu_r$) to 1, the $t_{max}$ to 40, the **number of otters released** ($N_0$) to 60, and the number of simulations to 1000. Again, this (very) roughly simulates sea otter population growth.  
+> Report the **probability of extinction due to environmental stochasticity** and the **final median population size** if the **standard deviation on the growth rate** ($\sigma_r$) varies between: (a) **0.05**, (b) **0.1**, (c) **1**, and (d) **2**. 
