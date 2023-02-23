@@ -9,7 +9,6 @@ output:
     anchor_sections: FALSE
 ---
 
-
 ```{r, echo=FALSE, eval = TRUE}
 htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner', 
                style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
@@ -46,6 +45,12 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 - [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
 
+### Problem Sets
+
+**[Problem Set 3](problemsets/ProblemSet3.html)**
+
+- due **March 2, 2023**. 
+- This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
 
 <!--
 - [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
