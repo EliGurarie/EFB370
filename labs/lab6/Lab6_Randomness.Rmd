@@ -324,10 +324,11 @@ curve(exp(logotter.fit$coef[1] +
 
 > # Lab Exercise 2
 >
-> In the next homework assignment (due next Thursday, March 2) you will be asked to analyze the population growth rate of sea otters in British Columbia, the population just to the north of Washington state.  Now is your chance to (1) Load the data, (2) plot the data, and (3) summarize the data (how many were released, in what year, how many are there in the final year of data). 
+> In the next homework assignment (due next Thursday, March 2) you will be asked to analyze the population growth rate of sea otters in British Columbia, the population just to the north of Washington state.  The data are [**here**](../data/BC_SeaOtters.csv) in a file called `BC_SeaOtters`. 
 >
->In the homework, you will estimate the growth rate with confidence intervals as well.  For for the lab exercise, just provide the plot and the summary. 
-
+> For the lab exercise **all you need to do** is (1) Load the data, (2) plot the data, and (3) report how many were released, in what year, how many are there in the final year of data.  
+>
+>In the homework, you will estimate the growth rate with confidence intervals as well, but you don't need to worry about that for the lab.  
 <font color = "blue" size = 2>
 
 **NOTE: You can skip the section below as it is non-essential.  But arguably "fun".**
@@ -346,3 +347,15 @@ ggplot(SeaOtters, aes(year, count)) + geom_point() +
 
 This really looks like a nice fit!
 </font>
+
+
+
+> # Lab Exercise 3
+>
+> The final exercise is NOT in R!  It is just some practice experimneting with the stochastic population simulator here: https://egurarie.shinyapps.io/StochasticGrowth.  The goal will be to see how sensitive the sea otter success is to the initial population released. 
+> 
+> 1. In the **Demographic Stochasticity** simulator, change the probability of giving birth to **0.3**, and the probability of dying at **0.2** (these numbers approximate sea otter population growth).  Set $t_{max}$ to 40 years. Increase the number of simulations to 1000.    
+> Report the **probability of extinction due to demographic stochasticity** if only **2**, **10** and **60** sea otters were released.
+>
+> 2. In the **Environmental Stochasticity** simulater, set the **mean population growth rate** ($\mu_r$) to 0.07, the **standard deviation of growth rate** ($\sigma_r$) to 0.03, the $t_{max}$ to 40 and the number of simulations to 1000. Again, this roughly simulates sea otter population growth.  
+> Again, report the **probability of extinction due to environmental stochasticity** if only **2**, **10** and **60** sea otters were released
