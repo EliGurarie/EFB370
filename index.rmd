@@ -25,6 +25,12 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 
 
+## Topic II. Logistic Growth
+
+### Lectures
+
+- [4: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html)
+
 
 
 ## Topic I. Exponential Growth
@@ -53,11 +59,6 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
 
 
-
-
-## Topic II. Logistic Growth
-
-- [1: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html)
 
 
 <!--
