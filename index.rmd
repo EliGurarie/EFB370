@@ -52,6 +52,14 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - due **March 2, 2023**. 
 - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
 
+
+
+
+## Topic II. Logistic Growth
+
+- [1: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html)
+
+
 <!--
 - [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
 - [2: Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
