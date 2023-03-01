@@ -30,7 +30,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 ### Lectures
 
 - [4: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html) ([pdf](lectures/ModuleII/LogisticGrowth_PartI.pdf))
-
+- [5: Logistic Growth II](lectures/ModuleII/LogisticGrowth_PartII.html)
 
 
 ## Topic I. Exponential Growth
