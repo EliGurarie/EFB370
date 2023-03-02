@@ -1630,27 +1630,27 @@ guess?</p>
 <h2>Standard errors</h2>
 <p>Note - we can - again - get standard errors around these
 coefficients:</p>
-<pre class="r"><code>r.lm &lt;- lm(r ~ Day, data = paramecium)
+<pre class="r"><code>r.lm &lt;- lm(r ~ Nt1, data = paramecium)
 summary(r.lm)</code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = r ~ Day, data = paramecium)
+## lm(formula = r ~ Nt1, data = paramecium)
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -0.2863 -0.2029 -0.1309  0.1823  0.4068 
+##      Min       1Q   Median       3Q      Max 
+## -0.30712 -0.07164  0.02884  0.11450  0.27954 
 ## 
 ## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  1.17289    0.21861   5.365 0.000317 ***
-## Day         -0.08073    0.01904  -4.240 0.001716 ** 
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.0884356  0.1218525   8.932 4.43e-06 ***
+## Nt1         -0.0052052  0.0007293  -7.137 3.15e-05 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.2803 on 10 degrees of freedom
+## Residual standard error: 0.1899 on 10 degrees of freedom
 ##   (12 observations deleted due to missingness)
-## Multiple R-squared:  0.6426, Adjusted R-squared:  0.6069 
-## F-statistic: 17.98 on 1 and 10 DF,  p-value: 0.001716</code></pre>
+## Multiple R-squared:  0.8359, Adjusted R-squared:  0.8195 
+## F-statistic: 50.94 on 1 and 10 DF,  p-value: 3.153e-05</code></pre>
 <blockquote>
 <h3 id="lab-exercise-2b">Lab Exercise 2b</h3>
 <p>Report a point estimate and 95% confidence interval for the intrinsic

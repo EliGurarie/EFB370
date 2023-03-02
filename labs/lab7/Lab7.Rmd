@@ -163,7 +163,7 @@ curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
 Note - we can - again - get standard errors around these coefficients: 
 
 ```{r}
-r.lm <- lm(r ~ Day, data = paramecium)
+r.lm <- lm(r ~ Nt1, data = paramecium)
 summary(r.lm)
 ```
 
