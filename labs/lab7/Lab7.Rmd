@@ -193,7 +193,7 @@ nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium,
 As usual, we can save the results to an object and get a summary table with the fits:
 
 ```{r}
-summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = p, 
+summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
     start = list(N0 = 1, K = 200, r0 = 0.75)))
 ```
 

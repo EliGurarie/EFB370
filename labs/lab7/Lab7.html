@@ -1690,7 +1690,7 @@ nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium,
 ## Achieved convergence tolerance: 8.196e-06</code></pre>
 <p>As usual, we can save the results to an object and get a summary
 table with the fits:</p>
-<pre class="r"><code>summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = p, 
+<pre class="r"><code>summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
     start = list(N0 = 1, K = 200, r0 = 0.75)))</code></pre>
 <pre><code>## 
 ## Formula: Nt ~ N.logistic(Day, N0, K, r0)
