@@ -76,7 +76,7 @@ dim(paramecium)
 names(paramecium)
 ```
 
-The columns are: `Species`, `Day` of experiment, `Nt` - quantity of paramecium now, `Nt1` - quantity 1 time step ago $\Delta N_{t-1}$, and $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$.  
+The columns are: `Species`, `Day` of experiment, `Nt` - number (or density) of paramecium now, `Nt1` - number one time step previous $\Delta N_{t-1}$, and $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$.  
 
 
 # Fit Method I: By Hand
@@ -98,8 +98,8 @@ curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
 
 The initial values guessed for `N0`, `K`, and `r0` are not very good.  
 
-> # Lab Exercise 1
-> Experiment with those numbers and see how close you can come (visually) to fitting the curve.  Report your estimates for $N_0$, $K$, and $r_0$ and include a plot of the fit. 
+> ### Lab Exercise 1
+> Play around with those numbers and see how close you can come (visually) to fitting the curve.  Report your estimates for $N_0$, $K$, and $r_0$ and include a plot of the fit. 
 
 
 
@@ -147,11 +147,11 @@ abline(lm(r ~ Nt1, data = paramecium), col = 2, lwd = 2)
 
 
 
-> # Lab Exercise 2a
->  Generate a plot of this fit using exactly the code in Exercise 1, but plugging in the estimates for $K$ and $r_0$ 
+> ### Lab Exercise 2a
+>  Generate a plot of this fit of logistic growth over time on top of the paramecium data by using exactly the code in Exercise 1, but plugging in the estimates for $K$ and $r_0$. You'll have to put in your own guess for $N_0$.  What is that guess? 
 
 
-```{r, eval = FALSE}
+```{r, eval = FALSE, echo = FALSE}
 N0 <- 10
 K <- 209
 r0 <- 1.088
@@ -168,7 +168,7 @@ summary(r.lm)
 ```
 
 
-> # Lab Exercise 2b
+> ### Lab Exercise 2b
 >  Report a point estimate and 95% confidence interval for the intrinsic growth rate $r_0$. 
 
 
@@ -197,7 +197,7 @@ summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = p,
     start = list(N0 = 1, K = 200, r0 = 0.75)))
 ```
 
-> # Lab Exercise 3
+> ### Lab Exercise 3
 > a. Generate a plot of this third fit using exactly the code in Exercise 1, but plugging in estimates for $K$, $r_0$ and $N_0$.  
 > b. Report 95% confidence intervals around all three estimates
 > c. Which is the "best" method?  Why?    
