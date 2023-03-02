@@ -9,6 +9,7 @@ output:
     toc_float: true
 ---
 
+> There are THREE exercises in this lab to submit by midnight next Monday, March 6.  
 
 ```{css, echo = FALSE}
 blockquote {
@@ -25,9 +26,6 @@ blockquote {
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, message = FALSE)
-```
-```{r, echo = FALSE}
-require(elieslides)
 ```
 
 
@@ -50,28 +48,32 @@ plot(r~Nt1, data = b)
 write.csv(b, file = "paramecium.csv", row.names = FALSE)
 ```
 
+<center>
+![](paramecia.jpg)
+Paramecia are *at least* as cute as sea otters. 
+</center>
 
 # Loading and exploring Paramecium data
 
 The [`paramecium.csv`](paramecium.csv) data set contains observations of paramecia  (unicellular ciliates) densities (in unclear units) measured daily in a petri dish with limited resources. 
 
 ```{r}
-p <- read.csv("paramecium.csv")
+paramecium <- read.csv("paramecium.csv")
 ```
 
 Look at the columns in this data:
 
 ```{r}
-head(p)
+head(paramecium)
 ```
 
 Note the output of the following commands:
 
 ```{r, eval = FALSE}
-nrow(p)
-ncol(p)
-dim(p)
-names(p)
+nrow(paramecium)
+ncol(paramecium)
+dim(paramecium)
+names(paramecium)
 ```
 
 The columns are: `Species`, `Day` of experiment, `Nt` - quantity of paramecium now, `Nt1` - quantity 1 time step ago $\Delta N_{t-1}$, and $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$.  
@@ -82,22 +84,21 @@ The columns are: `Species`, `Day` of experiment, `Nt` - quantity of paramecium n
 Open the script file [`logisticfitscript.R`](logisticfitscript.R) (you can click on the file name, and either download, or just paste into a NEW script).  It contains just the following code:
 
 ```{r}
-p <- read.csv("paramecium.csv")
-
-plot(Nt ~ Day, data = p)
+paramecium <- read.csv("paramecium.csv")
 N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
 
 # try different values!
 N0 <- 10
 K <- 150
-r0 <- 1.5
+r0 <- 1
+
+plot(Nt ~ Day, data = paramecium)
 curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
 ```
 
 The initial values guessed for `N0`, `K`, and `r0` are not very good.  
 
 > # Lab Exercise 1
-> 
 > Experiment with those numbers and see how close you can come (visually) to fitting the curve.  Report your estimates for $N_0$, $K$, and $r_0$ and include a plot of the fit. 
 
 
@@ -108,14 +109,14 @@ The initial values guessed for `N0`, `K`, and `r0` are not very good.
 
 Lets plot the three figures we talked about in class:  $N$ as a function of time, $\Delta N$ as a function of $N$, and $r$ as a function of $N$
 
-```{r, echo = FALSE, par = -1, fig.height = 3, fig.width = 9}
-pars(); par(mfrow = c(1,3))
-plot(Nt~Day, data = p)
-plot(dN~Nt1, data = p)
-plot(r~Nt1, data = p)
+```{r, echo = FALSE, par = -1, fig.height = 2.5, fig.width = 8, dpi = 200}
+elieslides::pars(); par(mfrow = c(1,3))
+plot(Nt~Day, data = paramecium, main = "Population over time")
+plot(dN~Nt1, data = paramecium, main = "Change in population over time")
+plot(r~Nt1, data = paramecium, main = "Growth rate over time")
 ```
 
-These roughly show the patterns we expect of logistic regression.  
+These roughly show the patterns we expect of a logistic growth model: sigmoidal growth in time, parabolic growth as a function of density, and linear decrease in growth as a function of density. 
 
 ## Linear model of R
 
@@ -126,55 +127,66 @@ $$ r(N) = r_0 - {r_0 \over K} N$$
 So if we do a straightforward linear regression, we can estimate both $r$ and $K$:
 
 ```{r}
-lm(r ~ Nt1, data = p)
+lm(r ~ Nt1, data = paramecium)
 ```
 
 This suggests that r0 is roughly 1.09.  We write:  $$\widehat{r_0} = 1.09$$ 
 
 What does the slope tell us?  Well - we can convert that to a carrying capacity, since:  $$\beta = -r_0/K.$$
 
-Solving for $\widehat{K}$ we get: $$\widehat{K} = 1.088 / 0.0052 = 209.1$$
+Solving for $\widehat{K}$ we get: $$\widehat{K} = 1.088 / 0.0052 = 209.1$$.  
 
-## Check the fit
+Here is a plot of that linear model:
 
-Is this estimate any good? Try putting these numbers into the fitting code:
+```{r, fig.height = 4, echo = -1}
+elieslides::pars()
+plot(r~Nt1, data = paramecium, main = "Growth rate over time")
+abline(lm(r ~ Nt1, data = paramecium), col = 2, lwd = 2)
+```
+
+
+
+
+> # Lab Exercise 2a
+>  Generate a plot of this fit using exactly the code in Exercise 1, but plugging in the estimates for $K$ and $r_0$ 
+
 
 ```{r, eval = FALSE}
 N0 <- 10
 K <- 209
 r0 <- 1.088
-plot(Nt~Day, data = p)
+plot(Nt~Day, data = paramecium)
 curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
 ```
-
-We need to adjust $N_0$ - but otherwise not too bad. 
-
 ## Standard errors
 
 Note - we can - again - get standard errors around these coefficients: 
 
 ```{r}
-r.lm <- lm(r ~ Day, data = p)
+r.lm <- lm(r ~ Day, data = paramecium)
 summary(r.lm)
 ```
 
-This is pretty good!  Especially for the $r_0$ variable - basically $\widehat{r} 1.2 \pm 0.42$. But, two (small) problems: 
 
-- hard to convert these to a standard error around $K$
-- no way to obatin an estimate for $N_0$ from this model 
+> # Lab Exercise 2b
+>  Report a point estimate and 95% confidence interval for the intrinsic growth rate $r_0$. 
 
+
+Overall this method is ... Ok.  But, it doesn't provide an estimate for $N_0$
 
 # Fit Method III:  Non-linear least squares
 
 One method of fitting a curve is to use the "least squares" method, i.e. find the parameters for which the squared devation of the data from the curve is minimized.  This is an *optimization* problem that the computer solves numerically. 
 
+Here's a fun illustration / simulation of how "least squares" works: https://seeing-theory.brown.edu/regression-analysis/index.html
+
 The function that does this in R is called `nls()`.  It is "non-linear", unlike the regression model above.  To do this, we have to use our function for the solution of the logistic curve and provide initial values.  But the basic syntax is similar in that the response is `Nt` and the predictor is the logistic function of time (`Day`),  with the parameters to be estimated following that `Day`.  And the formula symbol is always `~`. 
 
-```{r}
+```{r, echo = -1}
 p <- read.csv("paramecium.csv")
 N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
 
-nls(Nt ~ N.logistic(Day, N0, K, r0), data = p, 
+nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
     start = list(N0 = 1, K = 200, r0 = 0.75))
 ```
 
@@ -185,28 +197,7 @@ summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = p,
     start = list(N0 = 1, K = 200, r0 = 0.75)))
 ```
 
-
-<font color = "red">
-
-# Additional homework problem 4
-
-> Report the estimates of a fitted logistic curve to the Paramecium data, with confidence intervals and produce a plot of the fitted curve to the data.  
-
-</font>
-
-
-
-> # Lab Exercise 1
-> 
-> Load the population data from England and Wales - at this file: `england_population.csv`
-> 
-> Use these subsetted data and:
-> 
-> 1. Plot the relationship between Weight and Length for each of males and females
-> 2. Fit a model and add the regression line to the plot. 
-> 3. Report the estimate at 95% C.I. of the slope coefficient for males and females.  Based on these results, do they have different growth curves? 
-
-```{r, echo = FALSE}
-england <- read.csv("england_population.csv")
-
-```
+> # Lab Exercise 3
+> a. Generate a plot of this third fit using exactly the code in Exercise 1, but plugging in estimates for $K$, $r_0$ and $N_0$.  
+> b. Report 95% confidence intervals around all three estimates
+> c. Which is the "best" method?  Why?    
