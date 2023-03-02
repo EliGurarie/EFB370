@@ -32,6 +32,10 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [4: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html) ([pdf](lectures/ModuleII/LogisticGrowth_PartI.pdf))
 - [5: Logistic Growth II](lectures/ModuleII/LogisticGrowth_PartII.html)
 
+### Recitation/Lab
+
+- [Week 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
+
 
 ## Topic I. Exponential Growth
 
@@ -44,8 +48,8 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 ### Recitation/Lab
 
-- [1: Introduction to R](labs/lab5/Lab5_IntroToR.html)
-- [2: Linear Models and Stochasticity](labs/lab6/Lab6_Randomness.html)
+- [Week 5: Introduction to R](labs/lab5/Lab5_IntroToR.html)
+- [Week 6: Linear Models and Stochasticity](labs/lab6/Lab6_Randomness.html)
 
 ### Analysis tools
 
