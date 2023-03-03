@@ -36,6 +36,9 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 - [Week 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
 
+### [Extra Credit Problem Set 4](problemsets/ExtraCreditProblemSet4.html)
+- due **March 9, 2023** at midnight. 
+
 
 ## Topic I. Exponential Growth
 
@@ -55,9 +58,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 - [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
 
-### Problem Sets
-
-**[Problem Set 3](problemsets/ProblemSet3.html)**
+### [Problem Set 3](problemsets/ProblemSet3.html)
 
 - due **March 2, 2023**. 
 - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
