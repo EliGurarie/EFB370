@@ -24,6 +24,13 @@ htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner',
 This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-12).   
 
 
+## Topic III. Structured Popualtions
+
+### Lectures
+
+- [6: Structured Populations I](lectures/ModuleIII/PopulationStructure_PartI.html)
+
+
 
 ## Topic II. Logistic Growth
 
