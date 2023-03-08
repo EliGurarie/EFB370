@@ -6,7 +6,8 @@ server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8518233
 bundleId: 6933295
-url: https://egurarie.shinyapps.io/03_AgeStructuredGrowth/
+url:
+    https://egurarie.shinyapps.io/03_AgeStructuredGrowth/
 when: 1678313537.77214
 lastSyncTime: 1678313537.77215
 asMultiple: FALSE

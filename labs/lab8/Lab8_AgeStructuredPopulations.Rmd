@@ -10,7 +10,7 @@ output:
 ---
 
 
-> There are THREE exercises in this lab to submit by midnight next Monday, March 6.  
+> There are THREE exercises in this lab to submit by midnight next Monday, March 20.  
 
 ```{css, echo = FALSE}
 blockquote {

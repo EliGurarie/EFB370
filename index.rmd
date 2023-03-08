@@ -21,56 +21,53 @@ htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner',
 
 ### Course Materials
 
-This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-12).   
+This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-12). 
 
+## Lectures
 
-## Topic III. Structured Popualtions
-
-### Lectures
-
-- [6: Structured Populations I - Like History](lectures/ModuleIII/PopulationStructure_PartI.html)
-- [7: Structured Populations II - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartII.html)
-
-
- 
-## Topic II. Logistic Growth
-
-### Lectures
-
-- [4: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html) ([pdf](lectures/ModuleII/LogisticGrowth_PartI.pdf))
-- [5: Logistic Growth II](lectures/ModuleII/LogisticGrowth_PartII.html)
-
-### Recitation/Lab
-
-- [Week 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
-
-### [Extra Credit Problem Set 4](problemsets/ExtraCreditProblemSet4.html)
-- due **March 9, 2023** at midnight. 
-
-
-## Topic I. Exponential Growth
-
-### Lectures
+#### Topic I.  Exponential Growth
 
 - [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html) ([pdf](lectures/ModuleI/ExponentialGrowth_PartI.pdf))
 - [2: Linear Modeling for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html) ([pdf](lectures/ModuleI/LinearModelsForExponentialGrowth.pdf))
 - [3: Exponential Growth with Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html) ([pdf](lectures/ModuleI/ExponentialGrowthWithStochasticity.pdf))
 - [3b: Demographic Stochasticity Example](lectures/ModuleI/DemographicStochasticityExample.pdf) 
 
-### Recitation/Lab
+#### Topic II. Logistic Growth
+
+- [4: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html) ([pdf](lectures/ModuleII/LogisticGrowth_PartI.pdf))
+- [5: Logistic Growth II](lectures/ModuleII/LogisticGrowth_PartII.html)
+
+#### Topic III. Structured Populations
+
+- [6: Structured Populations I - Life History](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [7: Structured Populations II - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartII.html)
+
+
+
+## Recitation/Labs
 
 - [Week 5: Introduction to R](labs/lab5/Lab5_IntroToR.html)
 - [Week 6: Linear Models and Stochasticity](labs/lab6/Lab6_Randomness.html)
+- [Week 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
+- [Week 8: Life Tables and Matrix Models](labs/lab8/Lab8_AgeStructuredPopulations.html)
+
+
+## Problem Sets / Homework
+
+- [**Problem Set 3**](problemsets/ProblemSet3.html)
+    - due **March 2, 2023**. 
+    - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
+
+- [**Extra Credit Problem Set 4**](problemsets/ExtraCreditProblemSet4.html)
+    - due **March 9, 2023** at midnight. 
+
 
 ### Analysis tools
 
 - [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
-
-### [Problem Set 3](problemsets/ProblemSet3.html)
-
-- due **March 2, 2023**. 
-- This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
-
+- [2. Discrete logistic population simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping)
+- [3. Life history table](https://egurarie.shinyapps.io/AgeStructuredGrowth)
+- [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 
 
 
