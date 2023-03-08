@@ -1,3 +1,4 @@
+require(shiny)
 require(expm)
 require(gplots)
 require(plyr)
@@ -20,8 +21,25 @@ runPop <- function(M, N0, tmax){
 
 M <- rbind(c(0,1.5,.5),c(.5,0,0),c(0,1,0))
 N0 <- c(20,0,0) %>% t
-  
+
 colnames(M) <- colnames(N0) <- row.names(M) <- as.roman(1:3) %>% as.character
+
+tidyM <- function(M){
+  blanks <- which(is.na(M), arr.ind = TRUE)
+  
+  if(nrow(blanks) != 0){
+    if(blanks[1] > blanks[2]){
+      M <- M[-blanks[1],]
+    } 
+    if(blanks[1] < blanks[2]){
+      M <- M[,-blanks[2]]
+    } 
+    if(blanks[1] == blanks[2]){
+      M <- M[-blanks[1],-blanks[2]]
+    }
+  }
+  return(M)
+}
 
 ui <- fluidPage(
   
@@ -70,40 +88,51 @@ ui <- fluidPage(
     actionButton("drawdiagram", "Draw diagram"),
     actionButton("eigen", "Compute eigenvalues"),
     actionButton("go", "Run simulation")),
-    
- h3(actionButton("resetAll", "Clear everything")),
-    
+  
+  h3(actionButton("resetAll", "Clear everything")),
+  
   mainPanel(fluidRow( 
-      column(width = 12, style='padding:10px', grVizOutput("diagram", height = "200px")), 
-      column(width = 12, style='padding:10px', align = "center", plotOutput("eigenvalues", height = "100px", width = "80%")),
-      column(width = 12, style='padding:10px', plotOutput("structuredgrowthplot", height = "350px"))
+    column(width = 12, style='padding:10px', grVizOutput("diagram", height = "200px")), 
+    column(width = 12, style='padding:10px', align = "center", plotOutput("eigenvalues", height = "100px", width = "80%")),
+    column(width = 12, style='padding:10px', plotOutput("structuredgrowthplot", height = "350px"))
   ))
 )
 
 server <- function(input, output) {
   
   sim <- eventReactive(input$go,
-                       runPop(input$lesliematrix,
-                              t(input$N0),
-                              input$tmax))
+                       runPop(tidyM(input$lesliematrix), 
+                              t(input$N0), input$tmax)
+  )
   
   diagram <- eventReactive(input$drawdiagram,
-    leslie_diagram(input$lesliematrix, stages = row.names(input$lesliematrix),
-                   height = 300)
+                           leslie_diagram(tidyM(input$lesliematrix), 
+                                          stages = row.names(tidyM(input$lesliematrix)),
+                                          height = 300)
   )
-
+  
+  
+  #M <- matrix(1:4, nrow = 2) %>% rbind(c(0,""))
+  
   eigenplot <- eventReactive(input$eigen,{
-    M <- input$lesliematrix
-    eigenvalue <- eigen(M)$values[1]
-    eigenvector <- Re(eigen(M)$vectors[,1])
-    eigenvector <- eigenvector/sum(eigenvector)
-    eigenvectors <- paste0("{",paste(round(eigenvector, 3), collapse = ", "),"}")
+    M <- tidyM(input$lesliematrix)
     
-    par(mar = c(0,0,4,0), bty = "n", mfrow = c(1,2), cex.main = 2)
-    plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvalue "~lambda~":"))
-    text(0, 0, round(Re(eigenvalue),3), cex = 2)
-    plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvector "~N^"*"~":"))
-    text(0, 0, eigenvectors, cex = 2*sqrt(3/length(eigenvector)))
+    if(nrow(M) == ncol(M)){
+      eigenvalue <- eigen(M)$values[1]
+      eigenvector <- Re(eigen(M)$vectors[,1])
+      eigenvector <- eigenvector/sum(eigenvector)
+      eigenvectors <- paste0("{",paste(round(eigenvector, 3), collapse = ", "),"}")
+      
+      par(mar = c(0,0,4,0), bty = "n", mfrow = c(1,2), cex.main = 2)
+      plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvalue "~lambda~":"))
+      text(0, 0, round(Re(eigenvalue),3), cex = 2)
+      plot(0, 0, type = "l", xaxt = "n", yaxt = "n",  main = expression("eigenvector "~N^"*"~":"))
+      text(0, 0, eigenvectors, cex = 2*sqrt(3/length(eigenvector)))
+    } else{
+      par(mar = c(0,0,0,0))
+      image(1:nrow(M),1:ncol(M),M)
+      stop("non-square matrix - be sure you clear all empty rows and columns by clicking on the little X.")
+    }
   })
   
   simplot <-  eventReactive(input$go, {
@@ -119,7 +148,7 @@ server <- function(input, output) {
     barplot(pop[,ncol(pop)], col = 1:nrow(pop), 
             main = "final distribution") 
   })
-
+  
   
   observeEvent(input$go,{
     output$structuredgrowthplot = renderPlot({simplot()})
@@ -132,16 +161,18 @@ server <- function(input, output) {
   observeEvent(input$eigen,{
     output$eigenvalues = renderPlot({eigenplot()})
   })
-
+  
   observeEvent(input$resetAll, {
     output$diagram <- renderGrViz({})
     output$eigenvalues <- renderPlot({})
     output$structuredgrowthplot <- renderPlot({})
   })
+  
+  verbatimTextOutput("extinctionreport")
 }
 
 
-# shinyApp(ui=ui, server=server)
+shinyApp(ui=ui, server=server)
 
 
 
