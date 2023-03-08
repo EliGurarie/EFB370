@@ -28,10 +28,11 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 ### Lectures
 
-- [6: Structured Populations I](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [6: Structured Populations I - Like History](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [7: Structured Populations II - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartII.html)
 
 
-
+ 
 ## Topic II. Logistic Growth
 
 ### Lectures
