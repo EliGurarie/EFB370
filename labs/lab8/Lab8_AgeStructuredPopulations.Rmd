@@ -103,9 +103,19 @@ source("leslie_diagram.R")
 library(magick)
 ```
 
-In this lab, we are going to experiment with Matrix Models using the [Matrix Population Simulator 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/).  You're basically going to mess around with it long enough to (try to) set up and run a bunch of matrix population processes.  For all the following processes, obtain (a) population growth $\lambda$ and (b) the  stationary distribution $N^*$.  And then answer remaining questions as they come up.  
+In this lab, we are going to experiment with Matrix Models using the [Matrix Population Simulator 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/).  You're basically going to mess around with it long enough to (try to) set up and run a bunch of matrix population processes. 
+
+In the window of Matrix Modeller, you will see the Leslie matrix on the top left, with 3 rows (age classes) and 3 columns and some numbers already entered. Please note that the number of rows and columns should always be **equal**! **If you click on the empty cell, it will automatically create a new row**, which may produce an error. If that happens, try pressing a little [x] button to remove any accidentally created rows or columns.
+
+You can add new rows or columns by clicking on the empty ones and typing in a name. Once you type a name in, you can click on some other part of the screen and it will be entered. You can also change the existent names - try changing the row names from I, II, and III to "larva," "juvenile," and "adult." 
+
+Under the Leslie Matrix, you have your population vector (bottom left), where you can enter how many individuals you have for each of the age classes. You can see that there are 20 individuals in class I, 0 in class II, and 0 in class III in by default. 
+
+There are three buttons on the bottom: `Draw diagram`, `Compute eigenvalues` and `Run simulation`. Try clicking each one and see what it gives you. Note: if you change any of the parameters, you have to click **each button again** to get a new value or graph! If you want to start over, press the `Clear everything button`.
 
 ![](screenshot.png)
+
+For all the following processes, obtain (a) population growth $\lambda$ and (b) the  stationary distribution $N^*$. Then, answer remaining questions as they come up.  
 
 ## 1. *Monocerus academicus*
 
