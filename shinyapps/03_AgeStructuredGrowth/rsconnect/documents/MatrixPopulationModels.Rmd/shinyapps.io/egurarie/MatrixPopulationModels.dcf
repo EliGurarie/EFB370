@@ -1,0 +1,14 @@
+name: MatrixPopulationModels
+title: MatrixPopulationModels
+username:
+account: egurarie
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5827496
+bundleId: 6938354
+url: https://egurarie.shinyapps.io/MatrixPopulationModels/
+when: 1678394564.21291
+lastSyncTime: 1678394564.21292
+asMultiple: TRUE
+asStatic: FALSE
+ignoredFiles: AgeStructuredGrowth.Rmd
