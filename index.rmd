@@ -30,17 +30,17 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html) ([pdf](lectures/ModuleI/ExponentialGrowth_PartI.pdf))
 - [2: Linear Modeling for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html) ([pdf](lectures/ModuleI/LinearModelsForExponentialGrowth.pdf))
 - [3: Exponential Growth with Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html) ([pdf](lectures/ModuleI/ExponentialGrowthWithStochasticity.pdf))
-- [3b: Demographic Stochasticity Example](lectures/ModuleI/DemographicStochasticityExample.pdf) 
+- [3b: Demographic Stochasticity Example](lectures/ModuleI/DemographicStochasticityExample.pdf)
 
 #### Topic II. Logistic Growth
 
 - [4: Logistic Growth I](lectures/ModuleII/LogisticGrowth_PartI.html) ([pdf](lectures/ModuleII/LogisticGrowth_PartI.pdf))
-- [5: Logistic Growth II](lectures/ModuleII/LogisticGrowth_PartII.html)
+- [5: Logistic Growth II](lectures/ModuleII/LogisticGrowth_PartII.html) ([pdf](lectures/ModuleII/LogisticGrowth_PartII.pdf))
 
 #### Topic III. Structured Populations
 
-- [6: Structured Populations I - Life History](lectures/ModuleIII/PopulationStructure_PartI.html)
-- [7: Structured Populations II - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartII.html)
+- [6: Structured Populations I - Life History](lectures/ModuleIII/PopulationStructure_PartI.html) ([pdf](lectures/ModuleIII/PopulationStructure_PartI.pdf))
+- [7: Structured Populations II - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartII.html) ([pdf](lectures/ModuleIII/PopulationStructure_PartII.pdf))
 
 
 
