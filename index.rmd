@@ -65,6 +65,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [**Extra Credit Problem Set 4**](problemsets/ExtraCreditProblemSet4.html)
     - due **March 9, 2023** at midnight. 
 
+- [**Problem Set 5**](labs/lab8/Lab8_AgeStructuredPopulations.html#Homework_Assignment3)
 
 ### Analysis tools
 
