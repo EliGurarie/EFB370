@@ -43,6 +43,10 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [7: Structured Populations II - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartII.html) ([pdf](lectures/ModuleIII/PopulationStructure_PartII.pdf))
 
 
+#### Topic IV. Metapopulations
+
+- [8: Metapopulations I - Models](lectures/ModuleIV/Metapopulations_PartI.html) 
+
 
 ## Recitation/Labs
 
