@@ -46,6 +46,9 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 #### Topic IV. Metapopulations
 
 - [8: Metapopulations I - Models](lectures/ModuleIV/Metapopulations_PartI.html) 
+- [9: Metapopulations II - Applications](lectures/ModuleIV/Metapopulations_PartII.html) 
+Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
+
 
 
 ## Recitation/Labs
@@ -73,7 +76,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [2. Discrete logistic population simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping)
 - [3. Life history table](https://egurarie.shinyapps.io/AgeStructuredGrowth)
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
-
+- [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
 
 
 <!--
