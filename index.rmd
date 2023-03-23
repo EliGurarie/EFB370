@@ -45,8 +45,8 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 #### Topic IV. Metapopulations
 
-- [8: Metapopulations I - Models](lectures/ModuleIV/Metapopulations_PartI.html) 
-- [9: Metapopulations II - Applications](lectures/ModuleIV/Metapopulations_PartII.html) 
+- [8: Metapopulations I - Models](lectures/ModuleIV/Metapopulations_PartI.html) ([pdf](lectures/ModuleIV/Metapopulations_PartI.pdf))
+- [9: Metapopulations II - Applications](lectures/ModuleIV/Metapopulations_PartII.html) ([pdf](lectures/ModuleIV/Metapopulations_PartII.pdf))
 
 Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
 
