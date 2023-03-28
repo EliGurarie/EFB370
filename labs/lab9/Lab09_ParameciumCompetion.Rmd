@@ -13,7 +13,7 @@ output:
 > ### Goals: 
 > 1. To attempt to fit a competition model to actual data, namely Gause's famous  two-paremecium system. 
 > 2. To practice loading data, using functions, and performing numerical experimentation in R
-> 3. There are **XX** exercises in this lab to submit by midnight next Monday, April 3.   
+> 3. There are **5** exercises in this lab to submit by midnight next Monday, April 3.   
 
 ```{css, echo = FALSE}
 blockquote {
@@ -43,7 +43,7 @@ Note - you can copy-paste code from this lab into your R-studio, but do so caref
 
 ## Step 1. Load data
 
-There are two datasets posted on Blackboard and [here](data):  `single.csv` and `mixture.csv`.  
+There are two datasets posted on Blackboard or [here](single.csv) and [here](mixture.csv): `single.csv` and `mixture.csv`.  
 
 Load these into `R`, using using the `FILE/IMPORT DATADET` point and click or ... better ... using the `read.csv()` command as follows:
 
@@ -82,7 +82,7 @@ lines(caudatum~Day, data = single, type = "o", col = "darkblue")
 > **Q2.** Use `R` to load the `mixture.R` dataset and plot those two curves - in blue and orange - on the same figure as well.
 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, eval=FALSE}
 plot(aurelia~Day, type="o", data = mixture, col = "darkorange")
 lines(caudatum~Day, data = mixture, type = "o", col = "darkblue")
 ```
@@ -169,7 +169,7 @@ getR2(mysim, data = mixture, species1 = "aurelia", species2 = "caudatum")
 Yikes!  Those are really bad numbers.  They're so far from 1, they're negative. 
 
 
-> **The Challenge:**  Experiment with this system and see if you can find values of $\alpha$ (effect of *caudatum* on *aurelia*) and $\beta$ (effect of *aurelia* on *caudatum*) which more or less captures the competition process observed in the data.  How high can you get the $R^2$ value to go?  
+> **Q5 or The Challenge:**  Experiment with this system and see if you can find values of $\alpha$ (effect of *caudatum* on *aurelia*) and $\beta$ (effect of *aurelia* on *caudatum*) which more or less captures the competition process observed in the data.  How high can you get the $R^2$ value to go?  
 
 
 Note - to do the above you basically just have to copy paste the following lines of code, adjust the numbers in the `pars` object, and keep experimenting.  But use the following values as fixed:  $K_1 = 210$, $K_2 = 235$,  $N_1 = N_2 = 5$.  That leaves $\alpha$, $\beta$, $r_1$ and $r_2$ to play with:
