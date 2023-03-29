@@ -57,11 +57,11 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 
 ## Recitation/Labs
 
-- [Week 5: Introduction to R](labs/lab5/Lab5_IntroToR.html)
-- [Week 6: Linear Models and Stochasticity](labs/lab6/Lab6_Randomness.html)
-- [Week 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
-- [Week 8: Life Tables and Matrix Models](labs/lab8/Lab8_AgeStructuredPopulations.html)
-- [Week 11: Competition](labs/lab9/Lab09_ParameciumCompetion.html)
+- [Lab 5: Introduction to R](labs/lab5/Lab5_IntroToR.html)
+- [Lab 6: Linear Models and Stochasticity](labs/lab6/Lab6_Randomness.html)
+- [Lab 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
+- [Lab 8: Life Tables and Matrix Models](labs/lab8/Lab8_AgeStructuredPopulations.html)
+- [Lab 9: Competition](labs/lab9/Lab09_ParameciumCompetion.html)
 
 
 ## Problem Sets / Homework
