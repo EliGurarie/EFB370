@@ -51,6 +51,9 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
 
 
+#### Topic V. Species interactions
+
+- [10: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
 
 ## Recitation/Labs
 
