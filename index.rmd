@@ -54,6 +54,7 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 #### Topic V. Species interactions
 
 - [10: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
+- [11: Predation](lectures/ModuleV/Interactions_PartII_CompetitionAndPredation.html)
 
 ## Recitation/Labs
 
