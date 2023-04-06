@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 #### **Due Date:  Thursday, April 13**
 #### Total Points: 10 (with some possible extra credit)
 
->  ***Instructions:***  *Submit this homework as a document.  It can be entirely typed on a computer and uploaded on Blackboard, or completed as a combination of handwritten and printed (computer generated plots must be printed).  Answer questions in complete sentences and explain how you obtained your answers.  Only provide answers and include plots, do* **NOT** *send in code!  Collaboration and discussion - openly and on the discussion forum - is highly encouraged, but do not provide and publicize actual answers.* 
+>  ***Instructions:***  Submit this homework as a document.  It can be entirely typed on a computer and uploaded on Blackboard, or completed as a combination of handwritten and printed (computer generated plots must be printed).  Answer questions in complete sentences and explain how you obtained your answers.  Only provide answers and include plots, do* **NOT** *send in code!  Collaboration and discussion - openly and on the discussion forum - is highly encouraged, but do not provide and publicize actual answers. 
 
 
 This exercise builds directly off of the lab exercise from Thursday, April 6.  The link to the lab is [here](https://eligurarie.github.io/EFB370/labs/lab9/Lab09_ApparentCompetition.html), and the link to the apparent competition simulation tool is [here](https://egurarie.shinyapps.io/apparentcompetition/).  
