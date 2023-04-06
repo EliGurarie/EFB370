@@ -63,6 +63,8 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 - [Lab 7: Fitting Logistic Growth Models ](labs/lab7/Lab7.html)
 - [Lab 8: Life Tables and Matrix Models](labs/lab8/Lab8_AgeStructuredPopulations.html)
 - [Lab 9: Competition](labs/lab9/Lab09_ParameciumCompetition.html)
+- [Lab 10: Predation and Indirect Competition](labs/lab10/Lab10_ApparentCompetition.html)
+
 
 
 ## Problem Sets / Homework
