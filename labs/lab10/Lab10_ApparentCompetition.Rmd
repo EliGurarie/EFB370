@@ -82,7 +82,7 @@ Before the intensive clearing of forests began, in a 10,000 km² (100 km x 100 k
 # 35 years
 ```
 
-> **Harder Exercise 2:** Let's say it took 10 years for the first wolves to arrive. After some time, they attained a steady equilibrium of 30 animals in the area, while cutting down the caribou population to 400.  Simulate this process.  In the process, figure out what the value of the predator mortality parameter ($\sigma_c$) must be to obtain these steady states. *Note, you could, in theory, solve for this without guess-and-checking by finding where the (vertical) predator isocline intercepts with the (slanty) prey isocoline, but then you'd be doing algebra.*
+> **Harder Exercise 2:** Let's say it took 10 years for the first wolves to arrive. After some time, they attained a steady equilibrium of 30 animals in the area, while cutting down the caribou population to 400.  So, your starting parameters should now be the number of caribou from the previous exercise and some starting amount of wolves (generally, you would want 2 to have a start for the population...). Simulate this process.  In the process, figure out what the value of the predator mortality parameter ($\sigma_c$) must be to obtain these steady states. *Note, you could, in theory, solve for this without guess-and-checking by finding where the (vertical) predator isocline intercepts with the (slanty) prey isocoline, but then you'd be doing algebra.*
 
 ```{r, echo = FALSE}
 # sigma_c = 0.01 should do the trick
