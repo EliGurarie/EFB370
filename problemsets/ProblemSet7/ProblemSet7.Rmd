@@ -1,0 +1,98 @@
+---
+title: 'Modeling apparent competition'
+subtitle: 'EFB 370: Population Ecology - Problem Set 7'
+output: html_document
+---
+
+```{css, echo = FALSE}
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: darkgreen;
+    font-family: "Garamond";
+    background: #DFD;
+    border-left: 5px solid #262; 
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
+```
+
+#### **Due Date:  Thursday, April 13**
+#### Total Points: 10 (with some possible extra credit)
+
+>  ***Instructions:***  *Submit this homework as a document.  It can be entirely typed on a computer and uploaded on Blackboard, or completed as a combination of handwritten and printed (computer generated plots must be printed).  Answer questions in complete sentences and explain how you obtained your answers.  Only provide answers and include plots, do* **NOT** *send in code!  Collaboration and discussion - openly and on the discussion forum - is highly encouraged, but do not provide and publicize actual answers.* 
+
+
+This exercise builds directly off of the lab exercise from Thursday, April 6.  The link to the lab is [here](https://eligurarie.github.io/EFB370/labs/lab9/Lab09_ApparentCompetition.html), and the link to the apparent competition simulation tool is [here](https://egurarie.shinyapps.io/apparentcompetition/).  
+
+The wolf-caribou-moose system in northern Alberta is nicely summarized in the figure and caption below:
+
+![](WolfMooseCaribouWithCaption.png)
+
+The one predator - two prey model (a system of *coupled differential equations*) is as follows: 
+
+- Wolf equation $W(t)$: $${dW \over dt} = (\gamma_m M + \gamma_c C - \delta)W$$
+- Moose equation $M(t)$: $${dM \over dt} = r_m M \left(1 - {M\over K_m}\right)  - \sigma_m MW$$
+- Woodland caribou equation $C(t)$: $${dC \over dt} = r_c C \left(1 - {C\over K_c} \right)- \sigma_c CW$$
+
+Some parameters are below;
+
+species | parameter | definition | value pre oil | value post oil
+|----|:---:|------|-----:|----:|
+| **caribou** | $r_c$ | intrinsic growth | 0.5 | 0.3
+| | $K_c$ | carrying capacity | 1000 | 500
+| | $\sigma_c$ | death rate from predation | **TBD** | **TBD**
+| **moose** | $r_m$ | intrinsic growth |  | 0.7
+| | $K_m$ | carrying capacity | 10 | 1000
+| | $\sigma_m$ | death rate from predation |   | **TBD**
+| **wolf** | $\delta$ | intrinsic death rate | 0.2 | 0.2
+| | $\gamma_m$ | conversion rate from moose |  | **TBD**
+| | $\gamma_c$ | conversion rate from caribou | 0.0005 | 0.0005
+
+
+The exercises below follow very closely the exercises from lab. 
+
+### 1. First, the woodland caribou come
+
+Imagine the first woodland caribou colonized this area when there were no wolves, and no moose. Set up a simulation with an initial caribou population of 1. How many caribou were there after 10 years? How many years - approximately - does it take to get to carrying capacity within a rounding error?  
+
+### 2. Then, the wolves
+
+**2a.** Let's say it took 10 years for the first 2 wolves to arrive. After some time, they attained a steady equilibrium of 30 animals in the area, while cutting down the caribou population to 400.  Simulate this process.  In the process, figure out what the value of the predator mortality parameter ($\sigma_c$) must be to obtain these steady states.  **Note: in the lab there was a discrepancy between the table and the text on the reproductive rate of the caribou.  Use $r_c = 0.5$.**
+
+**2b.** Plot the isoclines for this model.  There is a vertical one for the predator - what is it's *x*-intercept?   There is a sloped one for the prey.  What are it's *y*-intercept and slope? 
+
+<font color = "darkblue"> **Extra credit 2c:** Solve exactly for the value of $\sigma_c$ that leads to 30 wolf / 400 caribou equilibrium by solving for the intersection of the two lines. </font>
+
+### 3. And then, the oil, and with it, the moose
+
+But then people discovered that there was lots and lots of thick oil in the sandstone under the boreal forest, which they immediately began to slice and dice.  One of the consequences of these actions was transforming an intact mosaic of old-growth boreal forest and bogs into a patchwork of clearcuts and early successional browse which are manna for moose. 
+
+Moose pack a much more powerful protein punch for wolves (4 x the mass = 4 x the conversion rate $\delta_c$ of caribou). They are also somewhat more reproductively productive in this improved (for them) habitat, so their intrinsic growth $r_m$ is higher (see table), whereas the caribou growth rate is lower $r_c$.  Otherwise, the per capita predation success parameter $\sigma_m$ is similar to the predation success paramter $\sigma_c$ obtained above. 
+
+With all that, **introduce 2 moose** into this system, with the stable equilibrium from the wolf-caribou system for initial values. Describe the effect on moose the caribou and wolf populations?  What is the maximum and final population that each of the three species attain? About how long does it take to attain that equilibrium? 
+
+Include a plot of the resulting dynamics.
+
+### 4. Mitigation strategies
+
+In Canada, there are active mitigation measures to help the (highly endangered) woodland caribou (none of which involve improving the habitat or slowing down development). Instead, they involve either culling moose or culling wolves. 
+
+**4a:** How much do you need to increase the death rate of wolves to get the caribou to a target population of 140 animals?
+
+**4b:** How much do you need to decrease the growth rate of moose to get the caribou to a target population of 140 animals?  (Remember, growth rate $r = b - d$, so decreasing the growth rate is equivalent to increasing the death rate). 
+
+For each of the scenarios above, include a plot of the resulting dynamics. 
+
+**4c.** In this system (without the culling strategies) does increasing or lowering the carrying capacity significantly help the caribou?  Based on the behavior of this system, would you say that the caribou and moose populations are more *predator-limited* or *food-limited*?  
+
+> **Important (and hopefully obvious) caveat:** PLEASE DO NOT GO TO CANADA AND TAKE THE RESULTS OF THIS HIGHLY ARTIFICIAL MODEL TO ACTUALLY IMPLEMENT MITIGATION STRATEGIES FOR WOODLAND CARIBOU!
+
+<center>
+![](woodlandcaribou.jpg)
+
+**Figure 3:** Woodland caribou *Rangifer tarandus caribou* keeping an eye out for apparent moose. 
+</center>
