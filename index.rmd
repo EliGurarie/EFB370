@@ -79,7 +79,9 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 
 - [**Problem Set 5**](labs/lab8/Lab8_AgeStructuredPopulations.html#Homework_Assignment3)
 
-- [**Problem Set 6**](problemsets/ProblemSet6.html): due **April 7, 2023** at midnight. 
+- [**Problem Set 6**](problemsets/ProblemSet6.html): due **April 6, 2023** at midnight. 
+
+- [**Problem Set 7**](problemsets/ProblemSet7/ProblemSet7.html): due **April 13, 2023** at midnight. 
     
 ### Analysis tools
 
