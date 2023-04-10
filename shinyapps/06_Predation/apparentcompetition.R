@@ -83,7 +83,7 @@ plotWCM <- function(sim, t.show = max(sim$out[,1])){
 
 parms = c(gamma_m = .003, gamma_c = .0001, delta = .15, w0 = 1000, 
           sigma_m = .003, rm = 1, Km = 10000, m0 = 0, 
-          sigma_c = .001, rc = 1, Kc = 10000, c0 = 1000)
+          sigma_c = .003, rc = 1, Kc = 10000, c0 = 1000)
 #a <- runWCM(200,.01,parms)
 #plotWCM(a)
 
