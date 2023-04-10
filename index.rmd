@@ -55,6 +55,8 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 
 - [10: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
 - [11: Predation](lectures/ModuleV/Interactions_PartII_CompetitionAndPredation.html)
+- [12: Functional Respones](lectures/ModuleV/Interactions_PartIII_FunctionalResponses.html)
+
 
 ## Recitation/Labs
 
