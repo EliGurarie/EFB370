@@ -1,6 +1,6 @@
 ---
 title: "Population Ecology"
-subtitle: "EFB 370: Spring 2023"
+subtitle: "EFB 370: Spring 2024"
 author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
   rmdformats::robobook:
@@ -21,8 +21,10 @@ htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner',
 
 ### Course Materials
 
-This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools (shiny apps) for Dr. Gurarie's portion of the course (roughly weeks 5-12). 
+This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools for Dr. Gurarie's portion of the course (roughly weeks 5-11 - starting February 12).  The page will be populated as the course progresses.  
 
+
+### Archives 
 
 Archived materials for this class from Spring 2023 can be found [here](archive2023/index.html). 
 

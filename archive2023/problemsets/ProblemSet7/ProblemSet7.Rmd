@@ -55,19 +55,19 @@ species | parameter | definition | value pre oil | value post oil
 
 The exercises below follow very closely the exercises from lab. 
 
-### 1. First, the woodland caribou come
+### 1 (1pt). First, the woodland caribou come
 
 Imagine the first woodland caribou colonized this area when there were no wolves, and no moose. Set up a simulation with an initial caribou population of 1. How many caribou were there after 10 years? How many years - approximately - does it take to get to carrying capacity within a rounding error?  
 
 ### 2. Then, the wolves
 
-**2a.** Let's say it took 10 years for the first 2 wolves to arrive. After some time, they attained a steady equilibrium of 30 animals in the area, while cutting down the caribou population to 400.  Simulate this process.  In the process, figure out what the value of the predator mortality parameter ($\sigma_c$) must be to obtain these steady states.  **Note: in the lab there was a discrepancy between the table and the text on the reproductive rate of the caribou.  Use $r_c = 0.5$.**
+**2a (1pt).** Let's say it took 10 years for the first 2 wolves to arrive. After some time, they attained a steady equilibrium of 30 animals in the area, while cutting down the caribou population to 400.  Simulate this process.  In the process, figure out what the value of the predator mortality parameter ($\sigma_c$) must be to obtain these steady states.  **Note: in the lab there was a discrepancy between the table and the text on the reproductive rate of the caribou.  Use $r_c = 0.5$.**
 
-**2b.** Plot the isoclines for this model.  There is a vertical one for the predator - what is it's *x*-intercept?   There is a sloped one for the prey.  What are it's *y*-intercept and slope? 
+<font color = "darkblue"> **Extra credit 2b.** Plot the isoclines for this model.  There is a vertical one for the predator - what is it's *x*-intercept?   There is a sloped one for the prey.  What are it's *y*-intercept and slope? </font>
 
 <font color = "darkblue"> **Extra credit 2c:** Solve exactly for the value of $\sigma_c$ that leads to 30 wolf / 400 caribou equilibrium by solving for the intersection of the two lines. </font>
 
-### 3. And then, the oil, and with it, the moose
+### 3 (3pts). And then, the oil, and with it, the moose
 
 But then people discovered that there was lots and lots of thick oil in the sandstone under the boreal forest, which they immediately began to slice and dice.  One of the consequences of these actions was transforming an intact mosaic of old-growth boreal forest and bogs into a patchwork of clearcuts and early successional browse which are manna for moose. 
 
@@ -81,13 +81,13 @@ Include a plot of the resulting dynamics.
 
 In Canada, there are active mitigation measures to help the (highly endangered) woodland caribou (none of which involve improving the habitat or slowing down development). Instead, they involve either culling moose or culling wolves. 
 
-**4a:** How much do you need to increase the death rate of wolves to get the caribou to a target population of 140 animals?
+**4a (1.5pts).** How much do you need to increase the death rate of wolves to get the caribou to a target population of 140 animals?
 
-**4b:** How much do you need to decrease the growth rate of moose to get the caribou to a target population of 140 animals?  (Remember, growth rate $r = b - d$, so decreasing the growth rate is equivalent to increasing the death rate). 
+**4b (1.5pts).** How much do you need to decrease the growth rate of moose to get the caribou to a target population of 140 animals?  (Remember, growth rate $r = b - d$, so decreasing the growth rate is equivalent to increasing the death rate). 
 
 For each of the scenarios above, include a plot of the resulting dynamics. 
 
-**4c.** In this system (without the culling strategies) does increasing or lowering the carrying capacity significantly help the caribou?  Based on the behavior of this system, would you say that the caribou and moose populations are more *predator-limited* or *food-limited*?  
+**4c (2pts).** In this system (without the culling strategies) does increasing or lowering the carrying capacity significantly help the caribou?  Based on the behavior of this system, would you say that the caribou and moose populations are more *predator-limited* or *food-limited*?  
 
 > **Important (and hopefully obvious) caveat:** PLEASE DO NOT GO TO CANADA AND TAKE THE RESULTS OF THIS HIGHLY ARTIFICIAL MODEL TO ACTUALLY IMPLEMENT MITIGATION STRATEGIES FOR WOODLAND CARIBOU!
 
