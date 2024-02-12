@@ -1,16 +1,16 @@
 ---
 title: "Population Ecology"
-subtitle: "EFB 370: Spring 2023"
+subtitle: "EFB 370: Spring 2023 (*partially archived*)"
 author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
-  rmdformats::robobook:
+  rmdformats::html_clean:
     toc_depth: 4
     thumbnails: TRUE
     anchor_sections: FALSE
 ---
 
 ```{r, echo=FALSE, eval = TRUE}
-htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner', 
+htmltools::img(src = "assets/ESFStacked_FullColor.png", alt = 'banner', 
                style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
 ```
 
@@ -70,7 +70,7 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 
 
 ## Problem Sets / Homework
-
+<!--
 - [**Problem Set 3**](problemsets/ProblemSet3.html)
     - due **March 2, 2023**. 
     - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
@@ -80,7 +80,8 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 - [**Problem Set 5**](labs/lab8/Lab8_AgeStructuredPopulations.html#Homework_Assignment3)
 
 - [**Problem Set 6**](problemsets/ProblemSet6.html): due **April 7, 2023** at midnight. 
-    
+-->
+
 ### Analysis tools
 
 - [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
@@ -89,73 +90,7 @@ Also check out the: - [Metapopulation Modeller 3000XC](https://egurarie.shinyapp
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 - [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
 - [6. Squirlicorn vs. Pegamunk: The Final Battle](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
-
-<!--
-- [0: Mini-Lecture on Likelihoods](lectures/00_LikelihoodsAndAIC.html)
-- [2: Randomness](lectures/02_ExponentialGrowth_PartII_Stochasticity.html)
-- [3: Estimation](lectures/03_ExponentialGrowth_PartIII_Estimation.html)
-
-#### Topic II. Density Dependence - Logistic Growth
-
-- [4: Continuous time models](lectures/04_LogisticGrowth_PartI.html)
-- [5: Discrete model and chaos](lectures/05_LogisticGrowth_PartII.html)
-
-#### Topic III. Age structure 
-
-- [6: Life Tables](lectures/06_LifeHistory_PartI.html)
-- [7: Life History Strategies and Matrix Models](lectures/07_LifeHistory_PartII.html)
- 
- 
-#### Topic IV. Metapopulations
-
-- [8: Theory](lectures/08_Metapopulations_PartI.html)
-- [9: Applications](lectures/09_Metapopulations_PartII.html)
-
-#### Topic V. Multispecies Interactions
-
-- [10: Competition and Coexistence](lectures/10_Competition.html)
-- [11: Predation Part I](lectures/11_PredationPartI.html)
-- [12: Predation Part II](lectures/12_PredationPartII.html)
-
-#### Topic VI. Dispersal, Disease, Estimation and More
-
-- [13: Dispersal and Disease](lectures/13_DispersalAndDisease.html)
-- [14: Can wolves slow CWD?](lectures/deer_wolf_CWD.pdf)
-- [15: Abundance estimation and mark-recature (Couriot)](lectures/Couriot_EstimatingAbudancesAndMarkRecapture.pdf)
-- [16: Estimating seal abundances](lectures/Gurarie_EstimatingAntarcticSealAbundances.pdf)
-- [17: Comment on sequential megafaunal collapse](lectures/CommentOnSequentialMegafaunalCollapse.pdf)
-
-### Numerical analysis tools
-
-- [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
-- [2. Discrete logistic growth simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping/)
-- [3. Age-structured growth simulator](https://egurarie.shinyapps.io/AgeStructuredGrowth/)
-- [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
-- [5. Metapopulations](https://egurarie.shinyapps.io/metapopulations/)
-- [6. Inter-species competition](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
-- [7. Isoclines](https://egurarie.shinyapps.io/isoclines/)
-- [8. Predator Prey](https://egurarie.shinyapps.io/predatorprey/)
-- [9. Apparent competition with caribou, moose and wolves](https://egurarie.shinyapps.io/apparentcompetition/)
-
-### Labs
-
-- [1: Intro to R](labs/lab5/Lab5_IntroToR.html)
-- [2: Fitting Logistic Growth](labs/lab6/Lab6_FittingLogisticCurves.html)
-- [3a: Life Tables](labs/lab7/Lab7_LifeTableExercises.html)
-- [3b: Matrix Modeling](labs/lab7/Lab7b_MatrixModels.html)
-- [4: Competition in R](labs/lab8/Lab08_ParameciumCompetion.html)
-- [5: Apparent competition](labs/lab9/Lab09_ApparentCompetition.html)
-
-
-### Problem Sets
-
-- [Problem Set 2](problemsets/ProblemSet2.html) - Due **March 7, 2022**
-  - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
-
-- [Problem Set 3](problemsets/ProblemSet3.html) - Due **April 18, 2022**
-  - This homework requires downloading data files and code from [here](labs/lab8/data) and experimenting with the [Apparent Competition Simulator](https://egurarie.shinyapps.io/apparentcompetition/). 
-
-
+- [7. Apparent Competition: The Three-way Throwdown](https://egurarie.shinyapps.io/apparentcompetition)
 
 
 <!--
