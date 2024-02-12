@@ -3,15 +3,15 @@ title: "Population Ecology"
 subtitle: "EFB 370: Spring 2024"
 author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
-  rmdformats::robobook:
+  rmdformats::downcute:
+    downcute_theme: "chaos"
     toc_depth: 4
     thumbnails: TRUE
     anchor_sections: FALSE
 ---
 
 ```{r, echo=FALSE, eval = TRUE}
-htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner', 
-               style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
+htmltools::img(src = "assets/ESFStacked_FullColor.png", alt = 'banner', style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
 ```
 
 <img src="assets/wolfcariboumoose.png" alt="wolf-caribou-moose" style="width:400px" align="right"/>
@@ -21,12 +21,7 @@ htmltools::img(src = "assets/ESFStacked_Full color.png", alt = 'banner',
 
 ### Course Materials
 
-This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools for Dr. Gurarie's portion of the course (roughly weeks 5-11 - starting February 12).  The page will be populated as the course progresses.  
-
-
-### Archives 
-
-Archived materials for this class from Spring 2023 can be found [here](archive2023/index.html). 
+This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools for **Dr. Gurarie's** portion of the course (roughly weeks 5-11 - starting February 12).  The page will be populated as the course progresses, but a link to previous year's [archives](archives2023/) is below.  
 
 ## Lectures
 
@@ -43,3 +38,8 @@ Or, to merge with (non-existent) main:
 2. git merge main
 3. git checkout main
 --> 
+
+
+## Archives 
+
+Archived materials for this class from Spring 2023 can be found [here](archive2023/index.html). 
