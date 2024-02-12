@@ -1,12 +1,10 @@
 ---
-title: "Week 5: Introduction to R and Linear Models for Exponential Growth"
-subtitle: 'EFB 370 - Spring 2022'
-author: "Dr. Elie Gurarie and Ekaterina Khadonova"
+title: "Introduction to R and Linear Models for Exponential Growth"
+subtitle: 'EFB 370: Recitation II.1'
+author: "Dr. Gurarie and Colton Moyer"
 date: "`r Sys.Date()`"
 output: 
-  html_document: 
-    toc: true
-    toc_float: true
+  rmdformats::html_clean
 ---
 
 ```{r setup, include=FALSE}
@@ -195,9 +193,9 @@ Sex <- SeaLions$Sex
 Some basic summary statistics include:
 
 ```{r}
-range(Length)
-median(Length)
-mean(Length)
+range(Length) # range
+median(Length) # median
+mean(Length) # mean
 var(Length) # variance
 sd(Length) # standard deviation
 ```
@@ -218,7 +216,7 @@ hist(Weight)
 
 A boxplot shows us relationships between a continuous variable (like Length/Weight/Girth) and a discrete variable (like Island/Sex):
 
-```{r, echo = -1}
+```{r, echo = -1, out.width = 1000}
 par(mfrow = c(1,2))
 boxplot(Length ~ Island)
 boxplot(Weight ~ Sex)
@@ -229,7 +227,6 @@ boxplot(Weight ~ Sex)
 A scatterplot shows us relationships between two continuous variables:
 
 ```{r, echo = -1}
-par(mfrow = c(1,2))
 plot(Length, Weight)
 ```
 
@@ -251,6 +248,7 @@ plot(SeaOtters$year, SeaOtters$count)
 
 </font>
 
+<!--
 
 # Part 3: Linear Models for Exponential Growth
 
@@ -324,7 +322,7 @@ plot(Year, Count)
 abline(Model1)
 ```
 
-<!-- Note, `abline` is a function that adds an intercept-slope line to any existing plot. 
+Note, `abline` is a function that adds an intercept-slope line to any existing plot. 
 
  There are some problems with this model.  What are they? 
 
@@ -334,7 +332,7 @@ abline(Model1)
 # plot(Model1,1)
 ```
 
-Do those residuals look consistently normally distributed?  -->
+Do those residuals look consistently normally distributed?
 
 ## Log Transformation
 
@@ -390,15 +388,13 @@ abline(Model2, col = "blue")
 The commands we're using within the `plot` function include setting the title of the graph (`main =`), changing the color of the symbols and the line (`col =`), and changing the shape of the symbols (`pch =`). There also many more alterations you can make to get your graph perfect - but that can be a deep dark `R`abbit hole!
 
 
-<!--
-
 ### Check Your New Residuals
 
 ```{r}
 # plot(Model2, 1)
 ```
 
- These look better!  (Though it takes practice to understand good vs. bad residuals.) -->
+ These look better!  (Though it takes practice to understand good vs. bad residuals.) 
 
 
 
@@ -439,3 +435,5 @@ ggplot(SeaOtters, aes(Year, Count)) + geom_point() +
 ```
 
 This really looks like a nice fit!
+
+-->
