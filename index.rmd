@@ -28,7 +28,11 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 Archived materials for this class from Spring 2023 can be found [here](archive2023/index.html). 
 
+## Lectures
 
+#### Topic I.  Exponential Growth
+
+- [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html) ([pdf](lectures/ModuleI/ExponentialGrowth_PartI.pdf))
 
 <!--
 instructions:

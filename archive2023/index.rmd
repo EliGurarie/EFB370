@@ -1,6 +1,6 @@
 ---
 title: "Population Ecology"
-subtitle: "EFB 370: Spring 2023 (*partially archived*)"
+subtitle: "[EFB 370: Spring 2023](https://eligurarie.github.io/EFB370) (*partially archived*)"
 author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
   rmdformats::html_clean:
