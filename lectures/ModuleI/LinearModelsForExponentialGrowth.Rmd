@@ -1,0 +1,521 @@
+---
+title: "**Exponential Growth Part II: Linear models to fit exponential growth**"
+subtitle: "[EFB 370: Population Ecology](https://eligurarie.github.io/EFB370/)"
+author: "**Dr. Gurarie**"
+date: "**February 14, 2024**"
+output: 
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "mycss.css"]
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+      highlightLines: true
+      titleSlideClass: ["center","top"]
+      ratio: '16:9'
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, dpi = 200)
+#output: html_document
+```
+```{r}
+require(elieslides)
+```
+
+
+```{r colsFunction, eval = FALSE}
+setwd("D:/Box/Box/teaching/EFB370 - Population Ecology/2023/Lecture01_PopulationEcology")
+system("cp images/raft3.jpg bg.jpg")
+system("cp ../mycss.css ./")
+xaringan::inf_mr()
+```
+
+
+## **Steller sea lion** (*Eumatopias jubatus*) - birth
+.center[
+<iframe src="https://drive.google.com/file/d/1BP1FS4736pwUWYtNzSFT-tDlMgPdTi9u/preview" width="640" height="480" allow="autoplay"></iframe>
+]
+
+---
+
+# Linear modeling 
+
+.small[(aka ***REGRESSION***, except I really don't like that term, for a variety of reasons to discuss in class.)]  
+
+is a very general method to quantifying relationships among variables.  
+
+
+
+.pull-left-60[
+
+```{r, fig.width = 5, fig.height = 4, out.width = "80%", dpi =200}
+require(ggthemes)
+pups <- read.csv("data/SeaLions.csv") %>% subset(Island == "Raykoke")
+ggplot(pups, aes(Length, Weight)) + geom_point(col = alpha("black", .5)) + 
+    geom_smooth(method = "lm") + 
+    #facet_wrap(.~Sex) + 
+    theme_few() + ggtitle("Steller sea lion size")
+```
+
+]
+
+.pull-right-30[
+![](images/pups_small.jpg)
+]
+
+---
+
+## Linear Models 
+
+.pull-left[
+
+**Deterministic:**
+
+$$Y_i = a + bX_i$$
+
+$a$ - intercept; $b$ - slope
+
+```{r, fig.width = 4, fig.height = 3, dpi = 200}
+pars()
+X <- 0:15
+a <- 1; b <- 1/2
+plot(X, a + b*X, pch = 19, ylab = "Y", ylim = c(-1,11), main = paste("a = 1; b = 1/2"))
+abline(a,b, col = "red", lwd = 2)
+```
+]
+
+.pull-right[
+
+**Statistical:**
+
+$$Y_i = \alpha + \beta X_i + \epsilon_i$$
+
+$\alpha$ - intercept; $\beta$ - slope; $\epsilon$ - **randomness!**
+
+$$\epsilon_i \sim {\cal N}(0, \sigma)$$
+
+```{r, fig.width = 4, fig.height = 3, dpi = 200}
+pars()
+set.seed(1976)
+X <- 0:15
+a <- 1; b <- 1/2
+sigma <- 1
+plot(X, a + b*X + rnorm(length(X), 0, sigma), pch = 19, ylab = "Y", ylim = c(-1,11), 
+     main = expression(alpha == 1~";"~beta == 1/2~";"~sigma == 1))
+abline(a,b, col = "red", lwd = 2)
+```
+]
+
+---
+
+.pull-left[
+
+# Fitting models is easy in ![](images/R.png)!
+
+**Point Estimate**
+
+This command fits a model:
+.small[
+```{r, echo = -1}
+pups <- read.csv("data/SeaLions.csv") %>% subset(Island == "Raykoke")
+lm(Weight ~ Length, data = pups)
+```
+]
+
+So for **each 1 cm** of length, add another **754 grams**.
+
+
+```{r}
+my_model <- lm(Weight ~ Length, data = pups)
+```
+]
+
+.pull-right[
+```{r, echo = -1, fig.width = 4, fig.height = 3, dpi = 200}
+pars()
+plot(Weight ~ Length, data = pups)
+abline(my_model)
+```
+
+The `abline` puts a line, with intercept `a` and slope `b` onto a figure.
+]
+
+
+
+---
+
+## Some comments on linear models
+
+.pull-left[
+
+$$ Y_i \sim \alpha + \beta X_i + \epsilon_i$$
+
+1. <font color = "red"> $\huge \epsilon_i$ </font> is .darkblue[**unexplained variation**] or .darkblue[**residual variance**].  It is often (*erroneously*, IMO) referred to as .red["**error**"].  It is a **random variable**, NOT a **parameter** or **data**. 
+
+3. <font color = "red"> $\huge \alpha+\beta X_i$ </font>  is the .darkblue[**predictor**], or the .darkblue[**"modeled"**] portion.  There can be any number of variables in the **predictor** and they can have different powers, so: $$Y_i \sim {\cal N}(\alpha + \beta X_i + \gamma Z_i + \delta X_i^2 + \nu X_i Z_i, \sigma )$$ is also a **linear** model. 
+
+<!--
+2. A **better**, more sophisticated way to think of this model is not to focus on isolating the residual variance, but that the whole process is a random variable: $$Y_i \sim {\cal N}(\alpha + \beta X_i, \sigma)$$ This is better because: (a) the three parameters ($\alpha, \beta, \sigma$) are more clearly visible, (b) it can be "generalized".  For example the **Normal distribution** can be a **Bernoulli distribution** (for binary data), or a **Poisson distribution** for count data, etc. 
+-->
+]
+
+.pull-right[
+
+
+```{r, fig.width = 4, fig.height = 4, dpi = 200}
+pars()
+set.seed(1976)
+X <- 0:15
+a <- 1; b <- 1/2
+sigma <- 1
+plot(X, a + b*X + rnorm(length(X), 0, sigma), pch = 19, ylab = "Y", ylim = c(-1,11), 
+     main = expression(alpha == 1~";"~beta == 1/2~";"~sigma == 1))
+abline(a,b, col = "red", lwd = 2)
+```
+]
+
+
+---
+
+.pull-left-60[
+
+# Statistical inference
+
+**Statistical inference** is the *science / art* of observings *something* from a **portion of a population** and making statements about the **entire population**.  
+
+In practice - this is done by taking  **data** and **estimating  parameters** of a **model**.  (This is also called *fitting* a model). 
+
+Two related goals: 
+
+1. obtaining a **point estimate** and a **confidence interval** (precision) of the parameter estimate. 
+2. Assessing whether particular (combinations of) factors, i.e. **models**, provide any **explanatory power**. 
+
+This is (almost always) done using **Maximum Likelihood Estimation**, i.e. an algorithm searches through possible values of the parameters that make the model **MOST LIKELY** (have the highest probability) given the data. 
+]
+
+.pull-right-40[
+![](images/SSL_withpup.jpg)
+
+.small[Another gratuitous sea lion picture.]
+]
+
+---
+
+.pull-left-60[
+
+## Statistical output
+
+<font size="4"><pre>
+```{r, echo = FALSE, eval = TRUE}
+mylm <- lm(Weight ~ Length, data = pups %>% 
+               subset(Island == "Raykoke"))
+summary(mylm)
+```
+</pre></font>
+]
+
+--
+.pull-right-40[
+
+### 1. Point estimates and confidence intervals
+.red.center[
+**Intercept** ( $\alpha$ ):  $-49.14 \pm 11.5$
+
+**Slope** ( $\beta$ ):  $0.75 \pm 0.104$
+]
+
+### 2. Is the model a good one? 
+
+*p*-values are very very small, in particular for **slope**
+
+Proportion of variance explained is high:
+
+.blue.large[$$R^2 = 0.68$$]
+
+]
+
+
+
+
+---
+
+
+.pull-left-60[
+
+## Statistical output
+
+<font size="4"><pre>
+```{r, echo = FALSE, eval = TRUE}
+mylm <- lm(Weight ~ Length, data = pups %>% 
+               subset(Island == "Raykoke"))
+summary(mylm)
+```
+</pre></font>
+]
+
+.pull-right-40[
+
+### Interpreting statistical results
+
+The "standard error" around the **Length** factor is 0.05.  
+
+The "true value" lies within **TWO** standard errors of the **point estimate** with 95% probability. 
+
+So the estimate of the slope with **confidence interval** is (in g/cm): $\widehat{\beta} = 754 \,g/cm \pm 104$
+
+The $p$-value around the **Length** factor is $<2 \times 10^{-16}$ .. i.e. **0**  This says that there is NO chance that you would get this steep a slope if there were NO relationship between Length and Weight (the null hypothesis). 
+
+So we've performed both **estimation** and **hypothesis testing** with this model. 
+]
+
+---
+
+### Models and Hypotheses
+
+> .large[**Every *p*-value is a Hypothesis test.**]
+
+.center[
+```{r, results = "asis", echo = FALSE}
+require(kableExtra)
+summary(mylm)$coef %>% apply(2, round, 3) %>% 
+    kable %>% kable_styling
+```
+]
+
+
+.large[
+- First hypothesis test: $H_0$ .darkred[intercept = 0]
+- Second hypothesis: $H_0$ .blue[slope = 0]
+
+Both null-hypotheses strongly rejected. 
+]
+
+---
+class: bottom
+
+.pull-left[
+
+## WA sea otter data:
+
+.footnote[Source: https://wdfw.wa.gov/species-habitats/species/enhydra-lutris-kenyoni]
+
+```{r, echo = -1, fig.height = 4, dpi = 200}
+pars()
+WA <- read.csv("data/WA_SeaOtters_PopGrowth.csv")
+plot(WA)
+```
+]
+
+.pull-right[
+
+## Fit a linear model
+.center[
+
+```{r, echo = -1, fig.height = 4, dpi = 200}
+pars()
+WA_lm <- lm(count ~ year, data = WA)
+plot(WA); abline(WA_lm, col = "red")
+```
+
+]]
+
+.center[**What are some problems with this model1?**]
+
+---
+
+## Plot on Log scale:  Much more linear looking!
+
+.pull-left[
+
+```{r, echo = -1, fig.width = 4, fig.height = 4, dpi = 100}
+pars()
+plot(WA, log = "y")
+```
+]
+
+.pull-right[
+
+### Linear model of *log(count)*
+
+
+```{r, echo = -1}
+pars(); par(mfrow = c(1,2))
+logWA_lm <- lm(log(count) ~ year, data = WA)
+logWA_lm
+```
+]
+
+---
+
+
+.pull-left[
+
+### Linear model of *log(count)*
+
+
+```{r, echo = -1}
+pars(); par(mfrow = c(1,2))
+logWA_lm <- lm(log(count) ~ year, data = WA)
+logWA_lm
+```
+]
+
+.pull-right[
+
+### A little math:
+
+$$\log(N_i) = \alpha + \beta \, Y_i$$
+$$N_i = \exp(\alpha) \times \exp(\beta \, Y_i)$$
+$$N_i = e^\alpha {e^\beta}^{Y_i}$$
+$$N_i = N_0 \lambda ^ {Y_i}$$
+
+$$\lambda = e^{\beta} = e^{0.07325} = 1.076$$  
+]
+
+
+> SO ... percent rate of growth is about 7.6%.    
+
+---
+
+.pull-left[
+
+## Plot linear model fit
+
+```{r, echo = -1, fig.width = 5, fig.height = 3.5, dpi = 100}
+pars()
+plot(log(count)~year, data = WA)
+abline(lm(log(count)~year, data = WA), col = 2, lwd = 2)
+```
+
+]
+
+.pull-right[
+## Plot exponential growth
+
+
+```{r, echo = -1, fig.width = 5, fig.height = 3.5, dpi = 100}
+pars()
+plot(count~year, data = WA)
+curve(exp(-140.2 + 0.07325 * x), add = TRUE, col = 2, lwd = 2)
+```
+]
+
+.center[Nice fit!]
+
+---
+## Summary stats and Confidence intervals
+
+.pull-left[
+
+
+**Summary stats**
+```{r, eval = FALSE, echo = TRUE}
+summary(logWA_lm)
+```
+```{r, echo = -1, eval = 1}
+summary(logWA_lm)$coefficients %>% apply(2, round, 4)
+```
+
+
+]
+
+
+.pull-right-40[
+
+
+**95% confidence intervals**
+
+$$\widehat{\beta} = 0.073 \pm 2\times{0.0024} = \{0.068, 0.078\}$$
+$$\widehat{\lambda} = \exp(0.073 \pm 2\times{0.0024}) = \{1.071, 1.081\}$$
+So annual growth rate is $7.6\% \pm 0.5$, with 95% Confidence. 
+]
+
+> **Key takeaway:** With linear modeling we can use ALL the data to (a) get a great **point estimate** and (b) quantify **uncertainty** on that estimate.
+
+
+<!--
+## Remember *environmental* stochasticity?
+
+<div style="float:left; width: 50%;">
+Typical growth model: 
+$$N(t) = N_0 e^{Rt}$$
+where $$R \sim {\cal N(\mu_r, \sigma_r)}$$
+</div>
+
+
+<div style="float:right; width: 50%;">
+Leads to something like: 
+```{r out.width = "100%"}
+pars()
+t_max <- 50
+mu_r <- 0.07
+sigma_r <- 0.07
+N_0 <- 60
+
+seaotterProcess <- function(j, t_max = 50, mu_r = 0.07, sigma_r = 0.07, N_0 = 60){
+    r <- rnorm(t_max, mu_r, sigma_r)
+    N <- rep(NA, t_max)
+    N[1] <- N_0
+    for(i in 2:t_max)
+        N[i] <- N[i-1]*exp(r[i])
+    return(N)
+}
+
+seaotterPredict <- function(t_max = 50, mu_r = 0.07, sigma_r = 0.07, N_0 = 60){
+    mu_N <- N_0 * exp(mu_r*(1:t_max))
+    sigma_N <- N_0 * exp(mu_r*(1:t_max)) * sqrt(exp(sigma_r^2*(1:t_max)) - 1)
+    return(data.frame(mu_N, mu_N - sigma_N, mu_N + sigma_N))
+}
+
+N.hat <- seaotterPredict()
+
+N.matrix <- apply(as.matrix(1:100, ncol = 100), 1, seaotterProcess)
+par(mfrow = c(1,2))
+matplot(N.matrix, type = "l", col = rgb(0,0,0,.2), 
+        ylab = "Population", xlab = "Time", lty = 1)
+lines(N.hat[,1], lwd = 2, col = "red")
+lines(N.hat[,2], lwd = 1, col = "red")
+lines(N.hat[,3], lwd = 1, col = "red")
+
+matplot(N.matrix, type = "l", col = rgb(0,0,0,.2), log = "y", 
+        ylab = "Population", xlab = "Time", lty = 1)
+lines(N.hat[,1], lwd = 2, col = "red")
+lines(N.hat[,2], lwd = 1, col = "red")
+lines(N.hat[,3], lwd = 1, col = "red")
+```
+</div>
+
+Important to remember: environmental stochasticity is relevant at ALL population sizes, in contrast to demographic stochasticity. 
+
+## Consider the discrete geometric growth equation:
+
+<div style="float:left; width: 50%;">
+
+$$N(t) = N_0 e^{Rt}$$
+$$\log N(t) = \log N_0 + Rt$$
+
+$$N_t = N_0 \lambda ^ t$$
+$$\log(N_t) = \log(N_0) + \log{\lambda} \, t$$
+
+add some randomness ....
+
+$$\log(N_t) = \log(N_0) + \log{\lambda} \, t + \epsilon_t$$ 
+
+
+</div>
+
+
+<div style="float:right; width: 50%;">
+
+You can estimate this with a **linear model** with the following equivalences: 
+
+$$Y_t = \log(N_t)$$
+$$\alpha = \log{N_0}$$
+$$\beta = \log(\lambda)$$
+
+</div>
+
+-->

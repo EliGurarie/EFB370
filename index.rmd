@@ -21,13 +21,14 @@ htmltools::img(src = "assets/ESFStacked_FullColor.png", alt = 'banner', style = 
 
 ### Course Materials
 
-This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools for **Dr. Gurarie's** portion of the course (roughly weeks 5-11 - starting February 12).  The page will be populated as the course progresses, but a link to previous year's [archives](archives2023/) is below.  
+This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools for **Dr. Gurarie's** portion of the course (roughly weeks 5-11 - starting February 12).  The page will be populated as the course progresses, but a link to previous year's [archives](archives2023/index.html) is below.  
 
 ## Lectures
 
 #### Topic I.  Exponential Growth
 
-- [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html) ([pdf](lectures/ModuleI/ExponentialGrowth_PartI.pdf))
+- [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html)
+- [2: Linear Models for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
 
 
 ## Recitation/Labs

@@ -144,7 +144,7 @@ This is what sea lion pups look like:
 
 ![](pups_small.jpg)
 
-This dataset is available on [Blackboard](https://blackboard.syracuse.edu/ultra/courses/_492502_1/cl/outline) as `SeaLions.csv`, or at [this link](SeaLions.csv).   Once you download it, you can use the File Explorer to determine its location and read it into R in a couple of ways:
+This dataset is available on **Blackboard** as `SeaLions.csv`, or at [this link](SeaLions.csv).   Once you download it, you can use the File Explorer to determine its location and read it into R in a couple of ways:
 
 1. **From the command line:** you can download the dataset and modify the following line of code:
 
