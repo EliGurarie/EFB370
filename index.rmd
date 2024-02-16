@@ -35,6 +35,13 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
 
+## Problem Sets / Homework
+
+- [**Problem Set 3: On Otters and Elephants**](problemsets/ProblemSet3.html)
+    - due **Mondey, February 26, 2024**. 
+    - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
+
+
 <!--
 instructions:
 git push origin gh-pages
