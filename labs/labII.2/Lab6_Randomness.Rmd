@@ -37,9 +37,9 @@ knitr::opts_chunk$set(echo = TRUE,
 > There are THREE exercises in this lab, set aside in green boxes like this one. Two involve R, and one involves a seperate shiny app (link below) To work through Exercise 1, you'll need the same files as last week: [`SeaLions.csv`](../data/SeaLions.csv) and [`SeaOtters.csv`](../data/SeaOtters.csv) (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](../data/BC_SeaOtters.csv). 
 
 > FOR SUBMISSION*** Please Upload a word document with answers to:
-Exercise 1: parts 1-3;  Exercise 2: part 3;  Exercise 3: parts 1 and 2
+Exercise 1: parts 1-3;  Exercise 2: part 3;  Exercise 3: parts 1 and 2.
 
-For importing data "best practice" would be to create a new R project in its own file folder and then move data files (.csv's) into that folder. R looks for files in it's project's directory. This is your projects whole world. If you ask it to find a file located in 'Downloads', R will say something like "***no such file exists in working directory***". As a result, the following code will not run unless you put the .csv files in your project directory. I (Colton) have to run this code to get R to write this document. **You** should skip this chunk and follow the instructions at **HERE**
+For importing data "best practice" would be to create a new R project in its own file folder and then move data files (.csv's) into that folder. R looks for files in it's project's directory. This is your projects whole world. If you ask it to find a file located in 'Downloads', R will say something like "***no such file exists in working directory***". As a result, the following code will not run unless you put the .csv files in your project directory. I (Colton) have to run this code to get R to write this document. **You** should skip this chunk and follow the instructions at "**HERE**"
 ```{r}
 #This is where your R project is looking for files (working directory)
 getwd()
@@ -59,7 +59,7 @@ list.files(path="C:/Users/colto/Teaching/EFB370/labs/labII.2", pattern=".csv", a
  SeaOtters <- read.csv("C:/Users/colto/Teaching/EFB370/labs/labII.2/SeaOtters.csv")
 ```
 
-**HERE** An alternative way to import data is by going to `File>Import Dataset>From Text (base)` and navigate to the the files in your library (they are probably in your downloads). Then click `Import`. 
+**HERE** An alternative way to import data is by going to `File>Import Dataset>From Text (base)` and navigate to the the files in your library (they are probably in your downloads folder). Then click `Import`. 
 
 This will create objects in your Rstudio Environment (to the right>>>) Called `SeaOtters` and `SeaLions`. You can also view the data by clicking on the tab `SeaOtters` above^^^. 
 
