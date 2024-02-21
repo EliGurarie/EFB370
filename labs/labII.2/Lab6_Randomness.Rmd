@@ -1,12 +1,14 @@
 ---
-title: "Week 6: Fitting Models and Stochasticity"
-subtitle: 'EFB 370 - Spring 2023'
-author: "Dr. Gurarie and Katya Khadonova"
+title: 'Week 6: Fitting Models and Stochasticity'
+author: "Dr. Gurarie and Colton Moyer"
 date: "`r Sys.Date()`"
-output: 
-  html_document: 
+output:
+  html_document:
     toc: true
     toc_float: true
+  pdf_document:
+    toc: true
+subtitle: "EFB 370 - Spring 2023"
 ---
 
 ```{css, echo = FALSE}
@@ -32,15 +34,40 @@ knitr::opts_chunk$set(echo = TRUE,
 
 
 
-> There are TWO exercises in this lab, set aside in green boxes like this one.  To work through the exercises in this lab, you'll need to download the [`SeaLions.csv`](../data/SeaLions.csv) and [`SeaOtters.csv`](../data/SeaOtters.csv) datasets as last week by following the links (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](../data/BC_SeaOtters.csv). If you've forgotten how, follow the instructions from [Lab 5](../lab5/Lab5_IntroToR.Rmd). 
+> There are THREE exercises in this lab, set aside in green boxes like this one. Two involve R, and one involves a seperate shiny app (link below) To work through Exercise 1, you'll need the same files as last week: [`SeaLions.csv`](../data/SeaLions.csv) and [`SeaOtters.csv`](../data/SeaOtters.csv) (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](../data/BC_SeaOtters.csv). 
 
+> FOR SUBMISSION*** Please Upload a word document with answers to:
+Exercise 1: parts 1-3;  Exercise 2: part 3;  Exercise 3: parts 1 and 2
+
+For importing data "best practice" would be to create a new R project in its own file folder and then move data files (.csv's) into that folder. R looks for files in it's project's directory. This is your projects whole world. If you ask it to find a file located in 'Downloads', R will say something like "***no such file exists in working directory***". As a result, the following code will not run unless you put the .csv files in your project directory. I (Colton) have to run this code to get R to write this document. **You** should skip this chunk and follow the instructions at **HERE**
 ```{r}
-SeaOtters <- read.csv("../data/SeaOtters.csv")
-SeaLions <- read.csv("../data/SeaLions.csv")
+#This is where your R project is looking for files (working directory)
+getwd()
+
+#copy and paste the file path into list.files. Tells R to list all the .csv files in this directory 
+list.files(path="C:/Users/colto/Teaching/EFB370/labs/labII.2", pattern=".csv", all.files=TRUE, full.names=TRUE)
+
+#If you have not changed the file directory from downloading above, your files are in your downloads folder.
+
+#each time you download the file, your computer will give it a new name: SeaOtters.csv, SeaOtters(1).csv, SeaOtters(2).csv, etc
+
+#This names the file 'SeaOtters.csv' as the object 'SeaOtters'
+#So when you refer to 'SeaOtters' it knows this dataframe
+
+#Run This:
+ SeaLions <- read.csv("C:/Users/colto/Teaching/EFB370/labs/labII.2/SeaLions.csv")
+ SeaOtters <- read.csv("C:/Users/colto/Teaching/EFB370/labs/labII.2/SeaOtters.csv")
 ```
 
+**HERE** An alternative way to import data is by going to `File>Import Dataset>From Text (base)` and navigate to the the files in your library (they are probably in your downloads). Then click `Import`. 
 
+This will create objects in your Rstudio Environment (to the right>>>) Called `SeaOtters` and `SeaLions`. You can also view the data by clicking on the tab `SeaOtters` above^^^. 
 
+```{r}
+#head() is a useful command for viewing/understanding data structure. This will show you the first 6 rows of a dataframe.
+head(SeaLions)
+```
+There are columns called `Island`, `Weight`, `Length`, and `Sex` in SeaLions
 
 # Part I: Fitting linear models 
 
@@ -49,6 +76,7 @@ SeaLions <- read.csv("../data/SeaLions.csv")
 You can extract the length and weight of the sea lion pups and plot the Weight against Length as follows: 
 
 ```{r}
+#This creates new strings for columns in SeaLions. See environment to the right>>>
 Length <- SeaLions$Length
 Weight <- SeaLions$Weight
 plot(Length, Weight)
@@ -145,7 +173,7 @@ However, there is actually a lot more information in this linear model fit.  But
 sealion.fit <- lm(Weight ~ Length, data = SeaLions)
 ```
 
-Now you can learn more:
+Now you can learn more by asking R to give you a summary:
 
 ```{r}
 summary(sealion.fit)
@@ -210,7 +238,7 @@ SeaLion.females <- subset(SeaLions, Sex == "F")
 > Use these subsetted data and:
 > 
 > 1. Plot the relationship between Weight and Length for each of males and females
-> 2. Fit a model and add the regression line to the plot. 
+> 2. Fit a model and add the regression line to the plot for males/females. 
 > 3. Report the estimate at 95% C.I. of the slope coefficient for males and females.  Based on these results, do they have different growth curves? 
 
 
@@ -326,7 +354,7 @@ curve(exp(logotter.fit$coef[1] +
 >
 > In the next homework assignment (due next Thursday, March 2) you will be asked to analyze the population growth rate of sea otters in British Columbia, the population just to the north of Washington state.  The data are [**here**](../data/BC_SeaOtters.csv) in a file called `BC_SeaOtters`. 
 >
-> For the lab exercise **all you need to do** is (1) Load the data, (2) plot the data, and (3) report how many were released, in what year, how many are there in the final year of data.  
+> For this exercise **all you need to do** is (1) Load the data, (2) plot the data, and (3) report how many were released, in what year, how many are there in the final year of data.  
 >
 >In the homework, you will estimate the growth rate with confidence intervals as well, but you don't need to worry about that for the lab.  
 <font color = "blue" size = 2>
