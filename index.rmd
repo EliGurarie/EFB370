@@ -31,6 +31,8 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [2: Linear Models for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
 - [3: Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html)
 - [3A: Demographic Stochasticity in Introduced NZ Birds](lectures/ModuleI/DemographicStochasticityExample.pdf)   
+  - See original paper (Legendre et al. 1999) [here](https://www.journals.uchicago.edu/doi/full/10.1086/303195?casa_token=-CsH-tppDmcAAAAA:7kbiDkZziP0KM80R39dDyFfCkyEYpYS-DaZi_lPVWo8xOd0cbLrgSopW9NGeEJfErg3L8McviIaC)
+
 
 ## Recitation/Labs
 
