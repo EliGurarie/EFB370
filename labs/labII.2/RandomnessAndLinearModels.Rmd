@@ -1,14 +1,10 @@
 ---
-title: 'Week 6: Fitting Models and Stochasticity'
+title: 'Fitting Models and Stochasticity'
+subtitle: "[EFB 370](https://eligurarie.github.io/EFB370/): Recitation II.2"
 author: "Dr. Gurarie and Colton Moyer"
 date: "`r Sys.Date()`"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-  pdf_document:
-    toc: true
-subtitle: "EFB 370 - Spring 2023"
+output: 
+  rmdformats::html_clean
 ---
 
 ```{css, echo = FALSE}
@@ -32,34 +28,50 @@ knitr::opts_chunk$set(echo = TRUE,
                       mmessage = FALSE)
 ```
 
+```{r, echo = FALSE, eval = FALSE}
+output:
+  html_document:
+    toc: true
+    toc_float: true
+  pdf_document:
+    toc: true
+```
 
 
 > There are THREE exercises in this lab, set aside in green boxes like this one. Two involve R, and one involves a seperate shiny app (link below) To work through Exercise 1, you'll need the same files as last week: [`SeaLions.csv`](../data/SeaLions.csv) and [`SeaOtters.csv`](../data/SeaOtters.csv) (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](../data/BC_SeaOtters.csv). 
 
-> FOR SUBMISSION*** Please Upload a word document with answers to:
-Exercise 1: parts 1-3;  Exercise 2: part 3;  Exercise 3: parts 1 and 2.
+>**FOR SUBMISSION** Please Upload a word document with answers to:
+*Exercise 1: parts 1-3;  Exercise 2: part 3;  Exercise 3: parts 1 and 2* in the Recitation 5 (R pt 2) on  **Blackboard** by midnight, Friday, Feb 23.  
 
-For importing data "best practice" would be to create a new R project in its own file folder and then move data files (.csv's) into that folder. R looks for files in it's project's directory. This is your projects whole world. If you ask it to find a file located in 'Downloads', R will say something like "***no such file exists in working directory***". As a result, the following code will not run unless you put the .csv files in your project directory. I (Colton) have to run this code to get R to write this document. **You** should skip this chunk and follow the instructions at "**HERE**"
+
+
+<font color = "purple">
+**R Project digression:** For importing data "best practice" would be to create a new R project in its own file folder and then move data files (`.csv`'s) into that folder. R looks for files in it's project's directory. This is your projects whole world. If you ask it to find a file located in 'Downloads', R will say something like `no such file exists in working directory`.
+</font>
+
+For loading data, there are several options.  The cleanest is probably to use the following script
+
 ```{r}
-#This is where your R project is looking for files (working directory)
-getwd()
-
-#copy and paste the file path into list.files. Tells R to list all the .csv files in this directory 
-list.files(path="C:/Users/colto/Teaching/EFB370/labs/labII.2", pattern=".csv", all.files=TRUE, full.names=TRUE)
-
-#If you have not changed the file directory from downloading above, your files are in your downloads folder.
-
-#each time you download the file, your computer will give it a new name: SeaOtters.csv, SeaOtters(1).csv, SeaOtters(2).csv, etc
-
-#This names the file 'SeaOtters.csv' as the object 'SeaOtters'
-#So when you refer to 'SeaOtters' it knows this dataframe
-
-#Run This:
- SeaLions <- read.csv("C:/Users/colto/Teaching/EFB370/labs/labII.2/SeaLions.csv")
- SeaOtters <- read.csv("C:/Users/colto/Teaching/EFB370/labs/labII.2/SeaOtters.csv")
+SeaLions <- read.csv("SeaLions.csv")
+SeaOtters <- read.csv("SeaOtters.csv")
 ```
 
-**HERE** An alternative way to import data is by going to `File>Import Dataset>From Text (base)` and navigate to the the files in your library (they are probably in your downloads folder). Then click `Import`. 
+But that will work only if you are in the right directory!  That is if the working directory, given by: 
+```{r}
+getwd()
+```
+
+Here are all the files in my working directory:
+
+```{r}
+list.files()
+```
+
+
+Is the same as the location of the files.  More details available upon request!
+
+
+An alternative point-and-click way to import data is by going to `File>Import Dataset>From Text (base)` and navigate to the the files in your library (they are probably in your downloads folder). Then click `Import`. 
 
 This will create objects in your Rstudio Environment (to the right>>>) Called `SeaOtters` and `SeaLions`. You can also view the data by clicking on the tab `SeaOtters` above^^^. 
 
