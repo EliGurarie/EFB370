@@ -38,7 +38,7 @@ output:
 ```
 
 
-> There are THREE exercises in this lab, set aside in green boxes like this one. Two involve R, and one involves a seperate shiny app (link below) To work through Exercise 1, you'll need the same files as last week: [`SeaLions.csv`](../data/SeaLions.csv) and [`SeaOtters.csv`](../data/SeaOtters.csv) (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](../data/BC_SeaOtters.csv). 
+> There are THREE exercises in this lab, set aside in green boxes like this one. Two involve R, and one involves a seperate shiny app (link below) To work through Exercise 1, you'll need the same files as last week: [`SeaLions.csv`](SeaLions.csv) and [`SeaOtters.csv`](SeaOtters.csv) (also available on Blackboard). For Exercise 2, you will also need to download [`BC_SeaOtters.csv`](BC_SeaOtters.csv). 
 
 >**FOR SUBMISSION** Please Upload a word document with answers to:
 *Exercise 1: parts 1-3;  Exercise 2: part 3;  Exercise 3: parts 1 and 2* in the Recitation 5 (R pt 2) on  **Blackboard** by midnight, Friday, Feb 23.  
