@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Limits on Population Growth</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Elie Gurarie" />
+    <meta name="date" content="2024-02-26" />
+    <script src="LogisticGrowth_PartI_files/header-attrs/header-attrs.js"></script>
+    <link href="LogisticGrowth_PartI_files/remark-css/default.css" rel="stylesheet" />
+    <link href="LogisticGrowth_PartI_files/remark-css/default-fonts.css" rel="stylesheet" />
+    <link href="LogisticGrowth_PartI_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="LogisticGrowth_PartI_files/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="mycss.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, top, title-slide
+
+.title[
+# <strong>Limits on Population Growth</strong>
+]
+.subtitle[
+## <a href="https://eligurarie.github.io/EFB370/">.white[EFB 370: Population Ecology]</a>
+]
+.author[
+### <strong>Dr. Elie Gurarie</strong>
+]
+.date[
+### February 26, 2024
+]
+
+---
+
+class:large
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pull-left-70[
+## As populations grow ...
+
+### they always hit **Limits to growth**
+
+.box-blue.large[
+- Space limits 
+
+- Resource limitations
+
+- Competition
+
+- Predation
+
+- Disease 
+]
+
+.large[**All of these can and do interact**]
+]
+
+.pull-right-30[
+![](images/limits.jpg)
+]
+
+---
+
+## Fundamental population equation
+
+`$$\huge \Delta N = B - D + I - E$$`
+.large[
+
+Exponential growth assumes these (especially .red[**Birth**] &amp; .red[**Death**]) are proportional to .red[**N**]. 
+
+But at high N ... B can fall, or D can rise, or I can decrease or E can increase.  
+
+]
+
+### Density dependence
+
+Means that the *rate* of a parameter, e.g. `\(b = {B/N}\)` or `\(d = {D/N}\)` is 
+- (a) NOT constant
+- (b) dependent on total population (or density) `\(N\)`
+
+
+---
+class:inverse
+
+.pull-left-30[
+
+
+![](images/purple-squirrel-deliverance-1.gif)
+
+![](images/oakieisland.png)
+]
+
+
+.pull-right-70.large[
+# Meet the Squirlicorn  (*Sciurus monocerus*)
+### **Natural History Facts**
+
+ **Limited range:** Only found on .lightred[Oakie island] 
+{{content}}
+
+]
+
+--
+
+**Extremely territorial:** Strictly ONE squirlicorn per oak tree. 
+{{content}}
+
+--
+
+**One colonist** ( `\(\color{yellow}{N_0 = 1}\)` ) appears on Oakie Island, which contains  `\(\color{yellow} K\)` oak trees 
+{{content}}
+
+--
+
+Reproduces **asexually** with some fixed probability `\(\color{yellow} {p_b}\)` per year.
+{{content}}
+
+--
+
+Offspring disperses to nearest tree. 
+{{content}}  
+
+--
+
+If tree is occupied, existing squirlicorn **assassinates** newcomer with its horn.
+{{content}}
+
+--
+
+Is ***immortal*** (*of course*).
+
+
+---
+
+
+
+.pull-left-70[
+## Simulating limits on growth 
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="generator" content="R package animation 2.7">
+	<title>Logistic growth ...</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/scianimator.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.scianimator.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+	<div class="scianimator"><div id="logisticsim" style="display: inline-block;"></div></div>
+	<script src="js/logisticsim.js"></script>
+<!-- highlight R code -->
+
+</body>
+</html>
+
+
+
+( note - if you can't see animation try clicking [here](logisticgrowth.html) )
+]
+
+.pull-right-30[
+
+### On Oakie Island there are:
+- `\(K = 64\)` trees 
+- `\(b = 0.2\)` offspring / year
+]
+
+---
+
+.pull-left[
+
+## Some math
+
+`$$\large E(N_{t+1}) = N_t + b \times N_t \times p_{c}$$`
+`\(b\)` - is birth rate, `\(p_c\)` - probability of successful colonization
+
+&gt; Remember `\(E()\)` is *expectation*  (just a way to accept that we're talking about random variables and are interested in their MEAN behavior ... but we'll drop it from here on out).    
+
+Key calculation ... the **probability of colonization** is just the **proportion of available trees**:
+
+`$$p_c = (K - N_t) /K$$`
+`\(K\)` is the *number of available trees*. Plugging back in:
+
+`$$N_{t+1} = N_t + b N_t \left(K - N_t \over K \right)$$`
+Rewrite in terms of `\(\Delta N = N_{t+1} - N_t\)`
+
+$$\Delta N = b N_t \left(1 - {N_t \over K} \right) $$
+]
+
+
+.pull-right[
+
+Slightly more generally with a death rate: `\(\lambda = b - d\)`
+
+`$$\Delta N_t = \lambda N_t \left(1 - {N_t \over K} \right)$$`
+
+Let's just divide both sides by `\(\Delta t\)`, squeeze time, and replace `\(\lambda / \Delta t\)` with `\(r_0\)` (much like in exponential growth) to make this differential equation: 
+
+`$${\Delta N_t \over \Delta t} = r_0 N_t \left((1 - {N_t \over K} \right)$$`
+`$${dN \over dt} = r_0 N_t \left(1 - {N_t \over K}\right)$$`
+
+
+This is the: 
+
+.center.large.green[**logistic population growth model**]. 
+]
+
+---
+
+## Properties and Assumptions
+
+`$$\Large {dN \over dt} = r N_t \left(1 - {N_t \over K}\right)$$`
+
+.pull-left[
+
+The key assumption is that *growth rate* decreases *linearly* with *population*.
+
+&lt;img src="LogisticGrowth_PartI_files/figure-html/unnamed-chunk-1-1.png" width="100%" /&gt;
+]
+
+.pull-right.large[
+- At `\(N = 0\)` - growth = 0
+
+- At `\(N\)` slightly above 0 - growth `\(\approx r_0\)`
+
+- At `\(N = K\)` - growth = `\(0\)`
+
+- At `\(N &gt; K\)` - growth &lt; `\(0\)`
+]
+
+
+---
+
+## Logistic Growth Curves
+
+.pull-left[
+
+Here's how the process looks, at values: `\(r_0 = 1\)`, `\(K = 36\)` and a selection of values for `\(N_0\)`. 
+
+
+![](LogisticGrowth_PartI_files/figure-html/logisticcurves-1.png)&lt;!-- --&gt;
+]
+
+
+.pull-right[
+
+
+Starts out looking ***Exponential*** (at low `\(N_0\)`, low values of time)
+
+Typical "S" shape coming from below ... Slows down at `\(K\)`
+
+Decays to `\(K\)` if `\(N_0 &gt; K\)`
+
+
+&gt; ***K*** is famously known as ....
+&gt;
+&gt;
+&gt; .darkblue.center.large[***Carrying Capacity***]
+]
+
+--
+
+
+
+---
+
+## Different models of density dependence
+
+.pull-left-30[
+
+**What is it that depends on density?**
+
+Is it birth?  Is it death?  Is it linear?  Is it curvy? 
+
+&gt; What changes for the squirlicorn? Is it linear? 
+
+]
+
+.pull-right-70[
+![](images/DensityDependence.png)
+
+.center[Fryxell chapter 8.]
+]
+
+
+
+---
+
+## Density Dependence
+.pull-left[
+
+
+![](images/DifferentFormsOfDD.png)
+]
+
+.pull-right.large[
+***Any*** relationship where `\(r\)` or `\(\lambda\)` depends on `\(N\)` is called **Density Dependence**. 
+
+It does not *have* to be linear. (That's just easiest to model)
+
+These different curves are different **forms** of density dependence. 
+]
+
+
+---
+
+## Typically for large mammals ...
+
+.pull-left-30[
+
+Calf / pup / juvenile mortality is highest when densities are highest.
+
+**Fecundity** (# of offspring per female) falls at high densities...
+
+... but this effect mainly kicks in at very high numbers (not linear).  
+]
+
+.pull-right-70.center[
+
+**Fecundity** (offspring / mother)
+
+![](images/FowlerExample.png)
+
+.center[Fowler (1981)]
+]
+
+
+
+---
+
+###  Most density dependence is curvy
+
+
+![](images/SiblyExample.png)
+
+.footnote[Sibly, et al. Science 309.5734 (2005): 607-610.]
+
+### .pull-right-70[in fact, most density dependence might be concave]
+
+
+
+---
+
+
+## Continuous time logistic growth curves
+
+.pull-left[
+![](LogisticGrowth_PartI_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+- Exponential growth at low `\(N_0\)`
+
+- Typical "S" shape (**sigmoidal**) coming from below ... Slows down at `\(K\)`
+
+- Decays to `\(K\)` if `\(N_0 &gt; K\)`
+]
+
+---
+
+## Exponential vs. Logistic Growth in Three Graphs
+
+.pull-left[
+  ***Exponential*** | ***Growth***
+  ---:|:---
+  differential equation: | `\({dN \over dt} = r N\)`
+  solution: | `\(N(t) = N_0e^{rt}\)`
+]
+
+.pull-right[
+  ***Logistic*** | ***Growth***
+  ---:|:---
+  differential equation: | `\({dN \over dt} = r_0 N\left(1-{N\over K}\right)\)`
+  solution: | `\(N(t) = {K \over 1 + \left({K-N_0 \over N_0}\right)e^{-r_0 t}}\)`
+]
+
+&lt;center&gt;
+&lt;img src="LogisticGrowth_PartI_files/figure-html/ThreeFigures-1.png" width="80%" /&gt;
+
+---
+
+
+## Properties
+
+Inflection point - where rate of growth is maximum - occurs at  `\(N(t^*) = K/2\)`. 
+`$$t^* = {1\over r} \log\left({K- N_0 \over N_0}\right)$$`
+&lt;img src="LogisticGrowth_PartI_files/figure-html/ThreeFigures2-1.png" width="100%" /&gt;
+
+---
+
+.pull-left-30[
+## Pierre François Verhulst
+
+&lt;img src='images/Verhulst.jpg' width='95%'/&gt;
+
+&lt;center&gt;
+(1804-1849)
+&lt;/center&gt;
+
+]
+
+
+.pull-right-70[
+
+***Sur la loi d'accroissement de la population*** - 1844
+&lt;center&gt;
+&lt;img src='images/Verhulst_04.png' width='70%'/&gt; &lt;br&gt;
+&lt;img src='images/Verhulst_figure.png' width='60%'/&gt;
+&lt;/center&gt;
+
+At the end of paper makes predictions - based purely on extrapolating from the inflection point: 
+
+*The extreme limit of the population of France is 40,000,000 souls, and of Belgium is 6,600,000 souls.*
+
+Actual population (in 2020):  65.5 million, and 11.7 million.   **Not bad at all!!**
+]
+
+---
+
+
+## Different functional forms
+
+&lt;img src="LogisticGrowth_PartI_files/figure-html/unnamed-chunk-3-1.png" width="100%" /&gt;
+
+---
+
+## Discrete logistic growth
+
+Take discrete population growth equation: 
+
+`$$N_{t+1} = \lambda N_t$$`
+
+break up into "stable" and "growth" components ( `\(\lambda = 1 + r_d\)` ):
+
+`$$N_{t+1} = N_t + r_d N_t$$`
+add the density dependence "brake" on the growth:
+
+`$$N_{t+1} = N_t + r_d N_t \left(1 - {N_t \over K}\right)$$`
+
+---
+
+## Discrete Logistic: Two formulations
+
+Compute change within a time step: 
+
+`$$\Delta N_t = r_d N_t \left(1 - {N_t \over K}\right)$$`
+
+Compute change of a population:
+
+`$$N_{t+1} = N_t + r_d N_t \left(1 - {N_t \over K}\right)$$`
+
+These are *difference* (as opposed to *differential*) equations.  And ... unlike the differential version ... there is NO "analytical" solution of `\(N_t\)` for any `\(N_t\)`. 
+
+In fact, this little equation **blew up math as we know it!**
+
+&gt; Visit this: https://egurarie.shinyapps.io/DiscreteLogisticMapping/
+
+---
+
+## Unexpected aspects of chaos theory  ....
+
+- It emerged from a basic (and old) *deterministic* population model. 
+- It is extremely sensitive to initial conditions
+- The patterns are fractal
+
+
+&lt;center&gt;
+&lt;img src='images/logisticmap.png' width='60%'/&gt;
+&lt;/center&gt;
+
+---
+
+## Very nice video on "logistic mapping" 
+
+.center[
+&lt;iframe src="https://www.youtube.com/embed/ovJcsL7vyrk?controls=1" width="70%", height = 400&gt;
+&lt;/iframe&gt;
+]
+
+
+
+
+
+---
+
+.pull-left-50[
+## Next Week: Human-Wolf Experiment
+
+-	Dispersal into new area, mainly wolf mating pairs. 
+-	Highly territorial! 
+-	Wolves produce up to 4 pups per litter that survive
+-	If there are no neighbors, wolves will disperse to found new packs
+-	Pack with 8 adults or 2 adults, still produces (about) 4 pups per litter 
+-	If there are lots of neighbors, packs become larger (more individuals) in smaller territories. 
+
+&lt;img src='images/WI_WolfTerritorySize.png' width='80%'/&gt;
+
+]
+
+
+.pull-right-50[
+
+**Expansion of Wisconsin Wolves, 1970's to 2000's**
+
+![](images/WI_WolfTerritories.png)
+]
+
+
+
+---
+
+## Some references
+
+.small[
+- Benton, T. G., A. Grant, and T. H. Clutton-Brock. 1995. Does environmental stochasticity matter? Analysis of red deer life-histories on Rum. Evolutionary Ecology 9:559–574.
+
+- Chapman, E. J., and C. J. Byron. 2018. The flexible application of carrying capacity in ecology. Global Ecology and Conservation 13:e00365.
+
+- Fowler, C. W. 1981. Density Dependence as Related to Life History Strategy. Ecology 62:602–610.
+
+- Laidre, K. L., R. J. Jameson, S. J. Jeffries, R. C. Hobbs, C. E. Bowlby, and G. R. VanBlaricom. 2002. Estimates of carrying capacity for sea otters in Washington state. Wildlife Society Bulletin:1172–1181.
+
+- Nowicki, P., S. Bonelli, F. Barbero, and E. Balletto. 2009. Relative importance of density-dependent regulation and environmental stochasticity for butterfly population dynamics. Oecologia 161:227–239.
+
+- Sibly, R. M., D. Barker, M. C. Denham, J. Hone, and M. Pagel. 2005. On the Regulation of Populations of Mammals, Birds, Fish, and Insects. Science 309:607–610.
+
+- Wydeven, A. P., T. R. Van Deelen, and E. J. Heske, editors. 2009. Recovery of Gray Wolves in the Great Lakes Region of the United States: An Endangered Species Success Story. Springer New York, New York, NY.
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

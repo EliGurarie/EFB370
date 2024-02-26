@@ -34,6 +34,11 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
   - See original paper (Legendre et al. 1999) [here](https://www.journals.uchicago.edu/doi/full/10.1086/303195?casa_token=-CsH-tppDmcAAAAA:7kbiDkZziP0KM80R39dDyFfCkyEYpYS-DaZi_lPVWo8xOd0cbLrgSopW9NGeEJfErg3L8McviIaC)
 
 
+#### Topic II.  Limits to Growth
+
+- [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
+- [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
+
 ## Recitation/Labs
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)

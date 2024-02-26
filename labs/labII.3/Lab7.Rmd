@@ -1,0 +1,203 @@
+---
+title: "Week 7: Fitting Logistic Growth Curves to Data"
+subtitle: 'EFB 370 - Spring 2023'
+author: "Dr. Gurarie"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    toc: true
+    toc_float: true
+---
+
+> There are THREE exercises in this lab to submit by midnight next Monday, March 6.  
+
+```{css, echo = FALSE}
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: darkgreen;
+    font-family: "Garamond";
+    background: #DFD;
+    border-left: 5px solid #262; 
+}
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, message = FALSE)
+```
+
+
+```{r, echo = FALSE, eval = FALSE}
+require(gauseR)
+data(gause_1934_book_f22)
+a <- gause_1934_book_f22
+#require(elieslides)
+#ggplot(a, aes(Day, Volume_Species1, col = Treatment)) + geom_point()
+a <- subset(gause_1934_book_f22, Treatment == "Pa")
+b <- a[,c("Species1","Day","Volume_Species2")] %>% 
+    plyr::rename(c(Species1 = "Species", Volume_Species2 = "Nt")) %>% 
+    mutate(Nt1 = c(NA,Nt[-n]),
+           dN = Nt-Nt1,
+           r = dN/Nt1)
+par(mfrow = c(1,3))
+plot(Nt~Day, data = b)
+plot(dN~Nt1, data = b)
+plot(r~Nt1, data = b)
+write.csv(b, file = "paramecium.csv", row.names = FALSE)
+```
+
+<center>
+![](paramecia.jpg)
+Paramecia are *at least* as cute as sea otters. 
+</center>
+
+# Loading and exploring Paramecium data
+
+The [`paramecium.csv`](paramecium.csv) data set contains observations of paramecia  (unicellular ciliates) densities (in unclear units) measured daily in a petri dish with limited resources. 
+
+```{r}
+paramecium <- read.csv("paramecium.csv")
+```
+
+Look at the columns in this data:
+
+```{r}
+head(paramecium)
+```
+
+Note the output of the following commands:
+
+```{r, eval = FALSE}
+nrow(paramecium)
+ncol(paramecium)
+dim(paramecium)
+names(paramecium)
+```
+
+The columns are: `Species`, `Day` of experiment, `Nt` - number (or density) of paramecium now, `Nt1` - number one time step previous $\Delta N_{t-1}$, and $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$.  
+
+
+# Fit Method I: By Hand
+
+Open the script file [`logisticfitscript.R`](logisticfitscript.R) (you can click on the file name, and either download, or just paste into a NEW script).  It contains just the following code:
+
+```{r}
+paramecium <- read.csv("paramecium.csv")
+N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
+
+# try different values!
+N0 <- 10
+K <- 150
+r0 <- 1
+
+plot(Nt ~ Day, data = paramecium)
+curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
+```
+
+The initial values guessed for `N0`, `K`, and `r0` are not very good.  
+
+> ### Lab Exercise 1
+> Play around with those numbers and see how close you can come (visually) to fitting the curve.  Report your estimates for $N_0$, $K$, and $r_0$ and include a plot of the fit. 
+
+
+
+# Fit method II: Using $r(N)$
+
+## Ploting N, dN and r
+
+Lets plot the three figures we talked about in class:  $N$ as a function of time, $\Delta N$ as a function of $N$, and $r$ as a function of $N$
+
+```{r, echo = FALSE, par = -1, fig.height = 2.5, fig.width = 8, dpi = 200}
+elieslides::pars(); par(mfrow = c(1,3))
+plot(Nt~Day, data = paramecium, main = "Population over time")
+plot(dN~Nt1, data = paramecium, main = "Change in population over time")
+plot(r~Nt1, data = paramecium, main = "Growth rate over time")
+```
+
+These roughly show the patterns we expect of a logistic growth model: sigmoidal growth in time, parabolic growth as a function of density, and linear decrease in growth as a function of density. 
+
+## Linear model of R
+
+One form of the logistic growth model simply says that: 
+
+$$ r(N) = r_0 - {r_0 \over K} N$$
+
+So if we do a straightforward linear regression, we can estimate both $r$ and $K$:
+
+```{r}
+lm(r ~ Nt1, data = paramecium)
+```
+
+This suggests that r0 is roughly 1.09.  We write:  $$\widehat{r_0} = 1.09$$ 
+
+What does the slope tell us?  Well - we can convert that to a carrying capacity, since:  $$\beta = -r_0/K.$$
+
+Solving for $\widehat{K}$ we get: $$\widehat{K} = 1.088 / 0.0052 = 209.1$$.  
+
+Here is a plot of that linear model:
+
+```{r, fig.height = 4, echo = -1}
+elieslides::pars()
+plot(r~Nt1, data = paramecium, main = "Growth rate over time")
+abline(lm(r ~ Nt1, data = paramecium), col = 2, lwd = 2)
+```
+
+
+
+
+> ### Lab Exercise 2a
+>  Generate a plot of this fit of logistic growth over time on top of the paramecium data by using exactly the code in Exercise 1, but plugging in the estimates for $K$ and $r_0$. You'll have to put in your own guess for $N_0$.  What is that guess? 
+
+
+```{r, eval = FALSE, echo = FALSE}
+N0 <- 10
+K <- 209
+r0 <- 1.088
+plot(Nt~Day, data = paramecium)
+curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
+```
+## Standard errors
+
+Note - we can - again - get standard errors around these coefficients: 
+
+```{r}
+r.lm <- lm(r ~ Nt1, data = paramecium)
+summary(r.lm)
+```
+
+
+> ### Lab Exercise 2b
+>  Report a point estimate and 95% confidence interval for the intrinsic growth rate $r_0$. 
+
+
+Overall this method is ... Ok.  But, it doesn't provide an estimate for $N_0$
+
+# Fit Method III:  Non-linear least squares
+
+One method of fitting a curve is to use the "least squares" method, i.e. find the parameters for which the squared devation of the data from the curve is minimized.  This is an *optimization* problem that the computer solves numerically. 
+
+Here's a fun illustration / simulation of how "least squares" works: https://seeing-theory.brown.edu/regression-analysis/index.html
+
+The function that does this in R is called `nls()`.  It is "non-linear", unlike the regression model above.  To do this, we have to use our function for the solution of the logistic curve and provide initial values.  But the basic syntax is similar in that the response is `Nt` and the predictor is the logistic function of time (`Day`),  with the parameters to be estimated following that `Day`.  And the formula symbol is always `~`. 
+
+```{r, echo = -1}
+p <- read.csv("paramecium.csv")
+N.logistic <- function(x, N0, K, r0) K/(1 + ((K - N0)/N0)*exp(-r0*x))
+
+nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
+    start = list(N0 = 1, K = 200, r0 = 0.75))
+```
+
+As usual, we can save the results to an object and get a summary table with the fits:
+
+```{r}
+summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
+    start = list(N0 = 1, K = 200, r0 = 0.75)))
+```
+
+> ### Lab Exercise 3
+> a. Generate a plot of this third fit using exactly the code in Exercise 1, but plugging in estimates for $K$, $r_0$ and $N_0$.  
+> b. Report 95% confidence intervals around all three estimates
+> c. Which is the "best" method?  Why?    
