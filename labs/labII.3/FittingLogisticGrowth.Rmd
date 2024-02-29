@@ -1,7 +1,7 @@
 ---
 title: "Week 7: Fitting Logistic Growth Curves to Data"
-subtitle: 'EFB 370 - Spring 2023'
-author: "Dr. Gurarie"
+subtitle: 'EFB 370 - Spring 2024'
+author: "Dr. Gurarie & Colton"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -9,7 +9,7 @@ output:
     toc_float: true
 ---
 
-> There are THREE exercises in this lab to submit by midnight next Monday, March 6.  
+> There are THREE exercises in this lab to submit by midnight Friday, March 1.  
 
 ```{css, echo = FALSE}
 blockquote {
@@ -50,6 +50,7 @@ write.csv(b, file = "paramecium.csv", row.names = FALSE)
 
 <center>
 ![](paramecia.jpg)
+
 Paramecia are *at least* as cute as sea otters. 
 </center>
 
@@ -76,7 +77,13 @@ dim(paramecium)
 names(paramecium)
 ```
 
-The columns are: `Species`, `Day` of experiment, `Nt` - number (or density) of paramecium now, `Nt1` - number one time step previous $\Delta N_{t-1}$, and $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$.  
+The columns are: 
+
+- `Species`
+- `Day` of experiment
+- `Nt` - number (or density) of paramecium now 
+- `Nt1` - number one time step previous $\Delta N_{t-1 
+- $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$
 
 
 # Fit Method I: By Hand
@@ -99,7 +106,7 @@ curve(N.logistic(x, N0, K, r0), add = TRUE, col = 2, lwd = 2)
 The initial values guessed for `N0`, `K`, and `r0` are not very good.  
 
 > ### Lab Exercise 1
-> Play around with those numbers and see how close you can come (visually) to fitting the curve.  Report your estimates for $N_0$, $K$, and $r_0$ and include a plot of the fit. 
+> Play around with those numbers and see how close you can come (visually) to fitting the curve.  **Report your estimates** for $N_0$, $K$, and $r_0$ and **include a plot** of the fit. 
 
 
 
@@ -132,7 +139,7 @@ lm(r ~ Nt1, data = paramecium)
 
 This suggests that r0 is roughly 1.09.  We write:  $$\widehat{r_0} = 1.09$$ 
 
-What does the slope tell us?  Well - we can convert that to a carrying capacity, since:  $$\beta = -r_0/K.$$
+What does the slope tell us?  Well - we can convert that to a carrying capacity, since:  $$\beta = -{r_0 \over K}$$.
 
 Solving for $\widehat{K}$ we get: $$\widehat{K} = 1.088 / 0.0052 = 209.1$$.  
 
@@ -176,7 +183,7 @@ Overall this method is ... Ok.  But, it doesn't provide an estimate for $N_0$
 
 # Fit Method III:  Non-linear least squares
 
-One method of fitting a curve is to use the "least squares" method, i.e. find the parameters for which the squared devation of the data from the curve is minimized.  This is an *optimization* problem that the computer solves numerically. 
+One method of fitting a curve is to use the "least squares" method, i.e. find the parameters for which the squared deviation of the data from the curve is minimized.  This is an *optimization* problem that the computer solves numerically. 
 
 Here's a fun illustration / simulation of how "least squares" works: https://seeing-theory.brown.edu/regression-analysis/index.html
 

@@ -5,6 +5,8 @@ author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
 output: 
   rmdformats::html_clean:
     toc_depth: 4
+    
+    
     thumbnails: TRUE
     anchor_sections: FALSE
 ---

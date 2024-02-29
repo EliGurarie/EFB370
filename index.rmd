@@ -42,7 +42,8 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 ## Recitation/Labs
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
-- [Lab II.2: Randomness ](labs/labII.2/RandomnessAndLinearModels.html)
+- [Lab II.2: Randomness](labs/labII.2/RandomnessAndLinearModels.html)
+- [Lab II.3: Logistic Growth](labs/labII.3/FittingLogisticGrowth.html)
 
 ## Problem Sets / Homework
 
