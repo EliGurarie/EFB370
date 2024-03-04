@@ -1,6 +1,6 @@
 ---
-title: "Week 7: Fitting Logistic Growth Curves to Data"
-subtitle: 'EFB 370 - Spring 2024'
+title: "Fitting Logistic Growth Curves to Data"
+subtitle:  "[EFB 370](https://eligurarie.github.io/EFB370/): Recitation II.3"
 author: "Dr. Gurarie & Colton"
 date: "`r Sys.Date()`"
 output: 

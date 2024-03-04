@@ -48,8 +48,14 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 ## Problem Sets / Homework
 
 - [**Problem Set 3: On Otters and Elephants**](problemsets/ProblemSet3.html)
-    - due **Mondey, February 26, 2024**. 
+    - due **Monday, February 26, 2024**. 
     - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
+
+
+- [**Problem Set 4: Fitting the Human Wolf Simulation**](problemsets/ProblemSet4/FittingHumanWolves.html)
+    - due **Friday, March 8, 2024**. 
+    - This homework requires downloading this data file: [WolfCounts2024.csv](problemsets/ProblemSet4/WolfCounts2024.csv). 
+
 
 
 <!--
