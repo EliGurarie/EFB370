@@ -39,6 +39,12 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
 - [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
 
+
+#### Topic III.  Structured Populations
+
+- [6: Structured Populations - Part I](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [7: Structured Populations - Part II](lectures/ModuleIII/PopulationStructure_PartII.html)
+
 ## Recitation/Labs
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
