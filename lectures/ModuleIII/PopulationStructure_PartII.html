@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Matrix Models</title>
+    <title>Life History Tables</title>
     <meta charset="utf-8" />
     <meta name="author" content=".white[**Dr. Elie Gurarie]**" />
     <script src="PopulationStructure_PartII_files/header-attrs/header-attrs.js"></script>
@@ -20,7 +20,7 @@
 class: left, top, inverse, title-slide
 
 .title[
-# <strong>Matrix Models</strong>
+# <strong>Life History Tables</strong>
 ]
 .subtitle[
 ## <a href="https://eligurarie.github.io/EFB370/">EFB 370: Population Ecology</a>
@@ -50,9 +50,10 @@ class: left, top, inverse, title-slide
 
 
 
-## Quick recap of last lecture
+## Learning Life History Tables
 
 .pull-left-70[
+
 1. **Survival** and **Fecundity** vary with age / class / stage
 
 2. **Life history tables** organize that variability:
@@ -73,6 +74,319 @@ class: left, top, inverse, title-slide
 .pull-right-30[
 ![](images/elephanthuman.png)
 ]
+
+
+
+
+---
+
+## Life Table analysis
+
+.pull-left-60[
+
+A "schedule" of all births and deaths in our population
+- .darkblue[**Fecundity schedule:**] *how many* offspring are born by **age**
+
+- .darkred[**Survivorship schedule:**] *with what probability* individuals by **age**
+
+
+With those (&amp; some tedious calculations) you can compute:
+
+- **Life expectancy**
+
+- Population **growth rate** `\(\lambda\)`  
+.green[important note: ALL of these models are *discrete exponential* growth models]
+
+- **Age structure:** 
+    Are there lots of: young individuals? Old individuals? Reproductive age individuals?
+
+- **Survivorship patterns**
+.green[Does most mortality occur in the very young? The very old? Or equally across all ages?]
+  
+  
+]
+
+.pull-right-40[
+
+![](images/ageclasses.png)
+
+
+### Life history ***strategy***
+
+
+Often - beyond a description - the real question is what influences or explains these parameters? 
+
+- evolutionary
+- environmental
+- density dependent 
+- human impacts
+
+]
+
+
+---
+
+## Life Tables - some "encouragement"
+
+&lt;img src='images/gotelliencouragement.png' width='100%'/&gt;
+
+### Two main pieces:
+
+- **Fecundity schedules:**  Number of births per age class - i.e. reproductive contributon of females
+- **Survivorship schedules:**  Number of deaths or probability of death per age class. 
+
+
+
+---
+
+##  Remember *Monoceros academicus*
+
+. | Larva | Sophomore | Emeritus |
+--- |:----------:|:------:|:---:|
+. | &lt;img src='images/unicornlarva.webp' height='150px'/&gt; | &lt;img src='images/unicornstudent.jpg' height='150px'/&gt; | &lt;img src='images/oldunicorn.webp' height='150px%'/&gt; |
+&lt;font size = 5&gt; Survival | &lt;font size = 5&gt; 0.5  |&lt;font size = 5&gt;1      | &lt;font size = 5&gt;0  |
+&lt;font size = 5&gt; Fecundity |&lt;font size = 5&gt; 0    | &lt;font size = 5&gt;1.5    | &lt;font size = 5&gt;0.5 |
+||||
+
+
+&gt; - **Survival** is a **probability** (unitless)
+&gt;
+&gt; - **Fecundity** is an **expected number** of offspring (n. ind.). 
+
+&lt;/center&gt;
+
+---
+
+
+
+
+.pull-left-40[
+## Experiment: results
+
+Stage | Survival | Fecundity
+----------|------|---
+1. larvae  | 0.5  | 0
+2. sophomore | 1    | 1
+3. emeritus   | 0    | .5
+
+
+See numerical experiment: https://egurarie.shinyapps.io/AgeStructuredGrowth/
+
+]
+
+.pull-right-60[
+&lt;img src="PopulationStructure_PartII_files/figure-html/runPop1-1.png" width="100%" /&gt;
+
+&gt;- Eventually obtains a 2:1:1 stable age distribution
+
+&gt;- Overall growth ($\lambda$)= 1
+]
+
+
+
+---
+
+## Survivorship schedules
+
+.pull-left-60[
+![](images/CurveTypes.png)
+]
+
+.pull-right-40[
+
+- **TYPE I:** high survivorship for juveniles; most mortality late in life
+
+- **TYPE II:** survivorship (or mortality) is relatively constant throughout life
+
+- **TYPE III:** low survivorship for juveniles; survivorship high once older ages are reached
+]
+
+
+---
+
+## The pieces (columns):
+
+&lt;font color = "green"&gt; **Age class** `\((x)\)` &lt;/font&gt;| &lt;font color = "green"&gt; **Number at Start** `\((S_x)\)` &lt;/font&gt; | Cum. Prob. of survival `\((l_x = S_x/S_1)\)` | &lt;font color = "green"&gt; **births/ind**  `\((b_x)\)` &lt;/font&gt; | Surv. prob  `\((g_x = l_x - l_{x+1})\)` |  Rep. rate: `\((l\times b)\)` | `\(g = lbx\)`
+ ---|:---:|:---:|:---:|:---:|:---:|:--:|
+ 1. larva            |  **16** |  | **0**    | |       | 
+ 2. sophomore        |  **8**  |  | **1.5**  |    |    | 
+ 3. emeritus          |  **8**  |  | **.5**   |    |   | 
+ 4. beyond   |  **0**  | 0   | --   | --  |  --    | -- 
+ **totals:**     | `\(\Sigma S_i = 32\)` | `\(\Sigma D_i = S_1 = 16\)` | | | `\(R_0 = \sum lb\)` | `\(G = {\sum(lbx) \over \sum(lb)}\)` 
+
+Goals:
+
+1. Fill out table 
+2. compute reproductive rate: `\(R_0\)` - mean number of offspring / female
+3. compute eneration time: `\(G\)` - mean age of mother
+
+
+
+---
+
+## The pieces (columns):
+
+&lt;font color = "green"&gt; **Age class** `\((x)\)` &lt;/font&gt;| &lt;font color = "green"&gt; **Number at Start** `\((S_x)\)` &lt;/font&gt; | Cum. Prob. of survival `\((l_x = S_x/S_1)\)` | &lt;font color = "green"&gt; **births/ind**  `\((b_x)\)` &lt;/font&gt; | Surv. prob  `\((g_x = l_x - l_{x+1})\)` |  Rep. rate: `\((l\times b)\)` | `\(g = lbx\)`
+ ---|:---:|:---:|:---:|:---:|:---:|:--:|
+ 1. larva            |  **16** | 1.0 | 0    | 0.5 |    0   | 0
+ 2. sophomore        |  **8**  | 0.5 | 1.5  | 1   |  0.75  | 1.5
+ 3. emeritus          |  **8**  | 0.5 | .5   | 0   |  0.25  | .75
+ 4. beyond   |  **0**  | 0   | --   | --  |  --    | -- 
+ **totals:**     | `\(\Sigma S_i = 32\)` | `\(\Sigma D_i = S_1 = 16\)` | | | `\(R_0 = 1\)` | `\(G = 2.25\)` 
+
+
+---
+
+
+## *Monoceros academicus*: Type I
+
+.pull-left[
+&lt;img src="PopulationStructure_PartII_files/figure-html/MonocerusTypeI-1.png" width="100%" /&gt;
+]
+
+.pull-right[
+
+- **TYPE I:** high survivorship for juveniles; most mortality late in life.  Investment in young and survival.  Typical of long-lived species. 
+
+Stage | Survival | Fecundity
+----------|------|---
+1. larvae  | 0.5  | 0
+2. sophomore | 1    | 1.5
+3. emeritus   | 0    | .5
+]
+
+---
+
+.pull-left-70[
+
+## Pink Salmon (*Onchorrhynchus gorbusha*)
+
+.pull-left[![](images/gorbusha.png)]
+.pull-right[![](images/gorbusha-lifehistory.jpg)]
+]
+
+.pull-right-30[
+### Strict 2-year life cycle
+
+Year 0: 
+- Spawn in late-summer 
+- Hatch in winter
+- Emerge in spring
+
+Year 1: 
+- Ocean phase
+
+Year 2. 
+- Enter freshwater late spring
+- Spawn
+- Die
+
+]
+
+---
+
+## Pink Salmon (*Onchorrhynchus gorbusha*): Type III
+
+.pull-left[
+&lt;img src="PopulationStructure_PartII_files/figure-html/OnchorhynchusTypeII-1.png" width="100%" /&gt;
+]
+
+.pull-right[
+
+- **TYPE III:** low survivorship for juveniles; survivorship high once older ages are reached.  Basically - produce a whole boatload of offspring and hope for the best. Typically short-lived species. 
+
+
+Stage | Survival  | Fecundity
+----------|-------|---
+1. smolt  | 0.05   | 0
+2. ocean  | 0.9   | 0
+3. return | 0     | 21
+]
+
+---
+
+## You can use life-history tables to compute:
+.pull-left-60[
+
+**Stable Age Distributions:**
+
+`$$c(x) = {e^{-rx} l(x) \over \sum_{x = 0}^k e^{-rx} l(x)}$$`
+
+
+**Reproductive value** (.darkgreen[Number of offspring YET to be born.])
+
+`$$v(x) = {e^{rx}\over l(x)} \sum_{y = x+1}^k e^{-ry} \,  l(y)b(y)$$`
+
+**Growth rate**  approximately: `\(r \approx \log(R_0)/G\)`, or exactly solve this: 
+
+`$$1 = \sum_{x=1}^n e^{-rx} l(x) b(x)$$` 
+
+for `\(r\)`.
+
+]
+
+
+.pull-right-40[
+
+
+
+![](images/monocerosWithGrowth.png)
+
+&gt; Note how growth rate affects **stable age distribution**!
+
+]
+
+
+
+---
+
+## Assumptions ...
+
+are the same as exponential growth:
+
+1. Closed population
+2. No genetic structure (or individual variability)
+3. No time lags
+4. Stationarity: 
+  - Exp. growth: `\(b\)` and `\(d\)` (birth and death rates) constant 
+  - Stage structured growth: `\(l(x)\)` and `\(b(x)\)` schedules are invariant in time. 
+
+**The really interesting ecological questions ask what happens when conditions change**
+
+---
+
+## Ways of calculating ... 
+
+1. Through time: **Cohort analysis** - follow a cohort (or several cohorts) through time  
+
+2. Snapshot: **Age distribution** - almost always something weird turns up!  
+
+3. Mark-racapture, observational analysis of survival and reproduction
+
+If you have **N-1 variables** you can often infer the **missing one**!
+
+.pull-left[![](images/horizontal.png)]
+.pull-right[![](images/vertical.png)]
+
+---
+## Fecundity Schedule
+.pull-left[
+#### semelparous | monocarpic
+
+Reproduce ONCE (e.g. .blue[Pacific salmon / desert flower / annual plant])
+
+Typical Schedule:  .red[0-0-0-0-0-1000]
+]
+.pull-right[
+#### iteraoparous | polycarpic
+Reproduce many times (e.g. .blue[rabbit / elephant / human / oak])
+
+Typical schedule:  .red[0-10-10-10-10-10]
+]
+
+
+![](images/iteroparity.png)
+
 
 
 ---
@@ -135,687 +449,6 @@ US population pyramid - 2020
 ![](images/uspoppyramid.jpg)
 ]
 
-
----
-
-# Life history strategies: *r*-selected, vs. *K*-selected species
-
-For a long time a popular **paradigm** (conceptual model purporting to explain a wide range of phenomenon) for understanding evolutionary drivers of life-history variation.   Still popularly taught: 
-
-.center[
-&lt;iframe src="https://www.youtube.com/embed/Bu6ouKt9zhs?controls=1" width="800" height="450"&gt;
-&lt;/iframe&gt;
-]
-
----
-background-image: url("images/walrusoysters.png")
-background-position: center
-background-size: contain
-
-.pull-left-30[
-### r-selected species
-
-#### strategy:
-
-
-- lots of offspring
-- little or no parental investment
-- semelparous
-- early maturity
-- Type III survivorship 
-- low survivorship
-- short life-expectancy
-
-#### drivers: 
-- small size
-- unstable / unpredictable environments
-
-#### consequence
-- highly fluctuating populations
-]
-
-
-.pull-right-30[
-
-### K-selected species
-
-#### strategy:
-
-- few offspring
-- lots of parental investment
-- high survivorship
-- late maturity
-- iteroparous
-- long life-expectancy
-- Type I survivorship schedule
-
-#### drivers:
-- stable environments
-- large
-
-#### consequence
-- more stable / slowly-fluctuating  populations
-
-]
-
----
-
-## Nice theory you've got there, but lots of counter-examples
-
-.pull-left[
-- What about **trees**?  They're big, they're long-lived (very **K**), but they produce and disperse a **heckload** of seeds (very, very **r**).
-]
-
-.pull-right[
-- What about **iteroparous** species (**K**) that are hedging their bets against high inter-annual variation in environmental conditions (very **r**)? 
-]
-.pull-left[&lt;br&gt;&lt;br&gt;![](images/rK-bunk.jpeg)]
-
-.pull-right[
-&gt; .green[The r- and K-selection paradigm 
-was  focussed on **density-dependent selection**. This paradigm 
-was challenged as it became clear that ... **age-specific mortality** 
-provide[s] a more mechanistic link between an environment and an 
-**optimal life history** ...] ([Reznick et al. (2002) Ecology](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B1509%3ARAKSRT%5D2.0.CO%3B2))
-]
-
-
----
-background-image: url("images/salmonids.png")
-background-size: cover
-
-## Salmonid (counter)-example
-
-
-&lt;br&gt;&lt;br&gt;&lt;br&gt;
-.center.large[
-
-**Semelparous species**
-
-Much bigger eggs (189 &gt; 86 mg).
-
-Also nest building and guarding behavior, before dying,
-
-i.e. greater investment in **Juvenile Survival** over **Adult Survival**. 
-
-The iteros just keep staying alive and trying to 
-
-breed again and again. 
-]
---
-
-.pull-left.center[
-&gt; Inconsistent with **r**-**K** paradigm!
-]
-
----
-
-.pull-left[
-### Tasmanian devil (*Sarcophilus harrisii*)
-
-.center[&lt;img src='images/tazzy.jpg' width='70%'/&gt;]
-
-Only marsupial carnivore | range restricted to Tasmania
-
-
-.pull-left[
-.darkred[Dying of *facial tumor disease*;  an infectious cancer (!) which kills nearly all adults &gt; 3 years
-]]
-
-.pull-right[![](images/taztumor.jpeg)]
-]
-
---
-
-
-.pull-right-40[
-### Switch to Semelparity
-
-.green[**Previously:**  Longer-lived, and iteroparous, with later birth (over 1 year old)]
-
-![](images/tazdevil_lifehistory.jpeg)
-
-.darkblue[**Now:** Semelparous, one-shot, younger mothers (almost NO 2-3 year old animals!)] ([Jones et al. (2013)](https://doi.org/10.1073/pnas.0711236105))
-]   
-
-
----
-
-# Matrix population modelling
-
-## Total populations vs. structured populations
-
-.pull-left[
-
-.large[**Scalar:**]
-
-`$$\huge N_t$$`
-
-]
-
-.pull-right[
-
-.large[**Vector:**]
-
-`$$\large  \vec{N}_t = \begin{cases}n_{1,t} \\ n_{2,t} \\ n_{3,t} \\ \vdots \\ n_{k,t}\end{cases}$$`
-]
-
----
-
-## Exponential Growth - Structured Population Growth
-
-.pull-left[
-
-**Exponential Growth**
-
-`$$\huge N_{t+1} = \lambda N_t$$`
-
-`\(\lambda\)` is a scalar population growth multiplier
-]
-
-.pull-right[
-
-**Structured Population Growth**
-
-
-`$$\huge \vec{N}_{t+1} = \textbf M  \vec{N_t}$$`
-
-`\(M\)` is a **Matrix** population **structure** growth multiplier
-
-]
-
----
-
-## Population transition (aka **Leslie**) matrix
-
-A **matrix** is a tool for **transforming vectors**.  
-
-A **population matrix** transforms a structured population **vector** by 
-
-1. adding newborns, [fecundity: `\(f_i\)`]
-2. killing off older classes, [survival: `\(s_i\)`]
-3. scootching everyone up the stage ladder [aging]
-
-.pull-left[
-`$$\begin{bmatrix}
-   n_0 \\
-   n_1 \\
-   \vdots \\
-   n_{\omega - 1} \\
- \end{bmatrix}_{t+1}
-=
- \begin{bmatrix}
-f_0 &amp; f_1 &amp; f_2 &amp; \ldots &amp; f_{\omega  - 2} &amp; f_{\omega  - 1} \\
-s_0 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 &amp; 0\\
-0 &amp; s_1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0\\
-0 &amp; 0 &amp; s_2 &amp; \ldots &amp; 0 &amp; 0\\
-\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots\\
-0 &amp; 0 &amp; 0 &amp; \ldots &amp; s_{\omega - 2}  &amp; 0
- \end{bmatrix}
- \begin{bmatrix}
-  n_0 \\ n_1 \\ \vdots\\ n_{\omega - 1}
- \end{bmatrix}_{t}$$`
-]
-
-.pull-right-40[
-
-**The Leslie matrix**
-
-- is square
-- the rows and columns represent age classes
-- the top row is the number of **births** coming in from older age classes
-- the lower rows are the number of **survivors** into the next age class
-]
-
-
----
-
-## Remember *Monocerus academicus* ... 
-
-
-.pull-left-60.center[
-
-. | Larva | Sophomore | Emeritus |
---- |:----------:|:------:|:---:|
-**Monoceros academicus** | &lt;img src='images/unicornlarva.webp' height='100px'/&gt; | &lt;img src='images/unicornstudent.jpg' height='100px'/&gt; | &lt;img src='images/oldunicorn.webp' height='100px%'/&gt; |
- Survival | 0.5  |1      | 0  |
- Fecundity | 0    | 1.5    | 0.5 |
-]
-
-.pull-right-40[
-
-Here's the matrix:
-
-
-
-$$
-\large M = \\begin{bmatrix}0&amp;1.5&amp;0.5 \\\\0.5&amp;0&amp;0 \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
-$$
-
-]
-
----
-
-## Leslie matrix as diagram
-
-The population matrix maps to a diagram!  These are very useful: 
-
-
-.pull-left-30[
-
-### Matrix
-
-$$
-\Large M = \\begin{bmatrix}0&amp;1.5&amp;0.5 \\\\0.5&amp;0&amp;0 \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
-$$
-]
-
-
-.pull-right-70[
-
-### Diagram
-
-![](images/monodiagram.png)
-
-]
-
-
-
-.box-grey[
-- Arrow **A** to **B** (0.5) is represented by matrix entry **column 1** to **row 2** - survival to second stage. 
-- Arrow **B** to **C** (1) is matrix entry **column  2** to **row 3** - survival to last stage.
-]
-
-
----
-
-## Ok, but how does it work? 
-
-Matrix Multiplication looks scary!  
-
-`$$\begin{align*}
-  M V^{T}=
-  \left[
-    \begin{array}{cccc}
-      a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1n}\\
-      a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2n}\\
-      \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
-      a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{nn}
-    \end{array}
-  \right]
-  \left[
-    \begin{array}{c}
-      x_1\\
-      x_2\\
-      \vdots\\
-      x_n
-    \end{array}
-  \right]
-  =
-  \left[
-    \begin{array}{c}
-      a_{11}x_1+a_{12}x_2 + \cdots + a_{1n} x_n\\
-      a_{21}x_1+a_{22}x_2 + \cdots + a_{2n} x_n\\
-      \vdots\\
-      a_{n1}x_1+a_{n2}x_2 + \cdots + a_{nn} x_n\\
-    \end{array}
-  \right].
-\end{align*}$$`
-
-But it basically just takes each element of your vector (e.g. population at a stage) and tracks how it is affected by all the other stages. 
-
-
-
----
-
-## Start with our experiment: 8 larvae
-
-
-`\(N_0 = \left[\begin{array}{c} 8 \\ 0 \\ 0 \\ \end{array}\right]\)`
-
-`$$N_1 = M N_0^T = \begin{bmatrix}0&amp;1.5&amp;0.5 \\ 0.5&amp;0&amp;0 \\0&amp;1&amp;0 \end{bmatrix} \times \left[\begin{array}{c} 8 \\ 0 \\ 0 \\ \end{array}\right] = 
-\left[\begin{array}{c} 0 + 0 + 0 \\ 4 + 0 + 0 \\ 0 + 0 + 0 \\ \end{array}\right] = \left[\begin{array}{c} 0\\4\\0 \\ \end{array}\right]$$`
-
-`$$N_2 = M N_1^T = \begin{bmatrix}0&amp;1.5&amp;0.5 \\ 0.5&amp;0&amp;0 \\0&amp;1&amp;0 \end{bmatrix} \times \left[\begin{array}{c} 0 \\ 4 \\ 0 \\ \end{array}\right] = 
-\left[\begin{array}{c} 6 \\ 0 \\ 4 \end{array}\right]$$`
-
-`$$N_3 = M N_2^T = M \times \left[\begin{array}{c} 6 \\ 0 \\ 4 \\ \end{array}\right] = 
-\left[\begin{array}{c} 2 \\ 3 \\ 0 \end{array}\right]$$`
-
-etc.
-
----
-
-## Super simple in R!
-
-
-
-.pull-left-70[
-
-```r
-M &lt;- rbind(c(0,1.5,.5), c(.5,0,0), c(0,1,0))
-row.names(M) &lt;- c("larvae", "sophs", "emeriti")
-```
-]
-
-.pull-right-30[
-
-]
-
-.pull-left-40[
-
-One step:
-
-
-```r
-M %*% N0
-```
-
-```
-##         [,1]
-## larvae     0
-## sophs      9
-## emeriti    0
-```
-
-Two steps:
-
-
-```r
-M %*% M %*% N0
-```
-
-```
-##         [,1]
-## larvae  13.5
-## sophs    0.0
-## emeriti  9.0
-```
-]
-
-
-.pull-right-40[
-Three steps: 
-
-
-```r
-M %^% 3 %*% N0
-```
-
-```
-##         [,1]
-## larvae  4.50
-## sophs   6.75
-## emeriti 0.00
-```
-
-20 steps: 
-
-
-```r
-M %^% 20 %*% N0
-```
-
-```
-##             [,1]
-## larvae  8.000124
-## sophs   3.999882
-## emeriti 4.000225
-```
-
-]
-
-
-
----
-
-## Plotting the results
-
-`$$N_t = M^t \times N_0$$`
-
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta name="generator" content="R package animation 2.7">
-	<title>Structured population ...</title>
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="css/styles.css" />
-	<link rel="stylesheet" href="css/scianimator.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
-
-	<script src="js/jquery-1.4.4.min.js"></script>
-	<script src="js/jquery.scianimator.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-</head>
-<body>
-
-	<div class="scianimator"><div id="StructuredPop" style="display: inline-block;"></div></div>
-	<script src="js/StructuredPop.js"></script>
-<!-- highlight R code -->
-
-</body>
-</html>
-
-(if no animation shows up, click [here](StructuredPop.html))
-
-
----
-
-## Amazing property of (many) matrices ... 
-
-&lt;br&gt;&lt;br&gt;
-
-`$$\huge M \times N^* = \lambda N^*$$`
-
-
-.large[
-For every (.darkgreen[**population**]) **matrix** there is a **vector** (.green[**age distribution**]) for which the matrix transformation (.green[**population growth process**]) increases the **vector** by a fixed proportion `\(\lambda\)` (.green[**population growth rate**]).
-
-
-- `\(\large N^*\)` - is the **eigenvector** = .red[**stable population distribution**]
-
-- `\(\large \lambda\)` - is the **eigenvalue** = .red[**population growth factor**]
-]
-
-
----
-
-## Some simple examples (to work out by hand)
-
-
-.pull-left[
-
-&lt;img src='diag0.png' width='100%'/&gt;
-
-$$
-\large  M = \\begin{bmatrix}2&amp;0 \\\\0&amp;2 \\\\\\end{bmatrix}
-$$
-
-.large[
-Everything doubles!  
-
-- `\(\lambda = 2\)`
-
-- no unique distribution. 
-]]
-
-.pull-right[
-
-&lt;img src='diag1.png' width='100%'/&gt;
-
-
-$$
-\large  M = \\begin{bmatrix}0&amp;2 \\\\1&amp;1 \\\\\\end{bmatrix}
-$$
-
-.large[
-*Eventually* everything doubles!  
-
-- `\(\lambda = 2\)`.
-
-- stable distribution = `\(N^* = \{1, 1\}\)`
-]]
-
----
-
-## *Monocerus academicus*
-
-.center[&lt;img src='images/monodiagram.png' width = '50%' /&gt;]
-
-.pull-left[
-
-
-```r
-matA &lt;- rbind(c(0, 1.5, .5),
-              c(.5, 0, 0),
-              c(0, 1, 0))
-```
-
-
-
-$$
-\large  M = \\begin{bmatrix}0&amp;1.5&amp;0.5 \\\\0.5&amp;0&amp;0 \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
-$$
-
-]
-
-.pull-right[
-
-
-
-```r
-eigen(matA)
-```
-
-```
-## eigen() decomposition
-## $values
-## [1]  1.0 -0.5 -0.5
-## 
-## $vectors
-##            [,1]       [,2]       [,3]
-## [1,] -0.8164966 -0.4082483  0.4082483
-## [2,] -0.4082483  0.4082483 -0.4082483
-## [3,] -0.4082483 -0.8164966  0.8164966
-```
-
-- First eigenvalue: `\(\lambda = 1\)`
-- Ratio of first eigenvector:  50% : 25% : 25%
-]
-
-
----
-
-## What if some emeriti decide to go back to school?
-
-
-
-&lt;center&gt;
-&lt;img src='diag_backtoschool.png' width = '50%' /&gt; 
-&lt;/center&gt;
-
-.pull-left-60[
-$$
-\large  M = \\begin{bmatrix}0&amp;1.5&amp; 0.5 \\\\0.5&amp;0&amp;\color{red}{\textbf 0.5} \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
-$$
-]
-
-.pull-right-40[
-
-
-
-```r
-eigen(matB)
-```
-
-```
-## eigen() decomposition
-## $values
-## [1]  1.2071068 -1.0000000 -0.2071068
-## 
-## $vectors
-##           [,1]       [,2]       [,3]
-## [1,] 0.7736915  0.5773503  0.6669930
-## [2,] 0.4878914 -0.5773503  0.1511012
-## [3,] 0.4041824  0.5773503 -0.7295812
-```
-
-]
-
-&lt;br&gt;
-&lt;br&gt;
-
-.large[
-- First eigenvalue: `\(\lambda = 1.21\)`
-
-- Ratio of first eigenvector: 46% : 29% : 24% 
-]
-
----
-
-## How does this look? 
-
-.center[
-
-<html>
-<head>
-	<meta charset="utf-8" />
-	<meta name="generator" content="R package animation 2.7">
-	<title>Back To School ...</title>
-	<link rel="stylesheet" href="css/reset.css" />
-	<link rel="stylesheet" href="css/styles.css" />
-	<link rel="stylesheet" href="css/scianimator.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
-
-	<script src="js/jquery-1.4.4.min.js"></script>
-	<script src="js/jquery.scianimator.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-</head>
-<body>
-
-	<div class="scianimator"><div id="BackToSchool" style="display: inline-block;"></div></div>
-	<script src="js/BackToSchool.js"></script>
-<!-- highlight R code -->
-
-</body>
-</html>
-
-
-(If animation does not work, click [here](BackToSchool.html))
-]
-
-
----
-
-### Complex life histories
-
-.pull-left-60[
-
-
-![](images/complexdiagrams.png)
-]
-
-.pull-right-30[
-
-
-
-
-.large[
-
-.blue[
-#### In short ... 
-
-... matrix models do it all!   
-And do it fast, and intuitively.  
-]
-
-]]
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
