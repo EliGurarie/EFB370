@@ -44,7 +44,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 - [6: Part I - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartI.html)
 - [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
-
+- [8: Miscellaneous slides](lectures/ModuleIII/MiscellaneousSlides.pdf)
 
 
 #### Topic IV.  Metapopulations
