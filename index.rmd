@@ -49,7 +49,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 #### Topic IV.  Metapopulations
 
-- [8: Metapopulations - Part I](lectures/ModuleIV/Metapopulations_PartI.html)
+- [9: Metapopulations - Part I](lectures/ModuleIV/Metapopulations_PartI.html)
 
 
 ## Recitation/Labs
