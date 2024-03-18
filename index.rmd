@@ -45,6 +45,13 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [6: Part I - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartI.html)
 - [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
 
+
+
+#### Topic IV.  Metapopulations
+
+- [8: Metapopulations - Part I](lectures/ModuleIV/Metapopulations_PartI.html)
+
+
 ## Recitation/Labs
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
@@ -64,7 +71,9 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
     - due **Friday, March 8, 2024**. 
     - This homework requires downloading this data file: [WolfCounts2024.csv](problemsets/ProblemSet4/WolfCounts2024.csv). 
 
-
+- [**Problem Set 5: Rescuing the Tasmanian Devil**](labs/labII.4/AgeStructuredPopulations.html#Homework_Assignment3)
+    - due **Thursday, March 21, 2024**. 
+    
 
 <!--
 instructions:
