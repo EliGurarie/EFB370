@@ -8,6 +8,7 @@ output:
     toc_depth: 4
     thumbnails: TRUE
     anchor_sections: FALSE
+    default_style: "light"
 ---
 
 ```{r, echo=FALSE, eval = TRUE}
@@ -84,6 +85,14 @@ Or, to merge with (non-existent) main:
 2. git merge main
 3. git checkout main
 --> 
+
+### Analysis tools
+
+- [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
+- [2. Discrete logistic population simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping)
+- [3. Life history table](https://egurarie.shinyapps.io/AgeStructuredGrowth)
+- [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
+- [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
 
 
 ## Archives 
