@@ -54,6 +54,11 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [10: Metapopulations - Part II](lectures/ModuleIV/Metapopulations_PartII.html)
 
 
+#### Topic V. Multi-Species Interactions
+
+- [11: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
+
+
 ## Recitation/Labs
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
@@ -94,6 +99,7 @@ Or, to merge with (non-existent) main:
 - [3. Life history table](https://egurarie.shinyapps.io/AgeStructuredGrowth)
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 - [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
+- [6. Squirlicorn vs. Pegamunk: The Final Chapter](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
 
 
 ## Archives 

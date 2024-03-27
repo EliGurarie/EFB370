@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Interactions Part I: Competition and Coexistence</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Elie Gurarie" />
+    <meta name="date" content="2024-03-27" />
+    <script src="Interactions_PartI_Competition_files/header-attrs/header-attrs.js"></script>
+    <link href="Interactions_PartI_Competition_files/remark-css/default.css" rel="stylesheet" />
+    <link href="Interactions_PartI_Competition_files/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="Interactions_PartI_Competition_files/fabric/fabric.min.js"></script>
+    <link href="Interactions_PartI_Competition_files/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="Interactions_PartI_Competition_files/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link href="Interactions_PartI_Competition_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="Interactions_PartI_Competition_files/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="mycss.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, top, inverse, title-slide
+
+.title[
+# Interactions Part I: <strong>Competition and Coexistence</strong>
+]
+.subtitle[
+## <a href="https://eligurarie.github.io/EFB370/">EFB 370: Population Ecology</a>
+]
+.author[
+### <strong>Dr. Elie Gurarie</strong>
+]
+.date[
+### March 27, 2024
+]
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Competition
+
+An **interaction** between organisms (*intraspecific*) or between species (*interspecific*) in which **fitness** of one is lowered by the presence of another. 
+
+***We've already talked about intraspecific competition!***
+
+### Fitness is Reproductive Success
+
+- survive to reproductive age
+- find a mate
+- produce (raise) offspring
+
+---
+
+
+## Competitive Exclusion Principle
+
+If two species are using the same resource and share the same niche, they can't coexist:
+
+
+.pull-left-70[![](images/Gause_Paramecia.png)]
+
+.pull-right-30[![](images/Gause.jpg)
+Georgiy Franzevich Gause
+(1910-1986)
+]
+
+---
+
+## Competitive Exclusion Principle
+
+
+.pull-left[
+![](images/foxandcoyote.jpg)
+]
+
+
+.pull-right[
+![](images/FoxCoyoteExclusion.png)
+across southern Minnesota prairie / farmland
+]
+
+.center[[Levi and Wilmers (2021) *Ecology* 93(4)](https://doi.org/10.1890/11-0165.1)]
+
+---
+
+## But ... coexistence!? 
+
+.pull-left-40[
+![](images/MacArthurWarblers.jpg)
+]
+
+.pull-right.large[
+
+### MacArthur's warblers
+
+Five species .... all insectivorous, all share the same set of boreal conifers in homogeneous stands.  In principle (*specifically - according to the* ***competitive exclusion principle***), no 2 species should co-exist.  
+
+.red[***How can 5 coexist!?***]
+]
+
+
+
+---
+
+## Because **resource partitioning!**
+
+.center[
+&lt;img src='images/morewarblers.jpg' width='60%'/&gt;
+]
+
+
+---
+
+## Spatial niche partitioning ....
+
+.pull-left-40[![](images/FoxAndCoyote.png)]
+
+.pull-right-40[![](images/FoxCoyoteInMadison.png)] 
+
+![](images/Mueller.png)
+
+
+---
+
+## Temporal niche partitioning ....
+
+.pull-left[
+![](images/wolfcoyote_partitioning.png)
+![](images/Frey.png)
+]
+
+.pull-right[
+![](images/CheetahLeopardPartitioning.png) 
+]
+
+---
+
+.pull-left-30[
+## Temporal niche partitioning
+
+LaPoint and Gurarie (in progress)
+]
+
+.pull-right-70[![](images/TemporalPartitioning.png)]
+
+.content-box[
+.pull-left-40[![](images/Huyck_fisher.JPG)]
+.pull-right[![](images/Huyck_coyote.JPG)]
+]
+
+
+---
+
+## Apparent competition 
+
+.large[Species A eats Species B and C, if Species B increases, Species C is in trouble.]
+
+.pull-left-60[![](images/apparent.jpg)]
+
+.pull-right-40[
+Major habitat fragmentation from oil-gas extraction.
+
+![](images/seismic.jpg)
+***Serrouya et al. (2017)***
+]
+
+---
+background-image: url("bg.jpg")
+background-size: cover
+
+# What can models tell us about coexistence and competition?
+
+---
+
+## Remember Logistic Growth
+
+Two species, `\(N_1\)` and `\(N_2\)`.  
+
+.darkorange[
+`$$\Large {dN_1 \over dt} = r_1 N_1 \left(1-{N_1 \over K_1}\right)$$`
+]
+
+
+.darkblue[ 
+`$$\Large {dN_2 \over dt} = r_2 N_2 \left(1-{N_2 \over K_2}\right)$$`
+]
+
+each with its own `\(r\)` and `\(K\)`. 
+
+---
+
+## Competition ....
+
+
+.darkorange[ 
+`$$\large {dN_1 \over dt} = r_1 N \left(1-{N_1 \over K_1} - \alpha {N_2 \over K_1}\right)$$`
+]
+
+
+.darkblue[
+`$$\large  {dN_2 \over dt} = r_2 N \left(1-{N_2 \over K_2} - \beta {N_1 \over K_2}\right)$$`
+]
+
+.large[
+- `\(\alpha\)` - effect of `\(M\)` on `\(N\)` ... i.e. how many `\(N_1\)`'s does a single `\(N_2\)` cut things down by. 
+
+- `\(\beta\)` - effect of `\(N\)` on `\(M\)`. 
+]
+
+---
+
+## Squirlicorn vs. Pegamunk
+
+Limited space | Limited carrying capacity |  Mutual animosity (periodic horn skewering and/or dropping on rocks) .... 
+
+.center[***Can they get along!?***]
+
+![](images/squirlicornvspegamunk.png)
+
+https://egurarie.shinyapps.io/SquirlicornVsPegamunk
+
+
+
+---
+
+
+## Numerical Experiment #1
+### Q. How does initial population affect Co-Existence?
+.pull-left-60[
+.box-green[
+1. Get in groups of 4. 
+
+2. Open the app.   Set both **carrying capacities (K)** to 140.  Leave the other parameters the same
+
+3. Pick one person to be .red[Squirlicorn population], another to be .blue[Pegamunk population]. 
+
+4. Each of the **initial populations** ( `\(N_0\)` ) is your birth month x 10. 
+
+5. Run the experiment to time-step 100.  Record the final number of .red[Squilicorns] and .blue[Pegamunks].
+
+6. Repeat 10 times, record the **average**, and enter data at front of room. 
+
+7. Second pair performs the same experiment. 
+]
+
+]
+
+.pull-right-30[
+![](images/QR_pegamunk.png)
+]
+
+
+---
+
+
+## Numerical Experiment #2
+### Q. How do different competition coefficients affect co-existence?
+.pull-left-60[
+.box-green[
+
+3. Same setup: `\(K = 140\)`, but `\(N_0 = 40\)` for both species. 
+
+4. `\(\alpha\)` is a the .red[Squirlicorn's] meanness = date of birth divided by 30.  
+
+4. `\(\beta\)` is a the .blue[Pegamunk's] meanness =  date of birth divided by 30.  
+
+5. Run the experiment to time-step 100.  Record the final number of .red[Squilicorns] and .blue[Pegamunks] at the end, and if the process ended in coexistence.  
+
+6. Repeat 10 times, record the **averages**, and enter data at front of room. 
+
+7. Second pair performs the same experiment. 
+]
+
+]
+
+.pull-right-30[
+![](images/QR_pegamunk.png)
+]
+
+---
+
+.pull-left[
+## Consider Species 1
+
+The **special case** where there IS NO CHANGE in Species 1 population size:
+
+`$$0 = r_1 N_1 \left(1 - {N_1 \over K_1} - {\alpha N_2 \over K_1}\right)$$`
+boils down (quickly) to 
+
+`$$\large N_1 = K_1 - \alpha N_2$$`
+
+
+]
+
+.pull-right[
+
+### Isocline of Zero Growth: 
+
+.darkorange[$$\Large {dN_1 \over dt} = 0$$]
+
+
+&lt;img src="Interactions_PartI_Competition_files/figure-html/ZGI_N1-1.png" width="100%" /&gt;
+]
+
+
+---
+
+
+## How does a zero-growth isocline work?
+
+
+.pull-left-60[
+
+&lt;img src="Interactions_PartI_Competition_files/figure-html/ZGI_N1b-1.png" width="100%" /&gt;
+]
+
+.pull-right-40.large[
+
+- Above the line, `\(N_1\)` decreases
+
+- Below the line, `\(N_1\)` increases
+]
+
+---
+
+
+
+.pull-left-40[
+
+## Add Species 2
+
+Similarly assume .darkblue[Species 2] population is not changing. 
+
+`$$0 = r_2 N_2 \left(1 - {N_2 \over K_2} - {\beta N_1 \over K_2}\right)$$`
+
+`$$N_2 = K_2 - \beta N_1$$`
+]
+
+.pull-right-60[
+
+### Isocline of Zero Growth
+
+.darkblue[$$\Large {dN_2 \over dt} = 0$$]
+
+&lt;img src="Interactions_PartI_Competition_files/figure-html/ZGI_parallel2-1.png" width="100%" /&gt;
+
+]
+
+---
+
+     
+
+.pull-left-30[
+## Follow the arrows ....  
+
+
+### To see species 1 drive species 2 to extinction:
+]
+
+
+.pull-right-70[
+![](images/ZGI_parallel2_witharrows.png)
+]
+
+
+---
+.pull-left-30[
+## The lines don't have to be parallel
+]
+
+
+.pull-right-70[
+
+
+![](images/NonParallel.png)
+
+
+]
+
+
+---
+
+
+.pull-left-30.large[
+
+## What about a criss-cross?
+
+
+If `\(K_2 &gt; {K_1 \over \alpha}\)` 
+
+and `\(K_1 &gt; {K_2 \over \beta}\)`
+
+*either* Species 1 or Species 2 will go **extinct**. 
+]
+
+
+.pull-right-70[
+
+![](images/CrissCrossUnstable.png)
+]
+
+
+---
+
+
+.pull-left-30.large[
+## What about a criss-cross?
+
+BUT ...  
+
+If `\(K_2 &lt; {K_1 \over \alpha}\)` 
+
+and `\(K_1 &lt; {K_2 \over \beta}\)`
+
+There will be .purple[**coexistence!**]
+
+At an equilibrium that is (of course) smaller than either `\(K_1\)` or `\(K_2\)`.
+
+]
+
+.pull-right-70[
+
+
+![](images/CrissCrossStable.png)
+]
+
+---
+class: inverse
+
+## Competition ....
+
+
+.orange[ 
+`$$\Large N_2  = {K_1 \over \alpha} - {1\over \alpha} N_1$$`
+]
+
+
+.cyan[
+`$$\Large  N_2 = K_2 - \beta N_1$$`
+]
+
+
+.large[
+This model captures TWO density dependent phenomena:
+
+1. Intra-specific competition  ( `\(K_1\)` and `\(K_2\)` )
+2. Inter-specific competition  ( `\(\alpha\)` and `\(\beta\)` 2)
+
+Patterns depend on the *scale* and *particulars* of the competition intensity.  
+]
+
+
+---
+
+.pull-left-40[
+## Focus on the the isoclines of zero growth
+
+.darkorange[ 
+`$$\Large N_2  = {K_1 \over \alpha} - {1\over \alpha} N_1$$`
+]
+
+
+.darkblue[
+`$$\Large  N_2 = K_2 - \beta N_1$$`
+]
+
+
+]
+
+.pull-right-60[
+
+![](Interactions_PartI_Competition_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
+
+---
+
+.pull-left-40[
+
+## Extinction vs. Equilibria
+
+If:
+
+- `\({1\over\beta} &lt; {K_1 \over K_2} &gt; \alpha\)`; .darkorange[ N&lt;sub&gt;1&lt;/sub&gt; ] wins
+- `\({1\over\beta} &gt; {K_1 \over K_2} &lt; \alpha\)`; .blue[ N&lt;sub&gt;2&lt;/sub&gt; ] wins
+- `\({1\over\beta} &lt; {K_1 \over K_2} &lt; \alpha\)`; .darkorange[ N&lt;sub&gt;1&lt;/sub&gt; ] or .blue[ N&lt;sub&gt;2&lt;/sub&gt; ] wins
+- `\({1\over\beta} &gt; {K_1 \over K_2} &gt; \alpha\)`; .darkorange[ N&lt;sub&gt;1&lt;/sub&gt; ] and .blue[ N&lt;sub&gt;2&lt;/sub&gt; ] coexist
+
+
+Equilibria (stable or not) at:
+
+`$$N^*_1 = {K_1 - \alpha K_2 \over 1-\alpha\beta}$$`
+
+`$$N^*_2 = {K_2 - \beta K_1 \over 1-\alpha\beta}$$`
+
+]
+
+.pull-right-60[
+
+![](Interactions_PartI_Competition_files/figure-html/AllCombos-1.png)&lt;!-- --&gt;
+]
+
+---
+
+##  Co-existence essentially occurs when .... 
+
+.pull-left.large[
+ **Intra**-specific &gt; **Inter**-specific competition
+
+`$${1\over\beta} &gt; {K_1 \over K_2} &gt; \alpha$$`
+
+i.e. when `\(\beta\)` and `\(\alpha\)` are small (in a very particular way) relative to the ratio of carrying capacities. 
+
+
+### These is known as **"Lotka-Volterra competition model"**
+]
+
+.pull-right[
+![](images/CrissCrossStable.png)
+]
+
+---
+background-image: url('images/LotkaVolterra.jpg')
+background-size: cover
+
+.pull-left[
+### Vito Volterra (1860-1940)
+
+Italian mathematician, father-in-law of fisheries biologist.
+
+One of 12 (out of 1250) of Italian professors to not sign an oath of loyalty to Mussolini. 
+]
+
+.pull-right[
+### Alfred J. Lotka (1880-1949)
+
+Chief statisticitan at Met Life Insurance. And that's almost all there is to know. 
+
+]
+
+.pull-right-70[.pull-left-50[
+&gt; Independently published these equations, with more or less this exact application, in 1926 and 1925.
+]]
+
+
+
+---
+
+## Nice theory you've got there gentlemen, but .....
+
+.pull-left-40[
+... can you detect or quantifying competition in anything resembling a real system!?
+]
+
+.pull-right-60[![](images/Plan-vs-Reality.jpeg)]
+
+
+---
+background-image: url('images/gerbils.png')
+background-size: cover
+
+---
+
+## Gerbil coexistence and habitat partitioning
+
+.pull-left-30[
+![](images/GerbilResults.png)
+]
+
+.pull-right-70[
+
+- **Zone I**, both species prefer the semi-stabilized dune. 
+
+- **Zone II**  *G. pyramidum* prefers the semi-stabilized dune and *G. allenbyi* exhibits random utilization of both habitats
+
+- **Zone III**  *G. allenbyi* exhibits preference for the stabilized sand and *G. pyramidum* prefers semi-stabilized dune. 
+
+- **Zone IV** *G. allenbyi* prefers stabilized sand and *G. pyramidum* selects semi-stabilized dune but also uses the stabilized sand. 
+
+]
+
+---
+
+## Ultimately Gerbils **CAN** get along. .... 
+
+.pull-left[
+###   But the isoclines are complicated!
+
+![](images/GerbilIsolegs.png)
+]
+
+.pull-right-40[
+
+![](images/gerbillove.png)
+.small[image: SamWildflower]
+
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
