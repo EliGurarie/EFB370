@@ -53,7 +53,6 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [9: Metapopulations - Part I](lectures/ModuleIV/Metapopulations_PartI.html)
 - [10: Metapopulations - Part II](lectures/ModuleIV/Metapopulations_PartII.html)
 
-
 #### Topic V. Multi-Species Interactions
 
 - [11: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
@@ -65,7 +64,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [Lab II.2: Randomness](labs/labII.2/RandomnessAndLinearModels.html)
 - [Lab II.3: Logistic Growth](labs/labII.3/FittingLogisticGrowth.html)
 - [Lab II.4: Age-Structured Populations](labs/labII.4/AgeStructuredPopulations.html)
-
+- [Lab II.5: Competition](labs/labII.5/CharismaticCompetition.html)
 
 ## Problem Sets / Homework
 
