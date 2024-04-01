@@ -35,15 +35,13 @@ simulateCompetition <- function(tmax, tstart = 0, pars, dt = .01){
   })
 }    
 
-simPlot <- function(fit, data = NULL, species1 = "N1", species2 = "N2", ...){
+simPlot <- function(fit, data = NULL, species1 = "N1", species2 = "N2"){
   cols <- c("darkorange", "darkblue")
   if(!is.null(data))
     matplot(data$Day, data[,c(species1,species2)], type = "o", pch = 19, lty = 1, 
-            col = cols, ..., 
+            col = cols,
             xlim = c(0,max(fit$Day))) else
-              plot(fit$Day, fit$N1, 
-                   ylim = range(fit$N1, fit$N2)*1.1, type = "n",
-                   ...)
+              plot(fit$Day, fit$N1, ylim = range(fit$N1, fit$N2)*1.1, type = "n")
   
   lines(fit$Day, fit$N1, pch = 19, lty = 1, 
         col = cols[1], lwd = 2, type = "l")

@@ -56,6 +56,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 #### Topic V. Multi-Species Interactions
 
 - [11: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
+- [12: Competition and Predation](lectures/ModuleV/Interactions_PartII_CompetitionAndPredation.html)
 
 
 ## Recitation/Labs
@@ -72,7 +73,6 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
     - due **Monday, February 26, 2024**. 
     - This homework requires downloading this data file: [BC_SeaOtters.csv](data/BC_SeaOtters.csv) and experimenting with the [Stochastic Population Simulator](https://egurarie.shinyapps.io/StochasticGrowth/). 
 
-
 - [**Problem Set 4: Fitting the Human Wolf Simulation**](problemsets/ProblemSet4/FittingHumanWolves.html)
     - due **Friday, March 8, 2024**. 
     - This homework requires downloading this data file: [WolfCounts2024.csv](problemsets/ProblemSet4/WolfCounts2024.csv). 
@@ -80,7 +80,9 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [**Problem Set 5: Rescuing the Tasmanian Devil**](labs/labII.4/AgeStructuredPopulations.html#Homework_Assignment3)
     - due **Thursday, March 21, 2024**. 
     
-
+- [**Problem Set 6: Sorting our Competition**](problemsets/ProblemSet6/ProblemSet6.html)
+    - due **Monday, April 8, 2024**. 
+    
 <!--
 instructions:
 git push origin gh-pages
@@ -99,6 +101,8 @@ Or, to merge with (non-existent) main:
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 - [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
 - [6. Squirlicorn vs. Pegamunk: The Final Chapter](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
+- [7. Messing with Isoclines](https://egurarie.shinyapps.io/isoclines/)
+- [8. Predator and Prey](https://egurarie.shinyapps.io/predatorprey/)
 
 
 ## Archives 
