@@ -1,5 +1,5 @@
 ---
-title: 'Life Tables and Matrix Modeling'
+title: 'Charismatic Competition'
 subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2024'
 author: "Elie Gurarie"
 date: "`r Sys.Date()`"
