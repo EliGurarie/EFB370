@@ -67,6 +67,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [Lab II.3: Logistic Growth](labs/labII.3/FittingLogisticGrowth.html)
 - [Lab II.4: Age-Structured Populations](labs/labII.4/AgeStructuredPopulations.html)
 - [Lab II.5: Competition](labs/labII.5/CharismaticCompetition.html)
+- [Lab II.6: Apparent Competition](labs/labII.6/OnePredatorTwoPrey.html)
 
 ## Problem Sets / Homework
 
@@ -83,7 +84,10 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
     
 - [**Problem Set 6: Sorting our Competition**](problemsets/ProblemSet6/ProblemSet6.html)
     - due **Monday, April 8, 2024**. 
-    
+
+- [**Problem Set 7: Sorting our Competition**](problemsets/ProblemSet6/ProblemSet6.html)
+    - due **Monday, April 8, 2024**. 
+      
 <!--
 instructions:
 git push origin gh-pages
