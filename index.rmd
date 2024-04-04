@@ -85,9 +85,9 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [**Problem Set 6: Sorting our Competition**](problemsets/ProblemSet6/ProblemSet6.html)
     - due **Monday, April 8, 2024**. 
 
-- [**Problem Set 7: Sorting our Competition**](problemsets/ProblemSet6/ProblemSet6.html)
-    - due **Monday, April 8, 2024**. 
-      
+- [**Problem Set 7: Multi-PreyMayhem**](problemsets/ProblemSet7/ProblemSet7_MultiPreyMayhem.html)
+    - due **Thursday, April 11, 2024**. 
+       
 <!--
 instructions:
 git push origin gh-pages
