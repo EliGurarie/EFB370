@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Structured populations</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=".white[**Dr. Elie Gurarie]**" />
+    <script src="PopulationStructure_PartI_files/header-attrs/header-attrs.js"></script>
+    <link href="PopulationStructure_PartI_files/remark-css/default.css" rel="stylesheet" />
+    <link href="PopulationStructure_PartI_files/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="PopulationStructure_PartI_files/fabric/fabric.min.js"></script>
+    <link href="PopulationStructure_PartI_files/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="PopulationStructure_PartI_files/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link href="PopulationStructure_PartI_files/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="PopulationStructure_PartI_files/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="mycss.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, top, inverse, title-slide
+
+.title[
+# <strong>Structured populations</strong>
+]
+.subtitle[
+## <a href="https://eligurarie.github.io/EFB370/">EFB 370: Population Ecology</a>
+]
+.author[
+### .white[**Dr. Elie Gurarie]**
+]
+.date[
+### .white[March 4, 2024]
+]
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+## So far ...
+
+We've studied this equation: `\(\huge N_t = N_{t-1} + B_t - D_t\)`
+
+with two assumptions:
+
+.pull-left.darkblue[
+
+### Exponential Growth
+**Births** and **Deaths** __proportional__ to **N**
+]
+
+.pull-right.darkgreen[
+### Logistic Growth
+
+**Births** decrease and/or **Deaths** increase (linearly) with **N**
+]
+
+--
+.center[
+**Analysis always relies on:**
+
+difference and differential equations
+understanding randomness and stochasticity
+visualization and simulation
+statistics (esp. linear modeling)
+***natural history and biological intuition!***
+]
+
+---
+
+## Coming up in the next weeks we blow up: 
+
+`$$\huge N_t$$`
+
+**into:**
+
+| | |
+|---|----|
+| sex / age classes: | **structured populations** |
+| multiple sub-populations: |  **meta-populations** |
+| multiple species: | **competitors / predator-prey** |
+| infected, susceptible, recovered: | **disease dynamics** |
+
+
+--
+
+**Always relying on:**
+
+- difference and differential equations
+- probability and stochasticity
+- visualization and simulation
+- statistics (esp. linear modeling)
+- ***natural history and biological intuition!***
+
+
+---
+
+## Drilling into structure of Birth and Death
+
+.darkblue[
+`$$\Large N_t = N_{t-1} + B_t - D_t$$`
+]
+
+.box-blue[
+.pull-left[
+**B** = Births 
+
+- **Fecundity** = `#` births / female / unit time
+
+
+(*unit time*  can be any unit of time, but is usually year)
+]
+
+.pull-right[
+**D** = Deaths
+
+- **Mortality (rate)** = probability of death / unit time
+- **Survival (rate)** =  1 - Mortality rate
+]
+]
+
+.pull-left[
+
+### Life History is the **pattern** of **survival** and **reproduction**.
+
+**"pattern"** means organized by:
+
+Age | Size | Stage (larva / pupa / adult)
+]
+
+
+.pull-right[
+
+&gt; ### Reading: 
+&gt; - Gotelli - Chapter 3
+
+]
+
+
+
+---
+
+# Life history strategies: *r*-selected, vs. *K*-selected species
+
+For a long time a popular **paradigm** (conceptual model purporting to explain a wide range of phenomenon) for understanding evolutionary drivers of life-history variation.   Still popularly taught: 
+
+.center[
+&lt;iframe src="https://www.youtube.com/embed/Bu6ouKt9zhs?controls=1" width="800" height="450"&gt;
+&lt;/iframe&gt;
+]
+
+---
+background-image: url("images/walrusoysters.png")
+background-position: center
+background-size: contain
+
+.pull-left-30[
+### r-selected species
+
+#### strategy:
+
+
+- lots of offspring
+- little or no parental investment
+- semelparous
+- early maturity
+- Type III survivorship 
+- low survivorship
+- short life-expectancy
+
+#### drivers: 
+- small size
+- unstable / unpredictable environments
+
+#### consequence
+- highly fluctuating populations
+]
+
+
+.pull-right-30[
+
+### K-selected species
+
+#### strategy:
+
+- few offspring
+- lots of parental investment
+- high survivorship
+- late maturity
+- iteroparous
+- long life-expectancy
+- Type I survivorship schedule
+
+#### drivers:
+- stable environments
+- large
+
+#### consequence
+- more stable / slowly-fluctuating  populations
+
+]
+
+---
+
+## Nice theory you've got there, but lots of counter-examples
+
+.pull-left[
+- What about **trees**?  They're big, they're long-lived (very **K**), but they produce and disperse a **heckload** of seeds (very, very **r**).
+]
+
+.pull-right[
+- What about **iteroparous** species (**K**) that are hedging their bets against high inter-annual variation in environmental conditions (very **r**)? 
+]
+.pull-left[&lt;br&gt;&lt;br&gt;![](images/rK-bunk.jpeg)]
+
+.pull-right[
+&gt; .green[The r- and K-selection paradigm 
+was  focussed on **density-dependent selection**. This paradigm 
+was challenged as it became clear that ... **age-specific mortality** 
+provide[s] a more mechanistic link between an environment and an 
+**optimal life history** ...] ([Reznick et al. (2002) Ecology](https://esajournals.onlinelibrary.wiley.com/doi/full/10.1890/0012-9658%282002%29083%5B1509%3ARAKSRT%5D2.0.CO%3B2))
+]
+
+
+---
+background-image: url("images/salmonids.png")
+background-size: cover
+
+## Salmonid (counter)-example
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+.center.large[
+
+**Semelparous species**
+
+Much bigger eggs (189 &gt; 86 mg).
+
+Also nest building and guarding behavior, before dying,
+
+i.e. greater investment in **Juvenile Survival** over **Adult Survival**. 
+
+The iteros just keep staying alive and trying to 
+
+breed again and again. 
+]
+--
+
+.pull-left.center[
+&gt; Inconsistent with **r**-**K** paradigm!
+]
+
+---
+
+.pull-left[
+### Tasmanian devil (*Sarcophilus harrisii*)
+
+.center[&lt;img src='images/tazzy.jpg' width='70%'/&gt;]
+
+Only marsupial carnivore | range restricted to Tasmania
+
+
+.pull-left[
+.darkred[Dying of *facial tumor disease*;  an infectious cancer (!) which kills nearly all adults &gt; 3 years
+]]
+
+.pull-right[![](images/taztumor.jpeg)]
+]
+
+--
+
+
+.pull-right-40[
+### Switch to Semelparity
+
+.green[**Previously:**  Longer-lived, and iteroparous, with later birth (over 1 year old)]
+
+![](images/tazdevil_lifehistory.jpeg)
+
+.darkblue[**Now:** Semelparous, one-shot, younger mothers (almost NO 2-3 year old animals!)] ([Jones et al. (2013)](https://doi.org/10.1073/pnas.0711236105))
+]   
+
+
+
+
+
+
+---
+
+.pull-left-60[
+## **Basic fact of life I:** Survival varies with age!
+
+![](images/SSL_survival.png)
+- **Survival Probability** ( `\(S_0, S_1, S_2, ...\)` ) always between 0 and 1.
+
+- **Cumulative Survival** ( `\(1, S_0, S_0 S_1, S_0 S_1 S_2, ...\)` ) always starts at 1 and goes to 0
+
+.center[([Altukhov et al. 2015](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0127292)
+)]
+]
+
+.pull-right-40[
+
+![](images/SSL_bully.jpg)
+![](images/SSL_sleeping.jpg)
+
+![](images/altukhov.png)
+
+
+]
+
+---
+
+## **Basic fact of life II:** Fecundity varies with age!
+
+![](images/ElephantFecundity.png)
+
+.center[([Lahdenperä et al. 2015](https://frontiersinzoology.biomedcentral.com/articles/10.1186/s12983-014-0054-0))]
+
+---
+
+##  *Monoceros academicus*: Three Life Stages
+
+. | Larva | Sophomore | Emeritus |
+--- |:----------:|:------:|:---:|
+. | &lt;img src='images/unicornlarva.webp' height='150px'/&gt; | &lt;img src='images/unicornstudent.jpg' height='150px'/&gt; | &lt;img src='images/oldunicorn.webp' height='150px%'/&gt; |
+&lt;font size = 5&gt; Survival | &lt;font size = 5&gt; 0.5  |&lt;font size = 5&gt;1      | &lt;font size = 5&gt;0  |
+&lt;font size = 5&gt; Fecundity |&lt;font size = 5&gt; 0    | &lt;font size = 5&gt;1.5    | &lt;font size = 5&gt;0.5 |
+||||
+
+
+&gt; - **Survival** is a **probability** (unitless)
+&gt;
+&gt; - **Fecundity** is an **expected number** of offspring (n. ind.). 
+
+&lt;/center&gt;
+
+--
+
+**Human experiment:**  16 volunteers please. 
+
+---
+
+
+
+
+
+
+.pull-left-40[
+## Experiment: results
+
+Stage | Survival | Fecundity
+----------|------|---
+1. larvae  | 0.5  | 0
+2. sophomore | 1    | 1
+3. emeritus   | 0    | .5
+
+
+See numerical experiment: https://egurarie.shinyapps.io/AgeStructuredGrowth/
+
+]
+
+.pull-right-60[
+&lt;img src="PopulationStructure_PartI_files/figure-html/runPop1-1.png" width="100%" /&gt;
+
+&gt;- Eventually obtains a 2:1:1 stable age distribution
+
+&gt;- Overall growth = 1
+]
+
+
+---
+
+
+.pull-left-40[
+## Change one value ....
+
+Stage | Survival | Fecundity
+----------|------|---
+1. larvae  | 0.5  | 0
+2. sophomore | 1    | &lt;font size = 6, color = "red"&gt; **2** &lt;/font&gt;
+3. emeritus   | 0    | .5
+]
+
+
+.pull-right-60[
+&lt;img src="PopulationStructure_PartI_files/figure-html/runPop2-1.png" width="100%" /&gt;
+
+&gt; This time, population grows.  
+&gt; And the stable age distribution is a bit different. 
+
+]
+
+---
+class: inverse
+
+
+.pull-left-40.large[
+
+## We want to know:
+
+ - What is the **population growth rate**?
+
+ - What is the **stable age distribution**? 
+
+ - How sensitive are these to variation in **age-structured** survival and fecundity? 
+
+]
+
+
+--
+
+.pull-right-60.center[
+Our secret weapon in this quest ....
+
+## .Large[**Matrices!**]
+
+![](images/Matrix.png)
+]
+
+---
+
+# Matrix population modelling
+
+## Total populations vs. structured populations
+
+.pull-left[
+
+.large[**Scalar:**]
+
+`$$\huge N_t$$`
+
+]
+
+.pull-right[
+
+.large[**Vector:**]
+
+`$$\large  \vec{N}_t = \begin{cases}n_{1,t} \\ n_{2,t} \\ n_{3,t} \\ \vdots \\ n_{k,t}\end{cases}$$`
+]
+
+---
+
+## Exponential Growth - Structured Population Growth
+
+.pull-left[
+
+**Exponential Growth**
+
+`$$\huge N_{t+1} = \lambda N_t$$`
+
+`\(\lambda\)` is a scalar population growth multiplier
+]
+
+.pull-right[
+
+**Structured Population Growth**
+
+
+`$$\huge \vec{N}_{t+1} = \textbf M  \vec{N_t}$$`
+
+`\(M\)` is a **Matrix** population **structure** growth multiplier
+
+]
+
+---
+
+## Population transition (aka **Leslie**) matrix
+
+A **matrix** is a tool for **transforming vectors**.  
+
+A **population matrix** transforms a structured population **vector** by 
+
+1. adding newborns, [fecundity: `\(f_i\)`]
+2. killing off older classes, [survival: `\(s_i\)`]
+3. scootching everyone up the stage ladder [aging]
+
+.pull-left[
+`$$\begin{bmatrix}
+   n_0 \\
+   n_1 \\
+   \vdots \\
+   n_{\omega - 1} \\
+ \end{bmatrix}_{t+1}
+=
+ \begin{bmatrix}
+f_0 &amp; f_1 &amp; f_2 &amp; \ldots &amp; f_{\omega  - 2} &amp; f_{\omega  - 1} \\
+s_0 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 &amp; 0\\
+0 &amp; s_1 &amp; 0 &amp; \ldots &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; s_2 &amp; \ldots &amp; 0 &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots\\
+0 &amp; 0 &amp; 0 &amp; \ldots &amp; s_{\omega - 2}  &amp; 0
+ \end{bmatrix}
+ \begin{bmatrix}
+  n_0 \\ n_1 \\ \vdots\\ n_{\omega - 1}
+ \end{bmatrix}_{t}$$`
+]
+
+.pull-right-40[
+
+**The Leslie matrix**
+
+- is square
+- the rows and columns represent age classes
+- the top row is the number of **births** coming in from older age classes
+- the lower rows are the number of **survivors** into the next age class
+]
+
+
+---
+
+## Remember *Monocerus academicus* ... 
+
+
+.pull-left-60.center[
+
+. | Larva | Sophomore | Emeritus |
+--- |:----------:|:------:|:---:|
+**Monoceros academicus** | &lt;img src='images/unicornlarva.webp' height='100px'/&gt; | &lt;img src='images/unicornstudent.jpg' height='100px'/&gt; | &lt;img src='images/oldunicorn.webp' height='100px%'/&gt; |
+ Survival | 0.5  |1      | 0  |
+ Fecundity | 0    | 1.5    | 0.5 |
+]
+
+.pull-right-40[
+
+Here's the matrix:
+
+
+
+$$
+\large M = \\begin{bmatrix}0&amp;1.5&amp;0.5 \\\\0.5&amp;0&amp;0 \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
+$$
+
+]
+
+---
+
+## Leslie matrix as diagram
+
+The population matrix maps to a diagram!  These are very useful: 
+
+
+.pull-left-30[
+
+### Matrix
+
+$$
+\Large M = \\begin{bmatrix}0&amp;1.5&amp;0.5 \\\\0.5&amp;0&amp;0 \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
+$$
+]
+
+
+.pull-right-70[
+
+### Diagram
+
+![](images/monodiagram.png)
+
+]
+
+
+
+.box-grey[
+- Arrow **A** to **B** (0.5) is represented by matrix entry **column 1** to **row 2** - survival to second stage. 
+- Arrow **B** to **C** (1) is matrix entry **column  2** to **row 3** - survival to last stage.
+]
+
+
+---
+
+## Ok, but how does it work? 
+
+Matrix Multiplication looks scary!  
+
+`$$\begin{align*}
+  M V^{T}=
+  \left[
+    \begin{array}{cccc}
+      a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1n}\\
+      a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2n}\\
+      \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+      a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{nn}
+    \end{array}
+  \right]
+  \left[
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      \vdots\\
+      x_n
+    \end{array}
+  \right]
+  =
+  \left[
+    \begin{array}{c}
+      a_{11}x_1+a_{12}x_2 + \cdots + a_{1n} x_n\\
+      a_{21}x_1+a_{22}x_2 + \cdots + a_{2n} x_n\\
+      \vdots\\
+      a_{n1}x_1+a_{n2}x_2 + \cdots + a_{nn} x_n\\
+    \end{array}
+  \right].
+\end{align*}$$`
+
+But it basically just takes each element of your vector (e.g. population at a stage) and tracks how it is affected by all the other stages. 
+
+
+
+---
+
+## Start with our experiment: 8 larvae
+
+
+`\(N_0 = \left[\begin{array}{c} 8 \\ 0 \\ 0 \\ \end{array}\right]\)`
+
+`$$N_1 = M N_0^T = \begin{bmatrix}0&amp;1.5&amp;0.5 \\ 0.5&amp;0&amp;0 \\0&amp;1&amp;0 \end{bmatrix} \times \left[\begin{array}{c} 8 \\ 0 \\ 0 \\ \end{array}\right] = 
+\left[\begin{array}{c} 0 + 0 + 0 \\ 4 + 0 + 0 \\ 0 + 0 + 0 \\ \end{array}\right] = \left[\begin{array}{c} 0\\4\\0 \\ \end{array}\right]$$`
+
+`$$N_2 = M N_1^T = \begin{bmatrix}0&amp;1.5&amp;0.5 \\ 0.5&amp;0&amp;0 \\0&amp;1&amp;0 \end{bmatrix} \times \left[\begin{array}{c} 0 \\ 4 \\ 0 \\ \end{array}\right] = 
+\left[\begin{array}{c} 6 \\ 0 \\ 4 \end{array}\right]$$`
+
+`$$N_3 = M N_2^T = M \times \left[\begin{array}{c} 6 \\ 0 \\ 4 \\ \end{array}\right] = 
+\left[\begin{array}{c} 2 \\ 3 \\ 0 \end{array}\right]$$`
+
+etc.
+
+---
+
+.pull-left-30[
+## Super simple in R!
+]
+.pull-right-70[
+
+```r
+M &lt;- rbind(c(0,1.5,.5), c(.5,0,0), c(0,1,0))
+row.names(M) &lt;- c("larvae", "sophs", "emeriti")
+```
+]
+
+.pull-right-30[
+
+]
+
+.pull-left-40[
+
+One step:
+
+
+```r
+M %*% N0
+```
+
+```
+##         [,1]
+## larvae     0
+## sophs      9
+## emeriti    0
+```
+
+Two steps:
+
+
+```r
+M %*% M %*% N0
+```
+
+```
+##         [,1]
+## larvae  13.5
+## sophs    0.0
+## emeriti  9.0
+```
+]
+
+  
+.pull-right-40[
+Three steps: 
+
+
+```r
+M %^% 3 %*% N0
+```
+
+```
+##         [,1]
+## larvae  4.50
+## sophs   6.75
+## emeriti 0.00
+```
+
+20 steps: 
+
+
+```r
+M %^% 20 %*% N0
+```
+
+```
+##             [,1]
+## larvae  8.000124
+## sophs   3.999882
+## emeriti 4.000225
+```
+
+]
+
+
+
+---
+
+## Plotting the results
+
+`$$N_t = M^t \times N_0$$`
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="generator" content="R package animation 2.7">
+	<title>Structured population ...</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/scianimator.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.scianimator.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+	<div class="scianimator"><div id="StructuredPop" style="display: inline-block;"></div></div>
+	<script src="js/StructuredPop.js"></script>
+<!-- highlight R code -->
+
+</body>
+</html>
+
+(if no animation shows up, click [here](StructuredPop.html))
+
+
+---
+
+## Amazing property of (many) matrices ... 
+
+&lt;br&gt;&lt;br&gt;
+
+`$$\huge M \times N^* = \lambda N^*$$`
+
+
+.large[
+For every (.darkgreen[**population**]) **matrix** there is a **vector** (.green[**age distribution**]) for which the matrix transformation (.green[**population growth process**]) increases the **vector** by a fixed proportion `\(\lambda\)` (.green[**population growth rate**]).
+
+
+- `\(\large N^*\)` - is the **eigenvector** = .red[**stable population distribution**]
+
+- `\(\large \lambda\)` - is the **eigenvalue** = .red[**population growth factor**]
+]
+
+
+---
+
+## Some simple examples (to work out by hand)
+
+
+.pull-left[
+
+&lt;img src='diag0.png' width='100%'/&gt;
+
+$$
+\large  M = \\begin{bmatrix}2&amp;0 \\\\0&amp;2 \\\\\\end{bmatrix}
+$$
+
+.large[
+Everything doubles!  
+
+- `\(\lambda = 2\)`
+
+- no unique distribution. 
+]]
+
+.pull-right[
+
+&lt;img src='diag1.png' width='100%'/&gt;
+
+
+$$
+\large  M = \\begin{bmatrix}0&amp;2 \\\\1&amp;1 \\\\\\end{bmatrix}
+$$
+
+.large[
+*Eventually* everything doubles!  
+
+- `\(\lambda = 2\)`.
+
+- stable distribution = `\(N^* = \{1, 1\}\)`
+]]
+
+---
+
+## *Monocerus academicus*
+
+.center[&lt;img src='images/monodiagram.png' width = '50%' /&gt;]
+
+.pull-left[
+
+
+```r
+matA &lt;- rbind(c(0, 1.5, .5),
+              c(.5, 0, 0),
+              c(0, 1, 0))
+```
+
+
+
+$$
+\large  M = \\begin{bmatrix}0&amp;1.5&amp;0.5 \\\\0.5&amp;0&amp;0 \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
+$$
+
+]
+
+.pull-right[
+
+
+
+```r
+eigen(matA)
+```
+
+```
+## eigen() decomposition
+## $values
+## [1]  1.0 -0.5 -0.5
+## 
+## $vectors
+##            [,1]       [,2]       [,3]
+## [1,] -0.8164966 -0.4082483  0.4082483
+## [2,] -0.4082483  0.4082483 -0.4082483
+## [3,] -0.4082483 -0.8164966  0.8164966
+```
+
+- First eigenvalue: `\(\lambda = 1\)`
+- Ratio of first eigenvector:  50% : 25% : 25%
+]
+
+
+---
+
+## What if some emeriti decide to go back to school?
+
+
+
+&lt;center&gt;
+&lt;img src='diag_backtoschool.png' width = '50%' /&gt; 
+&lt;/center&gt;
+
+.pull-left-60[
+$$
+\large  M = \\begin{bmatrix}0&amp;1.5&amp; 0.5 \\\\0.5&amp;0&amp;\color{red}{\textbf 0.5} \\\\0&amp;1&amp;0 \\\\\\end{bmatrix}
+$$
+]
+
+.pull-right-40[
+
+
+
+```r
+eigen(matB)
+```
+
+```
+## eigen() decomposition
+## $values
+## [1]  1.2071068 -1.0000000 -0.2071068
+## 
+## $vectors
+##           [,1]       [,2]       [,3]
+## [1,] 0.7736915  0.5773503  0.6669930
+## [2,] 0.4878914 -0.5773503  0.1511012
+## [3,] 0.4041824  0.5773503 -0.7295812
+```
+
+]
+
+&lt;br&gt;
+&lt;br&gt;
+
+.large[
+- First eigenvalue: `\(\lambda = 1.21\)`
+
+- Ratio of first eigenvector: 46% : 29% : 24% 
+]
+
+---
+
+## How does this look? 
+
+.center[
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="generator" content="R package animation 2.7">
+	<title>Back To School ...</title>
+	<link rel="stylesheet" href="css/reset.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/scianimator.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/github.min.css">
+
+	<script src="js/jquery-1.4.4.min.js"></script>
+	<script src="js/jquery.scianimator.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/languages/r.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+<body>
+
+	<div class="scianimator"><div id="BackToSchool" style="display: inline-block;"></div></div>
+	<script src="js/BackToSchool.js"></script>
+<!-- highlight R code -->
+
+</body>
+</html>
+
+
+(If animation does not work, click [here](BackToSchool.html))
+]
+
+
+---
+
+### Complex life histories
+
+.pull-left-60[
+
+
+![](images/complexdiagrams.png)
+]
+
+.pull-right-30[
+
+
+
+
+.large[
+
+.blue[
+#### In short ... 
+
+... matrix models do it all!   
+And do it fast, and intuitively.  
+]
+
+]]
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false,
+"highlightLines": true,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

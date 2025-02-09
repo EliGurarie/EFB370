@@ -1,0 +1,85 @@
+---
+title: "Population Ecology"
+subtitle: "[EFB 370: Spring 2024](https://eligurarie.github.io/EFB370) (*partially archived*)"
+author: "Prof. [Elie Gurarie](https://eligurarie.github.io/)"
+output: 
+  rmdformats::html_clean:
+    toc_depth: 4
+    thumbnails: TRUE
+    anchor_sections: FALSE
+---
+
+```{r, echo=FALSE, eval = TRUE}
+htmltools::img(src = "assets/ESFStacked_FullColor.png", alt = 'banner', style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
+```
+
+<img src="assets/wolfcariboumoose.png" alt="wolf-caribou-moose" style="width:400px" align="right"/>
+
+> The study of the rise and fall of populations, inter- and intraspecific  interactions - with a strong flavor of conservation biology and management. 
+
+
+### Course Materials
+
+This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).   This page compiles the lectures, labs, problem sets and links to simulation tools for **Dr. Gurarie's** portion of the course (roughly weeks 5-11 - starting February 12).  The page will be populated as the course progresses, but a link to previous year's [archives](archive2023/index.html) is below.  
+
+## Lectures
+
+#### Topic I.  Exponential Growth
+
+- [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html)
+- [2: Linear Models for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
+- [3: Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html)
+- [3A: Demographic Stochasticity in Introduced NZ Birds](lectures/ModuleI/DemographicStochasticityExample.pdf)   
+  - See original paper (Legendre et al. 1999) [here](https://www.journals.uchicago.edu/doi/full/10.1086/303195?casa_token=-CsH-tppDmcAAAAA:7kbiDkZziP0KM80R39dDyFfCkyEYpYS-DaZi_lPVWo8xOd0cbLrgSopW9NGeEJfErg3L8McviIaC)
+
+
+#### Topic II.  Limits to Growth
+
+- [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
+- [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
+
+
+#### Topic III.  Structured Populations
+
+- [6: Part I - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
+- [8: Miscellaneous slides](lectures/ModuleIII/MiscellaneousSlides.pdf)
+  - see paper by [Kendall et al. (2016) *Persistent problems in the construction of Matrix Population Models*](https://www.sciencedirect.com/science/article/pii/S0304380019301085)
+
+#### Topic IV.  Metapopulations
+
+- [9: Metapopulations - Part I](lectures/ModuleIV/Metapopulations_PartI.html)
+- [10: Metapopulations - Part II](lectures/ModuleIV/Metapopulations_PartII.html)
+
+#### Topic V. Multi-Species Interactions
+
+- [11: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
+- [12: Competition and Predation](lectures/ModuleV/Interactions_PartII_CompetitionAndPredation.html)
+- [13: Functional Responses](lectures/ModuleV/Interactions_PartIII_FunctionalResponses.html)
+
+
+## Recitation/Labs
+
+- [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
+- [Lab II.2: Randomness](labs/labII.2/RandomnessAndLinearModels.html)
+- [Lab II.3: Logistic Growth](labs/labII.3/FittingLogisticGrowth.html)
+- [Lab II.4: Age-Structured Populations](labs/labII.4/AgeStructuredPopulations.html)
+- [Lab II.5: Competition](labs/labII.5/CharismaticCompetition.html)
+- [Lab II.6: Apparent Competition](labs/labII.6/OnePredatorTwoPrey.html)
+
+
+## Interactive Analysis Tools
+
+- [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
+- [2. Discrete logistic population simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping)
+- [3. Life history table](https://egurarie.shinyapps.io/AgeStructuredGrowth)
+- [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
+- [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)
+- [6. Squirlicorn vs. Pegamunk: The Final Chapter](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
+- [7. Messing with Isoclines](https://egurarie.shinyapps.io/isoclines/)
+- [8. Predator and Prey](https://egurarie.shinyapps.io/predatorprey/)
+
+
+## Archives 
+
+Archived materials for this class from Spring 2023 can be found [here](archive2024/index.html). 
