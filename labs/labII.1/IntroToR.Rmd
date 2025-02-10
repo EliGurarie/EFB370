@@ -25,6 +25,12 @@ There are two ways of entering commands (telling R to do a certain thing): eithe
 
 In general, it is better to do all of your coding in a script window, and then save the raw code file as a text document, which you can revisit and re-run at any point later. To create a new R script document, go to the upper-left corner, press `File` - `New file` - `R Script` or press `Ctrl` + `Shift` + `N`
 
+## Downloading R and R Studio
+Link to download R: https://cran.r-project.org/
+
+Link to download R Studio: https://posit.co/download/rstudio-desktop/
+
+
 ## R is a calculator
 
 ```{r}
