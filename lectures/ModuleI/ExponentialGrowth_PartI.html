@@ -265,20 +265,48 @@ slight rearrangement:
 
 For now, `\(\Delta t = 1\)`, i.e. it's the discrete unit that we measure population change.  VERY TYPICALLY - whether because of biology or field seasons:  `$$\Delta t = 1\,\, \textrm{year}$$`. 
 
+
 ---
 
 ## How does population change?
 
-`$$\Large N_{t+1} = N_t + (B - D) + (I - E)$$`
 
 
+.pull-left-30[
 ### **B**irth
 ### **D**eath
 ### **I**mmigration
 ### **E**migration 
+]
+.pull-right-70[
+
+`$$\Large N_{t+1} = N_t + (B - D) + (I - E)$$`
+.center[This is the **Fundamental population equation**.]
+
+![](images/population-dynamics-orig.jpg)
+]
+
 
 ---
   
+## Assumption 1: **Closed Population**
+
+`$$\Large N_{t+1} = N_t + B - D$$`
+.pull-left-30[
+### **B**irth
+### **D**eath
+
+### .red[**I**mmigration]
+### .red[**E**migration]
+]
+
+.pull-right-70[
+![](images/population-dynamics-orig_closed.jpg)
+
+]
+
+---
+
 ## Assumption 1: no one's getting on or off the bus
 
 `$$\Large N_{t+1} = N_t + B - D$$`
