@@ -1,7 +1,7 @@
 ---
 title: 'Fitting Models and Stochasticity'
 subtitle: "[EFB 370](https://eligurarie.github.io/EFB370/): Recitation II.2"
-author: "Dr. Gurarie and Colton Moyer"
+author: "Dr. Gurarie"
 date: "`r Sys.Date()`"
 output: 
   rmdformats::html_clean
@@ -22,7 +22,7 @@ blockquote {
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
-                      out.width = "60%",
+                      out.width = "80%",
                       fig.align = "center",
                       warnings = FALSE, 
                       mmessage = FALSE)
@@ -392,7 +392,7 @@ This really looks like a nice fit!
 
 > # Lab Exercise 3
 >
-> The final exercise is NOT in R!  It is just some practice experimneting with the stochastic population simulator here: https://egurarie.shinyapps.io/StochasticGrowth.  The goal will be to see how sensitive the sea otter success is to the initial population released. 
+> The final exercise is NOT in R!  It is just some practice experimenting with the stochastic population simulator here: https://egurarie.shinyapps.io/StochasticGrowth.  The goal will be to see how sensitive the sea otter success is to the initial population released. 
 > 
 > 1. In the **Demographic Stochasticity** simulator, change the probability of giving birth to **0.3**, and the probability of dying at **0.2** (these numbers approximate sea otter population growth).  Set $t_{max}$ to 40 years. Increase the number of simulations to 1000.    
 > Report the **probability of extinction due to demographic stochasticity** and the **final median population size** if only (a) **2**, (b) **10** and (c) **60** sea otters were released.
