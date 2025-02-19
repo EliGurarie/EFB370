@@ -32,7 +32,13 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [2: Linear Models for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
 - [3: Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html)
 - [3b: Demographic Stochasticity Example: New Zealand Birds](lectures/ModuleI/DemographicStochasticityExample.pdf)
-  
+
+
+#### Topic II.  Limits to Growth
+
+- [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
+- [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
+
 ## Recitation/Labs
 
 Many of our labs will use the R programming language.  If you use your own computer, be sure to download these two extremely useful (& extremely free) programs: [**R**](https://cran.r-project.org/) and [**Rstudio**](https://posit.co/download/rstudio-desktop/).  
