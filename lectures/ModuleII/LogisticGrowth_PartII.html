@@ -4,7 +4,7 @@
     <title>Limits on Population Growth: Part II</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Elie Gurarie" />
-    <meta name="date" content="2024-02-28" />
+    <meta name="date" content="2025-02-28" />
     <script src="LogisticGrowth_PartII_files/header-attrs/header-attrs.js"></script>
     <link href="LogisticGrowth_PartII_files/remark-css/default.css" rel="stylesheet" />
     <link href="LogisticGrowth_PartII_files/remark-css/default-fonts.css" rel="stylesheet" />
@@ -26,7 +26,7 @@ class: center, top, title-slide
 ### <strong>Dr. Elie Gurarie</strong>
 ]
 .date[
-### February 28, 2024
+### February 28, 2025
 ]
 
 ---
@@ -44,8 +44,23 @@ class:large
 
 
 
+class: inverse
 
+# Topics
 
+.Large[
+
+- Wolf carrying capacity example &amp; experiment
+
+- Delayed Density Dependence
+
+- Discrete Logistic Growth
+
+- Delayed Discrete Density Dependence
+
+]
+
+---
 
 .pull-left-50[
 ## Basics of Wolf population dynamics
@@ -63,7 +78,6 @@ class:large
 
 
 
-
 .pull-right-50[
 
 **Expansion of Wisconsin Wolves, 1970's to 2000's**
@@ -74,7 +88,7 @@ class:large
 
 ---
 
-##  Human-wolf experiment model 
+##  Human-wolf experiment 
 
 .pull-left-60[
 
@@ -85,58 +99,11 @@ class:large
 ### each season ...
 - One female / pack gives birth to 2 offspring
 - Offspring can choose whether to disperse or not 
-- 1/4 of all wolves die each year
+- about 1/4 of all wolves die each year
 ]
 
 .pull-right-40[
 ![](images/wolfmother.jpg)
-]
-
-Enter data [here](https://docs.google.com/spreadsheets/d/15j2b3FCfbtrPkAlRb6QE6s55aRqggeSDi5YU6OBh7Yc/edit?usp=sharing)
-
-
----
-class: inverse
-
-##  Results of Human Wolf Experiment
-
-.center[![](images/PackPopulationOverTime.png)
-
-Looks a lot like initial exponential growth stabilizes around 20 ind as die-offs balance out births. 
-]
-
-
----
-
-.pull-left[
-
-# Modeling wolf population
-
-Population equation: 
-
-`$$N_t = (1 + b - d) \times N_{t-1}$$`
-
-
-Death rate is constant: `\(d = 0.25\)`
-
-Birth rate is high when population is low:
-`\(b_0 = 2\)`
-
-Birth rate is small when population is high:
-- `\(N = 1\)`; `\(B = 2\)`; `\(b = 2\)`
-- `\(N = 8\)`; `\(B = 16\)`; `\(b = 2\)`
-
-But it hits an absolute maximum of 16 total.  So if:
-- `\(N = 32\)`; `\(B = 16\)`; `\(b = 1/2\)`
-- `\(N = 64\)`; `\(B = 16\)`; `\(b = 1/4\)`
-
-]
-
-
-.pull-right-40[
-
-![](LogisticGrowth_PartII_files/figure-html/WolfLogisticGrowth-1.png)&lt;!-- --&gt;
-
 ]
 
 
@@ -162,17 +129,138 @@ which leads to the following differential equation:
 
 
 ]
+---
 
-.pull-right-40[
+## *Delayed* Density Dependence
 
-![](LogisticGrowth_PartII_files/figure-html/WolfLogisticGrowth_II-1.png)&lt;!-- --&gt;
+*Sometimes* (or often?) the *density dependent response* kicks in with a *time lag*.
+
+
+.pull-left[
+
+**Logistic Growth**
+
+`$$\Large {dN \over dt} = r N_t \left(1 - {N_t \over K}\right)$$`
 
 ]
+
+
+.pull-right[
+
+**Logistic Growth** .red[**with delay**]
+
+
+
+`$$\Large {dN \over dt} = r N_t \left(1 - {N_{t - \color{red}{\tau}} \over K}\right)$$`
+
+]
+  
+&gt; Can you think of examples? 
+
+
+---
+
+## simulation (sadly - not mine)
+
+.center[https://demonstrations.wolfram.com/DelayLogisticEquation/]
+
+
+
+---
+
+## Delayed Logistic Growth
+
+
+.pull-left-30[
+
+The *greater* the delay (`\(\tau\)`), the *greater* the **amplitude** of oscillation.
+
+Oscillations are defined by: 
+
+- **amplitude**
+- **period**
+
+.green[**mathemagically:** the period is always `\(= 4\tau\)`  
+]
+
+
+If `$$r \times \tau &gt; 1.57$$`   
+the oscillation attains a **stable limit cycle**
+
+
+]
+
+.pull-right-70[
+![](images/DelayedLogisticGrowth.png)
+
+"*stable limit cycle: Like a faulty heating system that always overheats &amp; overcools*"
+]
+
+
+
+---
+
+## Discrete logistic growth
+
+Take discrete population growth equation: 
+
+`$$N_{t+1} = \lambda N_t$$`
+
+break up into "stable" and "growth" components ( `\(\lambda = 1 + r_d\)` ):
+
+`$$N_{t+1} = N_t + r_d N_t$$`
+add the density dependence "brake" on the growth:
+
+`$$N_{t+1} = N_t + r_d N_t \left(1 - {N_t \over K}\right)$$`
+
+---
+
+## Discrete Logistic: Two formulations
+
+Compute change within a time step: 
+
+`$$\Delta N_t = r_d N_t \left(1 - {N_t \over K}\right)$$`
+
+Compute change of a population:
+
+`$$N_{t+1} = N_t + r_d N_t \left(1 - {N_t \over K}\right)$$`
+
+These are *difference* (as opposed to *differential*) equations.  And ... unlike the differential version ... there is NO "analytical" solution of `\(N_t\)` for any `\(N_t\)`. 
+
+In fact, this little equation **blew up math as we know it!**
+
+&gt; Visit this: https://egurarie.shinyapps.io/DiscreteLogisticMapping/
+
+---
+
+## Unexpected aspects of chaos theory  ....
+
+- It emerged from a basic (and old) *deterministic* population model. 
+- It is extremely sensitive to initial conditions
+- The patterns are fractal
+
+
+&lt;center&gt;
+&lt;img src='images/logisticmap.png' width='60%'/&gt;
+&lt;/center&gt;
+
+---
+
+## Very nice video on "logistic mapping" 
+
+.center[
+&lt;iframe src="https://www.youtube.com/embed/ovJcsL7vyrk?controls=1" width="70%", height = 400&gt;
+&lt;/iframe&gt;
+]
+
+
 
 ---
 class: inverse
 
-# .Huge[Return to "Chaotic" dynamics]
+# .Huge[More "Chaotic" dynamics]
+
+.center[![](images/bifurcation.gif)]
 
 ---
 
