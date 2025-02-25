@@ -45,6 +45,7 @@ Many of our labs will use the R programming language.  If you use your own compu
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
 - [Lab II.2: Linear modeling for population growth](labs/labII.2/RandomnessAndLinearModels.html)
+- [Lab III.3: Fitting Logistic growth](labs/labII.3/FittingLogisticGrowth.html)
 
 
 ## Problem Sets / Homework

@@ -1,7 +1,7 @@
 ---
 title: "Fitting Logistic Growth Curves to Data"
 subtitle:  "[EFB 370](https://eligurarie.github.io/EFB370/): Recitation II.3"
-author: "Dr. Gurarie & Colton"
+author: "Dr. Gurarie"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -9,7 +9,7 @@ output:
     toc_float: true
 ---
 
-> There are THREE exercises in this lab to submit by midnight Friday, March 1.  
+> There are THREE exercises in this lab to submit by **midnight Friday, Feb 28**.  
 
 ```{css, echo = FALSE}
 blockquote {
