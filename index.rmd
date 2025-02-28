@@ -52,6 +52,8 @@ Many of our labs will use the R programming language.  If you use your own compu
 
 - [HW 3: Exponential Growth](problemsets/ProblemSet3.html)  - Due **Thursday, Feb 27**
 
+- [HW 4: Logistic Growth](problemsets/ProblemSet4/FittingHumanWolves.html)  - Due **Thursday March 6**
+
 <!--
 instructions:
 git push origin gh-pages

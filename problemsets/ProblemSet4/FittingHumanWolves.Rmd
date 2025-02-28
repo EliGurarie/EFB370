@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 
 In this assignment, you will fit the **logistic growth curve** to data on the human-wolf-simulation we collected last week, using the tools we practiced in the [Lab](https://eligurarie.github.io/EFB370/labs/labII.3/FittingLogisticGrowth.html). 
 
-You will need to download this dataset: [WolfCounts2024.csv](WolfCounts2024.csv), which has seven columns: `Year` and then six more representing the TOTAL counts from the 6 biologists that monitored the human-wolf population.  They are: Alissa, Eli, Bruce, Randi, Raymond and Manny.
+You will need to download this dataset: [WolfCounts2025.csv](WolfCounts2025.csv), which has seven columns: `Year` and then six more representing the TOTAL counts from the 5 biologists that monitored the human-wolf population and the self-reporting from 51 students.
 
 Here's a plot of all the data:
 
@@ -42,7 +42,7 @@ legend("topleft", legend = biologists, col = 1:6, pch = 15:20, title = "biologis
 
 ### 1. (**1 pts**) 
 
-Load the dataset, and select **one** of the six sets of observations.  Plot that curve, and comment on its shape, i.e. does it look (a) linear, (b) exponential, (c) sigmoidal or something else? 
+Load the dataset, and select **one** of the five sets of observations from one of the biologists.  Plot that curve, and comment on its shape, i.e. does it look (a) linear, (b) exponential, (c) sigmoidal or something else? 
 
 
 ### 2. (**2 pts**) 
@@ -53,10 +53,14 @@ Fit a logistic curve to the data "by hand", i.e. using the logistic function we 
 
 Fit a logistic curve to the data using non-linear least squares. Report the *point estimates* and *95% Confidence Intervals* of the three parameters.  Plot the fitted curve on the data. Make the curve  <font color = "darkred"> red </font>.
 
-### 4. (**4 pts**) 
+
+### 4. (**4 pts**)
 
 You know everything about the population ecology of this system.  Does your analysis suggest there is **density dependence** in this system?  If so, does it act on **birth rates** or **death rates** or both? Explain in detail!
 
+### Extra Credit. (**3 pts**) 
+
+Repeat Questions 1 and 3 for the self-reported data in the final column (make a plot, and fit a logistic curve using non-linear least squares). Report the *point estimates* and *95% Confidence Intervals* of the three parameters. How does this compare to your estimates from your results in #3?  Are some parameters more different than others?  Why do you think that this is the case?
 
 <center>
 <img src="wolfman.png" alt="Fitted Human Wolf" width="300"> 
