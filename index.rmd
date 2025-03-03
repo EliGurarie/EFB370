@@ -8,7 +8,7 @@ output:
     toc_depth: 4
     thumbnails: TRUE
     anchor_sections: FALSE
-    default_style: "light"
+    default_style: "dark"
 ---
 
 ```{r, echo=FALSE, eval = TRUE}
@@ -38,6 +38,12 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 
 - [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
 - [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
+
+
+#### Topic III.  Structured Populations
+
+- [6: Part I - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
 
 ## Recitation/Labs
 
