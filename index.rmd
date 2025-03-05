@@ -43,6 +43,7 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 #### Topic III.  Structured Populations
 
 - [6: Part I - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartI.html)
+- [6b: Part Ib](lectures/ModuleIII/StructuredPopulations_MiscellaneousSlides.pdf)
 - [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
 
 ## Recitation/Labs
