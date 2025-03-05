@@ -1,8 +1,8 @@
 ---
 title: 'Life Tables and Matrix Modeling'
-subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2024'
-author: "E. Gurarie, C. Moyer, N. Wehr"
-date: "`r Sys.Date()`"
+subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2025'
+author: "E. Gurarie"
+date: "`March 6, 2025"
 output: 
   html_document: 
     toc: true
@@ -10,7 +10,7 @@ output:
 ---
 
 
-> There are THREE exercises in this lab to submit by midnight Friday, March 8.  
+> There are THREE exercises in this lab to submit by midnight Friday, March 7.  
 
 ```{css, echo = FALSE}
 blockquote {
@@ -165,8 +165,10 @@ leslie_diagram(M.pre, stages = c("0", "1", "2", ">3"))
 > Report $\lambda$ and $N^{*}$. 
 
 
-> # **Homework Assignment** 
-> ## (Due: Thursday, March 21)
+
+
+# **Homework Assignment** 
+> ## (Due: Thursday, March 20)
 >
 > After facial tumor disease emerged and established itself in the Tasmanian devil population, annual mortality of 2 year olds and 3-plus year olds skyrocketed to 90%. This had an immediate impact on the population growth factor $\lambda$.   
 > 
