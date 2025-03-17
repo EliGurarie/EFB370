@@ -46,6 +46,11 @@ This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gura
 - [6b: Matrix Models - A few more slides](lectures/ModuleIII/StructuredPopulations_MiscellaneousSlides.pdf)
 - [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
 
+#### Topic IV.  Metapopulations
+
+- [8: Metapopulations I](lectures/ModuleIV/Metapopulations_PartI.html)
+- [9: Metapopulations II](lectures/ModuleIV/Metapopulations_PartII.html)
+
 ## Recitation/Labs
 
 Many of our labs will use the R programming language.  If you use your own computer, be sure to download these two extremely useful (& extremely free) programs: [**R**](https://cran.r-project.org/) and [**Rstudio**](https://posit.co/download/rstudio-desktop/).  
@@ -59,9 +64,7 @@ Many of our labs will use the R programming language.  If you use your own compu
 ## Problem Sets / Homework
 
 - [HW 3: Exponential Growth](problemsets/ProblemSet3.html)  - Due **Thursday, Feb 27**
-
 - [HW 4: Logistic Growth](problemsets/ProblemSet4/FittingHumanWolves.html)  - Due **Thursday March 6**
-
 - [HW 5: Structured Populations](labs/labII.4/AgeStructuredPopulations.html#Homework_Assignment))  - Due **Thursday March 20**
 
 <!--
