@@ -4,7 +4,7 @@
     <title>Interactions Part I: Competition and Coexistence</title>
     <meta charset="utf-8" />
     <meta name="author" content="Dr. Elie Gurarie" />
-    <meta name="date" content="2024-03-27" />
+    <meta name="date" content="2025-03-26" />
     <script src="Interactions_PartI_Competition_files/header-attrs/header-attrs.js"></script>
     <link href="Interactions_PartI_Competition_files/remark-css/default.css" rel="stylesheet" />
     <link href="Interactions_PartI_Competition_files/remark-css/default-fonts.css" rel="stylesheet" />
@@ -30,11 +30,12 @@ class: left, top, inverse, title-slide
 ### <strong>Dr. Elie Gurarie</strong>
 ]
 .date[
-### March 27, 2024
+### March 26, 2025
 ]
 
 ---
 
+class: inverse
 
 
 
@@ -47,18 +48,26 @@ class: left, top, inverse, title-slide
 
 
 
-
+.pull-left-60[
 ## Competition
 
-An **interaction** between organisms (*intraspecific*) or between species (*interspecific*) in which **fitness** of one is lowered by the presence of another. 
+An **interaction** between organisms of the same species(***intraspecific***) or across species (***interspecific***) in which **fitness** of one is lowered by the presence of another. 
 
 ***We've already talked about intraspecific competition!***
 
 ### Fitness is Reproductive Success
 
-- survive to reproductive age
-- find a mate
-- produce (raise) offspring
+- **survive** to reproductive age
+- **find a mate**
+- **reproduce** 
+- raise offspring
+
+*Anything that affects growth rates*
+]
+
+.pull-right-40[
+![](images/Chapter5.png)
+]
 
 ---
 
@@ -204,18 +213,20 @@ each with its own `\(r\)` and `\(K\)`.
 
 
 .darkorange[ 
-`$$\large {dN_1 \over dt} = r_1 N \left(1-{N_1 \over K_1} - \alpha {N_2 \over K_1}\right)$$`
+`$$\Large {dN_1 \over dt} = r_1 N \left(1-{N_1 \over K_1} - \alpha {N_2 \over K_1}\right)$$`
 ]
 
 
 .darkblue[
-`$$\large  {dN_2 \over dt} = r_2 N \left(1-{N_2 \over K_2} - \beta {N_1 \over K_2}\right)$$`
+`$$\Large  {dN_2 \over dt} = r_2 N \left(1-{N_2 \over K_2} - \beta {N_1 \over K_2}\right)$$`
 ]
 
 .large[
-- `\(\alpha\)` - effect of `\(M\)` on `\(N\)` ... i.e. how many `\(N_1\)`'s does a single `\(N_2\)` cut things down by. 
+- `\(\alpha\)` - effect of `\(N_2\)` on `\(N_1\)` 
 
-- `\(\beta\)` - effect of `\(N\)` on `\(M\)`. 
+  - If `\(\alpha = 1\)` then `\(N_2\)` has the same effect as another `\(N_1\)` would on slowing growth
+  
+- `\(\beta\)` - effect of `\(N_1\)` on `\(N_2\)`. 
 ]
 
 ---
