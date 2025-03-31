@@ -68,7 +68,7 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [Lab II.3: Fitting Logistic growth](labs/labII.3/FittingLogisticGrowth.html)
 - [Lab II.4: Structured Populations](labs/labII.4/AgeStructuredPopulations.html)
 - [Lab II.5: Charismatic Competition](labs/labII.5/CharismaticCompetition.html)
-
+- [Lab II.6: Competition and Predation and Competition, Oh My!](labs/labII.6/OnePredatorTwoPrey.html)
 
 
 ## Problem Sets / Homework
