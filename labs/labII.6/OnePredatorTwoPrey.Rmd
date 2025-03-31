@@ -1,6 +1,6 @@
 ---
 title: "Modeling apparent competition"
-subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2024'
+subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2025'
 author: "Dr. Gurarie"
 date: "`r Sys.Date()`"
 output: 
