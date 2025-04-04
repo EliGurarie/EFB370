@@ -23,7 +23,7 @@ blockquote {
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
 ```
 
-#### **Due Date:  Thursday, April 11**
+#### **Due Date:  Thursday, April 10**
 #### Total Points: 20 (with some possible extra credit)
 
 >  ***Instructions:***  Submit this homework as a document.  It can be entirely typed on a computer and uploaded on Blackboard, or completed as a combination of handwritten and printed (computer generated plots must be printed).  Answer questions in complete sentences and explain how you obtained your answers.  Only provide answers and include plots, do* **NOT** *send in code!  Collaboration and discussion - openly and on the discussion forum - is highly encouraged, but do not provide and publicize actual answers. 

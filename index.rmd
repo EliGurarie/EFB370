@@ -77,6 +77,7 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [HW 4: Logistic Growth](problemsets/ProblemSet4/FittingHumanWolves.html)  - Due **Thursday March 6**
 - [HW 5: Structured Populations](labs/labII.4/AgeStructuredPopulations.html#Homework_Assignment))  - Due **Thursday March 20**
 - [HW 6: Competition](problemsets/ProblemSet6/ProblemSet6.html)  - Due **Thursday April 3**
+- [HW 7: Multi-Prey Mayhem](problemsets/ProblemSet7/ProblemSet7_MultiPreyMayhem.html)  - Due **Thursday April 11**
 
 
 ## Interactive Analysis Tools
