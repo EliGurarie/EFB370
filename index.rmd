@@ -12,17 +12,38 @@ output:
 ---
 
 ```{r, echo=FALSE, eval = TRUE}
-htmltools::img(src = "assets/ESFStacked_FullColor.png", alt = 'banner', style = 'position:absolute; top:0; right:0; padding:10px; width:150px')
+htmltools::img(src = "assets/ESFStacked_FullColor.png", alt = 'banner', style = 'position:absolute; top:0; right:0; padding:0px; width:150px')
 ```
 
 <img src="assets/wolfcariboumoose_v2.png" alt="wolf-caribou-moose" style="width:400px" align="right"/>
 
+    
+
 > The study of the rise and fall of populations, inter- and intraspecific  interactions - with a strong flavor of conservation biology and management. 
 
+## Course Info
 
-### Course Materials
+**Instructors:**
 
-This course is co-taught by Drs. [Elie Gurarie](https://www.esf.edu/faculty/gurarie/) and [Joshua Drew](https://www.esf.edu/faculty/drew/).  This page compiles the lectures, labs, problem sets and links to simulation tools for **Dr. Gurarie's** portion of the course (roughly weeks 5-11).  The page will be populated as the course progresses.  
+- **Eliezer (Elie) Gurarie** · [egurarie@esf.edu](mailto:egurarie@esf.edu) · Illick 206 · Office hours: W 2:15–3:15  
+- **Joshua Drew** · [jadrew@esf.edu](mailto:jadrew@esf.edu) · Illick 343 · Office hours: W 2:15–3:15  
+
+**TAs:**
+
+- **Kate Henderson** · [Kahender@syr.edu](mailto:Kahender@syr.edu) · Illick 453 · Office hours: Th 3:00–4:00  
+- **Gabi Pereira** · [glpereir@syr.edu](mailto:glpereir@syr.edu)
+
+**Schedule:**
+
+- **Lecture:** MW 12:45–2:05 · Baker 145  
+- **Recitation:** Th 5:00–6:20 · Baker 309, 314
+- **Graduate Session:** Th 3:00–4:00 · Illick 8  
+
+
+# Course Materials
+
+This course is co-taught by Drs. Drew and Gurarie. This page compiles the lectures, labs, problem sets and links to simulation tools for *Dr. Gurarie’s* portion of the course (roughly weeks 5-11). The page will be populated as the course progresses.
+
 
 ## Lectures
 
