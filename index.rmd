@@ -52,9 +52,9 @@ This course is co-taught by Drs. Drew and Gurarie. This page compiles the lectur
 Readings:  **Gotelli Chapter 1** (on Blackboard)
 
 - [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html)
+- [2: Linear Models for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
 
 <!--
-- [2: Linear Models for Exponential Growth](lectures/ModuleI/LinearModelsForExponentialGrowth.html)
 - [3: Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html)
 - [3b: Demographic Stochasticity Example: New Zealand Birds](lectures/ModuleI/DemographicStochasticityExample.pdf)
 
