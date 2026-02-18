@@ -54,8 +54,8 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 - [1: Basic Models](lectures/ModuleI/ExponentialGrowth_PartI.html)
 - [2: Linear Models for Exponential Growth](lectures/ModuleI/ExponentialGrowth_PartII_linearmodels.html)
 - [3a: Demographic Stochasticity Experiment](lectures/ModuleI/DemographicStochasticityExperiment.html)
+- [3: Stochasticity](lectures/ModuleI/ExponentialGrowth_PartIII_Stochasticity.html)
 <!--
-- [3: Stochasticity](lectures/ModuleI/ExponentialGrowthWithStochasticity.html)
 - [3b: Demographic Stochasticity Example: New Zealand Birds](lectures/ModuleI/DemographicStochasticityExample.pdf)
 
 
