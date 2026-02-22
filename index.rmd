@@ -55,7 +55,6 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 - [2: Linear Models for Exponential Growth](lectures/ModuleI/ExponentialGrowth_PartII_linearmodels.html)
 - [3a: Demographic Stochasticity Experiment](lectures/ModuleI/DemographicStochasticityExperiment.html)
 - [3: Stochasticity](lectures/ModuleI/ExponentialGrowth_PartIII_Stochasticity.html)
-<!--
 - [3b: Demographic Stochasticity Example: New Zealand Birds](lectures/ModuleI/DemographicStochasticityExample.pdf)
 
 
@@ -63,6 +62,9 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 #### Topic II.  Limits to Growth
 
 - [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
+
+<!--
+
 - [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
 
 
@@ -114,9 +116,10 @@ Many of our labs will use the R programming language.  If you use your own compu
 ## Interactive Analysis Tools
 
 - [1. Stochastic population simulator](https://egurarie.shinyapps.io/StochasticGrowth/)
+- [2. Discrete logistic population simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping)
 
 <!--
-- [2. Discrete logistic population simulator](https://egurarie.shinyapps.io/DiscreteLogisticMapping)
+
 - [3. Life history table](https://egurarie.shinyapps.io/AgeStructuredGrowth)
 - [4. Matrix Modeller 5000](https://egurarie.shinyapps.io/MatrixPopulationModels/)
 - [5. Metapopulation Modeller 3000XC](https://egurarie.shinyapps.io/04_Metapopulations/)

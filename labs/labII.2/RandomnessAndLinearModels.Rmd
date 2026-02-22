@@ -321,7 +321,7 @@ logotter.fit <- lm(log(count) ~ year, data = SeaOtters)
 summary(logotter.fit)
 ```
 
-Note how our statistics changed.  Specifically: our $\beta$ estimate (which is also $r$) is now 0.07325, which is a good estimate of the intrinsic growth rate.  Even better, we know have a standard error around that estimate: 0.00237, which means our growth rate can be written as:  $\widehat{r} = (7.32 \pm 0.47)\times 10^{-2}$.  We can convert that to an annual growth rate in R as well (*do NOT worry about understanding the following code*:
+Note how our statistics changed.  Specifically: our $\beta$ estimate (which is also $r$) is now 0.07325, which is a good estimate of the intrinsic growth rate.  Even better, we know have a standard error around that estimate: 0.00237, which means our growth rate can be written as:  $\widehat{r} = (7.32 \pm 0.47)\times 10^{-2}$.  We can convert that to an annual growth rate in R as well (*do NOT worry about understanding the following code*: 
 
 ```{r}
 r.hat <- summary(logotter.fit)$coefficients[2,1]
