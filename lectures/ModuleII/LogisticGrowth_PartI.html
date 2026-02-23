@@ -162,8 +162,8 @@ Is ***immortal*** (*of course*).
 
 ## Some math
 
-`$$\large E(N_{t+1}) = N_t + b \times N_t \times p_{c}$$`
-`\(b\)` - is birth rate, `\(p_c\)` - probability of successful colonization
+`$$\large E(N_{t+1}) = N_t + p_b \times N_t \times p_{c}$$`
+`\(p_b\)` - is probability of giving birht (birth rate), `\(p_c\)` - probability of successful colonization
 
 &gt; .small[Remember *E()* is *expectation* - a reminder these are *random variables* and are interested in their *mean* behavior ... but we'll drop it from here on out.] 
 
@@ -179,9 +179,9 @@ Rewrite in terms of `\(\Delta N = N_{t+1} - N_t\)`
 
 .pull-right[
 
-$$\Delta N = b N_t \left(1 - {N_t \over K} \right) $$
+$$\Delta N = p_b N_t \left(1 - {N_t \over K} \right) $$
 
-Slightly more generally with a death rate: `\(\lambda = b - d\)`
+Slightly more generally with a death rate: `\(\lambda = p_b - p_d\)`
 
 `$$\Delta N_t = \lambda N_t \left(1 - {N_t \over K} \right)$$`
 
