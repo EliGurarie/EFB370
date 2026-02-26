@@ -62,11 +62,9 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 #### Topic II.  Limits to Growth
 
 - [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
-
-<!--
-
 - [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
 
+<!--
 
 #### Topic III.  Structured Populations
 
@@ -93,9 +91,8 @@ Many of our labs will use the R programming language.  If you use your own compu
 
 - [Lab II.1: Introduction to R](labs/labII.1/IntroToR.html)
 - [Lab II.2: Linear modeling for population growth](labs/labII.2/RandomnessAndLinearModels.html)
-
-<!--
 - [Lab II.3: Fitting Logistic growth](labs/labII.3/FittingLogisticGrowth.html)
+<!--
 - [Lab II.4: Structured Populations](labs/labII.4/AgeStructuredPopulations.html)
 - [Lab II.5: Charismatic Competition](labs/labII.5/CharismaticCompetition.html)
 - [Lab II.6: Competition and Predation and Competition, Oh My!](labs/labII.6/OnePredatorTwoPrey.html)
