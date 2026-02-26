@@ -28,7 +28,7 @@ blockquote {
 knitr::opts_chunk$set(echo = TRUE, warnings = FALSE, message = FALSE)
 ```
 
-```{r parsFunction, cache = FALSE}
+```{r parsFunction, echo  = FALSE}
 pars <- function(...){
   par(mar = c(3,3,2,2), bty = "l", mgp = c(1.5,.25,0),
       tck = 0.01, cex.lab = 1.2, ...)
@@ -89,8 +89,8 @@ The columns are:
 - `Species`
 - `Day` of experiment
 - `Nt` - number (or density) of paramecium now 
-- `Nt1` - number one time step previous $\Delta N_{t-1 
-- $r$ - per-capita growth rate, i.e. $\Delta N_t/N_t$
+- `Nt1` - number one time step previous $\Delta N_{t-1}$
+- `r`` - per-capita growth rate, i.e. $\Delta N_t/N_t$
 
 
 # Fit Method I: By Hand
@@ -162,7 +162,8 @@ abline(lm(r ~ Nt1, data = paramecium), col = 2, lwd = 2)
 
 
 > ### Lab Exercise 2a
->  Generate a plot of this fit of logistic growth over time on top of the paramecium data by using exactly the code in Exercise 1, but plugging in the estimates for $K$ and $r_0$. You'll have to put in your own guess for $N_0$.  What is that guess? 
+
+>  Generate a plot of this fit of logistic growth over time on top of the paramecium data by using exactly the code in Exercise 1, but plugging in the estimates for $K$ and $r_0$. You'll have to put in your own guess for $N_0$ (the initial population size).  What is that guess? 
 
 
 ```{r, eval = FALSE, echo = FALSE}
@@ -207,11 +208,15 @@ nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium,
 As usual, we can save the results to an object and get a summary table with the fits:
 
 ```{r}
-summary(nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
-    start = list(N0 = 1, K = 200, r0 = 0.75)))
+myfit <- nls(Nt ~ N.logistic(Day, N0, K, r0), data = paramecium, 
+    start = list(N0 = 1, K = 200, r0 = 0.75))
+
+
+summary(myfit)
 ```
 
 > ### Lab Exercise 3
+
 > a. Generate a plot of this third fit using exactly the code in Exercise 1, but plugging in estimates for $K$, $r_0$ and $N_0$.  
 > b. Report 95% confidence intervals around all three estimates
 > c. Which is the "best" method?  Why?    
