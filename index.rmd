@@ -64,11 +64,13 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 - [4: Limits to Growth - Part I](lectures/ModuleII/LogisticGrowth_PartI.html)
 - [5: Limits to Growth - Part II](lectures/ModuleII/LogisticGrowth_PartII.html)
 
-<!--
 
 #### Topic III.  Structured Populations
 
 - [6: Part I - Mainly Matrix Models](lectures/ModuleIII/PopulationStructure_PartI.html)
+
+<!--
+
 - [6b: Matrix Models - A few more slides](lectures/ModuleIII/StructuredPopulations_MiscellaneousSlides.pdf)
 - [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
 
