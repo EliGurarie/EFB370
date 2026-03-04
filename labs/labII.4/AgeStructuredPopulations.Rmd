@@ -2,7 +2,7 @@
 title: 'Life Tables and Matrix Modeling'
 subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2025'
 author: "E. Gurarie"
-date: "`March 6, 2025"
+date: "March 5, 2026"
 output: 
   html_document: 
     toc: true
@@ -10,7 +10,7 @@ output:
 ---
 
 
-> There are THREE exercises in this lab to submit by midnight Friday, March 7.  
+> There are THREE exercises in this lab to submit by midnight Friday, March 6.  
 
 ```{css, echo = FALSE}
 blockquote {
@@ -44,7 +44,7 @@ Life tables are used extensively in population biology, human demography, and ep
  2) Understanding how life tables are calculated
  3) Understanding the three types of survivorship curves
 
-Download and open the "Life Tables" Excel file from the Recitations folder on Blackboard.
+Download and open the "Life Tables" Excel file from the Recitations folder on Blackboard or [here](LifeTables_EFB370.xlsx).
 
 ![](impala.jpg)
 <center>Impala (*Aepyceros melampus*). Photo by [Nate Wehr](https://nathanielwehr.weebly.com/).  </center>
@@ -137,7 +137,7 @@ Butterflies lay eggs that hatch into caterpillars and become adults.  Not all ca
 ```{r}
 par(mar = c(0,0,0,0))
 M <- rbind(c(0,0,60),c(0.1,0.2,0),c(0,.1,0))
-leslie_diagram(M, stages = c("egg", "catepillar", "adult"))
+leslie_diagram(M, stages = c("egg", "caterpillar", "adult"))
 ```
 
 > **Exercise 3:**
@@ -148,7 +148,7 @@ leslie_diagram(M, stages = c("egg", "catepillar", "adult"))
 
 ## 3. Tasmanian Devil
 
-Pre infectious facial tumor disease, the life history populaiton matrix for Tasmanian devils looked something like this:
+Pre infectious facial tumor disease, the life history population matrix for Tasmanian devils looked something like this:
 
 ```{r}
 par(mar = c(0,0,0,0))
@@ -165,19 +165,73 @@ leslie_diagram(M.pre, stages = c("0", "1", "2", ">3"))
 > Report $\lambda$ and $N^{*}$. 
 
 
-
+<!--
 
 # **Homework Assignment** 
-> ## (Due: Thursday, March 20)
+> ## (Due: Thursday, March 19)
 >
-> After facial tumor disease emerged and established itself in the Tasmanian devil population, annual mortality of 2 year olds and 3-plus year olds skyrocketed to 90%. This had an immediate impact on the population growth factor $\lambda$.   
+>
+>
+> After facial tumor disease emerged and established itself in the Tasmanian devil population, annual mortality of 3-plus year olds skyrocketed to 90%. This had an immediate impact on the population growth factor $\lambda$.   
 > 
 > 1. (**3 pts.**) Changing only those survival probabilities, what is the new population growth factor? What is the new stable age distribution? 
 >
-> 2. (**2 pts.**) As a population-level response, Tasmanian devils radically increased the number of "precocial" births, i.e. 1 yr olds that reproduce.  How high must 1 year old birth rates become to rescue the Tasmanian devil population?   
+> 2. (**4 pts.**)  Using the Matrix Population Simulator, run the post-disease population for 10 years starting from the pre-disease stable age distribution N∗N∗ you found in Exercise 4. Copy and paste the resulting figure directly from the simulator into your document.
+> 
+> 3. **3. (6 pts.) Sensitivity analysis and conservation priorities**
+
+> The matrix has six non-zero entries. Increase each one by 10% (one at a time, returning to the disease-scenario values between each trial), record the resulting $\lambda$, and fill in a table like this:
+
+| Parameter | Original value | +10% value | $\lambda$ (original) | $\lambda$ (modified) | Change in $\lambda$ |
+|---|---|---|---|---|---|
+| $F_1$ (yr-1 fecundity) | | | | | |
+| $F_2$ (yr-2 fecundity) | | | | | |
+| $F_{3+}$ (yr-3+ fecundity) | | | | | |
+| $g_1$ (yr-1 survival) | | | | | |
+| $g_2$ (yr-2 survival) | | | | | |
+| $g_{3+}$ (yr-3+ survival) | | | | | |
+
+> Which parameter has the largest effect on $\lambda$? Which has the smallest? Given that conservation resources are limited, where would you focus intervention efforts — and does your answer change depending on whether the intervention is *easier to achieve biologically* (e.g., reducing disease transmission to older animals vs. increasing birth rates in yearlings)?
+> 
+> Describe in 2–3 sentences what you see: Is the population declining smoothly, or is there a transient phase before settling into a steady trajectory? 
+
+> A few notes on these drafts: the sensitivity table assumes all six non-zero entries are varied — you may want to fix g3+g3+​ (the self-loop survival) as a separate case since it's structurally different from the others. Also, the transient dynamics question is genuinely interesting here because starting from the pre-disease N∗N∗ (older-skewed) will produce a visible "cliff" before settling — worth flagging to students in a hint if you want them to notice it rather than just describe a smooth decline.
+
+
+
+Here's a draft for two new homework questions:
+
+---
+
+
+
+Which parameter has the largest effect on $\lambda$? Which has the smallest? Given that conservation resources are limited, where would you focus intervention efforts — and does your answer change depending on whether the intervention is *easier to achieve biologically* (e.g., reducing disease transmission to older animals vs. increasing birth rates in yearlings)?
+
+---
+
+**4. (4 pts.) Population trajectory**
+
+Using the Matrix Population Simulator, run the post-disease population for **20 years** starting from the pre-disease stable age distribution $N^*$ you found in Exercise 4. Copy and paste the resulting figure directly from the simulator into your document.
+
+Describe in 2–3 sentences what you see: Is the population declining smoothly, or is there a transient phase before settling into a steady trajectory? What does this tell you about the short-term versus long-term risk to the population?
+
+---
+
+A few notes on these drafts: the sensitivity table assumes all six non-zero entries are varied — you may want to fix $g_{3+}$ (the self-loop survival) as a separate case since it's structurally different from the others. Also, the transient dynamics question is genuinely interesting here because starting from the pre-disease $N^*$ (older-skewed) will produce a visible "cliff" before settling — worth flagging to students in a hint if you want them to notice it rather than just describe a smooth decline.
+
+
+
+
+> 2. (**4 pts.**) As a population-level response, Tasmanian devils radically increased the number of "precocial" births, i.e. 1 yr olds that reproduce.  How high must 1 year old birth rates become to rescue the Tasmanian devil population?   
+> 
+> 
 > 
 > **Extra credit:** Can a **stable age distribution** have higher proportions of older animals?  Explain why or why not? 
 
+--> 
+
+
 ![](tumorsinyourmouth.png)
 **Is this Gen Z humor?  If so, I don't get it.**
+
 
