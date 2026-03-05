@@ -81,7 +81,7 @@ Below our life tables, we have spots for $R_0$, $G$, and $r$. The important one 
 
 - The **generation time** ($G$) is a trickier concept, but basically is the average age of a female giving birth.  We use the equation $G = \sum G_x /R_0$ 
 
-- The overal population growth rate is then $r = log(R_0) / G$. In Excel, the log function is `=log()`.
+- The overal population growth rate is then $r = log(R_0) / G$. **NOTE:** In Excel, the *natutal log* (base e) function is `=ln()`, unlike R, where it's just `log()`.
 
 > Exercise 1: 
 > 
@@ -165,73 +165,61 @@ leslie_diagram(M.pre, stages = c("0", "1", "2", ">3"))
 > Report $\lambda$ and $N^{*}$. 
 
 
-<!--
+After facial tumor disease emerged and established itself in the Tasmanian devil population, annual mortality of 2 year old and 3-plus year olds skyrocketed to 90%. This had an immediate impact on the population growth factor $\lambda$.   
+
+
+> **Exercise 5:**
+> 
+> What are the new values for $\lambda$ and $N^{*}$?  (This is also part of problem 1 on the HW below). 
+
+
+```{r, echo = FALSE, eval = FALSE}
+par(mar = c(0,0,0,0))
+
+M.pre <- rbind(c(0,.1,.5,.7),
+               c(.7,0,0,0),
+               c(0,.8,0,0),
+               c(0,0,.8,.5))
+
+M.post <- rbind(c(0,.8,.7,.7),
+               c(.7,0,0,0),
+               c(0,.8,0,0),
+               c(0,0,.1,.1))
+eigen(M.post)
+(eigen(M.pre)$vectors[,1] / sum(eigen(M.pre)$vectors[,1]) * 100) |> round(1)
+(eigen(M.post)$vectors[,1] / sum(eigen(M.post)$vectors[,1]) * 100) |> round(1)
+```
+
 
 # **Homework Assignment** 
 > ## (Due: Thursday, March 19)
 >
 >
->
 > After facial tumor disease emerged and established itself in the Tasmanian devil population, annual mortality of 3-plus year olds skyrocketed to 90%. This had an immediate impact on the population growth factor $\lambda$.   
 > 
-> 1. (**3 pts.**) Changing only those survival probabilities, what is the new population growth factor? What is the new stable age distribution? 
+> 1. (**2 pts.**) Changing only those survival probabilities, write a new population matrix $M_1$. Report the new population growth factor and the new stable age distribution?  Using the **Matrix Population Simulator**, run the post-disease population for 10 years starting from the pre-disease stable age distribution N∗N∗ you found in Exercise 4. Copy and paste the resulting figure directly from the simulator into your document. What are the population level consequences of increased mortality of higher age classes? 
 >
-> 2. (**4 pts.**)  Using the Matrix Population Simulator, run the post-disease population for 10 years starting from the pre-disease stable age distribution N∗N∗ you found in Exercise 4. Copy and paste the resulting figure directly from the simulator into your document.
+> 2. (**2 pts.**) As a (fascinating) population-level response, Tasmanian devils radically increased the number of "precocial" births, i.e. 1 yr olds that reproduce.  Also, the 2 year old fecundity increases.  Report the new population matrix $M_2$ if both 1 year old nad 2 year old fecundities increased to 3+ year old fecundity (which we can assume is a kind of ceiling).  Would that be enough to rescue the population?  Explain why or why not. Plot the trajectories of the 4 age group over 10 years (as above - using the **Matrix Population Simulator**)  
 > 
-> 3. **3. (6 pts.) Sensitivity analysis and conservation priorities**
-
-> The matrix has six non-zero entries. Increase each one by 10% (one at a time, returning to the disease-scenario values between each trial), record the resulting $\lambda$, and fill in a table like this:
-
-| Parameter | Original value | +10% value | $\lambda$ (original) | $\lambda$ (modified) | Change in $\lambda$ |
-|---|---|---|---|---|---|
-| $F_1$ (yr-1 fecundity) | | | | | |
-| $F_2$ (yr-2 fecundity) | | | | | |
-| $F_{3+}$ (yr-3+ fecundity) | | | | | |
-| $g_1$ (yr-1 survival) | | | | | |
-| $g_2$ (yr-2 survival) | | | | | |
-| $g_{3+}$ (yr-3+ survival) | | | | | |
-
-> Which parameter has the largest effect on $\lambda$? Which has the smallest? Given that conservation resources are limited, where would you focus intervention efforts — and does your answer change depending on whether the intervention is *easier to achieve biologically* (e.g., reducing disease transmission to older animals vs. increasing birth rates in yearlings)?
+> 3. (**6 pts.**) The population matrix $M_2$ (from question 2 has seven non-zero entries - 3 fecundites, and 4 survivals. Increase each of those values by 10% (one at a time, returning to the disease-scenario values between each trial), record the resulting $\lambda$, and fill in a table like this:
 > 
-> Describe in 2–3 sentences what you see: Is the population declining smoothly, or is there a transient phase before settling into a steady trajectory? 
+> | Parameter | Original value | +10% value | $\lambda_0$ (original) | $\lambda_1$ (modified) |   $\lambda_1/\lambda_0$ |
+>|---|---|---|---|---|---|
+>| $f_1$ (yr-1) | | | | | |
+>| $f_2$ (yr-2) | | | | | |
+>| $f_{3+}$ (yr-3+) | | | | | |
+>| $s_1$ (yr-0) | | | | |
+>| $s_1$ (yr-1) | | | | | |
+>| $s_2$ (yr-2) | | | | | |
+>| $s_{3+}$ (yr-3+) | | | | | |
+>
+> Which parameter has the largest effect on $\lambda$? Which has the smallest? Given that conservation resources are limited, where would you focus intervention efforts?  Consider both the sensitivity of $\lambda$ to the paramater, and the feasibility of the intervention. 
 
-> A few notes on these drafts: the sensitivity table assumes all six non-zero entries are varied — you may want to fix g3+g3+​ (the self-loop survival) as a separate case since it's structurally different from the others. Also, the transient dynamics question is genuinely interesting here because starting from the pre-disease N∗N∗ (older-skewed) will produce a visible "cliff" before settling — worth flagging to students in a hint if you want them to notice it rather than just describe a smooth decline.
-
-
-
-Here's a draft for two new homework questions:
-
----
-
-
-
-Which parameter has the largest effect on $\lambda$? Which has the smallest? Given that conservation resources are limited, where would you focus intervention efforts — and does your answer change depending on whether the intervention is *easier to achieve biologically* (e.g., reducing disease transmission to older animals vs. increasing birth rates in yearlings)?
-
----
-
-**4. (4 pts.) Population trajectory**
-
-Using the Matrix Population Simulator, run the post-disease population for **20 years** starting from the pre-disease stable age distribution $N^*$ you found in Exercise 4. Copy and paste the resulting figure directly from the simulator into your document.
-
-Describe in 2–3 sentences what you see: Is the population declining smoothly, or is there a transient phase before settling into a steady trajectory? What does this tell you about the short-term versus long-term risk to the population?
-
----
-
-A few notes on these drafts: the sensitivity table assumes all six non-zero entries are varied — you may want to fix $g_{3+}$ (the self-loop survival) as a separate case since it's structurally different from the others. Also, the transient dynamics question is genuinely interesting here because starting from the pre-disease $N^*$ (older-skewed) will produce a visible "cliff" before settling — worth flagging to students in a hint if you want them to notice it rather than just describe a smooth decline.
-
-
-
-
-> 2. (**4 pts.**) As a population-level response, Tasmanian devils radically increased the number of "precocial" births, i.e. 1 yr olds that reproduce.  How high must 1 year old birth rates become to rescue the Tasmanian devil population?   
-> 
-> 
-> 
-> **Extra credit:** Can a **stable age distribution** have higher proportions of older animals?  Explain why or why not? 
 
 --> 
 
 
 ![](tumorsinyourmouth.png)
-**Is this Gen Z humor?  If so, I don't get it.**
+**Is this Gen Z humor?  If so, I don't get it. But kudos for accuracy.**
 
 
