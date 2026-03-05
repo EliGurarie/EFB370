@@ -100,7 +100,6 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [Lab II.5: Charismatic Competition](labs/labII.5/CharismaticCompetition.html)
 - [Lab II.6: Competition and Predation and Competition, Oh My!](labs/labII.6/OnePredatorTwoPrey.html)
 -->
-µ
 
 ## Problem Sets / Homework
 
