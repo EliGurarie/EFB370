@@ -71,13 +71,12 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 - [6b: Matrix Models - A few more slides](lectures/ModuleIII/StructuredPopulations_MiscellaneousSlides.pdf)
 - [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
 
-<!--
-
-- [7: Part II - Life-History Tables](lectures/ModuleIII/PopulationStructure_PartII.html)
-
 #### Topic IV.  Metapopulations
 
 - [8: Metapopulations I](lectures/ModuleIV/Metapopulations_PartI.html)
+
+<!--
+
 - [9: Metapopulations II](lectures/ModuleIV/Metapopulations_PartII.html)
 
 
