@@ -1,6 +1,6 @@
 ---
 title: 'Charismatic Competition'
-subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2025'
+subtitle: '[EFB 370](https://eligurarie.github.io/EFB370/) - Spring 2026'
 author: "Elie Gurarie"
 date: "`r Sys.Date()`"
 output: 
