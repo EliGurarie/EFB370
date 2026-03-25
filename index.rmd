@@ -76,11 +76,11 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 - [8: Metapopulations I](lectures/ModuleIV/Metapopulations_PartI.html)
 - [9: Metapopulations II](lectures/ModuleIV/Metapopulations_PartII.html)
 
-<!--
-
 #### Topic V. Multi-Species Interactions
 
 - [11: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
+
+<!--
 - [12: Competition and Predation](lectures/ModuleV/Interactions_PartII_CompetitionAndPredation.html)
 - [13: Functional Responses](lectures/ModuleV/Interactions_PartIII_FunctionalResponses.html)
 --> 
