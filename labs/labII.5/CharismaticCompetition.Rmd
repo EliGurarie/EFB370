@@ -45,7 +45,7 @@ Note - you can copy-paste code from this lab into your R-studio, but do so caref
 
 ## Step 1. Load data
 
-There are two datasets posted on Blackboard or [here](single.csv) and [here](mixture.csv): `single.csv` and `mixture.csv`.  
+There are two datasets posted on Blackboard or at these links: [`single.csv`](single.csv) and [`mixture.csv`](mixture.csv)
 
 Load these into `R`, using using the `FILE/IMPORT DATADET` point and click or ... better ... using the `read.csv()` command as follows:
 
@@ -188,7 +188,7 @@ simPlot(mysim, data = mixture, species1 = "aurelia", species2 = "caudatum")
 getR2(mysim, data = mixture, species1 = "aurelia", species2 = "caudatum")
 ```
 
-How close can you get yout $R^2$ values to 1?  
+How close can you get your $R^2$ values to 1?  
 
 
 ```{r, eval = FALSE, echo = FALSE}
