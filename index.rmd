@@ -80,11 +80,7 @@ Readings:  **Gotelli Chapter 1** (on Blackboard)
 
 - [11: Competition and Coexistence](lectures/ModuleV/Interactions_PartI_Competition.html)
 - [12: Predation](lectures/ModuleV/Interactions_PartII_CompetitionAndPredation.html)
-
-
-<!--
 - [13: Functional Responses](lectures/ModuleV/Interactions_PartIII_FunctionalResponses.html)
---> 
 
 ## Recitation/Labs
 
@@ -95,9 +91,7 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [Lab II.3: Fitting Logistic growth](labs/labII.3/FittingLogisticGrowth.html)
 - [Lab II.4: Structured Populations](labs/labII.4/AgeStructuredPopulations.html)
 - [Lab II.5: Charismatic Competition](labs/labII.5/CharismaticCompetition.html)
-<!--
 - [Lab II.6: Competition and Predation and Competition, Oh My!](labs/labII.6/OnePredatorTwoPrey.html)
--->
 
 ## Problem Sets / Homework
 
@@ -121,12 +115,3 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [7. Messing with Isoclines](https://egurarie.shinyapps.io/isoclines/)
 - [8. Predator and Prey](https://egurarie.shinyapps.io/predatorprey/)
 
-<!--
-
-
-
---> 
-
-## Archives 
-
-Archived materials for this class from Spring 2025 can be found [here](archive2024/index.html). 
