@@ -100,9 +100,7 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [HW 5: Structured Populations](labs/labII.4/AgeStructuredPopulations.html#Homework_Assignment))  - Due **Thursday March 19**
 - [HW 6: Competition](problemsets/ProblemSet6/ProblemSet6.html)  - Due **Thursday April 2**
 
-<!--
-- [HW 7: Multi-Prey Mayhem](problemsets/ProblemSet7/ProblemSet7_MultiPreyMayhem.html)  - Due **Thursday April 11**
---> 
+- [HW 7: Multi-Prey Mayhem](problemsets/ProblemSet7/ProblemSet7_MultiPreyMayhem.html)  - Due **Thursday April 9**
 
 ## Interactive Analysis Tools
 
