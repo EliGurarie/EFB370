@@ -112,4 +112,4 @@ Many of our labs will use the R programming language.  If you use your own compu
 - [6. Squirlicorn vs. Pegamunk: The Final Chapter](https://egurarie.shinyapps.io/SquirlicornVsPegamunk/)
 - [7. Messing with Isoclines](https://egurarie.shinyapps.io/isoclines/)
 - [8. Predator and Prey](https://egurarie.shinyapps.io/predatorprey/)
-
+- [9. Apparent Competition](https://egurarie.shinyapps.io/apparentcompetition/)
